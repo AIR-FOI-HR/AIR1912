@@ -13,16 +13,19 @@ import CodableAlamofire
 import Alamofire
 
 class ViewController: UIViewController {
-
+    
     // MARK: - IBOutlets
     
     @IBOutlet weak var LoginSignView: UIView!
-    
     @IBOutlet weak var btnLogin: KBRoundedButton!
-    
     @IBOutlet weak var btnSignUp: KBRoundedButton!
-    
     @IBOutlet weak var txtWelcome: UILabel!
+    
+    // MARK - Properties
+    
+    private let authService: AuthService = AuthService()
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         LoginSignView.layer.cornerRadius = 20
@@ -35,23 +38,28 @@ class ViewController: UIViewController {
     
     
     @IBAction func btnLogin(_ sender: Any) {
-        
-        let decoder=JSONDecoder()
-        Alamofire.request("http://air1912.000webhostapp.com/service.php?name=Leo").responseDecodableObject(decoder: decoder) { (response: DataResponse<[User]>) in
-            switch response.result {
-            case .success(let users):
-                print(users[0].email)
-            case .failure(let error):
-                let alertController = UIAlertController(title: "Dogodio se error", message: error.localizedDescription, preferredStyle: .alert)
-                let action = UIAlertAction(title: "OK", style: .default, handler: nil)
-                alertController.addAction(action)
-                self.present(alertController, animated: true, completion: nil)
-            }
-        }
-        
-        
+        loginUser()
     }
-    
-
 }
 
+extension ViewController {
+    
+    private func loginUser() {
+        authService.login(with: "Leo") { (result) in
+            switch result {
+            case .success(let user):
+                self.showSuccessAlert(for: user)
+            case .failure(let error):
+                self.showErrorAlert(with: error)
+            }
+        }
+    }
+    
+    private func showSuccessAlert(for user: User) {
+        print(user)
+    }
+    
+    private func showErrorAlert(with error: Error) {
+        print("Error!")
+    }
+}

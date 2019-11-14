@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		421D5CA3237DC3CC00C8AD1F /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 421D5CA2237DC3CC00C8AD1F /* User.swift */; };
+		421D5CA7237DCC6F00C8AD1F /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 421D5CA6237DCC6F00C8AD1F /* AuthService.swift */; };
 		D0655947A9CF0CDD85866E29 /* Pods_AIR1912.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0702C62035766E8AC911DBD4 /* Pods_AIR1912.framework */; };
 		ED35F611237560D8009ED574 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED35F610237560D8009ED574 /* AppDelegate.swift */; };
 		ED35F613237560D8009ED574 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED35F612237560D8009ED574 /* SceneDelegate.swift */; };
@@ -21,6 +22,7 @@
 /* Begin PBXFileReference section */
 		0702C62035766E8AC911DBD4 /* Pods_AIR1912.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AIR1912.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		421D5CA2237DC3CC00C8AD1F /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		421D5CA6237DCC6F00C8AD1F /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		949424CDCE90C8DF2A9D94EF /* Pods-AIR1912.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AIR1912.release.xcconfig"; path = "Target Support Files/Pods-AIR1912/Pods-AIR1912.release.xcconfig"; sourceTree = "<group>"; };
 		CD0D060BD77CBC12E7F44CDE /* Pods-AIR1912.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AIR1912.debug.xcconfig"; path = "Target Support Files/Pods-AIR1912/Pods-AIR1912.debug.xcconfig"; sourceTree = "<group>"; };
 		ED35F60D237560D8009ED574 /* AIR1912.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AIR1912.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -57,6 +59,7 @@
 		421D5CA0237DC3A400C8AD1F /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				421D5CA4237DCC5700C8AD1F /* Services */,
 				421D5CA1237DC3BD00C8AD1F /* Models */,
 			);
 			path = Common;
@@ -68,6 +71,22 @@
 				421D5CA2237DC3CC00C8AD1F /* User.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		421D5CA4237DCC5700C8AD1F /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				421D5CA5237DCC5E00C8AD1F /* Auth */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		421D5CA5237DCC5E00C8AD1F /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				421D5CA6237DCC6F00C8AD1F /* AuthService.swift */,
+			);
+			path = Auth;
 			sourceTree = "<group>";
 		};
 		D4599444072A6E24183574A5 /* Pods */ = {
@@ -287,6 +306,7 @@
 				ED35F615237560D8009ED574 /* ViewController.swift in Sources */,
 				ED35F61B237560D8009ED574 /* AIR1912.xcdatamodeld in Sources */,
 				ED35F611237560D8009ED574 /* AppDelegate.swift in Sources */,
+				421D5CA7237DCC6F00C8AD1F /* AuthService.swift in Sources */,
 				421D5CA3237DC3CC00C8AD1F /* User.swift in Sources */,
 				ED35F613237560D8009ED574 /* SceneDelegate.swift in Sources */,
 			);
