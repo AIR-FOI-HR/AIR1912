@@ -11,4 +11,5 @@ target 'AIR1912' do
   pod 'KBRoundedButton'
   pod 'Hero'
   pod 'Spring', :git => 'https://github.com/MengTo/Spring.git'
+  pod 'CodableAlamofire'
 end

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		421D5CA3237DC3CC00C8AD1F /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 421D5CA2237DC3CC00C8AD1F /* User.swift */; };
 		D0655947A9CF0CDD85866E29 /* Pods_AIR1912.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0702C62035766E8AC911DBD4 /* Pods_AIR1912.framework */; };
 		ED35F611237560D8009ED574 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED35F610237560D8009ED574 /* AppDelegate.swift */; };
 		ED35F613237560D8009ED574 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED35F612237560D8009ED574 /* SceneDelegate.swift */; };
@@ -19,6 +20,7 @@
 
 /* Begin PBXFileReference section */
 		0702C62035766E8AC911DBD4 /* Pods_AIR1912.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AIR1912.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		421D5CA2237DC3CC00C8AD1F /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		949424CDCE90C8DF2A9D94EF /* Pods-AIR1912.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AIR1912.release.xcconfig"; path = "Target Support Files/Pods-AIR1912/Pods-AIR1912.release.xcconfig"; sourceTree = "<group>"; };
 		CD0D060BD77CBC12E7F44CDE /* Pods-AIR1912.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AIR1912.debug.xcconfig"; path = "Target Support Files/Pods-AIR1912/Pods-AIR1912.debug.xcconfig"; sourceTree = "<group>"; };
 		ED35F60D237560D8009ED574 /* AIR1912.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AIR1912.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -52,6 +54,22 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		421D5CA0237DC3A400C8AD1F /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				421D5CA1237DC3BD00C8AD1F /* Models */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		421D5CA1237DC3BD00C8AD1F /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				421D5CA2237DC3CC00C8AD1F /* User.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		D4599444072A6E24183574A5 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -59,34 +77,6 @@
 				949424CDCE90C8DF2A9D94EF /* Pods-AIR1912.release.xcconfig */,
 			);
 			path = Pods;
-			sourceTree = "<group>";
-		};
-		ED13FF4D23788AF200E3402C /* Models */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Models;
-			sourceTree = "<group>";
-		};
-		ED13FF4E23788B0200E3402C /* Utilities */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Utilities;
-			sourceTree = "<group>";
-		};
-		ED13FF4F23788B0E00E3402C /* Services */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Services;
-			sourceTree = "<group>";
-		};
-		ED13FF5023788B2F00E3402C /* Extensions */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Extensions;
 			sourceTree = "<group>";
 		};
 		ED13FF5123788B9400E3402C /* Resources */ = {
@@ -129,8 +119,8 @@
 		ED35F60F237560D8009ED574 /* AIR1912 */ = {
 			isa = PBXGroup;
 			children = (
+				421D5CA0237DC3A400C8AD1F /* Common */,
 				ED3F51E22375616500A2F370 /* App */,
-				ED3F51E32375616D00A2F370 /* Common */,
 				ED56B4ED2375672E00BD4821 /* Modules */,
 				ED13FF5123788B9400E3402C /* Resources */,
 			);
@@ -144,17 +134,6 @@
 				ED35F612237560D8009ED574 /* SceneDelegate.swift */,
 			);
 			path = App;
-			sourceTree = "<group>";
-		};
-		ED3F51E32375616D00A2F370 /* Common */ = {
-			isa = PBXGroup;
-			children = (
-				ED13FF4D23788AF200E3402C /* Models */,
-				ED13FF4E23788B0200E3402C /* Utilities */,
-				ED13FF4F23788B0E00E3402C /* Services */,
-				ED13FF5023788B2F00E3402C /* Extensions */,
-			);
-			path = Common;
 			sourceTree = "<group>";
 		};
 		ED3F51E52375622200A2F370 /* Login */ = {
@@ -308,6 +287,7 @@
 				ED35F615237560D8009ED574 /* ViewController.swift in Sources */,
 				ED35F61B237560D8009ED574 /* AIR1912.xcdatamodeld in Sources */,
 				ED35F611237560D8009ED574 /* AppDelegate.swift in Sources */,
+				421D5CA3237DC3CC00C8AD1F /* User.swift in Sources */,
 				ED35F613237560D8009ED574 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

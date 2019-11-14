@@ -9,6 +9,8 @@
 import UIKit
 import Spring
 import KBRoundedButton
+import CodableAlamofire
+import Alamofire
 
 class ViewController: UIViewController {
 
@@ -32,6 +34,23 @@ class ViewController: UIViewController {
     }
     
     
+    @IBAction func btnLogin(_ sender: Any) {
+        
+        let decoder=JSONDecoder()
+        Alamofire.request("http://air1912.000webhostapp.com/service.php?name=Leo").responseDecodableObject(decoder: decoder) { (response: DataResponse<[User]>) in
+            switch response.result {
+            case .success(let users):
+                print(users[0].email)
+            case .failure(let error):
+                let alertController = UIAlertController(title: "Dogodio se error", message: error.localizedDescription, preferredStyle: .alert)
+                let action = UIAlertAction(title: "OK", style: .default, handler: nil)
+                alertController.addAction(action)
+                self.present(alertController, animated: true, completion: nil)
+            }
+        }
+        
+        
+    }
     
 
 }
