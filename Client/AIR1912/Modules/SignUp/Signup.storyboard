@@ -54,8 +54,8 @@
                                     </textField>
                                 </subviews>
                             </stackView>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="H3G-lo-m5f">
-                                <rect key="frame" x="87" y="92" width="240" height="168"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" pagingEnabled="YES" translatesAutoresizingMaskIntoConstraints="NO" id="H3G-lo-m5f">
+                                <rect key="frame" x="87" y="92" width="240" height="204"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <viewLayoutGuide key="contentLayoutGuide" id="sqv-64-QBh"/>
                                 <viewLayoutGuide key="frameLayoutGuide" id="ahd-yT-iRI"/>

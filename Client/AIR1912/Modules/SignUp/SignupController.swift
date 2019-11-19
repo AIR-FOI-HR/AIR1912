@@ -25,7 +25,7 @@ class SignupController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        avatarSelection.layer.cornerRadius = 100
+        //avatarSelection.layer.cornerRadius = 100
         // Txt fields to be passed from one to another
         nameTxt.delegate = self as? UITextFieldDelegate
         nameTxt.tag = 0
@@ -49,7 +49,7 @@ class SignupController: UIViewController {
             let imageView = UIImageView()
             imageView.image = avatarImages[i]
             
-            let xPosition = self.view.frame.width * CGFloat(i)
+            let xPosition = self.avatarSelection.frame.width * CGFloat(i)
             imageView.frame = CGRect(x: xPosition, y: 0, width: self.avatarSelection.frame.width, height: self.avatarSelection.frame.height)
             
             avatarSelection.contentSize.width = avatarSelection.frame.width * CGFloat(i + 1)
