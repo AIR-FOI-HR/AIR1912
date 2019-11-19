@@ -21,6 +21,10 @@
 		ED35F620237560DC009ED574 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ED35F61E237560DC009ED574 /* LaunchScreen.storyboard */; };
 		EDBE0169237F1B2000F15CE5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDBE0167237F1B2000F15CE5 /* ViewController.swift */; };
 		EDBE016A237F1B2000F15CE5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EDBE0168237F1B2000F15CE5 /* Main.storyboard */; };
+		EDCA57DC23845B03002C3AE1 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDCA57DA23845B03002C3AE1 /* LoginVC.swift */; };
+		EDCA57DD23845B03002C3AE1 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EDCA57DB23845B03002C3AE1 /* Login.storyboard */; };
+		EDCA57E023846228002C3AE1 /* Homescreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EDCA57DF23846228002C3AE1 /* Homescreen.storyboard */; };
+		EDCA57E223846271002C3AE1 /* HomeScreenVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDCA57E123846271002C3AE1 /* HomeScreenVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +46,10 @@
 		ED35F621237560DC009ED574 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EDBE0167237F1B2000F15CE5 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		EDBE0168237F1B2000F15CE5 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		EDCA57DA23845B03002C3AE1 /* LoginVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
+		EDCA57DB23845B03002C3AE1 /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
+		EDCA57DF23846228002C3AE1 /* Homescreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Homescreen.storyboard; sourceTree = "<group>"; };
+		EDCA57E123846271002C3AE1 /* HomeScreenVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreenVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -178,6 +186,8 @@
 		ED3F51E52375622200A2F370 /* Login */ = {
 			isa = PBXGroup;
 			children = (
+				EDCA57DB23845B03002C3AE1 /* Login.storyboard */,
+				EDCA57DA23845B03002C3AE1 /* LoginVC.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -199,6 +209,7 @@
 		ED56B4ED2375672E00BD4821 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				EDCA57DE23846201002C3AE1 /* HomeScreen */,
 				EDBE0166237F198D00F15CE5 /* InitialScreen */,
 				ED3F51E72375623200A2F370 /* Tutorial */,
 				ED3F51E62375622A00A2F370 /* SignUp */,
@@ -214,6 +225,15 @@
 				EDBE0167237F1B2000F15CE5 /* ViewController.swift */,
 			);
 			path = InitialScreen;
+			sourceTree = "<group>";
+		};
+		EDCA57DE23846201002C3AE1 /* HomeScreen */ = {
+			isa = PBXGroup;
+			children = (
+				EDCA57DF23846228002C3AE1 /* Homescreen.storyboard */,
+				EDCA57E123846271002C3AE1 /* HomeScreenVC.swift */,
+			);
+			path = HomeScreen;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -276,8 +296,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EDCA57DD23845B03002C3AE1 /* Login.storyboard in Resources */,
 				ED35F620237560DC009ED574 /* LaunchScreen.storyboard in Resources */,
 				ED35F61D237560DC009ED574 /* Assets.xcassets in Resources */,
+				EDCA57E023846228002C3AE1 /* Homescreen.storyboard in Resources */,
 				EDBE016A237F1B2000F15CE5 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -331,6 +353,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EDCA57DC23845B03002C3AE1 /* LoginVC.swift in Sources */,
 				ED35F61B237560D8009ED574 /* AIR1912.xcdatamodeld in Sources */,
 				421D5CAC237DD17700C8AD1F /* GameProvider.swift in Sources */,
 				421D5CAE237DD18B00C8AD1F /* ContentProvider.swift in Sources */,
@@ -341,6 +364,7 @@
 				421D5CA7237DCC6F00C8AD1F /* AuthService.swift in Sources */,
 				421D5CA3237DC3CC00C8AD1F /* User.swift in Sources */,
 				ED35F613237560D8009ED574 /* SceneDelegate.swift in Sources */,
+				EDCA57E223846271002C3AE1 /* HomeScreenVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
