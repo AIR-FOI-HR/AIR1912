@@ -13,6 +13,8 @@
 		421D5CAC237DD17700C8AD1F /* GameProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 421D5CAB237DD17700C8AD1F /* GameProvider.swift */; };
 		421D5CAE237DD18B00C8AD1F /* ContentProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 421D5CAD237DD18B00C8AD1F /* ContentProvider.swift */; };
 		421D5CB0237DD2D100C8AD1F /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 421D5CAF237DD2D100C8AD1F /* Movie.swift */; };
+		4250E5F323845A5600369FBC /* Signup.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4250E5F223845A5600369FBC /* Signup.storyboard */; };
+		4250E5F723845C3B00369FBC /* SignupController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4250E5F623845C3B00369FBC /* SignupController.swift */; };
 		D0655947A9CF0CDD85866E29 /* Pods_AIR1912.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0702C62035766E8AC911DBD4 /* Pods_AIR1912.framework */; };
 		ED35F611237560D8009ED574 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED35F610237560D8009ED574 /* AppDelegate.swift */; };
 		ED35F613237560D8009ED574 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED35F612237560D8009ED574 /* SceneDelegate.swift */; };
@@ -31,6 +33,8 @@
 		421D5CAB237DD17700C8AD1F /* GameProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameProvider.swift; sourceTree = "<group>"; };
 		421D5CAD237DD18B00C8AD1F /* ContentProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentProvider.swift; sourceTree = "<group>"; };
 		421D5CAF237DD2D100C8AD1F /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
+		4250E5F223845A5600369FBC /* Signup.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Signup.storyboard; sourceTree = "<group>"; };
+		4250E5F623845C3B00369FBC /* SignupController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupController.swift; sourceTree = "<group>"; };
 		949424CDCE90C8DF2A9D94EF /* Pods-AIR1912.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AIR1912.release.xcconfig"; path = "Target Support Files/Pods-AIR1912/Pods-AIR1912.release.xcconfig"; sourceTree = "<group>"; };
 		CD0D060BD77CBC12E7F44CDE /* Pods-AIR1912.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AIR1912.debug.xcconfig"; path = "Target Support Files/Pods-AIR1912/Pods-AIR1912.debug.xcconfig"; sourceTree = "<group>"; };
 		ED35F60D237560D8009ED574 /* AIR1912.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AIR1912.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -109,6 +113,15 @@
 			path = Providers;
 			sourceTree = "<group>";
 		};
+		4250E5F123845A0900369FBC /* SignUp */ = {
+			isa = PBXGroup;
+			children = (
+				4250E5F223845A5600369FBC /* Signup.storyboard */,
+				4250E5F623845C3B00369FBC /* SignupController.swift */,
+			);
+			path = SignUp;
+			sourceTree = "<group>";
+		};
 		D4599444072A6E24183574A5 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -182,13 +195,6 @@
 			path = Login;
 			sourceTree = "<group>";
 		};
-		ED3F51E62375622A00A2F370 /* SignUp */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = SignUp;
-			sourceTree = "<group>";
-		};
 		ED3F51E72375623200A2F370 /* Tutorial */ = {
 			isa = PBXGroup;
 			children = (
@@ -199,9 +205,9 @@
 		ED56B4ED2375672E00BD4821 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				4250E5F123845A0900369FBC /* SignUp */,
 				EDBE0166237F198D00F15CE5 /* InitialScreen */,
 				ED3F51E72375623200A2F370 /* Tutorial */,
-				ED3F51E62375622A00A2F370 /* SignUp */,
 				ED3F51E52375622200A2F370 /* Login */,
 			);
 			path = Modules;
@@ -278,6 +284,7 @@
 			files = (
 				ED35F620237560DC009ED574 /* LaunchScreen.storyboard in Resources */,
 				ED35F61D237560DC009ED574 /* Assets.xcassets in Resources */,
+				4250E5F323845A5600369FBC /* Signup.storyboard in Resources */,
 				EDBE016A237F1B2000F15CE5 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -335,6 +342,7 @@
 				421D5CAC237DD17700C8AD1F /* GameProvider.swift in Sources */,
 				421D5CAE237DD18B00C8AD1F /* ContentProvider.swift in Sources */,
 				EDBE0169237F1B2000F15CE5 /* ViewController.swift in Sources */,
+				4250E5F723845C3B00369FBC /* SignupController.swift in Sources */,
 				421D5CB0237DD2D100C8AD1F /* Movie.swift in Sources */,
 				ED35F611237560D8009ED574 /* AppDelegate.swift in Sources */,
 				421D5CAA237DD16C00C8AD1F /* MovieProvider.swift in Sources */,
