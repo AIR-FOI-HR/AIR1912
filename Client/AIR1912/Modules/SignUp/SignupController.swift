@@ -72,17 +72,42 @@ class SignupController: UIViewController {
         return false
     }
     
-    // TO DO: check confirmed password and add user to database
+    // On button pressed
     @IBAction func buttonNext(_ sender: Any) {
+        var readyToProceed = true
+        
+        // Check if all fields are filled
+        if nameTxt.text?.isEmpty ?? true || surnameTxt.text?.isEmpty ?? true || emailTxt.text?.isEmpty ?? true || passwordTxt.text?.isEmpty ?? true || confirmPassowordTxt.text?.isEmpty ?? true{
+            
+            showAlert("All fields have to be filled")
+            //print("All fields have to be filled")
+            readyToProceed = false
+            
+        }
+        // Check if password and confirm password are the same
+        var passwordsMatch = (passwordTxt.text == confirmPassowordTxt.text)
+        if passwordsMatch == false{
+            showAlert("Password and confirm password don't match")
+            //print("Password and confirm password don't match")
+            readyToProceed = false
+        }
+        
+        if readyToProceed{
+            addUser(nameTxt.text!, surnameTxt.text!, emailTxt.text!, passwordTxt.text!)
+        }
+        
     }
-    /*
-    // MARK: - Navigation
+    
+    func addUser(_ name:String,_ surname:String,_ email:String,_ password:String) -> Void{
+        print("Ready to add user to database")
+    }
+    
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func showAlert(_ messageForDisplay:String) -> Void{
+        let alertController = UIAlertController(title: "Something is wrong", message: messageForDisplay, preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: "Okay", style: .default, handler: nil))
+        
+        self.present(alertController, animated: true, completion: nil)
     }
-    */
 
 }
