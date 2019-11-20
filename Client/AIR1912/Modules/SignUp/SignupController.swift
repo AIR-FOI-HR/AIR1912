@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import Alamofire
+import CodableAlamofire
 
 class SignupController: UIViewController {
     
@@ -85,7 +87,7 @@ class SignupController: UIViewController {
             
         }
         // Check if password and confirm password are the same
-        var passwordsMatch = (passwordTxt.text == confirmPassowordTxt.text)
+        var passwordsMatch:Bool = (passwordTxt.text == confirmPassowordTxt.text)
         if passwordsMatch == false{
             showAlert("Password and confirm password don't match")
             //print("Password and confirm password don't match")
@@ -100,6 +102,11 @@ class SignupController: UIViewController {
     
     func addUser(_ name:String,_ surname:String,_ email:String,_ password:String) -> Void{
         print("Ready to add user to database")
+        
+        // Define object User, use dictionary format and send to server as post method
+        let newUser = UserPost(idUsers: nil, name: name, surname: surname, email: email, password: password)
+        let newUserDict = newUser.dictonaryReturned
+        Alamofire.request("http://air1912.000webhostapp.com/RegisterService.php", method: .post, parameters: newUserDict)
     }
     
 
