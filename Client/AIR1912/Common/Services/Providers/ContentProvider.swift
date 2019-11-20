@@ -14,7 +14,6 @@ protocol Content {
     var type: String { get }
     var title: String { get }
     var description: String? { get }
-    var publisher: String? { get }
     var poster:String { get }
 }
 

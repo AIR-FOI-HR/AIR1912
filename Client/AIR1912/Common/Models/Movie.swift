@@ -19,19 +19,17 @@ struct Movie: Decodable, Content {
     }
     var title: String
     var description: String?
-    var publisher: String?
     var poster: String
     var year: String
-    var genreId: [Int]
+    //var genreId: [Int]
     var runtime: String?
     
     enum CodingKeys: String, CodingKey {
         case title
         case description = "overview"
-        case publisher
         case poster = "poster_path"
         case year = "release_date"
-        case genreId = "genre_ids"
+        //case genreId = "genre_ids"
         case runtime
         
     }

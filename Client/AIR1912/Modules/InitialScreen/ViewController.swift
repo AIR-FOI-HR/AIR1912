@@ -34,15 +34,15 @@ class ViewController: UIViewController {
        //txtWelcome.sizeToFit()
         
         // Do any additional setup after loading the view.
+        
+        
+        
+
     }
     
     
     @IBAction func btnLogin(_ sender: Any) {
         loginUser()
-        //let movieService = MovieProvider()
-        //movieService.getTrendingContent { (result) in
-            
-        //}
     }
 }
 
@@ -67,3 +67,5 @@ extension ViewController {
         print("Error!")
     }
 }
+
+
