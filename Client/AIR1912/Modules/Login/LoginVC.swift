@@ -79,7 +79,10 @@ class LoginVC: UIViewController {
     
     @IBAction func btnForgotPassword(_ sender: Any) {
         //TODO: Forgot Password Implementation
-        
+        let RecoverPasswordSB: UIStoryboard = UIStoryboard(name: "ForgotPassword", bundle: nil)
+        let RecoverPsaswordVC = RecoverPasswordSB.instantiateViewController(identifier: "ForgotPassword") as! ForgotPasswordVC
+        RecoverPsaswordVC.modalPresentationStyle = .overCurrentContext
+        self.present(RecoverPsaswordVC, animated: true, completion: nil)
     }
     
     
