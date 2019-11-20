@@ -42,30 +42,18 @@ class ViewController: UIViewController {
     
     
     @IBAction func btnLogin(_ sender: Any) {
-        loginUser()
+        
+        let loginSB:UIStoryboard = UIStoryboard(name: "Login", bundle: nil)
+        let loginVC = loginSB.instantiateViewController(withIdentifier: "Login") as! LoginVC
+        loginVC.modalPresentationStyle = .fullScreen
+        self.present(loginVC, animated: true, completion: nil)
+        
     }
 }
 
 extension ViewController {
     
-    private func loginUser() {
-        authService.login(with: "Leo") { (result) in
-            switch result {
-            case .success(let user):
-                self.showSuccessAlert(for: user)
-            case .failure(let error):
-                self.showErrorAlert(with: error)
-            }
-        }
-    }
     
-    private func showSuccessAlert(for user: User) {
-        print(user)
-    }
-    
-    private func showErrorAlert(with error: Error) {
-        print("Error!")
-    }
 }
 
 
