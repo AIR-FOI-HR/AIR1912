@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4212CC012385ACD300C53210 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4212CC002385ACD300C53210 /* Game.swift */; };
 		421D5CA3237DC3CC00C8AD1F /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 421D5CA2237DC3CC00C8AD1F /* User.swift */; };
 		421D5CA7237DCC6F00C8AD1F /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 421D5CA6237DCC6F00C8AD1F /* AuthService.swift */; };
 		421D5CAA237DD16C00C8AD1F /* MovieProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 421D5CA9237DD16C00C8AD1F /* MovieProvider.swift */; };
@@ -25,6 +26,7 @@
 
 /* Begin PBXFileReference section */
 		0702C62035766E8AC911DBD4 /* Pods_AIR1912.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AIR1912.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4212CC002385ACD300C53210 /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
 		421D5CA2237DC3CC00C8AD1F /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		421D5CA6237DCC6F00C8AD1F /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		421D5CA9237DD16C00C8AD1F /* MovieProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieProvider.swift; sourceTree = "<group>"; };
@@ -78,6 +80,7 @@
 			children = (
 				421D5CA2237DC3CC00C8AD1F /* User.swift */,
 				421D5CAF237DD2D100C8AD1F /* Movie.swift */,
+				4212CC002385ACD300C53210 /* Game.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -337,6 +340,7 @@
 				EDBE0169237F1B2000F15CE5 /* ViewController.swift in Sources */,
 				421D5CB0237DD2D100C8AD1F /* Movie.swift in Sources */,
 				ED35F611237560D8009ED574 /* AppDelegate.swift in Sources */,
+				4212CC012385ACD300C53210 /* Game.swift in Sources */,
 				421D5CAA237DD16C00C8AD1F /* MovieProvider.swift in Sources */,
 				421D5CA7237DCC6F00C8AD1F /* AuthService.swift in Sources */,
 				421D5CA3237DC3CC00C8AD1F /* User.swift in Sources */,

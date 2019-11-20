@@ -11,14 +11,16 @@ import Alamofire
 
 class MovieProvider: ContentProvider {
     
+    private let API_KEY = "e965f161f0ec9f1c3931495b713226e0"
+    
     func getTrendingContent(completion: @escaping (Result<[Content]>) -> Void) {
-        let decoder = JSONDecoder()
+       let decoder = JSONDecoder()
         Alamofire
-            .request("http://air1912.000webhostapp.com/service.php?name=Leo")
-            .responseDecodableObject(decoder: decoder) { (response: DataResponse<[Movie]>) in
+            .request("https://api.themoviedb.org/3/movie/popular?api_key=\(API_KEY)")
+            .responseDecodableObject(decoder: decoder) { (response: DataResponse<MovieResponse>) in
                 switch response.result {
-                case .success(let movies):
-                    completion(.success(movies))
+                case .success(let response):
+                    completion(.success(response.results))
                 case .failure(let error):
                     completion(.failure(error))
                 }
