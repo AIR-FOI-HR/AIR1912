@@ -49,6 +49,13 @@ class ViewController: UIViewController {
         self.present(loginVC, animated: true, completion: nil)
         
     }
+    
+    @IBAction func btnSignup(_ sender: Any) {
+        let signupStoryboard:UIStoryboard = UIStoryboard(name: "Signup", bundle: nil)
+        let signupController = signupStoryboard.instantiateViewController(identifier: "SignupController") as! SignupController
+        signupController.modalPresentationStyle = .fullScreen
+        self.present(signupController, animated: true, completion: nil)
+    }
 }
 
 extension ViewController {
