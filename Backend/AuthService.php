@@ -1,4 +1,4 @@
-<!--?php
+<?php
  
 // Create connection
 $con=mysqli_connect("localhost","id11519910_projekt","airprojekt2019","id11519910_air1912");
@@ -9,8 +9,12 @@ if (mysqli_connect_errno())
   echo "Failed to connect to MySQL: " . mysqli_connect_error();
 }
  
+ $name= $_GET['name'];
+ $password= $_GET['password'];
+
+
 // This SQL statement selects ALL from the table 'Locations'
-$sql = "SELECT * FROM Users";
+$sql = "SELECT * FROM Users WHERE name = '$name' AND password= '$password'";
  
 // Check if there are results
 if ($result = mysqli_query($con, $sql))
@@ -21,11 +25,16 @@ if ($result = mysqli_query($con, $sql))
  $tempArray = array();
  
  // Loop through each row in the result set
- while($row = $result--->fetch_object())
+ while($row = $result->fetch_object())
  {
  // Add each row into our results array
- $tempArray = $row;
-     array_push($resultArray, $tempArray);
+    $tempArray = $row;
+    if ($tempArray){
+        
+        array_push($resultArray, $tempArray );
+    }
+    // array_push($resultArray, $tempArray);
+     
  }
  
  // Finally, encode the array to JSON and output the results
