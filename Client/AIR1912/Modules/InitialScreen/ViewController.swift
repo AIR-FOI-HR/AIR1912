@@ -38,7 +38,11 @@ class ViewController: UIViewController {
     
     
     @IBAction func btnLogin(_ sender: Any) {
-        loginUser()
+        //loginUser()
+        let movieService = MovieRequest()
+        movieService.getMovies { (a) in
+            
+        }
     }
 }
 
