@@ -25,11 +25,11 @@ $email = $_POST['email'];
 $password = $_POST['password'];
 
 
-$query = "INSERT INTO Users (name, surname, email, password) VALUES ($name, $surname, $email, $password)";
+$query = "INSERT INTO Users (name, surname, email, password) VALUES ('$name', '$surname', '$email', '$password')";
 
-if(!mysql_query($query,$con)) 
+if(!mysqli_query($con,$query)) 
 {
-   die('Error : Query Not Executed. Please Fix the Issue! ' . mysql_error()); 
+   die('Error : Query Not Executed. Please Fix the Issue! '); 
 } 
 
 else
