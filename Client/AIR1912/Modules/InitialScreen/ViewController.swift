@@ -27,8 +27,14 @@ class ViewController: UIViewController {
     
     
     override func viewDidLoad() {
+       
         super.viewDidLoad()
+        
         LoginSignView.layer.cornerRadius = 20
+        print("View loadan")
+        
+        
+        
         //btnLogin.sizeToFit()
        // btnSignUp.sizeToFit()
        //txtWelcome.sizeToFit()
@@ -38,6 +44,12 @@ class ViewController: UIViewController {
         
         
 
+    }
+    
+     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        print("preload")
+        //tryToLoginFromUserDefaults()
     }
     
     
@@ -59,7 +71,54 @@ class ViewController: UIViewController {
 }
 
 extension ViewController {
+    func tryToLoginFromUserDefaults() {
+        print("trying...")
+        var email:String = " "
+        var pass:String = " "
+        if let emailFromUD = UserDefaults.standard.string(forKey: "email") {
+            email = emailFromUD
+            print(email)
+        }
+        if let passFromUD = UserDefaults.standard.string(forKey: "pass") {
+            pass = passFromUD
+            print(pass)
+        }
+        
+        if email != "" && pass != " " {
+            
+            authService.login( with:email, password: pass ) { (result) in
+                switch result {
+                case .success(let user):
+                    self.showSuccessAlert(for: user)
+                    
+                case .failure(let error):
+                    self.showErrorAlert(with: error)
+                }
+            }
+            
+        }
+        
+    }
     
+    private func showSuccessAlert(for user: [User]) {
+        print("User postoji")
+        if(user.isEmpty){
+            let alertController: UIAlertController = UIAlertController(title: "User does not exist", message: "It is possible that user is deleted in meanwhile from database", preferredStyle: .alert)
+            alertController.addAction(UIAlertAction(title: "Dissmis", style: .default, handler: nil))
+            self.present(alertController, animated: true, completion: nil)
+        }
+        else{
+            let HomeScreenSB:UIStoryboard = UIStoryboard(name: "Homescreen", bundle: nil)
+            let HomeScreenVC = HomeScreenSB.instantiateViewController(identifier: "HomeScreen") as! HomeScreenTBC
+            HomeScreenVC.modalPresentationStyle = .fullScreen
+            HomeScreenVC.currentUser = user[0]
+            self.present(HomeScreenVC, animated: true, completion: nil)
+        }
+    }
+    
+    private func showErrorAlert(with error: Error) {
+        print("Error!\(error)")
+    }
     
 }
 

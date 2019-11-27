@@ -49,6 +49,7 @@ class LoginVC: UIViewController {
             switch result {
             case .success(let user):
                 self.showSuccessAlert(for: user)
+                
             case .failure(let error):
                 self.showErrorAlert(with: error)
             }
@@ -60,13 +61,20 @@ class LoginVC: UIViewController {
             let alertController: UIAlertController = UIAlertController(title: "User does not exist", message: "Check your username and password combination. If you Forgot password, try to recover it with designated button.", preferredStyle: .alert)
             alertController.addAction(UIAlertAction(title: "Dissmis", style: .default, handler: nil))
             self.present(alertController, animated: true, completion: nil)
+            
+            
         }
         else{
             let HomeScreenSB:UIStoryboard = UIStoryboard(name: "Homescreen", bundle: nil)
-            let HomeScreenVC = HomeScreenSB.instantiateViewController(identifier: "HomeScreen") as! HomeScreenVC
+            let HomeScreenVC = HomeScreenSB.instantiateViewController(identifier: "HomeScreen") as! HomeScreenTBC
             HomeScreenVC.modalPresentationStyle = .fullScreen
             HomeScreenVC.currentUser = user[0]
             self.present(HomeScreenVC, animated: true, completion: nil)
+            
+            //TODO: User defaults
+            UserDefaults.standard.set(txtName.text!, forKey: "email")
+            UserDefaults.standard.set(txtPassword.text!, forKey: "pass")
+            
         }
     }
     

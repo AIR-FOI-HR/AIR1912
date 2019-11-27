@@ -27,6 +27,14 @@
 		ED52876D2385A04000848D66 /* ForgotPasswordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED52876C2385A04000848D66 /* ForgotPasswordVC.swift */; };
 		ED52876F2385A2F100848D66 /* RecoverPassService.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED52876E2385A2F100848D66 /* RecoverPassService.swift */; };
 		ED5287712385AE9C00848D66 /* RecoverPassCodes.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED5287702385AE9C00848D66 /* RecoverPassCodes.swift */; };
+		EDB57AA4238EA4430032DC9E /* MapsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB57AA3238EA4430032DC9E /* MapsVC.swift */; };
+		EDB57AA6238EA4920032DC9E /* Maps.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EDB57AA5238EA4920032DC9E /* Maps.storyboard */; };
+		EDB57AA8238EA6700032DC9E /* HomeScreenTBC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB57AA7238EA6700032DC9E /* HomeScreenTBC.swift */; };
+		EDB57AAB238EA8340032DC9E /* Search.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EDB57AAA238EA8340032DC9E /* Search.storyboard */; };
+		EDB57AAD238EA8E40032DC9E /* SearchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB57AAC238EA8E40032DC9E /* SearchVC.swift */; };
+		EDB57AB0238EAA750032DC9E /* Favourites.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EDB57AAF238EAA750032DC9E /* Favourites.storyboard */; };
+		EDB57AB2238EAB060032DC9E /* FavouritesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB57AB1238EAB060032DC9E /* FavouritesVC.swift */; };
+		EDB57AB5238EAB910032DC9E /* UserProfile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EDB57AB4238EAB910032DC9E /* UserProfile.storyboard */; };
 		EDBE0169237F1B2000F15CE5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDBE0167237F1B2000F15CE5 /* ViewController.swift */; };
 		EDBE016A237F1B2000F15CE5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EDBE0168237F1B2000F15CE5 /* Main.storyboard */; };
 		EDCA57DC23845B03002C3AE1 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDCA57DA23845B03002C3AE1 /* LoginVC.swift */; };
@@ -60,6 +68,14 @@
 		ED52876C2385A04000848D66 /* ForgotPasswordVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordVC.swift; sourceTree = "<group>"; };
 		ED52876E2385A2F100848D66 /* RecoverPassService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecoverPassService.swift; sourceTree = "<group>"; };
 		ED5287702385AE9C00848D66 /* RecoverPassCodes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecoverPassCodes.swift; sourceTree = "<group>"; };
+		EDB57AA3238EA4430032DC9E /* MapsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapsVC.swift; sourceTree = "<group>"; };
+		EDB57AA5238EA4920032DC9E /* Maps.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Maps.storyboard; sourceTree = "<group>"; };
+		EDB57AA7238EA6700032DC9E /* HomeScreenTBC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreenTBC.swift; sourceTree = "<group>"; };
+		EDB57AAA238EA8340032DC9E /* Search.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Search.storyboard; sourceTree = "<group>"; };
+		EDB57AAC238EA8E40032DC9E /* SearchVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchVC.swift; sourceTree = "<group>"; };
+		EDB57AAF238EAA750032DC9E /* Favourites.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Favourites.storyboard; sourceTree = "<group>"; };
+		EDB57AB1238EAB060032DC9E /* FavouritesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritesVC.swift; sourceTree = "<group>"; };
+		EDB57AB4238EAB910032DC9E /* UserProfile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = UserProfile.storyboard; sourceTree = "<group>"; };
 		EDBE0167237F1B2000F15CE5 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		EDBE0168237F1B2000F15CE5 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		EDCA57DA23845B03002C3AE1 /* LoginVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
@@ -102,15 +118,9 @@
 			children = (
 				421D5CA2237DC3CC00C8AD1F /* User.swift */,
 				421D5CAF237DD2D100C8AD1F /* Movie.swift */,
-
-
 				4212CC002385ACD300C53210 /* Game.swift */,
-
 				ED5287702385AE9C00848D66 /* RecoverPassCodes.swift */,
-
-
 				42B47C182385B288002C554F /* UserPost.swift */,
-
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -246,17 +256,53 @@
 		ED56B4ED2375672E00BD4821 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
-
+				EDB57AB3238EAB850032DC9E /* UserProfile */,
+				EDB57AAE238EAA650032DC9E /* Favourites */,
+				EDB57AA9238EA7E90032DC9E /* Search */,
+				EDB57AA2238EA4180032DC9E /* Maps */,
 				ED52876923859FFA00848D66 /* ForgotPassword */,
 				EDCA57DE23846201002C3AE1 /* HomeScreen */,
-
 				4250E5F123845A0900369FBC /* SignUp */,
-
 				EDBE0166237F198D00F15CE5 /* InitialScreen */,
 				ED3F51E72375623200A2F370 /* Tutorial */,
 				ED3F51E52375622200A2F370 /* Login */,
 			);
 			path = Modules;
+			sourceTree = "<group>";
+		};
+		EDB57AA2238EA4180032DC9E /* Maps */ = {
+			isa = PBXGroup;
+			children = (
+				EDB57AA3238EA4430032DC9E /* MapsVC.swift */,
+				EDB57AA5238EA4920032DC9E /* Maps.storyboard */,
+			);
+			path = Maps;
+			sourceTree = "<group>";
+		};
+		EDB57AA9238EA7E90032DC9E /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				EDB57AAA238EA8340032DC9E /* Search.storyboard */,
+				EDB57AAC238EA8E40032DC9E /* SearchVC.swift */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
+		EDB57AAE238EAA650032DC9E /* Favourites */ = {
+			isa = PBXGroup;
+			children = (
+				EDB57AAF238EAA750032DC9E /* Favourites.storyboard */,
+				EDB57AB1238EAB060032DC9E /* FavouritesVC.swift */,
+			);
+			path = Favourites;
+			sourceTree = "<group>";
+		};
+		EDB57AB3238EAB850032DC9E /* UserProfile */ = {
+			isa = PBXGroup;
+			children = (
+				EDB57AB4238EAB910032DC9E /* UserProfile.storyboard */,
+			);
+			path = UserProfile;
 			sourceTree = "<group>";
 		};
 		EDBE0166237F198D00F15CE5 /* InitialScreen */ = {
@@ -273,6 +319,7 @@
 			children = (
 				EDCA57DF23846228002C3AE1 /* Homescreen.storyboard */,
 				EDCA57E123846271002C3AE1 /* HomeScreenVC.swift */,
+				EDB57AA7238EA6700032DC9E /* HomeScreenTBC.swift */,
 			);
 			path = HomeScreen;
 			sourceTree = "<group>";
@@ -340,13 +387,14 @@
 				EDCA57DD23845B03002C3AE1 /* Login.storyboard in Resources */,
 				ED35F620237560DC009ED574 /* LaunchScreen.storyboard in Resources */,
 				ED35F61D237560DC009ED574 /* Assets.xcassets in Resources */,
-
 				EDCA57E023846228002C3AE1 /* Homescreen.storyboard in Resources */,
+				EDB57AB0238EAA750032DC9E /* Favourites.storyboard in Resources */,
+				EDB57AAB238EA8340032DC9E /* Search.storyboard in Resources */,
 				ED52876B2385A02700848D66 /* ForgotPassword.storyboard in Resources */,
-
 				4250E5F323845A5600369FBC /* Signup.storyboard in Resources */,
-
 				EDBE016A237F1B2000F15CE5 /* Main.storyboard in Resources */,
+				EDB57AA6238EA4920032DC9E /* Maps.storyboard in Resources */,
+				EDB57AB5238EAB910032DC9E /* UserProfile.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -405,19 +453,20 @@
 				42B47C192385B288002C554F /* UserPost.swift in Sources */,
 				421D5CAE237DD18B00C8AD1F /* ContentProvider.swift in Sources */,
 				EDBE0169237F1B2000F15CE5 /* ViewController.swift in Sources */,
-
+				EDB57AAD238EA8E40032DC9E /* SearchVC.swift in Sources */,
 				ED52876F2385A2F100848D66 /* RecoverPassService.swift in Sources */,
 				ED5287712385AE9C00848D66 /* RecoverPassCodes.swift in Sources */,
-
 				4250E5F723845C3B00369FBC /* SignupController.swift in Sources */,
-
+				EDB57AB2238EAB060032DC9E /* FavouritesVC.swift in Sources */,
 				421D5CB0237DD2D100C8AD1F /* Movie.swift in Sources */,
 				ED35F611237560D8009ED574 /* AppDelegate.swift in Sources */,
 				4212CC012385ACD300C53210 /* Game.swift in Sources */,
+				EDB57AA8238EA6700032DC9E /* HomeScreenTBC.swift in Sources */,
 				421D5CAA237DD16C00C8AD1F /* MovieProvider.swift in Sources */,
 				ED52876D2385A04000848D66 /* ForgotPasswordVC.swift in Sources */,
 				421D5CA7237DCC6F00C8AD1F /* AuthService.swift in Sources */,
 				421D5CA3237DC3CC00C8AD1F /* User.swift in Sources */,
+				EDB57AA4238EA4430032DC9E /* MapsVC.swift in Sources */,
 				ED35F613237560D8009ED574 /* SceneDelegate.swift in Sources */,
 				EDCA57E223846271002C3AE1 /* HomeScreenVC.swift in Sources */,
 			);
