@@ -35,7 +35,7 @@ class ViewController: UIViewController {
         
         LoginSignView.layer.cornerRadius = 20
         print("View loadan")
-        
+        loadingAct.isHidden = true
         
         
         //btnLogin.sizeToFit()
@@ -87,7 +87,7 @@ extension ViewController {
             print(pass)
         }
         
-        if email != "" && pass != " " {
+        if email != " " && pass != " " {
             loadingAct.isHidden = false
             buttonOutlet.isHidden = true
             buttonSignuUpOutlet.isHidden = true
