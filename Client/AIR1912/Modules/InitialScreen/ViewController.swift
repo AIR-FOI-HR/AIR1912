@@ -20,6 +20,9 @@ class ViewController: UIViewController {
     @IBOutlet weak var btnLogin: KBRoundedButton!
     @IBOutlet weak var btnSignUp: KBRoundedButton!
     @IBOutlet weak var txtWelcome: UILabel!
+    @IBOutlet weak var loadingAct: UIActivityIndicatorView!
+    @IBOutlet weak var buttonOutlet: KBRoundedButton!
+    @IBOutlet weak var buttonSignuUpOutlet: KBRoundedButton!
     
     // MARK - Properties
     
@@ -49,7 +52,7 @@ class ViewController: UIViewController {
      override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         print("preload")
-        //tryToLoginFromUserDefaults()
+        tryToLoginFromUserDefaults()
     }
     
     
@@ -85,7 +88,10 @@ extension ViewController {
         }
         
         if email != "" && pass != " " {
-            
+            loadingAct.isHidden = false
+            buttonOutlet.isHidden = true
+            buttonSignuUpOutlet.isHidden = true
+            loadingAct.startAnimating()
             authService.login( with:email, password: pass ) { (result) in
                 switch result {
                 case .success(let user):

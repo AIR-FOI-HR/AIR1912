@@ -75,6 +75,10 @@
                                                     <action selector="btnSignup:" destination="BYZ-38-t0r" eventType="touchUpInside" id="u7m-JE-ahD"/>
                                                 </connections>
                                             </button>
+                                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="wT4-7T-U79">
+                                                <rect key="frame" x="97" y="179.00000000000003" width="158" height="103"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            </activityIndicatorView>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                         <constraints>
@@ -143,12 +147,15 @@
                         <outlet property="LoginSignView" destination="MG2-u6-ZNL" id="JpV-aL-PaX"/>
                         <outlet property="btnLogin" destination="7Pw-aq-vFE" id="eep-da-CnN"/>
                         <outlet property="btnSignUp" destination="7NA-PE-ZGk" id="xDv-iA-xCZ"/>
+                        <outlet property="buttonOutlet" destination="7Pw-aq-vFE" id="h5c-Ga-n2l"/>
+                        <outlet property="buttonSignuUpOutlet" destination="7NA-PE-ZGk" id="lDz-e0-EAo"/>
+                        <outlet property="loadingAct" destination="wT4-7T-U79" id="bEW-CS-4uV"/>
                         <outlet property="txtWelcome" destination="3Mb-c4-c66" id="BMo-h8-eTd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="136.80000000000001" y="129.08545727136433"/>
+            <point key="canvasLocation" x="136.23188405797103" y="128.57142857142856"/>
         </scene>
     </scenes>
     <resources>

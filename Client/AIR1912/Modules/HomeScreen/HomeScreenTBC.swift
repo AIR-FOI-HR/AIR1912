@@ -20,7 +20,7 @@ class HomeScreenTBC: UITabBarController {
    
     override func viewDidLoad() {
         super.viewDidLoad()
-        //tabBarController?.selectedIndex = 1
+        self.selectedIndex = 2
         // Do any additional setup after loading the view.
         // Do any additional setup after loading the view.
     }
