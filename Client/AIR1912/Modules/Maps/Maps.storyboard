@@ -26,8 +26,7 @@
         <!--Maps-->
         <scene sceneID="ZxU-2e-UJo">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="vcC-DV-BJA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <viewController storyboardIdentifier="Maps" id="NiQ-IV-ToW" customClass="MapsVC" customModule="AIR1912" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Maps" id="NiQ-IV-ToW" customClass="MapsController" customModule="AIR1912" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="EFG-Yq-fsU">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -44,6 +43,7 @@
                     <navigationItem key="navigationItem" id="AYA-FF-cAQ"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vcC-DV-BJA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-481.15942028985512" y="-425.22321428571428"/>
         </scene>

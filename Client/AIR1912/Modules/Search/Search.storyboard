@@ -42,10 +42,10 @@
             </objects>
             <point key="canvasLocation" x="-910" y="87"/>
         </scene>
-        <!--SearchVC-->
+        <!--Search Controller-->
         <scene sceneID="EMV-UX-wxK">
             <objects>
-                <navigationController id="aE1-lN-xaT" customClass="SearchVC" customModule="AIR1912" customModuleProvider="target" sceneMemberID="viewController">
+                <navigationController id="aE1-lN-xaT" customClass="SearchController" customModule="AIR1912" customModuleProvider="target" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="ijf-rH-wJD">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>

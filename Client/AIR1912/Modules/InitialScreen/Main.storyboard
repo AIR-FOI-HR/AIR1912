@@ -7,10 +7,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Main View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="AIR1912" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="MainViewController" customModule="AIR1912" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC" userLabel="MainView">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -33,7 +33,7 @@
                                         </subviews>
                                     </stackView>
                                 </subviews>
-                                <color key="backgroundColor" red="0.20392156862745098" green="0.396078431372549" blue="0.64313725490196072" alpha="0.9995727539" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.047656700015068054" green="0.67197716236114502" blue="0.96539574861526489" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="Zli-6f-8dM" secondAttribute="bottom" constant="72.5" id="5bd-sZ-pAf"/>
                                     <constraint firstItem="Zli-6f-8dM" firstAttribute="top" secondItem="7HV-iW-Gsi" secondAttribute="top" constant="73.5" id="5cV-RI-eC7"/>
@@ -144,13 +144,12 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
-                        <outlet property="LoginSignView" destination="MG2-u6-ZNL" id="JpV-aL-PaX"/>
-                        <outlet property="btnLogin" destination="7Pw-aq-vFE" id="eep-da-CnN"/>
-                        <outlet property="btnSignUp" destination="7NA-PE-ZGk" id="xDv-iA-xCZ"/>
                         <outlet property="buttonOutlet" destination="7Pw-aq-vFE" id="h5c-Ga-n2l"/>
                         <outlet property="buttonSignuUpOutlet" destination="7NA-PE-ZGk" id="lDz-e0-EAo"/>
-                        <outlet property="loadingAct" destination="wT4-7T-U79" id="bEW-CS-4uV"/>
-                        <outlet property="txtWelcome" destination="3Mb-c4-c66" id="BMo-h8-eTd"/>
+                        <outlet property="loadingActivity" destination="wT4-7T-U79" id="bEW-CS-4uV"/>
+                        <outlet property="loginButton" destination="7Pw-aq-vFE" id="eep-da-CnN"/>
+                        <outlet property="loginSignView" destination="MG2-u6-ZNL" id="JpV-aL-PaX"/>
+                        <outlet property="signUpButton" destination="7NA-PE-ZGk" id="xDv-iA-xCZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

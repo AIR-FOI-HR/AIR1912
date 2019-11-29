@@ -1,5 +1,5 @@
 //
-//  HomeScreenTBC.swift
+//  FavouritesVC.swift
 //  AIR1912
 //
 //  Created by Leo Leljak on 27/11/2019.
@@ -8,20 +8,11 @@
 
 import UIKit
 
-class HomeScreenTBC: UITabBarController {
+class FavouritesController: UIViewController {
 
-    //MARK: - IBOutlets
-   
-    @IBOutlet weak var tbCont: UITabBar!
-    
-    
-    //MARK: - Properties
-    var currentUser:User?
-   
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.selectedIndex = 2
-        // Do any additional setup after loading the view.
+
         // Do any additional setup after loading the view.
     }
     

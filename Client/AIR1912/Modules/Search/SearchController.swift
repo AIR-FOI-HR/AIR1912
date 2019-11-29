@@ -1,5 +1,5 @@
 //
-//  MapsVC.swift
+//  SearchVC.swift
 //  AIR1912
 //
 //  Created by Leo Leljak on 27/11/2019.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MapsVC: UIViewController {
+class SearchController: UINavigationController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
