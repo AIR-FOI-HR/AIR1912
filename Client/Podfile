@@ -7,7 +7,7 @@ target 'AIR1912' do
 
   # Pods for AIR1912
   pod 'Alamofire'
-  pod 'SwiftyJSON', '~> 4.0'
+  pod 'SwiftKeychainWrapper'
   pod 'KBRoundedButton'
   pod 'Hero'
   pod 'Spring', :git => 'https://github.com/MengTo/Spring.git'
