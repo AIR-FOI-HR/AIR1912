@@ -48,7 +48,7 @@ class MainViewController: UIViewController {
     @IBAction func btnLogin(_ sender: Any) {
         
         let loginStoryBoard:UIStoryboard = UIStoryboard(name: "Login", bundle: nil)
-        let loginController = loginStoryBoard.instantiateViewController(withIdentifier: "Login") as! LoginController
+        let loginController = loginStoryBoard.instantiateViewController(withIdentifier: "Login") as! LoginViewController
         loginController.modalPresentationStyle = .fullScreen
         self.present(loginController, animated: true, completion: nil)
         

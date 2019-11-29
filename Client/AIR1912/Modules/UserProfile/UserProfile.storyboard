@@ -28,7 +28,7 @@
         <!--User Profile-->
         <scene sceneID="QsI-zf-XKN">
             <objects>
-                <viewController storyboardIdentifier="UserProfile" id="nod-c7-47d" customClass="UserProfileController" customModule="AIR1912" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="UserProfile" id="nod-c7-47d" customClass="UserProfileViewController" customModule="AIR1912" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="vxp-Go-Z93">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

@@ -10,7 +10,7 @@
         <!--Favourites-->
         <scene sceneID="vPa-v7-uO4">
             <objects>
-                <viewController storyboardIdentifier="Favourites" id="YJo-N3-qu0" customClass="FavouritesController" customModule="AIR1912" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Favourites" id="YJo-N3-qu0" customClass="FavouritesViewController" customModule="AIR1912" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="rZ0-Q0-Mfj">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

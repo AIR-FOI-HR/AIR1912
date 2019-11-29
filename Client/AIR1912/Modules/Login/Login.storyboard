@@ -7,10 +7,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Login Controller-->
+        <!--Login View Controller-->
         <scene sceneID="uUD-Gh-EGt">
             <objects>
-                <viewController storyboardIdentifier="Login" id="hhD-1v-KY5" customClass="LoginController" customModule="AIR1912" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Login" id="hhD-1v-KY5" customClass="LoginViewController" customModule="AIR1912" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="I2M-ZN-tqt">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -145,8 +145,8 @@
                         <viewLayoutGuide key="safeArea" id="NeH-mK-tyH"/>
                     </view>
                     <connections>
-                        <outlet property="nameTextView" destination="FJR-xU-IZU" id="UdC-m5-sF4"/>
-                        <outlet property="passwordTextView" destination="MBz-Kc-mim" id="V1U-H3-0Im"/>
+                        <outlet property="nameTextField" destination="FJR-xU-IZU" id="UdC-m5-sF4"/>
+                        <outlet property="passwordTextField" destination="MBz-Kc-mim" id="V1U-H3-0Im"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jte-SV-Rbp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

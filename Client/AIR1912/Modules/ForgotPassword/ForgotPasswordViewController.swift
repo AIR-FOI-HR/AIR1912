@@ -8,10 +8,10 @@
 
 import UIKit
 
-class ForgotPasswordController: UIViewController {
+class ForgotPasswordViewController: UIViewController {
 
     //MARK: -IBOutlets
-    @IBOutlet weak var emailTextView: UITextField!
+    @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var containerView: UIView!
     
     //MARK: -Properties
@@ -35,7 +35,7 @@ class ForgotPasswordController: UIViewController {
 }
 
 
-extension ForgotPasswordController{
+extension ForgotPasswordViewController{
     
     private func additionalSetup(){
         
@@ -43,7 +43,7 @@ extension ForgotPasswordController{
     }
     
     private func recoverPass() {
-         recoverPassService.recoverPassword(with: emailTextView.text!) { (result) in
+         recoverPassService.recoverPassword(with: emailTextField.text!) { (result) in
              switch result {
              case .success(let code):
                  self.showSuccessAlert(for: code)
@@ -55,7 +55,7 @@ extension ForgotPasswordController{
      
      private func showSuccessAlert(for code: RecoverPassCodes) {
          if(code.code=="400"){
-             let alertController: UIAlertController = UIAlertController(title: "Sent to \(emailTextView.text!)", message: "Check your email", preferredStyle: .alert)
+             let alertController: UIAlertController = UIAlertController(title: "Sent to \(emailTextField.text!)", message: "Check your email", preferredStyle: .alert)
              alertController.addAction(UIAlertAction(title: "Dissmis", style: .default, handler: nil))
              self.present(alertController, animated: true, completion: nil)
              

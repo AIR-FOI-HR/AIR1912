@@ -13,11 +13,11 @@ import Alamofire
 let API_URL = "http://air1912.000webhostapp.com/service.php"
 
 
-class LoginController: UIViewController {
+class LoginViewController: UIViewController {
 
     // MARK: - IBOutlets
-    @IBOutlet weak var nameTextView: UITextField!
-    @IBOutlet weak var passwordTextView: UITextField!
+    @IBOutlet weak var nameTextField: UITextField!
+    @IBOutlet weak var passwordTextField: UITextField!
     
     
     // MARK: - Properties
@@ -41,7 +41,7 @@ class LoginController: UIViewController {
     @IBAction func btnForgotPassword(_ sender: Any) {
        
            let RecoverPasswordStoryBoard: UIStoryboard = UIStoryboard(name: "ForgotPassword", bundle: nil)
-           let RecoverPsaswordController = RecoverPasswordStoryBoard.instantiateViewController(identifier: "ForgotPassword") as! ForgotPasswordController
+           let RecoverPsaswordController = RecoverPasswordStoryBoard.instantiateViewController(identifier: "ForgotPassword") as! ForgotPasswordViewController
            RecoverPsaswordController.modalPresentationStyle = .overCurrentContext
            self.present(RecoverPsaswordController, animated: true, completion: nil)
            
@@ -50,10 +50,10 @@ class LoginController: UIViewController {
 }
 
 
-extension LoginController {
+extension LoginViewController {
     
     private func loginUser() {
-        authService.login( with:nameTextView.text!, password: passwordTextView.text! ) { (result) in
+        authService.login( with:nameTextField.text!, password: passwordTextField.text! ) { (result) in
             switch result {
             case .success(let user):
                 self.showSuccessAlert(for: user)
@@ -82,7 +82,7 @@ extension LoginController {
 //            UserDefaults.standard.set(nameTextView.text!, forKey: "email")
 //            UserDefaults.standard.set(passwordTextView.text!, forKey: "pass")
             //dodano u keychain
-            _ = userKeychain.saveSessionData(email: nameTextView.text!, password: passwordTextView.text!)
+            _ = userKeychain.saveSessionData(email: nameTextField.text!, password: passwordTextField.text!)
             
         }
     }
