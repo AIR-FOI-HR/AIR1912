@@ -53,6 +53,11 @@ class LoginViewController: UIViewController {
 extension LoginViewController {
     
     private func loginUser() {
+        
+        guard let text = nameTextField.text, !text.isEmpty, let text2 = passwordTextField.text, !text2.isEmpty else {
+            return
+        }
+        
         authService.login( with:nameTextField.text!, password: passwordTextField.text! ) { (result) in
             switch result {
             case .success(let user):
@@ -77,11 +82,7 @@ extension LoginViewController {
             let HomeController = HomeStoryboard.instantiateViewController(identifier: "HomeScreen") as! HomeSreenTabBarController
             HomeController.modalPresentationStyle = .fullScreen
             self.present(HomeController, animated: true, completion: nil)
-            
-            //TODO: User defaults
-//            UserDefaults.standard.set(nameTextView.text!, forKey: "email")
-//            UserDefaults.standard.set(passwordTextView.text!, forKey: "pass")
-            //dodano u keychain
+           
             _ = userKeychain.saveSessionData(email: nameTextField.text!, password: passwordTextField.text!)
             
         }
