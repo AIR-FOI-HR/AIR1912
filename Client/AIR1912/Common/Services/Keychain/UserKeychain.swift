@@ -49,7 +49,6 @@ class UserKeychain {
     }
     
     func clearSessionData() -> Bool {
-        
         guard hasSessionData() else {
             return false
         }
