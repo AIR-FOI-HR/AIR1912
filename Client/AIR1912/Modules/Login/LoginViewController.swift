@@ -16,7 +16,7 @@ let API_URL = "http://air1912.000webhostapp.com/service.php"
 class LoginViewController: UIViewController {
 
     // MARK: - IBOutlets
-    @IBOutlet weak var nameTextField: UITextField!
+    @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     
     
@@ -54,11 +54,11 @@ extension LoginViewController {
     
     private func loginUser() {
         
-        guard let text = nameTextField.text, !text.isEmpty, let text2 = passwordTextField.text, !text2.isEmpty else {
+        guard let email = emailTextField.text, !email.isEmpty, let password = passwordTextField.text, !password.isEmpty else {
             return
         }
         
-        authService.login( with:nameTextField.text!, password: passwordTextField.text! ) { (result) in
+        authService.login( with: email, password: password ) { (result) in
             switch result {
             case .success(let user):
                 self.showSuccessAlert(for: user)
@@ -83,7 +83,7 @@ extension LoginViewController {
             HomeController.modalPresentationStyle = .fullScreen
             self.present(HomeController, animated: true, completion: nil)
            
-            _ = userKeychain.saveSessionData(email: nameTextField.text!, password: passwordTextField.text!)
+            _ = userKeychain.saveSessionData(email: emailTextField.text!, password: passwordTextField.text!)
             
         }
     }
