@@ -75,14 +75,14 @@ extension MainViewController {
     
     func tryToLoginFromUserDefaults() {
 
-        guard userKeychain.hasData() else{
+        guard userKeychain.hasSessionData() else{
             return
         }
         loadingActivity.isHidden = false
         buttonOutlet.isHidden = true
         buttonSignuUpOutlet.isHidden = true
         loadingActivity.startAnimating()
-        authService.login( with: userKeychain.getEmail(), password: userKeychain.getPassword()) { (result) in
+        authService.login( with: userKeychain.getEmail()!, password: userKeychain.getPassword()!) { (result) in
             switch result {
             case .success(let user):
                 self.showSuccessAlert(for: user)

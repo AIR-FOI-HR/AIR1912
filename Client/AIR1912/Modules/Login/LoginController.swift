@@ -82,7 +82,7 @@ extension LoginController {
 //            UserDefaults.standard.set(nameTextView.text!, forKey: "email")
 //            UserDefaults.standard.set(passwordTextView.text!, forKey: "pass")
             //dodano u keychain
-            _ = userKeychain.saveData(email: nameTextView.text!, password: passwordTextView.text!)
+            _ = userKeychain.saveSessionData(email: nameTextView.text!, password: passwordTextView.text!)
             
         }
     }

@@ -11,63 +11,56 @@ import SwiftKeychainWrapper
 
 class UserKeychain {
     
-    enum UserDefaultKey: String {
+    enum UserKeychainKey: String {
         case email = "email"
         case password = "password"
     }
   
 
     
-    func saveData(email:String, password:String)->Bool{
-        guard KeychainWrapper.standard.set(password, forKey: "password"),
-            KeychainWrapper.standard.set(email, forKey: "email") else {
+    func saveSessionData(email:String, password:String)->Bool{
+        
+        guard KeychainWrapper.standard.set(password, forKey: UserKeychainKey.password.rawValue),
+            KeychainWrapper.standard.set(email, forKey: UserKeychainKey.email.rawValue) else {
                return false
         }
         return true
     }
     
-    func getEmail() -> String {
+    func getEmail() -> String? {
         
-        let email = KeychainWrapper.standard.string(forKey: "email")
-        return email!
+        let email = KeychainWrapper.standard.string(forKey: UserKeychainKey.email.rawValue)
+        return email
 
     }
     
-    func getPassword() -> String {
-        let password = KeychainWrapper.standard.string(forKey: "password")
-        return password!
+    func getPassword() -> String? {
+        
+        let password = KeychainWrapper.standard.string(forKey: UserKeychainKey.password.rawValue)
+        return password
     }
     
-    public func hasData() -> Bool {
+    public func hasSessionData() -> Bool {
         
-        guard KeychainWrapper.standard.string(forKey: "email") != nil else {
-            return false
-        }
-        
-        guard KeychainWrapper.standard.string(forKey: "password") != nil else {
+        guard KeychainWrapper.standard.string(forKey: UserKeychainKey.email.rawValue) != nil && KeychainWrapper.standard.string(forKey: UserKeychainKey.password.rawValue) != nil else {
             return false
         }
         return true
-        
     }
     
-    func removeData() -> Bool {
-        guard hasData() else {
+    func clearSessionData() -> Bool {
+        
+        guard hasSessionData() else {
             return false
         }
         
-        guard KeychainWrapper.standard.removeObject(forKey: UserDefaultKey.email.rawValue) else {
+        guard KeychainWrapper.standard.removeObject(forKey: UserKeychainKey.email.rawValue) else {
             return false
         }
         
-        guard KeychainWrapper.standard.removeObject(forKey: UserDefaultKey.password.rawValue) else {
+        guard KeychainWrapper.standard.removeObject(forKey: UserKeychainKey.password.rawValue) else {
                    return false
                }
         return true
-        
-        
     }
-    
-
 }
-
