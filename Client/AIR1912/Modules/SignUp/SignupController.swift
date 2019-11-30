@@ -104,8 +104,8 @@ class SignupController: UIViewController {
         print("Ready to add user to database")
         
         // Define object User, use dictionary format and send to server as post method
-        let newUser = UserPost(idUsers: nil, name: name, surname: surname, email: email, password: password)
-        let newUserDict = newUser.dictonaryReturned
+        let newUser = User(idUsers: nil, name: name, surname: surname, email: email, password: password)
+        let newUserDict = try! newUser.asDictionary()
         Alamofire.request("http://air1912.000webhostapp.com/RegisterService.php", method: .post, parameters: newUserDict)
     }
     

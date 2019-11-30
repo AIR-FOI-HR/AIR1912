@@ -1,5 +1,10 @@
 <?php
  
+    function bool UserExists(){
+        
+    }
+    
+    
 // Create connection
 $con=mysqli_connect("localhost","id11519910_projekt","airprojekt2019","id11519910_air1912");
  
