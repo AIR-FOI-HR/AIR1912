@@ -5,7 +5,7 @@ PODS:
   - Hero (1.4.0)
   - KBRoundedButton (1.0.4)
   - Spring (1.0.6)
-  - SwiftyJSON (4.3.0)
+  - SwiftKeychainWrapper (3.4.0)
 
 DEPENDENCIES:
   - Alamofire
@@ -13,7 +13,7 @@ DEPENDENCIES:
   - Hero
   - KBRoundedButton
   - Spring (from `https://github.com/MengTo/Spring.git`)
-  - SwiftyJSON (~> 4.0)
+  - SwiftKeychainWrapper
 
 SPEC REPOS:
   trunk:
@@ -21,7 +21,7 @@ SPEC REPOS:
     - CodableAlamofire
     - Hero
     - KBRoundedButton
-    - SwiftyJSON
+    - SwiftKeychainWrapper
 
 EXTERNAL SOURCES:
   Spring:
@@ -38,8 +38,8 @@ SPEC CHECKSUMS:
   Hero: bac92350d7201a1a940003e0767c7b52ce7c99a1
   KBRoundedButton: 8fde755b8f1df3ddd3c3c280d9b27ce04ab55d00
   Spring: 3d113f14575ef79aec9c5f906dfa4f5001c03254
-  SwiftyJSON: 6faa0040f8b59dead0ee07436cbf76b73c08fd08
+  SwiftKeychainWrapper: 6fc49fbf7d4a6b0772917acb0e53a1639f6078d6
 
-PODFILE CHECKSUM: 7be15740fccfa8b5e3bb16dd2c26113b8250733a
+PODFILE CHECKSUM: 7c4861b77170c39e6ba69833c7be5ee9200743c9
 
-COCOAPODS: 1.8.4
+COCOAPODS: 1.8.3

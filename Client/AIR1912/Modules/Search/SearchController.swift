@@ -1,25 +1,18 @@
 //
-//  HomeScreenVC.swift
+//  SearchVC.swift
 //  AIR1912
 //
-//  Created by Leo Leljak on 19/11/2019.
+//  Created by Leo Leljak on 27/11/2019.
 //  Copyright © 2019 Leo Leljak. All rights reserved.
 //
 
 import UIKit
 
-class HomeScreenVC: UIViewController {
+class SearchController: UINavigationController {
 
-    //MARK: - IBOutlets
-    @IBOutlet weak var lblWelcomeMessage: UILabel!
-    
-    //MARK: - Properties
-    var currentUser:User?
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        if let text = currentUser?.name {
-            lblWelcomeMessage.text = "Hello \(text)"}
+
         // Do any additional setup after loading the view.
     }
     
