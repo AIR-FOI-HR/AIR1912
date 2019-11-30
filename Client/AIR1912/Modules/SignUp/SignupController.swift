@@ -24,9 +24,11 @@ class SignupController: UIViewController {
     
     var avatarImages = [UIImage]()
     
+    // alerter object - to be used if alert is needed
+    let alerter = Alerter(title: "Something went wrong", message: "There seems to be an issue with that")
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         //avatarSelection.layer.cornerRadius = 100
         // Txt fields to be passed from one to another
         nameTxt.delegate = self as? UITextFieldDelegate
@@ -81,16 +83,20 @@ class SignupController: UIViewController {
         // Check if all fields are filled
         if nameTxt.text?.isEmpty ?? true || surnameTxt.text?.isEmpty ?? true || emailTxt.text?.isEmpty ?? true || passwordTxt.text?.isEmpty ?? true || confirmPassowordTxt.text?.isEmpty ?? true{
             
-            showAlert("All fields have to be filled")
-            //print("All fields have to be filled")
+            alerter.title = "Sorry"
+            alerter.message = "All fields have to be filled"
+            self.present(alerter.getUIAlertController(), animated: true, completion: nil)
+            
             readyToProceed = false
             
         }
         // Check if password and confirm password are the same
         var passwordsMatch:Bool = (passwordTxt.text == confirmPassowordTxt.text)
         if passwordsMatch == false{
-            showAlert("Password and confirm password don't match")
-            //print("Password and confirm password don't match")
+            alerter.title = "Sorry"
+            alerter.message = "Passwords don't match"
+            self.present(alerter.getUIAlertController(), animated: true, completion: nil)
+            
             readyToProceed = false
         }
         
@@ -101,20 +107,10 @@ class SignupController: UIViewController {
     }
     
     func addUser(_ name:String,_ surname:String,_ email:String,_ password:String) -> Void{
-        print("Ready to add user to database")
         
         // Define object User, use dictionary format and send to server as post method
         let newUser = User(idUsers: nil, name: name, surname: surname, email: email, password: password)
         let newUserDict = try! newUser.asDictionary()
         Alamofire.request("http://air1912.000webhostapp.com/RegisterService.php", method: .post, parameters: newUserDict)
     }
-    
-
-    func showAlert(_ messageForDisplay:String) -> Void{
-        let alertController = UIAlertController(title: "Something is wrong", message: messageForDisplay, preferredStyle: .alert)
-        alertController.addAction(UIAlertAction(title: "Okay", style: .default, handler: nil))
-        
-        self.present(alertController, animated: true, completion: nil)
-    }
-
 }
