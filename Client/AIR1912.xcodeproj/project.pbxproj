@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		4212CC012385ACD300C53210 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4212CC002385ACD300C53210 /* Game.swift */; };
+		42199176239412A300CCAA89 /* Interests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42199175239412A300CCAA89 /* Interests.swift */; };
+		421991782394130000CCAA89 /* InterestCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 421991772394130000CCAA89 /* InterestCollectionViewCell.swift */; };
+		4219917A239413F800CCAA89 /* InterestsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42199179239413F800CCAA89 /* InterestsViewController.swift */; };
 		421D5CA3237DC3CC00C8AD1F /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 421D5CA2237DC3CC00C8AD1F /* User.swift */; };
 		421D5CA7237DCC6F00C8AD1F /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 421D5CA6237DCC6F00C8AD1F /* AuthService.swift */; };
 		421D5CAA237DD16C00C8AD1F /* MovieProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 421D5CA9237DD16C00C8AD1F /* MovieProvider.swift */; };
@@ -47,6 +50,9 @@
 /* Begin PBXFileReference section */
 		0702C62035766E8AC911DBD4 /* Pods_AIR1912.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AIR1912.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4212CC002385ACD300C53210 /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
+		42199175239412A300CCAA89 /* Interests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Interests.swift; sourceTree = "<group>"; };
+		421991772394130000CCAA89 /* InterestCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterestCollectionViewCell.swift; sourceTree = "<group>"; };
+		42199179239413F800CCAA89 /* InterestsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterestsViewController.swift; sourceTree = "<group>"; };
 		421D5CA2237DC3CC00C8AD1F /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		421D5CA6237DCC6F00C8AD1F /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		421D5CA9237DD16C00C8AD1F /* MovieProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieProvider.swift; sourceTree = "<group>"; };
@@ -323,6 +329,9 @@
 			children = (
 				EDCA57DF23846228002C3AE1 /* Homescreen.storyboard */,
 				EDB57AA7238EA6700032DC9E /* HomeSreenTabBarController.swift */,
+				42199175239412A300CCAA89 /* Interests.swift */,
+				421991772394130000CCAA89 /* InterestCollectionViewCell.swift */,
+				42199179239413F800CCAA89 /* InterestsViewController.swift */,
 			);
 			path = HomeScreen;
 			sourceTree = "<group>";
@@ -464,14 +473,17 @@
 				42B47C192385B288002C554F /* UserPost.swift in Sources */,
 				421D5CAE237DD18B00C8AD1F /* ContentProvider.swift in Sources */,
 				EDBE0169237F1B2000F15CE5 /* MainViewController.swift in Sources */,
+				4219917A239413F800CCAA89 /* InterestsViewController.swift in Sources */,
 				EDB57AAD238EA8E40032DC9E /* SearchController.swift in Sources */,
 				ED52876F2385A2F100848D66 /* RecoverPassService.swift in Sources */,
 				ED5287712385AE9C00848D66 /* RecoverPassCodes.swift in Sources */,
 				4250E5F723845C3B00369FBC /* SignupController.swift in Sources */,
 				EDB57AB2238EAB060032DC9E /* FavouritesViewController.swift in Sources */,
+				42199176239412A300CCAA89 /* Interests.swift in Sources */,
 				421D5CB0237DD2D100C8AD1F /* Movie.swift in Sources */,
 				ED35F611237560D8009ED574 /* AppDelegate.swift in Sources */,
 				4212CC012385ACD300C53210 /* Game.swift in Sources */,
+				421991782394130000CCAA89 /* InterestCollectionViewCell.swift in Sources */,
 				EDB57AA8238EA6700032DC9E /* HomeSreenTabBarController.swift in Sources */,
 				421D5CAA237DD16C00C8AD1F /* MovieProvider.swift in Sources */,
 				EDFD7E7E239107430028C4D5 /* UserProfileViewController.swift in Sources */,
