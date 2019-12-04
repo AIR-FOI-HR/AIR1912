@@ -15,7 +15,7 @@ struct MovieResponse: Decodable {
 
 struct Movie: Decodable, Content {
     var type: String {
-        return "movie"
+        return ContentType.movie.rawValue
     }
     var title: String
     var description: String?

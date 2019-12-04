@@ -7,43 +7,78 @@
 //
 
 import UIKit
+import Kingfisher
 
-class InterestsViewController : UIViewController
-{
-    @IBOutlet weak var collectionView: UICollectionView!
-    @IBOutlet weak var collectionView2: UICollectionView!
-    var interests = Interest.fetchInterests()
+class InterestsViewController : UIViewController {
+    
+    // MARK: - Private outlets
+    
+    @IBOutlet private weak var collectionView: UICollectionView!
+    @IBOutlet private weak var collectionView2: UICollectionView!
+    
+    // MARK: - Private properties
+    
+    private var gamesDatasource = [Content]()
+    private var movieDatasource = [Content]()
+    
+    // MARK: - Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
-        
         collectionView.dataSource = self
         collectionView2.dataSource = self
+        
+        getTrendingContent(for: .game)
+        getTrendingContent(for: .movie)
     }
 }
 
-// UICollectionViewDataSource
-
-extension InterestsViewController:
-    UICollectionViewDataSource
-{
-    func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 1
-    }
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return interests.count
-    }
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell
-    {
-        let cell =
-        collectionView.dequeueReusableCell(withReuseIdentifier: "InterestCollectionViewCell", for: indexPath) as! InterestCollectionViewCell
-        let interest = interests[indexPath.item]
+extension InterestsViewController {
+    
+    private func getTrendingContent(for type: ContentType) {
+        let provider: ContentProvider
+        switch type {
+        case .game:
+            provider = GameProvider()
+        case .movie:
+            provider = MovieProvider()
+        }
         
-        cell.interest = interest
+        provider.getTrendingContent { (result) in
+            switch result {
+            case .success(let podaci):
+                self.updateContent(for: type, result: podaci)
+            case .failure(_):
+                self.updateContent(for: type, result: [])
+            }
+        }
+    }
+    
+    private func updateContent(for type: ContentType, result: [Content]) {
+        switch type {
+        case .game:
+            gamesDatasource = result
+            self.collectionView2.reloadData()
+        case .movie:
+            movieDatasource = result
+            self.collectionView.reloadData()
+        }
+    }
+}
+
+extension InterestsViewController: UICollectionViewDataSource {
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return movieDatasource.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "InterestCollectionViewCell", for: indexPath) as! InterestCollectionViewCell
+        let interest = movieDatasource[indexPath.item]
+        
+        cell.featuredImageView.kf.setImage(with: URL(string: "https://image.tmdb.org/t/p/original\(interest.poster)")!)
         
         return cell
     }
 }
-

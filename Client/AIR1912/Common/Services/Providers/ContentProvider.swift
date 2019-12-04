@@ -9,6 +9,11 @@
 import Foundation
 import Alamofire
 
+enum ContentType: String {
+    case game = "game"
+    case movie = "movie"
+}
+
 protocol Content {
     
     var type: String { get }

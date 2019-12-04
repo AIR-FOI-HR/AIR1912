@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class InterestCollectionViewCell: UICollectionViewCell
 {
@@ -20,7 +21,8 @@ class InterestCollectionViewCell: UICollectionViewCell
     
     func updateUI() {
         if let interest = interest {
-            featuredImageView.image = interest.featuredImage
+            featuredImageView.kf.setImage(with: interest.featuredImage)
+           
         } else {
             featuredImageView = nil
         }
