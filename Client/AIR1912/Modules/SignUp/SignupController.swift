@@ -12,6 +12,7 @@ import CodableAlamofire
 
 class SignupController: UIViewController {
     
+    @IBOutlet weak var nicknameTxt: UITextField!
     @IBOutlet weak var nameTxt: UITextField!
     @IBOutlet weak var surnameTxt: UITextField!
     @IBOutlet weak var emailTxt: UITextField!
@@ -26,6 +27,9 @@ class SignupController: UIViewController {
     
     // alerter object - to be used if alert is needed
     let alerter = Alerter(title: "Something went wrong", message: "There seems to be an issue with that")
+    
+    // register service
+    private let registerService: RegisterService = RegisterService()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -81,7 +85,7 @@ class SignupController: UIViewController {
         var readyToProceed = true
         
         // Check if all fields are filled
-        if nameTxt.text?.isEmpty ?? true || surnameTxt.text?.isEmpty ?? true || emailTxt.text?.isEmpty ?? true || passwordTxt.text?.isEmpty ?? true || confirmPassowordTxt.text?.isEmpty ?? true{
+        if  nicknameTxt.text?.isEmpty ?? true || nameTxt.text?.isEmpty ?? true || surnameTxt.text?.isEmpty ?? true || emailTxt.text?.isEmpty ?? true || passwordTxt.text?.isEmpty ?? true || confirmPassowordTxt.text?.isEmpty ?? true{
             
             alerter.title = "Sorry"
             alerter.message = "All fields have to be filled"
@@ -101,16 +105,22 @@ class SignupController: UIViewController {
         }
         
         if readyToProceed{
-            addUser(nameTxt.text!, surnameTxt.text!, emailTxt.text!, passwordTxt.text!)
+            addUser(nicknameTxt.text!, nameTxt.text!, surnameTxt.text!, emailTxt.text!, passwordTxt.text!)
         }
         
     }
     
-    func addUser(_ name:String,_ surname:String,_ email:String,_ password:String) -> Void{
-        
-        // Define object User, use dictionary format and send to server as post method
-        let newUser = User(idUsers: nil, name: name, surname: surname, email: email, password: password)
-        let newUserDict = try! newUser.asDictionary()
-        Alamofire.request("http://air1912.000webhostapp.com/RegisterService.php", method: .post, parameters: newUserDict)
+    private func addUser(_ nickname:String, _ name:String,_ surname:String,_ email:String,_ password:String) -> Void{
+    
+        registerService.register(with: nickname ,name: name, surname: surname, email: email, password: password) { (result) in
+            switch result {
+            case .success(let user):
+                print(user)
+    
+            case .failure(let error):
+                print(error)
+            }
+        }
     }
+
 }

@@ -19,11 +19,14 @@ class Alerter{
         self.message = message
     }
 
+    convenience init(responseError: ResponseError) {
+        self.init(title: responseError.title, message: responseError.message)
+    }
+
     func getUIAlertController() -> UIAlertController{
-        
         let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
         alertController.addAction(UIAlertAction(title: "Okay", style: .default, handler: nil))
-        return alertController;
+        return alertController
     }
 
 }

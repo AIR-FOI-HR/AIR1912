@@ -10,6 +10,7 @@ import Foundation
 
 
 struct User: Codable {
+    let nickname:String
     let idUsers:String?
     let name:String
     let surname:String
