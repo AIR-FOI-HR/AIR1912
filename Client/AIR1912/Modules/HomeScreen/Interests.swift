@@ -19,25 +19,25 @@ class Interest
     }
     
     
-    static func fetchInterests() -> [Interest]
-    {
-        var contentArray = [Interest]()
-        movieProvider.getTrendingContent { (result) in
-            switch result {
-            case .success(let podaci):
-                for element in podaci{
-                    print("https://image.tmdb.org/t/p/original\(element.poster)")
-                    contentArray.append(Interest(featuredImage: URL(string: "https://image.tmdb.org/t/p/original\(element.poster)")!))
-                }
-                
-            case .failure(let error):
-                print(error)
-            }
-            print("-----------------")
-            print(contentArray)
-        }
-        print("-------------------")
-        print(contentArray)
-        return contentArray
-    }
+//    static func fetchInterests() -> [Interest]
+//    {
+//        var contentArray = [Interest]()
+//        movieProvider.getTrendingContent { (result) in
+//            switch result {
+//            case .success(let podaci):
+//                for element in podaci{
+//                    print("https://image.tmdb.org/t/p/original\(element.poster)")
+//                    contentArray.append(Interest(featuredImage: URL(string: "https://image.tmdb.org/t/p/original\(element.poster)")!))
+//                }
+//                
+//            case .failure(let error):
+//                print(error)
+//            }
+//            print("-----------------")
+//            print(contentArray)
+//        }
+//        print("-------------------")
+//        print(contentArray)
+//        return contentArray
+//    }
 }

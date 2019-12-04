@@ -19,7 +19,9 @@ protocol Content {
     var type: ContentType { get }
     var title: String { get }
     var description: String? { get }
-    var poster:String { get }
+//    var poster:String { get }
+    
+    func getPosterURL(completion: @escaping (URL?) -> Void)
 }
 
 protocol ContentProvider {

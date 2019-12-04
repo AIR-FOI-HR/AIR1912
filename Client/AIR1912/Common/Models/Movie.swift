@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Alamofire
 
 struct MovieResponse: Decodable {
     var page: Int
@@ -32,5 +33,10 @@ struct Movie: Decodable, Content {
         //case genreId = "genre_ids"
         case runtime
         
+    }
+    
+    func getPosterURL(completion: @escaping (URL?) -> Void) {
+        let url = URL(string: "https://image.tmdb.org/t/p/original\(poster)")
+        completion(url)
     }
 }

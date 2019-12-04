@@ -75,10 +75,8 @@ extension InterestsViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "InterestCollectionViewCell", for: indexPath) as! InterestCollectionViewCell
-        let interest = movieDatasource[indexPath.item]
-        
-        cell.featuredImageView.kf.setImage(with: URL(string: "https://image.tmdb.org/t/p/original\(interest.poster)")!)
-        
+        let content = movieDatasource[indexPath.item]
+        cell.configure(with: content)
         return cell
     }
 }
