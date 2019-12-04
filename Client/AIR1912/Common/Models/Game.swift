@@ -14,8 +14,8 @@ struct GameResponse: Decodable {
 
 struct Game: Decodable, Content {
     
-var type: String {
-    return ContentType.game.rawValue
+var type: ContentType {
+    return .game
 }
 var title: String {
     return _title ?? "Unknown"

@@ -16,7 +16,7 @@ enum ContentType: String {
 
 protocol Content {
     
-    var type: String { get }
+    var type: ContentType { get }
     var title: String { get }
     var description: String? { get }
     var poster:String { get }
