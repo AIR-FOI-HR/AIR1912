@@ -106,8 +106,7 @@ class SignupController: UIViewController {
             
         }
         // Check if password and confirm password are the same
-        var passwordsMatch:Bool = (passwordTxt.text == confirmPassowordTxt.text)
-        if passwordsMatch == false{
+        if (passwordTxt.text == confirmPassowordTxt.text) == false{
             alerter.title = "Sorry"
             alerter.message = "Passwords don't match"
             self.present(alerter.getUIAlertController(), animated: true, completion: nil)
@@ -132,9 +131,16 @@ class SignupController: UIViewController {
                 print(user)
     
             case .failure(let error):
-                print(error)
+                self.showRegisterError(error)
             }
         }
+    }
+    
+    private func showRegisterError(_ error:Error) -> Void{
+        let responseError = error as! ResponseError
+        let alerter = Alerter(responseError: responseError)
+        let alertController = alerter.getUIAlertController()
+        self.present(alertController, animated: true, completion: nil)
     }
 
 }
