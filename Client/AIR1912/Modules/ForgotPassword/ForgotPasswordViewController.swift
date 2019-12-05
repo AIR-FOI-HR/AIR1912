@@ -54,20 +54,13 @@ extension ForgotPasswordViewController{
      }
      
      private func showSuccessAlert(for user: User) {
-         
-        let alertController: UIAlertController = UIAlertController(title: "Sent to \(user.email)", message: "Check your email", preferredStyle: .alert)
-         alertController.addAction(UIAlertAction(title: "Dissmis", style: .default, handler: nil))
-         self.present(alertController, animated: true, completion: nil)
-             
-         
+        let alerter = Alerter(title: "Sent to \(user.email)", message: "Check your email")
+        alerter.alertSuccess()
      }
      
      private func showErrorAlert(with error: ResponseError) {
-        
-      let alertController: UIAlertController = UIAlertController(title: "Email is not found", message: "Check your email", preferredStyle: .alert)
-                 alertController.addAction(UIAlertAction(title: "Dissmis", style: .default, handler: nil))
-                 self.present(alertController, animated: true, completion: nil)
-             
+        let alerter = Alerter(title: "Email is not found", message: "Check email/nickname you've inserted")
+        alerter.alertError()
      }
 
     

@@ -70,10 +70,10 @@ extension MainViewController {
         loginSignView.layer.cornerRadius = 20
         print("View loadan")
         loadingActivity.isHidden = true
-        tryToLoginFromUserDefaults()
+        tryToLoginFromKeychain()
     }
     
-    func tryToLoginFromUserDefaults() {
+    func tryToLoginFromKeychain() {
 
         guard userKeychain.hasSessionData() else{
             return
@@ -105,8 +105,8 @@ extension MainViewController {
     }
     
     private func showErrorAlert(with error: ResponseError) {
-        let alerter = Alerter (responseError: error)
-        self.present(alerter.getUIAlertController(), animated: true, completion: nil)
+        let alerter = Alerter(title: error.title, message: error.message)
+        alerter.alertError()
     }
     
 }
