@@ -106,8 +106,7 @@ class SignupController: UIViewController {
             
         }
         // Check if password and confirm password are the same
-        var passwordsMatch:Bool = (passwordTxt.text == confirmPassowordTxt.text)
-        if passwordsMatch == false{
+        if (passwordTxt.text == confirmPassowordTxt.text) == false{
             alerter.title = "Sorry"
             alerter.message = "Passwords don't match"
             self.present(alerter.getUIAlertController(), animated: true, completion: nil)
@@ -129,12 +128,41 @@ class SignupController: UIViewController {
         registerService.register(with: newUser) { (result) in
             switch result {
             case .success(let user):
-                print(user)
+                self.addUserDataToKeychain(user)
     
             case .failure(let error):
-                print(error)
+                self.showRegisterError(error)
             }
         }
     }
+    
+    private func showRegisterError(_ error:Error) -> Void{
+        let responseError = error as! ResponseError
+        let alerter = Alerter(responseError: responseError)
+        let alertController = alerter.getUIAlertController()
+        self.present(alertController, animated: true, completion: nil)
+    }
+    
+    private func addUserDataToKeychain(_ user: User) -> Void{
+        let keychain = UserKeychain()
+        var clearedKeychain = keychain.clearSessionData()
+        
+        if(clearedKeychain == false){
+            print("we messed up")
+        }
+        else{
+            keychain.saveSessionData(email: user.email, password: user.password, nickname: user.nickname, avatar: "man")
+            goToHomescreen()
+        }
+        
+    }
+    
+    private func goToHomescreen() -> Void{
+        let HomeStoryboard:UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let HomeController = HomeStoryboard.instantiateViewController(identifier: "InitialScreen") as! MainViewController
+        HomeController.modalPresentationStyle = .fullScreen
+        self.present(HomeController, animated: true, completion: nil)
+    }
+    
 
 }

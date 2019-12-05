@@ -78,6 +78,11 @@ extension MainViewController {
         guard userKeychain.hasSessionData() else{
             return
         }
+        
+        print("Username: ", userKeychain.getNickname())
+        print("email: ", userKeychain.getEmail())
+        print("password: ", userKeychain.getPassword())
+        
         loadingActivity.isHidden = false
         buttonOutlet.isHidden = true
         buttonSignuUpOutlet.isHidden = true
@@ -85,13 +90,12 @@ extension MainViewController {
         authService.login( with: userKeychain.getEmail()!, password: userKeychain.getPassword()!) { (result) in
             switch result {
             case .success(let user):
+                print(user)
                 self.showSuccessAlert(for: user)
 
             case .failure(let error):
                 self.showErrorAlert(with: error as! ResponseError)
             }
-
-        
         }
     }
     
