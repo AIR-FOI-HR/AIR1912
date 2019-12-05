@@ -55,7 +55,10 @@ extension LoginViewController {
     private func loginUser() {
         
         guard let email = emailTextField.text, !email.isEmpty, let password = passwordTextField.text, !password.isEmpty else {
+            let alerter = Alerter(title: "Some fields missing", message: "Insert value into all fields")
+            alerter.alertError()
             return
+            
         }
         
         authService.login( with: email, password: password ) { (result) in
@@ -70,29 +73,17 @@ extension LoginViewController {
     }
     
     private func showSuccessAlert(for user: [User]) {
-        if(user.isEmpty){
-            let alertController: UIAlertController = UIAlertController(title: "User does not exist", message: "Check your username and password combination. If you Forgot password, try to recover it with designated button.", preferredStyle: .alert)
-            alertController.addAction(UIAlertAction(title: "Dissmis", style: .default, handler: nil))
-            self.present(alertController, animated: true, completion: nil)
-            
-            
-        }
-        else{
             let HomeStoryboard:UIStoryboard = UIStoryboard(name: "Homescreen", bundle: nil)
             let HomeController = HomeStoryboard.instantiateViewController(identifier: "HomeScreen") as! HomeSreenTabBarController
             HomeController.modalPresentationStyle = .fullScreen
             self.present(HomeController, animated: true, completion: nil)
            
             _ = userKeychain.saveSessionData(email: emailTextField.text!, password: passwordTextField.text!)
-            
-        }
     }
     
     private func showErrorAlert(with error: ResponseError) {
-        
-        let alertController: UIAlertController = UIAlertController(title: error.title , message: error.message, preferredStyle: .alert)
-        alertController.addAction(UIAlertAction(title: "Dissmis", style: .default, handler: nil))
-        self.present(alertController, animated: true, completion: nil)
+        let alerter = Alerter(title: error.title, message: error.message)
+        alerter.alertError()
     }
     
     
