@@ -88,7 +88,7 @@ extension MainViewController {
                 self.showSuccessAlert(for: user)
 
             case .failure(let error):
-                self.showErrorAlert(with: error)
+                self.showErrorAlert(with: error as! ResponseError)
             }
 
         
@@ -96,22 +96,17 @@ extension MainViewController {
     }
     
     private func showSuccessAlert(for user: [User]) {
-        print("User postoji")
-        if(user.isEmpty){
-            let alertController: UIAlertController = UIAlertController(title: "User does not exist", message: "It is possible that user is deleted in meanwhile from database", preferredStyle: .alert)
-            alertController.addAction(UIAlertAction(title: "Dissmis", style: .default, handler: nil))
-            self.present(alertController, animated: true, completion: nil)
-        }
-        else{
-            let HomeScreenStoryBoard:UIStoryboard = UIStoryboard(name: "Homescreen", bundle: nil)
-            let HomeScreenController = HomeScreenStoryBoard.instantiateViewController(identifier: "HomeScreen") as! HomeSreenTabBarController
-            HomeScreenController.modalPresentationStyle = .fullScreen
-            self.present(HomeScreenController, animated: true, completion: nil)
-        }
+       
+        let HomeScreenStoryBoard:UIStoryboard = UIStoryboard(name: "Homescreen", bundle: nil)
+        let HomeScreenController = HomeScreenStoryBoard.instantiateViewController(identifier: "HomeScreen") as! HomeSreenTabBarController
+        HomeScreenController.modalPresentationStyle = .fullScreen
+        self.present(HomeScreenController, animated: true, completion: nil)
+        
     }
     
-    private func showErrorAlert(with error: Error) {
-        print("Error!\(error)")
+    private func showErrorAlert(with error: ResponseError) {
+        let alerter = Alerter (responseError: error)
+        self.present(alerter.getUIAlertController(), animated: true, completion: nil)
     }
     
 }
