@@ -128,7 +128,7 @@ class SignupController: UIViewController {
         registerService.register(with: newUser) { (result) in
             switch result {
             case .success(let user):
-                print(user)
+                self.addUserDataToKeychain(user)
     
             case .failure(let error):
                 self.showRegisterError(error)
@@ -142,5 +142,17 @@ class SignupController: UIViewController {
         let alertController = alerter.getUIAlertController()
         self.present(alertController, animated: true, completion: nil)
     }
+    
+    private func addUserDataToKeychain(_ user: User) -> Void{
+        goToHomescreen()
+    }
+    
+    private func goToHomescreen() -> Void{
+        let HomeStoryboard:UIStoryboard = UIStoryboard(name: "Homescreen", bundle: nil)
+        let HomeController = HomeStoryboard.instantiateViewController(identifier: "HomeScreen") as! HomeSreenTabBarController
+        HomeController.modalPresentationStyle = .fullScreen
+        self.present(HomeController, animated: true, completion: nil)
+    }
+    
 
 }

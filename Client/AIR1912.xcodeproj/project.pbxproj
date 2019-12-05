@@ -127,7 +127,7 @@
 		421D5CA0237DC3A400C8AD1F /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				423F05A0239681E000D92D76 /* Responses */,
+				423F05A0239681E000D92D76 /* ModuleSwitching */,
 				42A9BAF7239284FD009C1912 /* ErrorHandling */,
 				4221044D23902528005B1B25 /* Extensions */,
 				421D5CA4237DCC5700C8AD1F /* Services */,
@@ -187,11 +187,11 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
-		423F05A0239681E000D92D76 /* Responses */ = {
+		423F05A0239681E000D92D76 /* ModuleSwitching */ = {
 			isa = PBXGroup;
 			children = (
 			);
-			path = Responses;
+			path = ModuleSwitching;
 			sourceTree = "<group>";
 		};
 		4250E5F123845A0900369FBC /* SignUp */ = {
