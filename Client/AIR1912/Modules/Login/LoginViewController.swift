@@ -64,7 +64,7 @@ extension LoginViewController {
                 self.showSuccessAlert(for: user)
                 
             case .failure(let error):
-                self.showErrorAlert(with: error)
+                self.showErrorAlert(with: error as! ResponseError)
             }
         }
     }
@@ -88,8 +88,11 @@ extension LoginViewController {
         }
     }
     
-    private func showErrorAlert(with error: Error) {
-        print("Error!\(error)")
+    private func showErrorAlert(with error: ResponseError) {
+        
+        let alertController: UIAlertController = UIAlertController(title: error.title , message: error.message, preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: "Dissmis", style: .default, handler: nil))
+        self.present(alertController, animated: true, completion: nil)
     }
     
     
