@@ -70,10 +70,10 @@ extension MainViewController {
         loginSignView.layer.cornerRadius = 20
         print("View loadan")
         loadingActivity.isHidden = true
-        tryToLoginFromUserDefaults()
+        tryToLoginFromKeychain()
     }
     
-    func tryToLoginFromUserDefaults() {
+    func tryToLoginFromKeychain() {
 
         guard userKeychain.hasSessionData() else{
             return
@@ -94,28 +94,23 @@ extension MainViewController {
                 self.showSuccessAlert(for: user)
 
             case .failure(let error):
-                self.showErrorAlert(with: error)
+                self.showErrorAlert(with: error as! ResponseError)
             }
         }
     }
     
     private func showSuccessAlert(for user: [User]) {
-        print("User postoji")
-        if(user.isEmpty){
-            let alertController: UIAlertController = UIAlertController(title: "User does not exist", message: "It is possible that user is deleted in meanwhile from database", preferredStyle: .alert)
-            alertController.addAction(UIAlertAction(title: "Dissmis", style: .default, handler: nil))
-            self.present(alertController, animated: true, completion: nil)
-        }
-        else{
-            let HomeScreenStoryBoard:UIStoryboard = UIStoryboard(name: "Homescreen", bundle: nil)
-            let HomeScreenController = HomeScreenStoryBoard.instantiateViewController(identifier: "HomeScreen") as! HomeSreenTabBarController
-            HomeScreenController.modalPresentationStyle = .fullScreen
-            self.present(HomeScreenController, animated: true, completion: nil)
-        }
+       
+        let HomeScreenStoryBoard:UIStoryboard = UIStoryboard(name: "Homescreen", bundle: nil)
+        let HomeScreenController = HomeScreenStoryBoard.instantiateViewController(identifier: "HomeScreen") as! HomeSreenTabBarController
+        HomeScreenController.modalPresentationStyle = .fullScreen
+        self.present(HomeScreenController, animated: true, completion: nil)
+        
     }
     
-    private func showErrorAlert(with error: Error) {
-        print("Error!\(error)")
+    private func showErrorAlert(with error: ResponseError) {
+        let alerter = Alerter(title: error.title, message: error.message)
+        alerter.alertError()
     }
     
 }
