@@ -144,12 +144,22 @@ class SignupController: UIViewController {
     }
     
     private func addUserDataToKeychain(_ user: User) -> Void{
-        goToHomescreen()
+        let keychain = UserKeychain()
+        var clearedKeychain = keychain.clearSessionData()
+        
+        if(clearedKeychain == false){
+            print("we messed up")
+        }
+        else{
+            keychain.saveSessionData(email: user.email, password: user.password, nickname: user.nickname, avatar: "man")
+            goToHomescreen()
+        }
+        
     }
     
     private func goToHomescreen() -> Void{
-        let HomeStoryboard:UIStoryboard = UIStoryboard(name: "Homescreen", bundle: nil)
-        let HomeController = HomeStoryboard.instantiateViewController(identifier: "HomeScreen") as! HomeSreenTabBarController
+        let HomeStoryboard:UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let HomeController = HomeStoryboard.instantiateViewController(identifier: "InitialScreen") as! HomeSreenTabBarController
         HomeController.modalPresentationStyle = .fullScreen
         self.present(HomeController, animated: true, completion: nil)
     }
