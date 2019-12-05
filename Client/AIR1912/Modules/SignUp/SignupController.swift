@@ -159,7 +159,7 @@ class SignupController: UIViewController {
     
     private func goToHomescreen() -> Void{
         let HomeStoryboard:UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        let HomeController = HomeStoryboard.instantiateViewController(identifier: "InitialScreen") as! HomeSreenTabBarController
+        let HomeController = HomeStoryboard.instantiateViewController(identifier: "InitialScreen") as! MainViewController
         HomeController.modalPresentationStyle = .fullScreen
         self.present(HomeController, animated: true, completion: nil)
     }
