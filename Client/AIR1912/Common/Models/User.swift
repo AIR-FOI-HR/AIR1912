@@ -7,7 +7,27 @@
 //
 
 import Foundation
+import UIKit
 
+enum Avatar: String, CaseIterable, Codable {
+    case men
+    case woman
+    case boy
+    case logo
+    
+    var image: UIImage {
+        switch self {
+        case .men:
+            return #imageLiteral(resourceName: "man-156584_1280")
+        case .woman:
+            return #imageLiteral(resourceName: "teacher-359311_1280")
+        case .boy:
+            return #imageLiteral(resourceName: "boy-38262_1280")
+        case .logo:
+            return #imageLiteral(resourceName: "Logo")
+        }
+    }
+}
 
 struct User: Codable {
     let nickname:String
@@ -16,4 +36,5 @@ struct User: Codable {
     let surname:String
     let email:String
     let password:String
+    // let avatar: Avatar
 }

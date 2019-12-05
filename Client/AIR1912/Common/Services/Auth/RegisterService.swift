@@ -12,9 +12,9 @@ import CodableAlamofire
 
 class RegisterService {
     
-    func register(with nickname:String, name: String, surname:String, email:String, password: String, completion: @escaping (Result<User>) -> Void) {
+    func register(with newUser:User, completion: @escaping (Result<User>) -> Void)
+    {
         let decoder = JSONDecoder()
-        let newUser = User(nickname: nickname, idUsers: nil, name: name, surname: surname, email: email, password: password)
         let newUserDict = try! newUser.asDictionary()
         
         Alamofire
@@ -22,8 +22,8 @@ class RegisterService {
             .validate()
             .responseDecodableObject(decoder: decoder) { (response: DataResponse<User>) in
                 switch response.result {
-                case .success(let model):
-                    completion(.success(model))
+                case .success(let user):
+                    completion(.success(user))
                 case .failure(let error):
                     completion(.failure(ResponseErrorBuilder.decodedError(fromData: response.data, fallbackError: error)))
             }

@@ -51,7 +51,7 @@ class SignupController: UIViewController {
         confirmPassowordTxt.tag = 4
         
         //images to choose from
-        avatarImages = [#imageLiteral(resourceName: "man-156584_1280"),#imageLiteral(resourceName: "teacher-359311_1280"),#imageLiteral(resourceName: "boy-38262_1280"),#imageLiteral(resourceName: "Logo")]
+        avatarImages = Avatar.allCases.map { $0.image }
         
         for i in 0..<avatarImages.count{
             let imageView = UIImageView()
@@ -63,6 +63,14 @@ class SignupController: UIViewController {
             avatarSelection.contentSize.width = avatarSelection.frame.width * CGFloat(i + 1)
             avatarSelection.addSubview(imageView)
         }
+    }
+    
+    func currentAvatar() -> Avatar {
+        let allCases = Avatar.allCases // all avatars from enum
+        let currentOffsetX = avatarSelection.contentOffset.x // content offset in avatar selection
+        guard currentOffsetX != 0 else { return allCases[0] } // if offset is 0, first image is selected
+        let currentIndex = Int(currentOffsetX / avatarSelection.frame.width)
+        return allCases[currentIndex] // selected avatar
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool{
@@ -83,6 +91,9 @@ class SignupController: UIViewController {
     // On button pressed
     @IBAction func buttonNext(_ sender: Any) {
         var readyToProceed = true
+        
+        let avatar = currentAvatar()
+        avatar.rawValue
         
         // Check if all fields are filled
         if  nicknameTxt.text?.isEmpty ?? true || nameTxt.text?.isEmpty ?? true || surnameTxt.text?.isEmpty ?? true || emailTxt.text?.isEmpty ?? true || passwordTxt.text?.isEmpty ?? true || confirmPassowordTxt.text?.isEmpty ?? true{
@@ -105,14 +116,17 @@ class SignupController: UIViewController {
         }
         
         if readyToProceed{
-            addUser(nicknameTxt.text!, nameTxt.text!, surnameTxt.text!, emailTxt.text!, passwordTxt.text!)
+            let selectedAvatar = currentAvatar()
+            let newUser = User(nickname: nicknameTxt.text!, idUsers: nil,name: nameTxt.text!,surname: surnameTxt.text!, email: emailTxt.text!, password: passwordTxt.text!) //avatar:selectedAvatar
+            
+            addUser(newUser)
         }
         
     }
     
-    private func addUser(_ nickname:String, _ name:String,_ surname:String,_ email:String,_ password:String) -> Void{
+    private func addUser(_ newUser:User) -> Void{
     
-        registerService.register(with: nickname ,name: name, surname: surname, email: email, password: password) { (result) in
+        registerService.register(with: newUser) { (result) in
             switch result {
             case .success(let user):
                 print(user)
