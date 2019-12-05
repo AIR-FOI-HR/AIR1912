@@ -27,30 +27,35 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="s1I-B6-Eqa">
                                 <rect key="frame" x="40" y="344" width="334" height="452"/>
                                 <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2Qo-uT-XiR" userLabel="Nickname Txt">
+                                        <rect key="frame" x="0.0" y="0.0" width="334" height="67"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VrJ-DK-9hK">
-                                        <rect key="frame" x="0.0" y="0.0" width="334" height="82.5"/>
+                                        <rect key="frame" x="0.0" y="77" width="334" height="67"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="28"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Surname" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MeT-Gl-j3d">
-                                        <rect key="frame" x="0.0" y="92.5" width="334" height="82.5"/>
+                                        <rect key="frame" x="0.0" y="154" width="334" height="67"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="28"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ydE-0G-NhD">
-                                        <rect key="frame" x="0.0" y="185" width="334" height="82"/>
+                                        <rect key="frame" x="0.0" y="231" width="334" height="67"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="28"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YsP-JO-7ir">
-                                        <rect key="frame" x="0.0" y="277" width="334" height="82.5"/>
+                                        <rect key="frame" x="0.0" y="308" width="334" height="67"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="28"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Confirm password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bN6-nK-Jko">
-                                        <rect key="frame" x="0.0" y="369.5" width="334" height="82.5"/>
+                                        <rect key="frame" x="0.0" y="385" width="334" height="67"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="28"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                     </textField>
                                 </subviews>
                             </stackView>
@@ -75,6 +80,7 @@
                         <outlet property="confirmPassowordTxt" destination="bN6-nK-Jko" id="1H7-1L-9g9"/>
                         <outlet property="emailTxt" destination="ydE-0G-NhD" id="Eic-sI-8Wg"/>
                         <outlet property="nameTxt" destination="VrJ-DK-9hK" id="MWG-Wc-BvM"/>
+                        <outlet property="nicknameTxt" destination="2Qo-uT-XiR" id="S2N-db-9mZ"/>
                         <outlet property="passwordTxt" destination="YsP-JO-7ir" id="wst-vv-Hpa"/>
                         <outlet property="surnameTxt" destination="MeT-Gl-j3d" id="6Am-bW-JeU"/>
                     </connections>
