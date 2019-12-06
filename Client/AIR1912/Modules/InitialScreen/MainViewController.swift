@@ -41,7 +41,7 @@ class MainViewController: UIViewController {
      override func viewWillAppear(_ animated: Bool) {
         
         super.viewWillAppear(animated)
-        additionalSetup()
+        //additionalSetup()
     }
     
     
@@ -70,14 +70,22 @@ extension MainViewController {
         loginSignView.layer.cornerRadius = 20
         print("View loadan")
         loadingActivity.isHidden = true
-        tryToLoginFromUserDefaults()
+        tryToLoginFromKeychain()
     }
     
-    func tryToLoginFromUserDefaults() {
+    func tryToLoginFromKeychain() {
 
         guard userKeychain.hasSessionData() else{
             return
         }
+        
+        print("Has data: ", userKeychain.hasSessionData())
+        print("Username: ", userKeychain.getNickname())
+        print("email: ", userKeychain.getEmail())
+        print("password: ", userKeychain.getPassword())
+        print("Avatar: ", userKeychain.getAvatar())
+         
+        
         loadingActivity.isHidden = false
         buttonOutlet.isHidden = true
         buttonSignuUpOutlet.isHidden = true
@@ -85,33 +93,31 @@ extension MainViewController {
         authService.login( with: userKeychain.getEmail()!, password: userKeychain.getPassword()!) { (result) in
             switch result {
             case .success(let user):
+                print(user)
                 self.showSuccessAlert(for: user)
 
             case .failure(let error):
-                self.showErrorAlert(with: error)
+                self.showErrorAlert(with: error as! ResponseError)
             }
-
-        
         }
     }
     
     private func showSuccessAlert(for user: [User]) {
-        print("User postoji")
-        if(user.isEmpty){
-            let alertController: UIAlertController = UIAlertController(title: "User does not exist", message: "It is possible that user is deleted in meanwhile from database", preferredStyle: .alert)
-            alertController.addAction(UIAlertAction(title: "Dissmis", style: .default, handler: nil))
-            self.present(alertController, animated: true, completion: nil)
-        }
-        else{
-            let HomeScreenStoryBoard:UIStoryboard = UIStoryboard(name: "Homescreen", bundle: nil)
-            let HomeScreenController = HomeScreenStoryBoard.instantiateViewController(identifier: "HomeScreen") as! HomeSreenTabBarController
-            HomeScreenController.modalPresentationStyle = .fullScreen
-            self.present(HomeScreenController, animated: true, completion: nil)
-        }
+       
+        let HomeScreenStoryBoard:UIStoryboard = UIStoryboard(name: "Homescreen", bundle: nil)
+        let HomeScreenController = HomeScreenStoryBoard.instantiateViewController(identifier: "HomeScreen") as! HomeSreenTabBarController
+        HomeScreenController.modalPresentationStyle = .fullScreen
+        self.present(HomeScreenController, animated: true, completion: nil)
+        
     }
     
-    private func showErrorAlert(with error: Error) {
-        print("Error!\(error)")
+    private func showErrorAlert(with error: ResponseError) {
+        let alerter = Alerter(title: error.title, message: error.message)
+        alerter.alertError()
+        print("Trebalo bi stati")
+        loadingActivity.isHidden = true
+        buttonOutlet.isHidden = false
+        buttonSignuUpOutlet.isHidden = false
     }
     
 }

@@ -17,8 +17,14 @@
 		421D5CAC237DD17700C8AD1F /* GameProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 421D5CAB237DD17700C8AD1F /* GameProvider.swift */; };
 		421D5CAE237DD18B00C8AD1F /* ContentProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 421D5CAD237DD18B00C8AD1F /* ContentProvider.swift */; };
 		421D5CB0237DD2D100C8AD1F /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 421D5CAF237DD2D100C8AD1F /* Movie.swift */; };
+		4221044F23902546005B1B25 /* Encodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4221044E23902546005B1B25 /* Encodable.swift */; };
+		423F05A423981C0400D92D76 /* ResponseError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423F05A323981C0400D92D76 /* ResponseError.swift */; };
+		423F05A623981D6F00D92D76 /* ResponseErrorBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423F05A523981D6F00D92D76 /* ResponseErrorBuilder.swift */; };
 		4250E5F323845A5600369FBC /* Signup.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4250E5F223845A5600369FBC /* Signup.storyboard */; };
 		4250E5F723845C3B00369FBC /* SignupController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4250E5F623845C3B00369FBC /* SignupController.swift */; };
+		42A9BAF923928569009C1912 /* Alerter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A9BAF823928569009C1912 /* Alerter.swift */; };
+		42A9BAFB23929173009C1912 /* JsonResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A9BAFA23929173009C1912 /* JsonResponse.swift */; };
+		42A9BAFD239293FD009C1912 /* RegisterService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A9BAFC239293FD009C1912 /* RegisterService.swift */; };
 		42B47C192385B288002C554F /* UserPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B47C182385B288002C554F /* UserPost.swift */; };
 		D0655947A9CF0CDD85866E29 /* Pods_AIR1912.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0702C62035766E8AC911DBD4 /* Pods_AIR1912.framework */; };
 		ED35F611237560D8009ED574 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED35F610237560D8009ED574 /* AppDelegate.swift */; };
@@ -59,8 +65,14 @@
 		421D5CAB237DD17700C8AD1F /* GameProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameProvider.swift; sourceTree = "<group>"; };
 		421D5CAD237DD18B00C8AD1F /* ContentProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentProvider.swift; sourceTree = "<group>"; };
 		421D5CAF237DD2D100C8AD1F /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
+		4221044E23902546005B1B25 /* Encodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Encodable.swift; sourceTree = "<group>"; };
+		423F05A323981C0400D92D76 /* ResponseError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseError.swift; sourceTree = "<group>"; };
+		423F05A523981D6F00D92D76 /* ResponseErrorBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseErrorBuilder.swift; sourceTree = "<group>"; };
 		4250E5F223845A5600369FBC /* Signup.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Signup.storyboard; sourceTree = "<group>"; };
 		4250E5F623845C3B00369FBC /* SignupController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupController.swift; sourceTree = "<group>"; };
+		42A9BAF823928569009C1912 /* Alerter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alerter.swift; sourceTree = "<group>"; };
+		42A9BAFA23929173009C1912 /* JsonResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonResponse.swift; sourceTree = "<group>"; };
+		42A9BAFC239293FD009C1912 /* RegisterService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterService.swift; sourceTree = "<group>"; };
 		42B47C182385B288002C554F /* UserPost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPost.swift; sourceTree = "<group>"; };
 		949424CDCE90C8DF2A9D94EF /* Pods-AIR1912.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AIR1912.release.xcconfig"; path = "Target Support Files/Pods-AIR1912/Pods-AIR1912.release.xcconfig"; sourceTree = "<group>"; };
 		CD0D060BD77CBC12E7F44CDE /* Pods-AIR1912.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AIR1912.debug.xcconfig"; path = "Target Support Files/Pods-AIR1912/Pods-AIR1912.debug.xcconfig"; sourceTree = "<group>"; };
@@ -115,6 +127,9 @@
 		421D5CA0237DC3A400C8AD1F /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				423F05A0239681E000D92D76 /* ModuleSwitching */,
+				42A9BAF7239284FD009C1912 /* ErrorHandling */,
+				4221044D23902528005B1B25 /* Extensions */,
 				421D5CA4237DCC5700C8AD1F /* Services */,
 				421D5CA1237DC3BD00C8AD1F /* Models */,
 			);
@@ -124,6 +139,7 @@
 		421D5CA1237DC3BD00C8AD1F /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				42A9BAFA23929173009C1912 /* JsonResponse.swift */,
 				421D5CA2237DC3CC00C8AD1F /* User.swift */,
 				421D5CAF237DD2D100C8AD1F /* Movie.swift */,
 				4212CC002385ACD300C53210 /* Game.swift */,
@@ -148,6 +164,7 @@
 			children = (
 				421D5CA6237DCC6F00C8AD1F /* AuthService.swift */,
 				ED52876E2385A2F100848D66 /* RecoverPassService.swift */,
+				42A9BAFC239293FD009C1912 /* RegisterService.swift */,
 			);
 			path = Auth;
 			sourceTree = "<group>";
@@ -162,6 +179,21 @@
 			path = Providers;
 			sourceTree = "<group>";
 		};
+		4221044D23902528005B1B25 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				4221044E23902546005B1B25 /* Encodable.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		423F05A0239681E000D92D76 /* ModuleSwitching */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ModuleSwitching;
+			sourceTree = "<group>";
+		};
 		4250E5F123845A0900369FBC /* SignUp */ = {
 			isa = PBXGroup;
 			children = (
@@ -169,6 +201,16 @@
 				4250E5F623845C3B00369FBC /* SignupController.swift */,
 			);
 			path = SignUp;
+			sourceTree = "<group>";
+		};
+		42A9BAF7239284FD009C1912 /* ErrorHandling */ = {
+			isa = PBXGroup;
+			children = (
+				42A9BAF823928569009C1912 /* Alerter.swift */,
+				423F05A323981C0400D92D76 /* ResponseError.swift */,
+				423F05A523981D6F00D92D76 /* ResponseErrorBuilder.swift */,
+			);
+			path = ErrorHandling;
 			sourceTree = "<group>";
 		};
 		D4599444072A6E24183574A5 /* Pods */ = {
@@ -474,6 +516,11 @@
 				421D5CAE237DD18B00C8AD1F /* ContentProvider.swift in Sources */,
 				EDBE0169237F1B2000F15CE5 /* MainViewController.swift in Sources */,
 				4219917A239413F800CCAA89 /* InterestsViewController.swift in Sources */,
+				42A9BAFB23929173009C1912 /* JsonResponse.swift in Sources */,
+				ED52876F2385A2F100848D66 /* RecoverPassService.swift in Sources */,
+				ED5287712385AE9C00848D66 /* RecoverPassCodes.swift in Sources */,
+				4250E5F723845C3B00369FBC /* SignupController.swift in Sources */,
+				EDBE0169237F1B2000F15CE5 /* MainViewController.swift in Sources */,
 				EDB57AAD238EA8E40032DC9E /* SearchController.swift in Sources */,
 				ED52876F2385A2F100848D66 /* RecoverPassService.swift in Sources */,
 				ED5287712385AE9C00848D66 /* RecoverPassCodes.swift in Sources */,
@@ -486,9 +533,14 @@
 				421991782394130000CCAA89 /* InterestCollectionViewCell.swift in Sources */,
 				EDB57AA8238EA6700032DC9E /* HomeSreenTabBarController.swift in Sources */,
 				421D5CAA237DD16C00C8AD1F /* MovieProvider.swift in Sources */,
+				42A9BAF923928569009C1912 /* Alerter.swift in Sources */,
+				423F05A623981D6F00D92D76 /* ResponseErrorBuilder.swift in Sources */,
 				EDFD7E7E239107430028C4D5 /* UserProfileViewController.swift in Sources */,
+				42A9BAFD239293FD009C1912 /* RegisterService.swift in Sources */,
 				ED52876D2385A04000848D66 /* ForgotPasswordViewController.swift in Sources */,
 				421D5CA7237DCC6F00C8AD1F /* AuthService.swift in Sources */,
+				423F05A423981C0400D92D76 /* ResponseError.swift in Sources */,
+				4221044F23902546005B1B25 /* Encodable.swift in Sources */,
 				EDFD7E8223910EAD0028C4D5 /* UserKeychain.swift in Sources */,
 				421D5CA3237DC3CC00C8AD1F /* User.swift in Sources */,
 				EDB57AA4238EA4430032DC9E /* MapsController.swift in Sources */,
