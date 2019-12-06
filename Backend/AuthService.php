@@ -17,7 +17,7 @@ if (mysqli_connect_errno())
 
 
 // This SQL statement selects ALL from the table 'Locations'
-$sql = "SELECT * FROM Users WHERE name = '$name' AND password= '$password'";
+$sql = "SELECT * FROM Users WHERE email = '$name' AND password= '$password'";
  
 // Check if there are results
 if ($result = mysqli_query($connectionString, $sql))
