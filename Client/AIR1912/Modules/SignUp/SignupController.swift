@@ -20,6 +20,9 @@ class SignupController: UIViewController {
     @IBOutlet weak var confirmPassowordTxt: UITextField!
     
     
+    @IBAction func backButton(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
     
     @IBOutlet weak var avatarSelection: UIScrollView!
     

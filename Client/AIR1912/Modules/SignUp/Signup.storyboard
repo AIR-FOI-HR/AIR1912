@@ -65,6 +65,14 @@
                                 <viewLayoutGuide key="contentLayoutGuide" id="sqv-64-QBh"/>
                                 <viewLayoutGuide key="frameLayoutGuide" id="ahd-yT-iRI"/>
                             </scrollView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ERq-Zq-o5O">
+                                <rect key="frame" x="20" y="44" width="28" height="22"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button" image="arrowshape.turn.up.left" catalog="system"/>
+                                <connections>
+                                    <action selector="backButton:" destination="EAf-WP-8bL" eventType="touchUpInside" id="gba-0c-YMm"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
@@ -90,4 +98,7 @@
             <point key="canvasLocation" x="-171.01449275362319" y="-76.339285714285708"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="arrowshape.turn.up.left" catalog="system" width="64" height="52"/>
+    </resources>
 </document>
