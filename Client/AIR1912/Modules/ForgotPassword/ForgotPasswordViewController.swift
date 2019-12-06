@@ -16,6 +16,7 @@ class ForgotPasswordViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var scrollView: UIScrollView!
     
     @IBOutlet weak var constraintContentHeight: NSLayoutConstraint!
+    
     //MARK: -Properties
     let recoverPassService = RecoverPassService()
     var activeField:UITextField? = UITextField()
