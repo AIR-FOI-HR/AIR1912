@@ -93,7 +93,7 @@ class SignupController: UIViewController {
         var readyToProceed = true
         
         let avatar = currentAvatar()
-        avatar.rawValue
+        //avatar.rawValue
         
         // Check if all fields are filled
         if  nicknameTxt.text?.isEmpty ?? true || nameTxt.text?.isEmpty ?? true || surnameTxt.text?.isEmpty ?? true || emailTxt.text?.isEmpty ?? true || passwordTxt.text?.isEmpty ?? true || confirmPassowordTxt.text?.isEmpty ?? true{
@@ -116,8 +116,7 @@ class SignupController: UIViewController {
         
         if readyToProceed{
             let selectedAvatar = currentAvatar()
-            let newUser = User(nickname: nicknameTxt.text!, idUsers: nil,name: nameTxt.text!,surname: surnameTxt.text!, email: emailTxt.text!, password: passwordTxt.text!) //avatar:selectedAvatar
-            
+            let newUser = User(nickname: nicknameTxt.text!, idUsers: nil,name: nameTxt.text!,surname: surnameTxt.text!, email: emailTxt.text!, password: passwordTxt.text!, avatar: selectedAvatar)
             addUser(newUser)
         }
         
@@ -145,13 +144,13 @@ class SignupController: UIViewController {
     
     private func addUserDataToKeychain(_ user: User) -> Void{
         let keychain = UserKeychain()
-        var clearedKeychain = keychain.clearSessionData()
+        let clearedKeychain = keychain.clearSessionData()
         
         if(clearedKeychain == false){
             print("we messed up")
         }
         else{
-            keychain.saveSessionData(email: user.email, password: user.password, nickname: user.nickname, avatar: "man")
+            keychain.saveSessionData(email: user.email, password: user.password, nickname: user.nickname, avatar: user.avatar.rawValue)
             goToHomescreen()
         }
         
@@ -164,5 +163,4 @@ class SignupController: UIViewController {
         self.present(HomeController, animated: true, completion: nil)
     }
     
-
 }

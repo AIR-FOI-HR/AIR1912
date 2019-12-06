@@ -36,5 +36,5 @@ struct User: Codable {
     let surname:String
     let email:String
     let password:String
-    // let avatar: Avatar
+    let avatar: Avatar
 }

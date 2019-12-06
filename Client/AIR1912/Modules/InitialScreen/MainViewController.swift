@@ -41,7 +41,7 @@ class MainViewController: UIViewController {
      override func viewWillAppear(_ animated: Bool) {
         
         super.viewWillAppear(animated)
-        additionalSetup()
+        //additionalSetup()
     }
     
     
@@ -79,9 +79,12 @@ extension MainViewController {
             return
         }
         
+        print("Has data: ", userKeychain.hasSessionData())
         print("Username: ", userKeychain.getNickname())
         print("email: ", userKeychain.getEmail())
         print("password: ", userKeychain.getPassword())
+        print("Avatar: ", userKeychain.getAvatar())
+         
         
         loadingActivity.isHidden = false
         buttonOutlet.isHidden = true
@@ -111,6 +114,10 @@ extension MainViewController {
     private func showErrorAlert(with error: ResponseError) {
         let alerter = Alerter(title: error.title, message: error.message)
         alerter.alertError()
+        print("Trebalo bi stati")
+        loadingActivity.isHidden = true
+        buttonOutlet.isHidden = false
+        buttonSignuUpOutlet.isHidden = false
     }
     
 }
