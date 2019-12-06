@@ -8,15 +8,20 @@
 
 import UIKit
 
-class ForgotPasswordViewController: UIViewController {
+class ForgotPasswordViewController: UIViewController, UITextFieldDelegate {
 
     //MARK: -IBOutlets
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var containerView: UIView!
+    @IBOutlet weak var scrollView: UIScrollView!
+    
+    @IBOutlet weak var constraintContentHeight: NSLayoutConstraint!
     
     //MARK: -Properties
     let recoverPassService = RecoverPassService()
-   
+    var activeField:UITextField? = UITextField()
+    var lastOffset:CGPoint = CGPoint()
+    var keyboardHeight:CGFloat? = CGFloat()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,6 +45,9 @@ extension ForgotPasswordViewController{
     private func additionalSetup(){
         
         containerView.layer.cornerRadius = 15
+        emailTextField.delegate = self
+    NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+    NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
     
     private func recoverPass() {
@@ -69,6 +77,19 @@ extension ForgotPasswordViewController{
          self.dismiss(animated: true, completion: nil)
      }
     
+    @objc func keyboardWillShow(notification: NSNotification) {
+        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
+            if self.view.frame.origin.y == 0 {
+                self.view.frame.origin.y -= keyboardSize.height
+            }
+        }
+    }
+
+    @objc func keyboardWillHide(notification: NSNotification) {
+        if self.view.frame.origin.y != 0 {
+            self.view.frame.origin.y = 0
+        }
+    }
     
     
 }
