@@ -13,7 +13,7 @@ import Alamofire
 let API_URL = "http://air1912.000webhostapp.com/service.php"
 
 
-class LoginViewController: UIViewController {
+class LoginViewController: UIViewController, UITextFieldDelegate {
 
     // MARK: - IBOutlets
     @IBOutlet weak var emailTextField: UITextField!
@@ -24,12 +24,15 @@ class LoginViewController: UIViewController {
     private let authService: AuthService = AuthService()
     private let userKeychain: UserKeychain = UserKeychain()
     
+    //MARK: -
+    
     
     @IBAction func btnBack(_ sender: Any) {
         
         self.dismiss(animated: true, completion: nil)
         
     }
+    
     
     
     @IBAction func btnLoginClicked(_ sender: Any) {

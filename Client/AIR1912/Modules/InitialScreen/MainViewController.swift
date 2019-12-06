@@ -79,10 +79,6 @@ extension MainViewController {
             return
         }
         
-        print("Username: ", userKeychain.getNickname())
-        print("email: ", userKeychain.getEmail())
-        print("password: ", userKeychain.getPassword())
-        
         loadingActivity.isHidden = false
         buttonOutlet.isHidden = true
         buttonSignuUpOutlet.isHidden = true
