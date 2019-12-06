@@ -16,7 +16,8 @@ class UserProfileViewController: UIViewController {
     @IBAction func logoutButton(_ sender: Any) {
         logout()
     }
-  
+    @IBOutlet weak var nicknameText: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -26,6 +27,10 @@ class UserProfileViewController: UIViewController {
         let userImage = avatar!.image
 
         userAvatar.image = userImage
+        
+        // set welcome message with nickname
+        let userNickname = keychain.getNickname()
+        nicknameText.text = "Hi " + userNickname!
     }
     
     private func logout() -> Void{
