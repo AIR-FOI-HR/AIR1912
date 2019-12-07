@@ -13,4 +13,5 @@ target 'AIR1912' do
   pod 'Spring', :git => 'https://github.com/MengTo/Spring.git'
   pod 'CodableAlamofire'
   pod 'Kingfisher'
+  pod 'SCLAlertView'
 end

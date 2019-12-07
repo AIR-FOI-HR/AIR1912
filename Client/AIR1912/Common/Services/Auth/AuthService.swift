@@ -26,7 +26,7 @@ class AuthService {
                         users))
                         
                 case .failure(let error):
-                    completion(.failure(error))
+                    completion(.failure(ResponseErrorBuilder.decodedError(fromData: response.data, fallbackError: error)))
                 }
                  
             }
