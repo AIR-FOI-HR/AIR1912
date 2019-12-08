@@ -21,14 +21,14 @@ struct Game: Decodable, Content {
     
     var title: String
     var description: String?
-    var _poster: String?
+    var poster: String
     var year: String?
     //var genreId: [Int]
     
     enum CodingKeys: String, CodingKey {
         case title = "name"
         case description = "slug"
-        case _poster = "background_image"
+        case poster = "background_image"
         case year = "released"
         //case genreId = "category"
     }

@@ -29,14 +29,14 @@ class InterestsViewController : UIViewController {
         collectionView.dataSource = self
         collectionView2.dataSource = self
         
-        getTrendingContent(for: .game)
-        getTrendingContent(for: .movie)
+        getPopularContent(for: .game)
+        getPopularContent(for: .movie)
     }
 }
 
 extension InterestsViewController {
     
-    private func getTrendingContent(for type: ContentType) {
+    private func getPopularContent(for type: ContentType) {
         let provider: ContentProvider
         switch type {
         case .game:
@@ -45,7 +45,7 @@ extension InterestsViewController {
             provider = MovieProvider()
         }
         
-        provider.getTrendingContent { (result) in
+        provider.getPopularContent { (result) in
             switch result {
             case .success(let podaci):
                 self.updateContent(for: type, result: podaci)

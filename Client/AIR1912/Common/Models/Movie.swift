@@ -15,6 +15,7 @@ struct MovieResponse: Decodable {
 }
 
 struct Movie: Decodable, Content {
+    
     var type: ContentType {
         return .movie
     }
