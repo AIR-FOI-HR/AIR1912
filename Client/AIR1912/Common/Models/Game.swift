@@ -18,20 +18,18 @@ struct Game: Decodable, Content {
     var type: ContentType {
         return .game
     }
-    var title: String {
-        return _title ?? "Unknown"
-    }
-    private var _title: String?
+    
+    var title: String
     var description: String?
-    var _poster: Int?
+    var _poster: String?
     var year: String?
     //var genreId: [Int]
     
     enum CodingKeys: String, CodingKey {
-        case _title = "name"
-        case description = "summary"
-        case _poster = "cover"
-        case year = "release_date"
+        case title = "name"
+        case description = "slug"
+        case _poster = "background_image"
+        case year = "released"
         //case genreId = "category"
     }
     
@@ -47,6 +45,6 @@ struct Game: Decodable, Content {
               //      completion(nil)
                // }
         //}
-        completion(nil)
+        //completion(nil)
     }
 }
