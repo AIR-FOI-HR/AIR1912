@@ -100,7 +100,7 @@
                                                                             <rect key="frame" x="0.0" y="0.0" width="140" height="250"/>
                                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                             <subviews>
-                                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="aDQ-XB-KPk">
+                                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="aDQ-XB-KPk">
                                                                                     <rect key="frame" x="0.0" y="0.0" width="140" height="250"/>
                                                                                     <constraints>
                                                                                         <constraint firstAttribute="height" constant="250" id="b8u-6s-xXY"/>
@@ -121,6 +121,10 @@
                                                                         </connections>
                                                                     </collectionViewCell>
                                                                 </cells>
+                                                                <connections>
+                                                                    <outlet property="dataSource" destination="JCw-dF-OzV" id="znA-OA-2JW"/>
+                                                                    <outlet property="delegate" destination="JCw-dF-OzV" id="2aG-Ew-As7"/>
+                                                                </connections>
                                                             </collectionView>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Games" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Jk-yK-chs">
                                                                 <rect key="frame" x="0.0" y="423" width="414" height="36"/>
@@ -148,7 +152,7 @@
                                                                             <rect key="frame" x="0.0" y="0.0" width="140" height="250"/>
                                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                             <subviews>
-                                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="2OA-PP-gwW">
+                                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="2OA-PP-gwW">
                                                                                     <rect key="frame" x="0.0" y="0.0" width="140" height="250"/>
                                                                                     <constraints>
                                                                                         <constraint firstAttribute="width" constant="140" id="1pw-Vn-FQa"/>
@@ -169,6 +173,10 @@
                                                                         </connections>
                                                                     </collectionViewCell>
                                                                 </cells>
+                                                                <connections>
+                                                                    <outlet property="dataSource" destination="JCw-dF-OzV" id="9GD-pZ-LIg"/>
+                                                                    <outlet property="delegate" destination="JCw-dF-OzV" id="hgd-Yp-9j4"/>
+                                                                </connections>
                                                             </collectionView>
                                                         </subviews>
                                                     </stackView>
