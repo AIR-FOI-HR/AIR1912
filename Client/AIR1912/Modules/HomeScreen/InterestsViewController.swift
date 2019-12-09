@@ -70,12 +70,21 @@ extension InterestsViewController {
 extension InterestsViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return movieDatasource.count
+        if collectionView === self.collectionView {
+            return movieDatasource.count
+        } else {
+            return gamesDatasource.count
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "InterestCollectionViewCell", for: indexPath) as! InterestCollectionViewCell
-        let content = movieDatasource[indexPath.item]
+        let content: Content
+        if collectionView === self.collectionView{
+            content = movieDatasource[indexPath.row]
+        } else {
+            content = gamesDatasource[indexPath.row]
+        }
         cell.configure(with: content)
         return cell
     }

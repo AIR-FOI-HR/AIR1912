@@ -34,17 +34,7 @@ struct Game: Decodable, Content {
     }
     
     func getPosterURL(completion: @escaping (URL?) -> Void) {
-        //Alamofire
-         //   .request(URL(string: "")!)
-          //  .responseDecodableObject { (result) in
-            //    switch result {
-              //  case .success(let object):
-              //      let url = object.url
-              //      completion(url)
-             //   case .failure:
-              //      completion(nil)
-               // }
-        //}
-        //completion(nil)
+        let url = URL(string: poster)
+        completion(url)
     }
 }
