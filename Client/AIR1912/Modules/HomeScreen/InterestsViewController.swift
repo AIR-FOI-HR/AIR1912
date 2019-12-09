@@ -30,14 +30,14 @@ class InterestsViewController : UIViewController {
         collectionView.dataSource = self
         collectionView2.dataSource = self
         
-        getTrendingContent(for: .game)
-        getTrendingContent(for: .movie)
+        getPopularContent(for: .game)
+        getPopularContent(for: .movie)
     }
 }
 
 extension InterestsViewController {
     
-    private func getTrendingContent(for type: ContentType) {
+    private func getPopularContent(for type: ContentType) {
         let provider: ContentProvider
         switch type {
         case .game:
@@ -46,7 +46,7 @@ extension InterestsViewController {
             provider = MovieProvider()
         }
         
-        provider.getTrendingContent { (result) in
+        provider.getPopularContent { (result) in
             switch result {
             case .success(let podaci):
                 self.updateContent(for: type, result: podaci)
@@ -71,12 +71,21 @@ extension InterestsViewController {
 extension InterestsViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return movieDatasource.count
+        if collectionView === self.collectionView {
+            return movieDatasource.count
+        } else {
+            return gamesDatasource.count
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "InterestCollectionViewCell", for: indexPath) as! InterestCollectionViewCell
-        let content = movieDatasource[indexPath.item]
+        let content: Content
+        if collectionView === self.collectionView{
+            content = movieDatasource[indexPath.row]
+        } else {
+            content = gamesDatasource[indexPath.row]
+        }
         cell.configure(with: content)
         return cell
     }

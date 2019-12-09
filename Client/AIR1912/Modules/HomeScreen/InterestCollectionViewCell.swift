@@ -19,12 +19,11 @@ class InterestCollectionViewCell: UICollectionViewCell {
     }
     
     func configure(with content: Content) {
-        setupView()
-        content.getPosterURL { (url) in
-            if let url = url {
-                self.featuredImageView.kf.setImage(with: url)
-            }
+        setupView()        
+        if let url = content.posterURL {
+            self.featuredImageView.kf.setImage(with: url)
         }
+
     }
     
     private func setupView() {

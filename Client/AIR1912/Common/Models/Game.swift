@@ -18,35 +18,22 @@ struct Game: Decodable, Content {
     var type: ContentType {
         return .game
     }
-    var title: String {
-        return _title ?? "Unknown"
-    }
-    private var _title: String?
+    
+    var title: String
     var description: String?
-    var _poster: Int?
+    var poster: String
     var year: String?
-    //var genreId: [Int]
+    var posterURL: URL? {
+        return URL(string: poster)
+    }
     
     enum CodingKeys: String, CodingKey {
-        case _title = "name"
-        case description = "summary"
-        case _poster = "cover"
-        case year = "release_date"
+        case title = "name"
+        case description = "slug"
+        case poster = "background_image"
+        case year = "released"
         //case genreId = "category"
     }
     
-    func getPosterURL(completion: @escaping (URL?) -> Void) {
-        //Alamofire
-         //   .request(URL(string: "")!)
-          //  .responseDecodableObject { (result) in
-            //    switch result {
-              //  case .success(let object):
-              //      let url = object.url
-              //      completion(url)
-             //   case .failure:
-              //      completion(nil)
-               // }
-        //}
-        completion(nil)
-    }
+    
 }
