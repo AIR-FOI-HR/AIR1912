@@ -23,8 +23,10 @@ struct Movie: Decodable, Content {
     var description: String?
     var poster: String
     var year: String
-    //var genreId: [Int]
     var runtime: String?
+    var posterURL: URL? {
+        return URL(string: "https://image.tmdb.org/t/p/original\(poster)")
+    }
     
     enum CodingKeys: String, CodingKey {
         case title
@@ -36,8 +38,5 @@ struct Movie: Decodable, Content {
         
     }
     
-    func getPosterURL(completion: @escaping (URL?) -> Void) {
-        let url = URL(string: "https://image.tmdb.org/t/p/original\(poster)")
-        completion(url)
-    }
+    
 }

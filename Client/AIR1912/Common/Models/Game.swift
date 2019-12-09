@@ -23,7 +23,9 @@ struct Game: Decodable, Content {
     var description: String?
     var poster: String
     var year: String?
-    //var genreId: [Int]
+    var posterURL: URL? {
+        return URL(string: poster)
+    }
     
     enum CodingKeys: String, CodingKey {
         case title = "name"
@@ -33,8 +35,5 @@ struct Game: Decodable, Content {
         //case genreId = "category"
     }
     
-    func getPosterURL(completion: @escaping (URL?) -> Void) {
-        let url = URL(string: poster)
-        completion(url)
-    }
+    
 }
