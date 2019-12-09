@@ -49,6 +49,8 @@
 		EDCA57DC23845B03002C3AE1 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDCA57DA23845B03002C3AE1 /* LoginViewController.swift */; };
 		EDCA57DD23845B03002C3AE1 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EDCA57DB23845B03002C3AE1 /* Login.storyboard */; };
 		EDCA57E023846228002C3AE1 /* Homescreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EDCA57DF23846228002C3AE1 /* Homescreen.storyboard */; };
+		EDE3EF8A239E41BE001BD61A /* EventDetails.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EDE3EF89239E41BE001BD61A /* EventDetails.storyboard */; };
+		EDE3EF8C239E41DA001BD61A /* EventDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDE3EF8B239E41DA001BD61A /* EventDetailsViewController.swift */; };
 		EDFD7E7E239107430028C4D5 /* UserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDFD7E7D239107430028C4D5 /* UserProfileViewController.swift */; };
 		EDFD7E8223910EAD0028C4D5 /* UserKeychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDFD7E8123910EAD0028C4D5 /* UserKeychain.swift */; };
 /* End PBXBuildFile section */
@@ -100,6 +102,8 @@
 		EDCA57DA23845B03002C3AE1 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		EDCA57DB23845B03002C3AE1 /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		EDCA57DF23846228002C3AE1 /* Homescreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Homescreen.storyboard; sourceTree = "<group>"; };
+		EDE3EF89239E41BE001BD61A /* EventDetails.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = EventDetails.storyboard; sourceTree = "<group>"; };
+		EDE3EF8B239E41DA001BD61A /* EventDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetailsViewController.swift; sourceTree = "<group>"; };
 		EDFD7E7D239107430028C4D5 /* UserProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileViewController.swift; sourceTree = "<group>"; };
 		EDFD7E8123910EAD0028C4D5 /* UserKeychain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserKeychain.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -307,6 +311,8 @@
 		ED56B4ED2375672E00BD4821 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				EDE3EF88239E4199001BD61A /* EventCRUD */,
+				EDE3EF87239E4184001BD61A /* EventDetails */,
 				EDB57AB3238EAB850032DC9E /* UserProfile */,
 				EDB57AAE238EAA650032DC9E /* Favourites */,
 				EDB57AA9238EA7E90032DC9E /* Search */,
@@ -376,6 +382,22 @@
 				42199179239413F800CCAA89 /* InterestsViewController.swift */,
 			);
 			path = HomeScreen;
+			sourceTree = "<group>";
+		};
+		EDE3EF87239E4184001BD61A /* EventDetails */ = {
+			isa = PBXGroup;
+			children = (
+				EDE3EF89239E41BE001BD61A /* EventDetails.storyboard */,
+				EDE3EF8B239E41DA001BD61A /* EventDetailsViewController.swift */,
+			);
+			path = EventDetails;
+			sourceTree = "<group>";
+		};
+		EDE3EF88239E4199001BD61A /* EventCRUD */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = EventCRUD;
 			sourceTree = "<group>";
 		};
 		EDFD7E8023910E6C0028C4D5 /* Keychain */ = {
@@ -452,6 +474,7 @@
 				EDCA57E023846228002C3AE1 /* Homescreen.storyboard in Resources */,
 				EDB57AB0238EAA750032DC9E /* Favourites.storyboard in Resources */,
 				EDB57AAB238EA8340032DC9E /* Search.storyboard in Resources */,
+				EDE3EF8A239E41BE001BD61A /* EventDetails.storyboard in Resources */,
 				ED52876B2385A02700848D66 /* ForgotPassword.storyboard in Resources */,
 				4250E5F323845A5600369FBC /* Signup.storyboard in Resources */,
 				EDBE016A237F1B2000F15CE5 /* Main.storyboard in Resources */,
@@ -536,6 +559,7 @@
 				42A9BAF923928569009C1912 /* Alerter.swift in Sources */,
 				423F05A623981D6F00D92D76 /* ResponseErrorBuilder.swift in Sources */,
 				EDFD7E7E239107430028C4D5 /* UserProfileViewController.swift in Sources */,
+				EDE3EF8C239E41DA001BD61A /* EventDetailsViewController.swift in Sources */,
 				42A9BAFD239293FD009C1912 /* RegisterService.swift in Sources */,
 				ED52876D2385A04000848D66 /* ForgotPasswordViewController.swift in Sources */,
 				421D5CA7237DCC6F00C8AD1F /* AuthService.swift in Sources */,
