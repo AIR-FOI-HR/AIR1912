@@ -12,18 +12,22 @@ import Spring
 class EventDetailsViewController: UIViewController {
 
     
-    
+    //MARK: -IBOutlets
     @IBOutlet weak var cardView: SpringView!
     @IBOutlet weak var belowSubview: SpringView!
+    @IBOutlet weak var backgroundImage: UIImageView!
+    
+    //MARK: -Properties
+    let imageBlur = ImageBlur()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .clear
-        
+        //view.backgroundColor = .clear
+        setBlurredImage()
         belowSubview.isHidden = false
         
-        
         cardView.isHidden = false
-        cardView.animate()
+       // cardView.animate()
         
         
     }
@@ -31,6 +35,23 @@ class EventDetailsViewController: UIViewController {
     
     func setBlurredImage() {
         
+        
+        
+        backgroundImage.image = UIImage(named: "testMovie")!
+        let blur = UIVisualEffectView(effect: UIBlurEffect(style: .systemChromeMaterialDark))
+        blur.frame = self.view.bounds
+        self.view.insertSubview(blur, aboveSubview: backgroundImage)
+        
     }
 
+    
+    @IBAction func swipeExit(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+        
+    }
+    
+    @IBAction func tapExit(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
 }

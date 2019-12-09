@@ -51,6 +51,7 @@
 		EDCA57E023846228002C3AE1 /* Homescreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EDCA57DF23846228002C3AE1 /* Homescreen.storyboard */; };
 		EDE3EF8A239E41BE001BD61A /* EventDetails.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EDE3EF89239E41BE001BD61A /* EventDetails.storyboard */; };
 		EDE3EF8C239E41DA001BD61A /* EventDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDE3EF8B239E41DA001BD61A /* EventDetailsViewController.swift */; };
+		EDE3EF8F239EEB4F001BD61A /* ImageBlur.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDE3EF8E239EEB4F001BD61A /* ImageBlur.swift */; };
 		EDFD7E7E239107430028C4D5 /* UserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDFD7E7D239107430028C4D5 /* UserProfileViewController.swift */; };
 		EDFD7E8223910EAD0028C4D5 /* UserKeychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDFD7E8123910EAD0028C4D5 /* UserKeychain.swift */; };
 /* End PBXBuildFile section */
@@ -104,6 +105,7 @@
 		EDCA57DF23846228002C3AE1 /* Homescreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Homescreen.storyboard; sourceTree = "<group>"; };
 		EDE3EF89239E41BE001BD61A /* EventDetails.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = EventDetails.storyboard; sourceTree = "<group>"; };
 		EDE3EF8B239E41DA001BD61A /* EventDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetailsViewController.swift; sourceTree = "<group>"; };
+		EDE3EF8E239EEB4F001BD61A /* ImageBlur.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageBlur.swift; sourceTree = "<group>"; };
 		EDFD7E7D239107430028C4D5 /* UserProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileViewController.swift; sourceTree = "<group>"; };
 		EDFD7E8123910EAD0028C4D5 /* UserKeychain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserKeychain.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -131,6 +133,7 @@
 		421D5CA0237DC3A400C8AD1F /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				EDE3EF8D239EEB2C001BD61A /* Utilites */,
 				423F05A0239681E000D92D76 /* ModuleSwitching */,
 				42A9BAF7239284FD009C1912 /* ErrorHandling */,
 				4221044D23902528005B1B25 /* Extensions */,
@@ -400,6 +403,14 @@
 			path = EventCRUD;
 			sourceTree = "<group>";
 		};
+		EDE3EF8D239EEB2C001BD61A /* Utilites */ = {
+			isa = PBXGroup;
+			children = (
+				EDE3EF8E239EEB4F001BD61A /* ImageBlur.swift */,
+			);
+			path = Utilites;
+			sourceTree = "<group>";
+		};
 		EDFD7E8023910E6C0028C4D5 /* Keychain */ = {
 			isa = PBXGroup;
 			children = (
@@ -538,6 +549,7 @@
 				42B47C192385B288002C554F /* UserPost.swift in Sources */,
 				421D5CAE237DD18B00C8AD1F /* ContentProvider.swift in Sources */,
 				EDBE0169237F1B2000F15CE5 /* MainViewController.swift in Sources */,
+				EDE3EF8F239EEB4F001BD61A /* ImageBlur.swift in Sources */,
 				4219917A239413F800CCAA89 /* InterestsViewController.swift in Sources */,
 				42A9BAFB23929173009C1912 /* JsonResponse.swift in Sources */,
 				ED52876F2385A2F100848D66 /* RecoverPassService.swift in Sources */,
