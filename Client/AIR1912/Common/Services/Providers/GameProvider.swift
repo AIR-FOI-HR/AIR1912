@@ -11,27 +11,74 @@ import Alamofire
 
 class GameProvider: ContentProvider {
     
+    private let decoder = JSONDecoder()
+    private let headers = [
+        "x-rapidapi-host": "rawg-video-games-database.p.rapidapi.com",
+        "x-rapidapi-key": "8e24dd9e5dmshb82b8dcc0df400ep1f2bc1jsn0e0a57afa70e"
+    ]
     
-    private let API_KEY = "f24b13a88afd5111c365ae68e4add8bd"
-    
-    func getTrendingContent(completion: @escaping (Result<[Content]>) -> Void) {
-       let decoder = JSONDecoder()
-        var request = URLRequest(url: URL(string: "https://api-v3.igdb.com/games")!)
-        request.httpMethod = "POST"
-        request.addValue(API_KEY, forHTTPHeaderField: "user-key")
-        let httpBody = "fields name,category,cover,summary;".data(using: .utf8)
-        request.httpBody = httpBody
-        
-        
+    func getTopRatedContent(completion: @escaping (Result<[Content]>) -> Void) {
+         
+         var request = URLRequest(url: NSURL(string: "https://api.rawg.io/api/games?dates=2010-01-01,2019-12-31&ordering=-rating")! as URL,
+                                                 cachePolicy: .useProtocolCachePolicy,
+                                             timeoutInterval: 10.0)
+         request.httpMethod = "GET"
+         request.allHTTPHeaderFields = headers
+         
         Alamofire
-            .request(request)
-            .responseDecodableObject(decoder: decoder) { (response: DataResponse<[Game]>) in
+         .request(request)
+            .responseDecodableObject(decoder: decoder) { (response: DataResponse<GameResponse>) in
                 switch response.result {
-                case .success(let games):
-                    completion(.success(games))
+                case .success(let response):
+                 completion(.success(response.results))
                 case .failure(let error):
                     completion(.failure(error))
                 }
             }
     }
+    
+    func getLatestContent(completion: @escaping (Result<[Content]>) -> Void) {
+         
+         var request = URLRequest(url: NSURL(string: "https://api.rawg.io/api/games?dates=2019-01-01,2019-12-31&platforms=18,1,7")! as URL,
+                                                 cachePolicy: .useProtocolCachePolicy,
+                                             timeoutInterval: 10.0)
+         request.httpMethod = "GET"
+         request.allHTTPHeaderFields = headers
+         
+        Alamofire
+         .request(request)
+            .responseDecodableObject(decoder: decoder) { (response: DataResponse<GameResponse>) in
+                switch response.result {
+                case .success(let response):
+                 completion(.success(response.results))
+                case .failure(let error):
+                    completion(.failure(error))
+                }
+            }
+    }
+    
+    func getPopularContent(completion: @escaping (Result<[Content]>) -> Void) {
+       
+       
+            
+        var request = URLRequest(url: NSURL(string: "https://api.rawg.io/api/games?dates=2010-01-01,2019-12-31&ordering=-added")! as URL,
+                                                cachePolicy: .useProtocolCachePolicy,
+                                            timeoutInterval: 10.0)
+        request.httpMethod = "GET"
+        request.allHTTPHeaderFields = headers
+        
+     
+       Alamofire
+        .request(request)
+           .responseDecodableObject(decoder: decoder) { (response: DataResponse<GameResponse>) in
+            switch response.result {
+               case .success(let response):
+                   completion(.success(response.results))
+               case .failure(let error):
+                   completion(.failure(error))
+               }
+           }
+            
+}
+
 }

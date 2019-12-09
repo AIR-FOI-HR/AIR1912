@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Alamofire
 
 struct GameResponse: Decodable {
     var results: [Game]
@@ -14,27 +15,25 @@ struct GameResponse: Decodable {
 
 struct Game: Decodable, Content {
     
-var type: String {
-    return "game"
-}
-var title: String {
-    return _title ?? "Unknown"
+    var type: ContentType {
+        return .game
     }
-    private var _title: String?
-var description: String?
-var poster: String {
-    return "\(_poster)"
+    
+    var title: String
+    var description: String?
+    var poster: String
+    var year: String?
+    var posterURL: URL? {
+        return URL(string: poster)
     }
-    var _poster: Int?
-var year: String?
-//var genreId: [Int]
-
-enum CodingKeys: String, CodingKey {
-    case _title = "name"
-    case description = "summary"
-    case _poster = "cover"
-    case year = "release_date"
-    //case genreId = "category"
+    
+    enum CodingKeys: String, CodingKey {
+        case title = "name"
+        case description = "slug"
+        case poster = "background_image"
+        case year = "released"
+        //case genreId = "category"
     }
-
+    
+    
 }

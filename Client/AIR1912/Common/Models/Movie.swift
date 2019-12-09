@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Alamofire
 
 struct MovieResponse: Decodable {
     var page: Int
@@ -14,15 +15,18 @@ struct MovieResponse: Decodable {
 }
 
 struct Movie: Decodable, Content {
-    var type: String {
-        return "movie"
+    
+    var type: ContentType {
+        return .movie
     }
     var title: String
     var description: String?
     var poster: String
     var year: String
-    //var genreId: [Int]
     var runtime: String?
+    var posterURL: URL? {
+        return URL(string: "https://image.tmdb.org/t/p/original\(poster)")
+    }
     
     enum CodingKeys: String, CodingKey {
         case title
@@ -33,4 +37,6 @@ struct Movie: Decodable, Content {
         case runtime
         
     }
+    
+    
 }

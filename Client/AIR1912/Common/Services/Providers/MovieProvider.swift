@@ -13,8 +13,38 @@ class MovieProvider: ContentProvider {
     
     private let API_KEY = "e965f161f0ec9f1c3931495b713226e0"
     
-    func getTrendingContent(completion: @escaping (Result<[Content]>) -> Void) {
-       let decoder = JSONDecoder()
+    private let decoder = JSONDecoder()
+    
+    func getTopRatedContent(completion: @escaping (Result<[Content]>) -> Void) {
+        
+        Alamofire
+        .request("https://api.themoviedb.org/3/movie/top_rated?api_key=\(API_KEY)")
+        .responseDecodableObject(decoder: decoder) { (response: DataResponse<MovieResponse>) in
+            switch response.result {
+            case .success(let response):
+                completion(.success(response.results))
+            case .failure(let error):
+                completion(.failure(error))
+            }
+        }
+    }
+    
+    func getLatestContent(completion: @escaping (Result<[Content]>) -> Void) {
+        
+        Alamofire
+        .request("https://api.themoviedb.org/3/movie/now_playing?api_key=\(API_KEY)")
+        .responseDecodableObject(decoder: decoder) { (response: DataResponse<MovieResponse>) in
+            switch response.result {
+            case .success(let response):
+                completion(.success(response.results))
+            case .failure(let error):
+                completion(.failure(error))
+            }
+        }
+    }
+    
+    func getPopularContent(completion: @escaping (Result<[Content]>) -> Void){
+       
         Alamofire
             .request("https://api.themoviedb.org/3/movie/popular?api_key=\(API_KEY)")
             .responseDecodableObject(decoder: decoder) { (response: DataResponse<MovieResponse>) in

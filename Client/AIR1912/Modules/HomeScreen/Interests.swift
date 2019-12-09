@@ -7,23 +7,37 @@
 //
 
 import UIKit
+import Kingfisher
+
 
 class Interest
 {
-    var featuredImage: UIImage
-    
-    init(featuredImage: UIImage) {
+    var featuredImage: URL
+    private static let movieProvider: MovieProvider = MovieProvider()
+    init(featuredImage: URL) {
         self.featuredImage = featuredImage
     }
     
     
-    static func fetchInterests() -> [Interest]
-    {
-        return [
-            Interest(featuredImage: UIImage(named: "s1")!),
-            Interest(featuredImage: UIImage(named: "s2")!),
-            Interest(featuredImage: UIImage(named: "s3")!),
-            Interest(featuredImage: UIImage(named: "s4")!)
-        ]
-    }
+//    static func fetchInterests() -> [Interest]
+//    {
+//        var contentArray = [Interest]()
+//        movieProvider.getTrendingContent { (result) in
+//            switch result {
+//            case .success(let podaci):
+//                for element in podaci{
+//                    print("https://image.tmdb.org/t/p/original\(element.poster)")
+//                    contentArray.append(Interest(featuredImage: URL(string: "https://image.tmdb.org/t/p/original\(element.poster)")!))
+//                }
+//                
+//            case .failure(let error):
+//                print(error)
+//            }
+//            print("-----------------")
+//            print(contentArray)
+//        }
+//        print("-------------------")
+//        print(contentArray)
+//        return contentArray
+//    }
 }

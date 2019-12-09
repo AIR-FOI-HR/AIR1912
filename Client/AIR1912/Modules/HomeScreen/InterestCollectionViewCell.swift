@@ -7,24 +7,26 @@
 //
 
 import UIKit
+import Kingfisher
 
-class InterestCollectionViewCell: UICollectionViewCell
-{
-    @IBOutlet weak var featuredImageView: UIImageView!
+class InterestCollectionViewCell: UICollectionViewCell {
     
-    var interest: Interest! {
-        didSet {
-            self.updateUI()
-        }
+    @IBOutlet weak var featuredImageView: UIImageView!
+        
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        featuredImageView.image = nil
     }
     
-    func updateUI() {
-        if let interest = interest {
-            featuredImageView.image = interest.featuredImage
-        } else {
-            featuredImageView = nil
+    func configure(with content: Content) {
+        setupView()        
+        if let url = content.posterURL {
+            self.featuredImageView.kf.setImage(with: url)
         }
-        
+
+    }
+    
+    private func setupView() {
         featuredImageView.layer.cornerRadius = 10.0
         featuredImageView.layer.masksToBounds = true
     }
