@@ -26,6 +26,7 @@ class InterestsViewController : UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
         collectionView.dataSource = self
         collectionView2.dataSource = self
         
@@ -62,7 +63,7 @@ extension InterestsViewController {
             self.collectionView2.reloadData()
         case .movie:
             movieDatasource = result
-            self.collectionView.reloadData()
+            self.collectionView.reloadInputViews()
         }
     }
 }
