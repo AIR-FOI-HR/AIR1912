@@ -9,7 +9,7 @@
 import UIKit
 import Kingfisher
 
-class InterestCollectionViewCell: UICollectionViewCell {
+class ContentCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var featuredImageView: UIImageView!
         
@@ -25,8 +25,6 @@ class InterestCollectionViewCell: UICollectionViewCell {
         }
 
     }
-    
-    
     
     private func setupView() {
         featuredImageView.layer.cornerRadius = 12.0

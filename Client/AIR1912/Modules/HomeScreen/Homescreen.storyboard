@@ -34,10 +34,10 @@
             </objects>
             <point key="canvasLocation" x="-790" y="-109"/>
         </scene>
-        <!--Interests View Controller-->
+        <!--Content View Controller-->
         <scene sceneID="fHW-WS-Ze3">
             <objects>
-                <viewController id="JCw-dF-OzV" customClass="InterestsViewController" customModule="AIR1912" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="JCw-dF-OzV" customClass="ContentViewController" customModule="AIR1912" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="o23-eR-3Yo">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -49,74 +49,69 @@
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="32"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qe8-Ik-Ixj">
-                                                <rect key="frame" x="0.0" y="0.0" width="414" height="32"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ybB-Oh-ZAw">
-                                                        <rect key="frame" x="0.0" y="0.0" width="138" height="32"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="138" height="50"/>
                                                         <subviews>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="63N-BH-bh8">
                                                                 <rect key="frame" x="0.0" y="0.0" width="138" height="32"/>
-                                                                <constraints>
-                                                                    <constraint firstAttribute="width" constant="138" id="zEa-02-xoE"/>
-                                                                </constraints>
                                                                 <state key="normal" title="Popular"/>
                                                             </button>
                                                         </subviews>
                                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                         <constraints>
-                                                            <constraint firstItem="63N-BH-bh8" firstAttribute="top" secondItem="ybB-Oh-ZAw" secondAttribute="top" id="6ND-2y-xpp"/>
-                                                            <constraint firstAttribute="trailing" secondItem="63N-BH-bh8" secondAttribute="trailing" id="FHN-np-t8e"/>
-                                                            <constraint firstItem="63N-BH-bh8" firstAttribute="leading" secondItem="ybB-Oh-ZAw" secondAttribute="leading" id="ItP-TG-GiO"/>
-                                                            <constraint firstAttribute="bottom" secondItem="63N-BH-bh8" secondAttribute="bottom" id="eFz-7n-USm"/>
+                                                            <constraint firstItem="63N-BH-bh8" firstAttribute="top" secondItem="ybB-Oh-ZAw" secondAttribute="top" id="ZJx-hu-IlZ"/>
+                                                            <constraint firstItem="63N-BH-bh8" firstAttribute="leading" secondItem="ybB-Oh-ZAw" secondAttribute="leading" id="ZLM-1Y-Z8J"/>
+                                                            <constraint firstAttribute="trailing" secondItem="63N-BH-bh8" secondAttribute="trailing" id="vGL-w9-fhT"/>
+                                                            <constraint firstAttribute="bottom" secondItem="63N-BH-bh8" secondAttribute="bottom" constant="18" id="zyP-b7-0uo"/>
                                                         </constraints>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lym-u3-qaG">
-                                                        <rect key="frame" x="138" y="0.0" width="138" height="32"/>
+                                                        <rect key="frame" x="138" y="0.0" width="138" height="50"/>
                                                         <subviews>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="alw-9F-ODk">
                                                                 <rect key="frame" x="0.0" y="0.0" width="138" height="32"/>
-                                                                <constraints>
-                                                                    <constraint firstAttribute="width" constant="138" id="JNI-CF-ky6"/>
-                                                                </constraints>
                                                                 <state key="normal" title="Latest"/>
                                                             </button>
                                                         </subviews>
                                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="bottom" secondItem="alw-9F-ODk" secondAttribute="bottom" id="8wz-EM-guB"/>
-                                                            <constraint firstAttribute="trailing" secondItem="alw-9F-ODk" secondAttribute="trailing" id="CbN-Tb-WVu"/>
-                                                            <constraint firstItem="alw-9F-ODk" firstAttribute="leading" secondItem="lym-u3-qaG" secondAttribute="leading" id="NrG-lq-niH"/>
-                                                            <constraint firstItem="alw-9F-ODk" firstAttribute="top" secondItem="lym-u3-qaG" secondAttribute="top" id="SmX-HD-WXQ"/>
+                                                            <constraint firstAttribute="bottom" secondItem="alw-9F-ODk" secondAttribute="bottom" constant="18" id="98e-Uo-VhR"/>
+                                                            <constraint firstItem="alw-9F-ODk" firstAttribute="leading" secondItem="lym-u3-qaG" secondAttribute="leading" id="c3b-1g-7pd"/>
+                                                            <constraint firstItem="alw-9F-ODk" firstAttribute="top" secondItem="lym-u3-qaG" secondAttribute="top" id="tHB-Nr-qz8"/>
+                                                            <constraint firstAttribute="trailing" secondItem="alw-9F-ODk" secondAttribute="trailing" id="yyc-ZG-ZFA"/>
                                                         </constraints>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sCC-M9-mjA">
-                                                        <rect key="frame" x="276" y="0.0" width="138" height="32"/>
+                                                        <rect key="frame" x="276" y="0.0" width="138" height="50"/>
                                                         <subviews>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lTs-Gk-23v">
                                                                 <rect key="frame" x="0.0" y="0.0" width="138" height="32"/>
-                                                                <constraints>
-                                                                    <constraint firstAttribute="width" constant="138" id="l9g-Aa-UMc"/>
-                                                                </constraints>
                                                                 <state key="normal" title="Top rated"/>
                                                             </button>
                                                         </subviews>
                                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="bottom" secondItem="lTs-Gk-23v" secondAttribute="bottom" id="3wf-i1-EDC"/>
-                                                            <constraint firstItem="lTs-Gk-23v" firstAttribute="top" secondItem="sCC-M9-mjA" secondAttribute="top" id="BID-WU-Ece"/>
-                                                            <constraint firstItem="lTs-Gk-23v" firstAttribute="leading" secondItem="sCC-M9-mjA" secondAttribute="leading" id="Fl2-UW-o73"/>
-                                                            <constraint firstAttribute="trailing" secondItem="lTs-Gk-23v" secondAttribute="trailing" id="b9x-Z6-tZW"/>
+                                                            <constraint firstAttribute="bottom" secondItem="lTs-Gk-23v" secondAttribute="bottom" constant="18" id="5Mh-UD-RRT"/>
+                                                            <constraint firstItem="lTs-Gk-23v" firstAttribute="top" secondItem="sCC-M9-mjA" secondAttribute="top" id="6tu-nf-a8U"/>
+                                                            <constraint firstAttribute="trailing" secondItem="lTs-Gk-23v" secondAttribute="trailing" id="jCg-Yf-egM"/>
+                                                            <constraint firstItem="lTs-Gk-23v" firstAttribute="leading" secondItem="sCC-M9-mjA" secondAttribute="leading" id="xb4-KV-EXg"/>
                                                         </constraints>
                                                     </view>
                                                 </subviews>
+                                                <constraints>
+                                                    <constraint firstItem="lym-u3-qaG" firstAttribute="leading" secondItem="qe8-Ik-Ixj" secondAttribute="leading" constant="138" id="fbc-QJ-RRn"/>
+                                                    <constraint firstItem="lym-u3-qaG" firstAttribute="centerX" secondItem="qe8-Ik-Ixj" secondAttribute="centerX" id="oME-h5-9J4"/>
+                                                </constraints>
                                             </stackView>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemPinkColor" red="1" green="0.1764705882" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
-                                            <constraint firstItem="qe8-Ik-Ixj" firstAttribute="top" secondItem="pMZ-cC-t3A" secondAttribute="top" id="02Q-L8-WI8"/>
-                                            <constraint firstAttribute="trailing" secondItem="qe8-Ik-Ixj" secondAttribute="trailing" id="I57-ra-HVY"/>
-                                            <constraint firstAttribute="bottom" secondItem="qe8-Ik-Ixj" secondAttribute="bottom" id="Ny4-Dl-tfk"/>
-                                            <constraint firstItem="qe8-Ik-Ixj" firstAttribute="leading" secondItem="pMZ-cC-t3A" secondAttribute="leading" id="bxq-ES-bGk"/>
+                                            <constraint firstAttribute="bottom" secondItem="qe8-Ik-Ixj" secondAttribute="bottom" constant="-18" id="Bqa-c5-SlB"/>
+                                            <constraint firstItem="qe8-Ik-Ixj" firstAttribute="top" secondItem="pMZ-cC-t3A" secondAttribute="top" id="BsK-t3-5ia"/>
+                                            <constraint firstAttribute="trailing" secondItem="qe8-Ik-Ixj" secondAttribute="trailing" id="QND-l9-iGf"/>
+                                            <constraint firstItem="qe8-Ik-Ixj" firstAttribute="leading" secondItem="pMZ-cC-t3A" secondAttribute="leading" id="S4H-YC-XGA"/>
                                             <constraint firstAttribute="height" constant="32" id="fDg-oa-SF7"/>
                                         </constraints>
                                     </view>
@@ -164,7 +159,7 @@
                                                                             <inset key="sectionInset" minX="16" minY="0.0" maxX="16" maxY="0.0"/>
                                                                         </collectionViewFlowLayout>
                                                                         <cells>
-                                                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="InterestCollectionViewCell" id="Isj-AZ-Wgc" customClass="InterestCollectionViewCell" customModule="AIR1912" customModuleProvider="target">
+                                                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ContentCollectionViewCell" id="Isj-AZ-Wgc" customClass="ContentCollectionViewCell" customModule="AIR1912" customModuleProvider="target">
                                                                                 <rect key="frame" x="16" y="6.666666666666667" width="140" height="250"/>
                                                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                                 <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="Sgc-Qv-IjO">
@@ -240,7 +235,7 @@
                                                                             <inset key="sectionInset" minX="16" minY="0.0" maxX="16" maxY="0.0"/>
                                                                         </collectionViewFlowLayout>
                                                                         <cells>
-                                                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="InterestCollectionViewCell" id="mE1-yR-DDk" customClass="InterestCollectionViewCell" customModule="AIR1912" customModuleProvider="target">
+                                                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ContentCollectionViewCell" id="mE1-yR-DDk" customClass="ContentCollectionViewCell" customModule="AIR1912" customModuleProvider="target">
                                                                                 <rect key="frame" x="16" y="6.666666666666667" width="140" height="250"/>
                                                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                                 <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="XNM-lT-yxz">

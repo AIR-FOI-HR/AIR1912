@@ -9,7 +9,7 @@
 import UIKit
 import Kingfisher
 
-class InterestsViewController : UIViewController {
+class ContentViewController : UIViewController {
     
     // MARK: - Private outlets
     
@@ -31,7 +31,7 @@ class InterestsViewController : UIViewController {
     }
 }
 
-extension InterestsViewController {
+extension ContentViewController {
     
     private func getPopularContent(for type: ContentType) {
         let provider: ContentProvider
@@ -64,7 +64,7 @@ extension InterestsViewController {
     }
 }
 
-extension InterestsViewController: UICollectionViewDataSource {
+extension ContentViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if collectionView === self.collectionView {
@@ -75,7 +75,7 @@ extension InterestsViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "InterestCollectionViewCell", for: indexPath) as! InterestCollectionViewCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ContentCollectionViewCell", for: indexPath) as! ContentCollectionViewCell
         let content: Content
         if collectionView === self.collectionView{
             content = movieDatasource[indexPath.row]
