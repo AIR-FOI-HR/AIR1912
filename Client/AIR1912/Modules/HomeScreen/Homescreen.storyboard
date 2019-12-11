@@ -152,20 +152,20 @@
                                                                 <rect key="frame" x="0.0" y="144" width="414" height="263"/>
                                                                 <subviews>
                                                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Ra5-CL-Aeb">
-                                                                        <rect key="frame" x="16" y="0.0" width="382" height="263"/>
+                                                                        <rect key="frame" x="0.0" y="0.0" width="414" height="263"/>
                                                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                                         <constraints>
-                                                                            <constraint firstAttribute="height" constant="263" id="JtK-VX-4ei"/>
+                                                                            <constraint firstAttribute="height" constant="263" id="XUD-R1-5k6"/>
                                                                         </constraints>
                                                                         <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="YJo-z0-ajL">
                                                                             <size key="itemSize" width="141" height="263"/>
                                                                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                                                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                                                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                                            <inset key="sectionInset" minX="16" minY="0.0" maxX="16" maxY="0.0"/>
                                                                         </collectionViewFlowLayout>
                                                                         <cells>
                                                                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="InterestCollectionViewCell" id="Isj-AZ-Wgc" customClass="InterestCollectionViewCell" customModule="AIR1912" customModuleProvider="target">
-                                                                                <rect key="frame" x="0.0" y="6.666666666666667" width="140" height="250"/>
+                                                                                <rect key="frame" x="16" y="6.666666666666667" width="140" height="250"/>
                                                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                                 <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="Sgc-Qv-IjO">
                                                                                     <rect key="frame" x="0.0" y="0.0" width="140" height="250"/>
@@ -200,10 +200,10 @@
                                                                 </subviews>
                                                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                                 <constraints>
-                                                                    <constraint firstItem="Ra5-CL-Aeb" firstAttribute="top" secondItem="SSK-qZ-h3X" secondAttribute="top" id="8y2-yx-Y6F"/>
-                                                                    <constraint firstItem="Ra5-CL-Aeb" firstAttribute="leading" secondItem="SSK-qZ-h3X" secondAttribute="leading" constant="16" id="Fj3-CC-p3l"/>
-                                                                    <constraint firstAttribute="bottom" secondItem="Ra5-CL-Aeb" secondAttribute="bottom" id="HAr-PL-Dnd"/>
-                                                                    <constraint firstAttribute="trailing" secondItem="Ra5-CL-Aeb" secondAttribute="trailing" constant="16" id="vEe-Wa-yzh"/>
+                                                                    <constraint firstAttribute="trailing" secondItem="Ra5-CL-Aeb" secondAttribute="trailing" id="BsO-tb-R6L"/>
+                                                                    <constraint firstAttribute="bottom" secondItem="Ra5-CL-Aeb" secondAttribute="bottom" id="UOn-Tb-ZcI"/>
+                                                                    <constraint firstItem="Ra5-CL-Aeb" firstAttribute="leading" secondItem="SSK-qZ-h3X" secondAttribute="leading" id="rEV-cN-CPQ"/>
+                                                                    <constraint firstItem="Ra5-CL-Aeb" firstAttribute="top" secondItem="SSK-qZ-h3X" secondAttribute="top" id="vTW-C9-mlp"/>
                                                                 </constraints>
                                                             </view>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bhh-Yr-z8P">
@@ -228,20 +228,20 @@
                                                                 <rect key="frame" x="0.0" y="567" width="414" height="263"/>
                                                                 <subviews>
                                                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="R38-Mo-L2q">
-                                                                        <rect key="frame" x="16" y="0.0" width="382" height="263"/>
+                                                                        <rect key="frame" x="0.0" y="0.0" width="414" height="263"/>
                                                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                                         <constraints>
-                                                                            <constraint firstAttribute="height" constant="263" id="qRa-rJ-UhB"/>
+                                                                            <constraint firstAttribute="height" constant="263" id="Quq-IA-Rw5"/>
                                                                         </constraints>
                                                                         <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="zQG-UB-mAU">
                                                                             <size key="itemSize" width="141" height="263"/>
                                                                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                                                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                                                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                                            <inset key="sectionInset" minX="16" minY="0.0" maxX="16" maxY="0.0"/>
                                                                         </collectionViewFlowLayout>
                                                                         <cells>
                                                                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="InterestCollectionViewCell" id="mE1-yR-DDk" customClass="InterestCollectionViewCell" customModule="AIR1912" customModuleProvider="target">
-                                                                                <rect key="frame" x="0.0" y="6.666666666666667" width="140" height="250"/>
+                                                                                <rect key="frame" x="16" y="6.666666666666667" width="140" height="250"/>
                                                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                                 <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="XNM-lT-yxz">
                                                                                     <rect key="frame" x="0.0" y="0.0" width="140" height="250"/>
@@ -276,10 +276,10 @@
                                                                 </subviews>
                                                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                                 <constraints>
-                                                                    <constraint firstItem="R38-Mo-L2q" firstAttribute="top" secondItem="kcr-vO-Dn3" secondAttribute="top" id="GtB-3o-Frz"/>
-                                                                    <constraint firstItem="R38-Mo-L2q" firstAttribute="leading" secondItem="kcr-vO-Dn3" secondAttribute="leading" constant="16" id="My2-4v-MCS"/>
-                                                                    <constraint firstAttribute="trailing" secondItem="R38-Mo-L2q" secondAttribute="trailing" constant="16" id="NIP-PX-Syh"/>
-                                                                    <constraint firstAttribute="bottom" secondItem="R38-Mo-L2q" secondAttribute="bottom" id="nQp-w3-7po"/>
+                                                                    <constraint firstAttribute="trailing" secondItem="R38-Mo-L2q" secondAttribute="trailing" id="H6S-PD-B6c"/>
+                                                                    <constraint firstItem="R38-Mo-L2q" firstAttribute="leading" secondItem="kcr-vO-Dn3" secondAttribute="leading" id="XQc-oK-hIP"/>
+                                                                    <constraint firstAttribute="bottom" secondItem="R38-Mo-L2q" secondAttribute="bottom" id="eeC-qS-R6S"/>
+                                                                    <constraint firstItem="R38-Mo-L2q" firstAttribute="top" secondItem="kcr-vO-Dn3" secondAttribute="top" id="m3o-wz-ktV"/>
                                                                 </constraints>
                                                             </view>
                                                         </subviews>
