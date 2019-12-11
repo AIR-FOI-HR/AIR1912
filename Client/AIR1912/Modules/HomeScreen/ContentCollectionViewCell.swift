@@ -9,7 +9,7 @@
 import UIKit
 import Kingfisher
 
-class InterestCollectionViewCell: UICollectionViewCell {
+class ContentCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var featuredImageView: UIImageView!
         
