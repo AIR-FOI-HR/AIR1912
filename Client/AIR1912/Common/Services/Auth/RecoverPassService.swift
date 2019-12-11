@@ -18,7 +18,7 @@ class RecoverPassService {
            let decoder = JSONDecoder()
            let params:[String:String] = ["email":email]
            Alamofire
-            .request("http://air1912.000webhostapp.com/RecoverPassService.php", method: .post, parameters: params)
+            .request("https://cortex.foi.hr/meetup/RecoverPassService.php", method: .post, parameters: params)
                .responseDecodableObject(decoder: decoder) { (response: DataResponse<User>) in
                    switch response.result {
                    case .success(let code):

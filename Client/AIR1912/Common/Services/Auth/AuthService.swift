@@ -16,7 +16,7 @@ class AuthService {
     func login(with name: String, password: String, completion: @escaping (Result<[User]>) -> Void) {
         let decoder = JSONDecoder()
         Alamofire
-            .request("http://air1912.000webhostapp.com/AuthService.php?name=\(name)&password=\(password)")
+            .request("https://cortex.foi.hr/meetup/AuthService.php?name=\(name)&password=\(password)")
             .responseDecodableObject(decoder: decoder) { (response: DataResponse<[User]>) in
                // completion(response.result)
               

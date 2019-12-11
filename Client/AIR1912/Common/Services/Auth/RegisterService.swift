@@ -18,7 +18,7 @@ class RegisterService {
         let newUserDict = try! newUser.asDictionary()
         
         Alamofire
-            .request("http://air1912.000webhostapp.com/RegisterService.php", method: .get, parameters: newUserDict)
+            .request("https://cortex.foi.hr/meetup/RegisterService.php", method: .get, parameters: newUserDict)
             .validate()
             .responseDecodableObject(decoder: decoder) { (response: DataResponse<User>) in
                 switch response.result {
