@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		4212CC012385ACD300C53210 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4212CC002385ACD300C53210 /* Game.swift */; };
 		421991782394130000CCAA89 /* ContentCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 421991772394130000CCAA89 /* ContentCollectionViewCell.swift */; };
-		4219917A239413F800CCAA89 /* InterestsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42199179239413F800CCAA89 /* InterestsViewController.swift */; };
+		4219917A239413F800CCAA89 /* ContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42199179239413F800CCAA89 /* ContentViewController.swift */; };
 		421D5CA3237DC3CC00C8AD1F /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 421D5CA2237DC3CC00C8AD1F /* User.swift */; };
 		421D5CA7237DCC6F00C8AD1F /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 421D5CA6237DCC6F00C8AD1F /* AuthService.swift */; };
 		421D5CAA237DD16C00C8AD1F /* MovieProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 421D5CA9237DD16C00C8AD1F /* MovieProvider.swift */; };
@@ -38,7 +38,6 @@
 		EDB57AA4238EA4430032DC9E /* MapsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB57AA3238EA4430032DC9E /* MapsController.swift */; };
 		EDB57AA6238EA4920032DC9E /* Maps.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EDB57AA5238EA4920032DC9E /* Maps.storyboard */; };
 		EDB57AA8238EA6700032DC9E /* HomeSreenTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB57AA7238EA6700032DC9E /* HomeSreenTabBarController.swift */; };
-		EDB57AAB238EA8340032DC9E /* Search.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EDB57AAA238EA8340032DC9E /* Search.storyboard */; };
 		EDB57AAD238EA8E40032DC9E /* SearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB57AAC238EA8E40032DC9E /* SearchController.swift */; };
 		EDB57AB0238EAA750032DC9E /* Favourites.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EDB57AAF238EAA750032DC9E /* Favourites.storyboard */; };
 		EDB57AB2238EAB060032DC9E /* FavouritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB57AB1238EAB060032DC9E /* FavouritesViewController.swift */; };
@@ -48,6 +47,7 @@
 		EDCA57DC23845B03002C3AE1 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDCA57DA23845B03002C3AE1 /* LoginViewController.swift */; };
 		EDCA57DD23845B03002C3AE1 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EDCA57DB23845B03002C3AE1 /* Login.storyboard */; };
 		EDCA57E023846228002C3AE1 /* Homescreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EDCA57DF23846228002C3AE1 /* Homescreen.storyboard */; };
+		EDCDA01B23A2860000E28223 /* Search.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EDCDA01A23A2860000E28223 /* Search.storyboard */; };
 		EDFD7E7E239107430028C4D5 /* UserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDFD7E7D239107430028C4D5 /* UserProfileViewController.swift */; };
 		EDFD7E8223910EAD0028C4D5 /* UserKeychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDFD7E8123910EAD0028C4D5 /* UserKeychain.swift */; };
 /* End PBXBuildFile section */
@@ -56,7 +56,7 @@
 		0702C62035766E8AC911DBD4 /* Pods_AIR1912.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AIR1912.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4212CC002385ACD300C53210 /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
 		421991772394130000CCAA89 /* ContentCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentCollectionViewCell.swift; sourceTree = "<group>"; };
-		42199179239413F800CCAA89 /* InterestsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterestsViewController.swift; sourceTree = "<group>"; };
+		42199179239413F800CCAA89 /* ContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewController.swift; sourceTree = "<group>"; };
 		421D5CA2237DC3CC00C8AD1F /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		421D5CA6237DCC6F00C8AD1F /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		421D5CA9237DD16C00C8AD1F /* MovieProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieProvider.swift; sourceTree = "<group>"; };
@@ -88,7 +88,6 @@
 		EDB57AA3238EA4430032DC9E /* MapsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapsController.swift; sourceTree = "<group>"; };
 		EDB57AA5238EA4920032DC9E /* Maps.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Maps.storyboard; sourceTree = "<group>"; };
 		EDB57AA7238EA6700032DC9E /* HomeSreenTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeSreenTabBarController.swift; sourceTree = "<group>"; };
-		EDB57AAA238EA8340032DC9E /* Search.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Search.storyboard; sourceTree = "<group>"; };
 		EDB57AAC238EA8E40032DC9E /* SearchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchController.swift; sourceTree = "<group>"; };
 		EDB57AAF238EAA750032DC9E /* Favourites.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Favourites.storyboard; sourceTree = "<group>"; };
 		EDB57AB1238EAB060032DC9E /* FavouritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritesViewController.swift; sourceTree = "<group>"; };
@@ -98,6 +97,7 @@
 		EDCA57DA23845B03002C3AE1 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		EDCA57DB23845B03002C3AE1 /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		EDCA57DF23846228002C3AE1 /* Homescreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Homescreen.storyboard; sourceTree = "<group>"; };
+		EDCDA01A23A2860000E28223 /* Search.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Search.storyboard; sourceTree = "<group>"; };
 		EDFD7E7D239107430028C4D5 /* UserProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileViewController.swift; sourceTree = "<group>"; };
 		EDFD7E8123910EAD0028C4D5 /* UserKeychain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserKeychain.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -331,8 +331,10 @@
 		EDB57AA9238EA7E90032DC9E /* Search */ = {
 			isa = PBXGroup;
 			children = (
-				EDB57AAA238EA8340032DC9E /* Search.storyboard */,
 				EDB57AAC238EA8E40032DC9E /* SearchController.swift */,
+				42199179239413F800CCAA89 /* ContentViewController.swift */,
+				421991772394130000CCAA89 /* ContentCollectionViewCell.swift */,
+				EDCDA01A23A2860000E28223 /* Search.storyboard */,
 			);
 			path = Search;
 			sourceTree = "<group>";
@@ -369,8 +371,6 @@
 			children = (
 				EDCA57DF23846228002C3AE1 /* Homescreen.storyboard */,
 				EDB57AA7238EA6700032DC9E /* HomeSreenTabBarController.swift */,
-				421991772394130000CCAA89 /* ContentCollectionViewCell.swift */,
-				42199179239413F800CCAA89 /* InterestsViewController.swift */,
 			);
 			path = HomeScreen;
 			sourceTree = "<group>";
@@ -448,9 +448,9 @@
 				ED35F61D237560DC009ED574 /* Assets.xcassets in Resources */,
 				EDCA57E023846228002C3AE1 /* Homescreen.storyboard in Resources */,
 				EDB57AB0238EAA750032DC9E /* Favourites.storyboard in Resources */,
-				EDB57AAB238EA8340032DC9E /* Search.storyboard in Resources */,
 				ED52876B2385A02700848D66 /* ForgotPassword.storyboard in Resources */,
 				4250E5F323845A5600369FBC /* Signup.storyboard in Resources */,
+				EDCDA01B23A2860000E28223 /* Search.storyboard in Resources */,
 				EDBE016A237F1B2000F15CE5 /* Main.storyboard in Resources */,
 				EDB57AA6238EA4920032DC9E /* Maps.storyboard in Resources */,
 				EDB57AB5238EAB910032DC9E /* UserProfile.storyboard in Resources */,
@@ -512,7 +512,7 @@
 				42B47C192385B288002C554F /* UserPost.swift in Sources */,
 				421D5CAE237DD18B00C8AD1F /* ContentProvider.swift in Sources */,
 				EDBE0169237F1B2000F15CE5 /* MainViewController.swift in Sources */,
-				4219917A239413F800CCAA89 /* InterestsViewController.swift in Sources */,
+				4219917A239413F800CCAA89 /* ContentViewController.swift in Sources */,
 				42A9BAFB23929173009C1912 /* JsonResponse.swift in Sources */,
 				ED52876F2385A2F100848D66 /* RecoverPassService.swift in Sources */,
 				ED5287712385AE9C00848D66 /* RecoverPassCodes.swift in Sources */,

@@ -11,17 +11,23 @@ import Kingfisher
 
 class ContentCollectionViewCell: UICollectionViewCell {
     
+    
+    @IBOutlet weak var titleName: UILabel!
     @IBOutlet weak var featuredImageView: UIImageView!
         
     override func prepareForReuse() {
         super.prepareForReuse()
         featuredImageView.image = nil
+        
     }
     
     func configure(with content: Content) {
-        setupView()        
+        setupView()
+        
         if let url = content.posterURL {
             self.featuredImageView.kf.setImage(with: url)
+            titleName!.text = content.title
+            
         }
 
     }
