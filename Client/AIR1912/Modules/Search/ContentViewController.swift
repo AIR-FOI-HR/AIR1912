@@ -27,12 +27,25 @@ class ContentViewController : UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        getPopularContent(for: .game)
-        getPopularContent(for: .movie)
+        getLatestContent(for: .movie)
+        getLatestContent(for: .game)
     }
     
     
     @IBAction func segmentClick(_ sender: Any) {
+        switch segmentButton.selectedSegmentIndex {
+        case 0:
+            getLatestContent(for: .movie)
+            getLatestContent(for: .game)
+        case 1:
+            getPopularContent(for: .movie)
+            getPopularContent(for: .game)
+        case 2:
+            getTopRatedContent(for: .movie)
+            getTopRatedContent(for: .game)
+        default:
+            break
+        }
     }
     
 }
@@ -40,15 +53,32 @@ class ContentViewController : UIViewController {
 extension ContentViewController {
     
     private func getPopularContent(for type: ContentType) {
-        let provider: ContentProvider
-        switch type {
-        case .game:
-            provider = GameProvider()
-        case .movie:
-            provider = MovieProvider()
-        }
-        
+        let provider = ContentProviderFactory.contentProvider(forContentType: type)
         provider.getPopularContent { (result) in
+            switch result {
+            case .success(let podaci):
+                self.updateContent(for: type, result: podaci)
+            case .failure(_):
+                self.updateContent(for: type, result: [])
+            }
+        }
+    }
+    
+    private func getLatestContent(for type: ContentType) {
+        let provider = ContentProviderFactory.contentProvider(forContentType: type)
+        provider.getLatestContent { (result) in
+            switch result {
+            case .success(let podaci):
+                self.updateContent(for: type, result: podaci)
+            case .failure(_):
+                self.updateContent(for: type, result: [])
+            }
+        }
+    }
+    
+    private func getTopRatedContent(for type: ContentType) {
+        let provider = ContentProviderFactory.contentProvider(forContentType: type)
+        provider.getTopRatedContent { (result) in
             switch result {
             case .success(let podaci):
                 self.updateContent(for: type, result: podaci)
