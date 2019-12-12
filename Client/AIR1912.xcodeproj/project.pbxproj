@@ -21,6 +21,7 @@
 		423F05A623981D6F00D92D76 /* ResponseErrorBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423F05A523981D6F00D92D76 /* ResponseErrorBuilder.swift */; };
 		4250E5F323845A5600369FBC /* Signup.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4250E5F223845A5600369FBC /* Signup.storyboard */; };
 		4250E5F723845C3B00369FBC /* SignupController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4250E5F623845C3B00369FBC /* SignupController.swift */; };
+		425F5C6A23A2B40E00B09368 /* ContentProviderFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 425F5C6923A2B40E00B09368 /* ContentProviderFactory.swift */; };
 		42A9BAF923928569009C1912 /* Alerter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A9BAF823928569009C1912 /* Alerter.swift */; };
 		42A9BAFB23929173009C1912 /* JsonResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A9BAFA23929173009C1912 /* JsonResponse.swift */; };
 		42A9BAFD239293FD009C1912 /* RegisterService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A9BAFC239293FD009C1912 /* RegisterService.swift */; };
@@ -68,6 +69,7 @@
 		423F05A523981D6F00D92D76 /* ResponseErrorBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseErrorBuilder.swift; sourceTree = "<group>"; };
 		4250E5F223845A5600369FBC /* Signup.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Signup.storyboard; sourceTree = "<group>"; };
 		4250E5F623845C3B00369FBC /* SignupController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupController.swift; sourceTree = "<group>"; };
+		425F5C6923A2B40E00B09368 /* ContentProviderFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentProviderFactory.swift; sourceTree = "<group>"; };
 		42A9BAF823928569009C1912 /* Alerter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alerter.swift; sourceTree = "<group>"; };
 		42A9BAFA23929173009C1912 /* JsonResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonResponse.swift; sourceTree = "<group>"; };
 		42A9BAFC239293FD009C1912 /* RegisterService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterService.swift; sourceTree = "<group>"; };
@@ -173,6 +175,7 @@
 				421D5CAD237DD18B00C8AD1F /* ContentProvider.swift */,
 				421D5CA9237DD16C00C8AD1F /* MovieProvider.swift */,
 				421D5CAB237DD17700C8AD1F /* GameProvider.swift */,
+				425F5C6923A2B40E00B09368 /* ContentProviderFactory.swift */,
 			);
 			path = Providers;
 			sourceTree = "<group>";
@@ -507,6 +510,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EDCA57DC23845B03002C3AE1 /* LoginViewController.swift in Sources */,
+				425F5C6A23A2B40E00B09368 /* ContentProviderFactory.swift in Sources */,
 				ED35F61B237560D8009ED574 /* AIR1912.xcdatamodeld in Sources */,
 				421D5CAC237DD17700C8AD1F /* GameProvider.swift in Sources */,
 				42B47C192385B288002C554F /* UserPost.swift in Sources */,

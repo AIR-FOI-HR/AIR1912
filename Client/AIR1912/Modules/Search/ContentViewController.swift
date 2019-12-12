@@ -16,6 +16,7 @@ class ContentViewController : UIViewController {
     @IBOutlet private weak var collectionView: UICollectionView!
     @IBOutlet private weak var collectionView2: UICollectionView!
     
+    @IBOutlet weak var segmentButton: UISegmentedControl!
     // MARK: - Private properties
     
     private var gamesDatasource = [Content]()
@@ -29,6 +30,11 @@ class ContentViewController : UIViewController {
         getPopularContent(for: .game)
         getPopularContent(for: .movie)
     }
+    
+    
+    @IBAction func segmentClick(_ sender: Any) {
+    }
+    
 }
 
 extension ContentViewController {
