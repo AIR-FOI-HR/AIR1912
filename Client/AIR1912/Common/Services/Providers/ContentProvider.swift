@@ -16,11 +16,13 @@ enum ContentType: String {
 
 protocol Content {
     
+    var id: Int { get }
     var type: ContentType { get }
     var title: String { get }
     var description: String? { get }
     var poster: String { get }
     var posterURL: URL? { get }
+    var runtime: Int? { get }
     
 }
 

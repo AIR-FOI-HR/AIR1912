@@ -20,20 +20,22 @@ struct Movie: Decodable, Content {
         return .movie
     }
     var title: String
+    var id: Int
     var description: String?
     var poster: String
     var year: String
-    var runtime: String?
+    var runtime: Int?
     var posterURL: URL? {
         return URL(string: "https://image.tmdb.org/t/p/original\(poster)")
     }
     
     enum CodingKeys: String, CodingKey {
+        
+        case id
         case title
         case description = "overview"
         case poster = "poster_path"
         case year = "release_date"
-        //case genreId = "genre_ids"
         case runtime
         
     }

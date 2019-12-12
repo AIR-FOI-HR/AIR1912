@@ -19,10 +19,12 @@ struct Game: Decodable, Content {
         return .game
     }
     
+    var id: Int
     var title: String
     var description: String?
     var poster: String
     var year: String?
+    var runtime: Int?
     var posterURL: URL? {
         return URL(string: poster)
     }
@@ -32,7 +34,8 @@ struct Game: Decodable, Content {
         case description = "slug"
         case poster = "background_image"
         case year = "released"
-        //case genreId = "category"
+        case id
+        case runtime = "playtime"
     }
     
     
