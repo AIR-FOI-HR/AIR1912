@@ -25,6 +25,7 @@ class TableCell: UITableViewCell {
         super.prepareForReuse()
         imgView.image = nil
         
+        
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

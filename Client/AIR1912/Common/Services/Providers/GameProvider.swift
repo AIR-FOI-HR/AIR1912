@@ -11,7 +11,7 @@ import Alamofire
 
 class GameProvider: ContentProvider {
     
-    var gameTitle = ""
+    var gameTitle = String()
     
     private let decoder = JSONDecoder()
     private let headers = [
@@ -41,9 +41,8 @@ class GameProvider: ContentProvider {
     
     func getLatestContent(completion: @escaping (Result<[Content]>) -> Void) {
          
-         var request = URLRequest(url: NSURL(string: "https://api.rawg.io/api/games?dates=2019-01-01,2019-12-31&platforms=18,1,7")! as URL,
-                                                 cachePolicy: .useProtocolCachePolicy,
-                                             timeoutInterval: 10.0)
+         var request = URLRequest(url: NSURL(string: "https://api.rawg.io/api/games?dates=2019-01-01,2019-12-31&platforms=18,1,7")! as URL, cachePolicy: .useProtocolCachePolicy,
+             timeoutInterval: 10.0)
          request.httpMethod = "GET"
          request.allHTTPHeaderFields = headers
          
@@ -61,11 +60,9 @@ class GameProvider: ContentProvider {
     
     func getPopularContent(completion: @escaping (Result<[Content]>) -> Void) {
        
-       
-            
         var request = URLRequest(url: NSURL(string: "https://api.rawg.io/api/games?dates=2010-01-01,2019-12-31&ordering=-added")! as URL,
-                                                cachePolicy: .useProtocolCachePolicy,
-                                            timeoutInterval: 10.0)
+            cachePolicy: .useProtocolCachePolicy,
+            timeoutInterval: 10.0)
         request.httpMethod = "GET"
         request.allHTTPHeaderFields = headers
         
@@ -83,10 +80,10 @@ class GameProvider: ContentProvider {
             
     }
     func getSearchedContent(title: String, completion: @escaping (Result<[Content]>) -> Void) {
+        
         gameTitle = title
-        var request = URLRequest(url: NSURL(string: "https://api.rawg.io/api/games?search=\(gameTitle)")! as URL,
-                                                 cachePolicy: .useProtocolCachePolicy,
-                                             timeoutInterval: 10.0)
+        
+        var request = URLRequest(url: NSURL(string: "https://api.rawg.io/api/games?search=\(gameTitle)")! as URL, cachePolicy: .useProtocolCachePolicy, timeoutInterval: 10.0)
          request.httpMethod = "GET"
          request.allHTTPHeaderFields = headers
          

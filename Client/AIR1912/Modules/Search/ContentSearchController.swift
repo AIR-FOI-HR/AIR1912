@@ -21,17 +21,14 @@ class ContentSearchController: UIViewController{
     
     private var gamesDatasource = [Content]()
     private var movieDatasource = [Content]()
-    private let decoder = JSONDecoder()
-    private let headers = [
-        "x-rapidapi-host": "rawg-video-games-database.p.rapidapi.com",
-        "x-rapidapi-key": "8e24dd9e5dmshb82b8dcc0df400ep1f2bc1jsn0e0a57afa70e"
-    ]
+    var searchTitle = String()
+   
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupSearchBar()
         getLatestContent(for: .movie)
-        getLatestContent(for: .game)
+        
     }
     
 }
@@ -43,32 +40,48 @@ extension ContentSearchController: UITableViewDelegate, UISearchBarDelegate {
         searchBar.delegate = self
     }
     
-    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String, for type: ContentType, completion: @escaping (Result<[Content]>) -> Void){
-        
-        
-        
-        let asdtitle = searchBar.text!
-    
-        let API_KEY = "e965f161f0ec9f1c3931495b713226e0"
-        let movieTitle = asdtitle
-        Alamofire
-            .request("https://api.themoviedb.org/3/search/movie?api_key=\(API_KEY)&query=\(movieTitle)")
-        .responseDecodableObject(decoder: decoder) { (response: DataResponse<MovieResponse>) in
-            switch response.result {
-            case .success(let response):
-                completion(.success(response.results))
-            case .failure(let error):
-                completion(.failure(error))
-            }
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String){
+        switch searchBar.selectedScopeButtonIndex {
+        case 0:
+            if searchText.isEmpty { return getLatestContent(for: .movie)}
+            searchTitle = searchBar.text!
+            return getSearchedContent(for: .movie)
+        case 1:
+            if searchText.isEmpty { return getLatestContent(for: .game)}
+            searchTitle = searchBar.text!
+            return getSearchedContent(for: .game)
+        default:
+            return
         }
-        
+
     }
+    
     
     func searchBar(_ searchBar: UISearchBar, selectedScopeButtonIndexDidChange selectedScope: Int){
+        switch selectedScope {
+        case 0:
+            getLatestContent(for: .movie)
+            searchBar.text = ""
+        case 1:
+            getLatestContent(for: .game)
+            searchBar.text = ""
+        default:
+            break
+        }
    
     }
    
-
+    private func getSearchedContent(for type: ContentType) {
+        let provider = ContentProviderFactory.contentProvider(forContentType: type)
+        provider.getSearchedContent(title: searchTitle) { (result) in
+            switch result {
+            case .success(let podaci):
+                self.updateContent(for: type, result: podaci)
+            case .failure(_):
+                self.updateContent(for: type, result: [])
+            }
+        }
+    }
     
    
     
@@ -106,7 +119,7 @@ extension ContentSearchController: UITableViewDelegate, UISearchBarDelegate {
 extension ContentSearchController: UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if tableView === self.table {
+        if searchBar.selectedScopeButtonIndex == 0 {
             return movieDatasource.count
         } else {
             return gamesDatasource.count
@@ -119,7 +132,7 @@ extension ContentSearchController: UITableViewDataSource{
             return UITableViewCell()
         }
         let content: Content
-        if tableView === self.table{
+        if searchBar.selectedScopeButtonIndex == 0 {
             content = movieDatasource[indexPath.row]
         } else {
             content = gamesDatasource[indexPath.row]
