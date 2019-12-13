@@ -3,23 +3,23 @@
 include 'Users.php';
 include 'jsonResponse.php';
 
-$nickname = $_POST['nickname'];
-$name = $_POST['name'];
-$surname = $_POST['surname'];
-$email = $_POST['email'];
-$password = $_POST['password'];
+$nickname = $_GET['nickname'];
+$name = $_GET['name'];
+$surname = $_GET['surname'];
+$email = $_GET['email'];
+$password = $_GET['password'];
+$avatar = $_GET['avatar'];
 
-$newUser = new Users(0, $nickname, $name, $surname, $email, $password);
+$newUser = new Users(0, $nickname, $name, $surname, $email, $password, $avatar);
 $response;
 
+// userExists: bool
 $userExists = $newUser->CheckIfUserExists();
 if($userExists){
-    $response = json_response('User with this email or password exists!', $code = 400);
-}
-
-else{
+    $response = JsonResponseBuilder::error_response('Sorry but...','User with this email or nickname alreday exists!', 400);
+} else{
     $newUser->addNewUser();
-    $response = json_response($newUser->getUserByEmail(), $code = 200);
+    $response = JsonResponseBuilder::success_response($newUser->getUserByEmail());
 }
 
 echo $response;

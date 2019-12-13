@@ -9,8 +9,9 @@ class Users{
    public $surname;
    public $email;
    public $password;
+   public $avatar;
 
-   function __construct($idUsers ,$nickname, $name, $surname, $email, $password)
+   function __construct($idUsers ,$nickname, $name, $surname, $email, $password, $avatar)
    {
        $this->idUsers = $idUsers;
        $this->nickname = $nickname;
@@ -18,8 +19,9 @@ class Users{
        $this->surname = $surname;
        $this->email = $email;
        $this->password = $password;
+       $this->avatar = $avatar;
    }
-   
+
    function CheckIfUserExists(){
        // Create connection Data with connection string
       $connectionData = new ConnectionData();
@@ -74,7 +76,7 @@ class Users{
          echo "Failed to connect to MySQL: " . mysqli_connect_error();
       }
 
-      $query = "INSERT INTO Users (nickname, name, surname, email, password) VALUES ('$this->nickname', '$this->name', '$this->surname', '$this->email', '$this->password')";
+      $query = "INSERT INTO Users (nickname, name, surname, email, password, avatar) VALUES ('$this->nickname', '$this->name', '$this->surname', '$this->email', '$this->password', '$this->avatar')";
 
       if(!mysqli_query($connectionString,$query)) 
       {
@@ -111,20 +113,10 @@ class Users{
         {
             // If so, then create a results array and a temporary one
             // to hold the data
-            $resultArray = array();
-            $tempArray = array();
-             
-            // Loop through each row in the result set
-            while($row = $result->fetch_object())
-            {
-            // Add each row into our results array
-                $tempArray = $row;
-                if ($tempArray){
-                   
-                   array_push($resultArray, $tempArray);
-                }
-            }
+            $resultArray = mysqli_fetch_assoc($result);
             return $resultArray;
+        } else {
+             return null;
         }
     }
 
