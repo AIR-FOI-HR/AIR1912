@@ -6,6 +6,7 @@ PODS:
   - KBRoundedButton (1.0.4)
   - Kingfisher (4.10.1)
   - SCLAlertView (0.8)
+  - SkeletonView (1.8.2)
   - Spring (1.0.6)
   - SwiftKeychainWrapper (3.4.0)
 
@@ -16,6 +17,7 @@ DEPENDENCIES:
   - KBRoundedButton
   - Kingfisher
   - SCLAlertView
+  - SkeletonView
   - Spring (from `https://github.com/MengTo/Spring.git`)
   - SwiftKeychainWrapper
 
@@ -27,6 +29,7 @@ SPEC REPOS:
     - KBRoundedButton
     - Kingfisher
     - SCLAlertView
+    - SkeletonView
     - SwiftKeychainWrapper
 
 EXTERNAL SOURCES:
@@ -45,9 +48,10 @@ SPEC CHECKSUMS:
   KBRoundedButton: 8fde755b8f1df3ddd3c3c280d9b27ce04ab55d00
   Kingfisher: c148cd7b47ebde9989f6bc7c27dcaa79d81279a0
   SCLAlertView: 6a77bb2edfc65e04dbe57725546cb4107a506b85
+  SkeletonView: bb27c39857e5492136f02ee8a3aa78de55d12ecd
   Spring: 3d113f14575ef79aec9c5f906dfa4f5001c03254
   SwiftKeychainWrapper: 6fc49fbf7d4a6b0772917acb0e53a1639f6078d6
 
-PODFILE CHECKSUM: 0c48f0ce5a87656a633bb800eff2d00acfe430a5
+PODFILE CHECKSUM: 87c375d27363d37e306fffd75b98ccf420e6b899
 
-COCOAPODS: 1.8.3
+COCOAPODS: 1.8.4
