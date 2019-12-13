@@ -10,6 +10,22 @@ import Foundation
 import Alamofire
 
 class GameProvider: ContentProvider {
+    func getContentByIDFromDB(for id: Int, completion: @escaping (Result<[Content]>) -> Void) {
+        Alamofire
+        .request("https://cortex.foi.hr/meetup/ContentProvider.php?searchByID=\(id)")
+        .responseDecodableObject(decoder: decoder) { (response: DataResponse<GameResponse>) in
+            switch response.result {
+            case .success(let response):
+                completion(.success(response.results))
+                
+            case .failure(let error):
+                completion(.failure(error))
+            }
+        }
+    }
+    
+   
+    
     
     private let decoder = JSONDecoder()
     private let headers = [
