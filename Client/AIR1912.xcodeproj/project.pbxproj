@@ -27,6 +27,15 @@
 		42A9BAFD239293FD009C1912 /* RegisterService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A9BAFC239293FD009C1912 /* RegisterService.swift */; };
 		42B47C192385B288002C554F /* UserPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B47C182385B288002C554F /* UserPost.swift */; };
 		D0655947A9CF0CDD85866E29 /* Pods_AIR1912.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0702C62035766E8AC911DBD4 /* Pods_AIR1912.framework */; };
+		ED156F2923A3D1EA0085BB2D /* EventsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED156F2823A3D1EA0085BB2D /* EventsViewController.swift */; };
+		ED156F2B23A3D2680085BB2D /* EventCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED156F2A23A3D2680085BB2D /* EventCollectionViewCell.swift */; };
+		ED156F2D23A3DC280085BB2D /* EventProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED156F2C23A3DC280085BB2D /* EventProvider.swift */; };
+		ED156F2F23A3DCF60085BB2D /* PublicEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED156F2E23A3DCF60085BB2D /* PublicEvent.swift */; };
+		ED156F3123A3DE850085BB2D /* PrivateEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED156F3023A3DE850085BB2D /* PrivateEvent.swift */; };
+		ED156F3323A3DEC80085BB2D /* PublicEventProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED156F3223A3DEC80085BB2D /* PublicEventProvider.swift */; };
+		ED156F3523A3DEE00085BB2D /* PrivateEventProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED156F3423A3DEE00085BB2D /* PrivateEventProvider.swift */; };
+		ED156F3723A3F78C0085BB2D /* EventProviderFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED156F3623A3F78C0085BB2D /* EventProviderFactory.swift */; };
+		ED156F3D23A40CF90085BB2D /* Content.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED156F3C23A40CF90085BB2D /* Content.swift */; };
 		ED35F611237560D8009ED574 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED35F610237560D8009ED574 /* AppDelegate.swift */; };
 		ED35F613237560D8009ED574 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED35F612237560D8009ED574 /* SceneDelegate.swift */; };
 		ED35F61B237560D8009ED574 /* AIR1912.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = ED35F619237560D8009ED574 /* AIR1912.xcdatamodeld */; };
@@ -76,6 +85,15 @@
 		42B47C182385B288002C554F /* UserPost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPost.swift; sourceTree = "<group>"; };
 		949424CDCE90C8DF2A9D94EF /* Pods-AIR1912.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AIR1912.release.xcconfig"; path = "Target Support Files/Pods-AIR1912/Pods-AIR1912.release.xcconfig"; sourceTree = "<group>"; };
 		CD0D060BD77CBC12E7F44CDE /* Pods-AIR1912.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AIR1912.debug.xcconfig"; path = "Target Support Files/Pods-AIR1912/Pods-AIR1912.debug.xcconfig"; sourceTree = "<group>"; };
+		ED156F2823A3D1EA0085BB2D /* EventsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsViewController.swift; sourceTree = "<group>"; };
+		ED156F2A23A3D2680085BB2D /* EventCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventCollectionViewCell.swift; sourceTree = "<group>"; };
+		ED156F2C23A3DC280085BB2D /* EventProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventProvider.swift; sourceTree = "<group>"; };
+		ED156F2E23A3DCF60085BB2D /* PublicEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublicEvent.swift; sourceTree = "<group>"; };
+		ED156F3023A3DE850085BB2D /* PrivateEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivateEvent.swift; sourceTree = "<group>"; };
+		ED156F3223A3DEC80085BB2D /* PublicEventProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublicEventProvider.swift; sourceTree = "<group>"; };
+		ED156F3423A3DEE00085BB2D /* PrivateEventProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivateEventProvider.swift; sourceTree = "<group>"; };
+		ED156F3623A3F78C0085BB2D /* EventProviderFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventProviderFactory.swift; sourceTree = "<group>"; };
+		ED156F3C23A40CF90085BB2D /* Content.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Content.swift; sourceTree = "<group>"; };
 		ED35F60D237560D8009ED574 /* AIR1912.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AIR1912.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED35F610237560D8009ED574 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ED35F612237560D8009ED574 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -145,6 +163,9 @@
 				4212CC002385ACD300C53210 /* Game.swift */,
 				ED5287702385AE9C00848D66 /* RecoverPassCodes.swift */,
 				42B47C182385B288002C554F /* UserPost.swift */,
+				ED156F2E23A3DCF60085BB2D /* PublicEvent.swift */,
+				ED156F3023A3DE850085BB2D /* PrivateEvent.swift */,
+				ED156F3C23A40CF90085BB2D /* Content.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -172,10 +193,8 @@
 		421D5CA8237DD15700C8AD1F /* Providers */ = {
 			isa = PBXGroup;
 			children = (
-				421D5CAD237DD18B00C8AD1F /* ContentProvider.swift */,
-				421D5CA9237DD16C00C8AD1F /* MovieProvider.swift */,
-				421D5CAB237DD17700C8AD1F /* GameProvider.swift */,
-				425F5C6923A2B40E00B09368 /* ContentProviderFactory.swift */,
+				ED156F3B23A405C70085BB2D /* API */,
+				ED156F3A23A405BE0085BB2D /* Database */,
 			);
 			path = Providers;
 			sourceTree = "<group>";
@@ -240,6 +259,28 @@
 				ED35F61E237560DC009ED574 /* LaunchScreen.storyboard */,
 			);
 			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		ED156F3A23A405BE0085BB2D /* Database */ = {
+			isa = PBXGroup;
+			children = (
+				ED156F2C23A3DC280085BB2D /* EventProvider.swift */,
+				ED156F3223A3DEC80085BB2D /* PublicEventProvider.swift */,
+				ED156F3423A3DEE00085BB2D /* PrivateEventProvider.swift */,
+				ED156F3623A3F78C0085BB2D /* EventProviderFactory.swift */,
+			);
+			path = Database;
+			sourceTree = "<group>";
+		};
+		ED156F3B23A405C70085BB2D /* API */ = {
+			isa = PBXGroup;
+			children = (
+				421D5CAD237DD18B00C8AD1F /* ContentProvider.swift */,
+				421D5CA9237DD16C00C8AD1F /* MovieProvider.swift */,
+				421D5CAB237DD17700C8AD1F /* GameProvider.swift */,
+				425F5C6923A2B40E00B09368 /* ContentProviderFactory.swift */,
+			);
+			path = API;
 			sourceTree = "<group>";
 		};
 		ED35F604237560D8009ED574 = {
@@ -374,6 +415,8 @@
 			children = (
 				EDCA57DF23846228002C3AE1 /* Homescreen.storyboard */,
 				EDB57AA7238EA6700032DC9E /* HomeSreenTabBarController.swift */,
+				ED156F2823A3D1EA0085BB2D /* EventsViewController.swift */,
+				ED156F2A23A3D2680085BB2D /* EventCollectionViewCell.swift */,
 			);
 			path = HomeScreen;
 			sourceTree = "<group>";
@@ -515,14 +558,18 @@
 				421D5CAC237DD17700C8AD1F /* GameProvider.swift in Sources */,
 				42B47C192385B288002C554F /* UserPost.swift in Sources */,
 				421D5CAE237DD18B00C8AD1F /* ContentProvider.swift in Sources */,
+				ED156F3723A3F78C0085BB2D /* EventProviderFactory.swift in Sources */,
+				ED156F3D23A40CF90085BB2D /* Content.swift in Sources */,
 				EDBE0169237F1B2000F15CE5 /* MainViewController.swift in Sources */,
 				4219917A239413F800CCAA89 /* ContentViewController.swift in Sources */,
 				42A9BAFB23929173009C1912 /* JsonResponse.swift in Sources */,
 				ED52876F2385A2F100848D66 /* RecoverPassService.swift in Sources */,
 				ED5287712385AE9C00848D66 /* RecoverPassCodes.swift in Sources */,
 				4250E5F723845C3B00369FBC /* SignupController.swift in Sources */,
+				ED156F2D23A3DC280085BB2D /* EventProvider.swift in Sources */,
 				EDBE0169237F1B2000F15CE5 /* MainViewController.swift in Sources */,
 				EDB57AAD238EA8E40032DC9E /* SearchController.swift in Sources */,
+				ED156F3323A3DEC80085BB2D /* PublicEventProvider.swift in Sources */,
 				ED52876F2385A2F100848D66 /* RecoverPassService.swift in Sources */,
 				ED5287712385AE9C00848D66 /* RecoverPassCodes.swift in Sources */,
 				4250E5F723845C3B00369FBC /* SignupController.swift in Sources */,
@@ -532,7 +579,9 @@
 				4212CC012385ACD300C53210 /* Game.swift in Sources */,
 				421991782394130000CCAA89 /* ContentCollectionViewCell.swift in Sources */,
 				EDB57AA8238EA6700032DC9E /* HomeSreenTabBarController.swift in Sources */,
+				ED156F2F23A3DCF60085BB2D /* PublicEvent.swift in Sources */,
 				421D5CAA237DD16C00C8AD1F /* MovieProvider.swift in Sources */,
+				ED156F3523A3DEE00085BB2D /* PrivateEventProvider.swift in Sources */,
 				42A9BAF923928569009C1912 /* Alerter.swift in Sources */,
 				423F05A623981D6F00D92D76 /* ResponseErrorBuilder.swift in Sources */,
 				EDFD7E7E239107430028C4D5 /* UserProfileViewController.swift in Sources */,
@@ -540,10 +589,13 @@
 				ED52876D2385A04000848D66 /* ForgotPasswordViewController.swift in Sources */,
 				421D5CA7237DCC6F00C8AD1F /* AuthService.swift in Sources */,
 				423F05A423981C0400D92D76 /* ResponseError.swift in Sources */,
+				ED156F2B23A3D2680085BB2D /* EventCollectionViewCell.swift in Sources */,
 				4221044F23902546005B1B25 /* Encodable.swift in Sources */,
+				ED156F3123A3DE850085BB2D /* PrivateEvent.swift in Sources */,
 				EDFD7E8223910EAD0028C4D5 /* UserKeychain.swift in Sources */,
 				421D5CA3237DC3CC00C8AD1F /* User.swift in Sources */,
 				EDB57AA4238EA4430032DC9E /* MapsController.swift in Sources */,
+				ED156F2923A3D1EA0085BB2D /* EventsViewController.swift in Sources */,
 				ED35F613237560D8009ED574 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -30,9 +30,9 @@ struct Movie: Decodable, Content {
     }
     
     enum CodingKeys: String, CodingKey {
-        
-        case id
         case title
+        case id
+        
         case description = "overview"
         case poster = "poster_path"
         case year = "release_date"

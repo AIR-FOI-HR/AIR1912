@@ -27,6 +27,7 @@ extension HomeSreenTabBarController {
     
     func setupTabBar(){
         self.selectedIndex = 2
+        
     }
     
 }
