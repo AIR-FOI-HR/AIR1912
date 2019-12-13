@@ -11,9 +11,13 @@ import Alamofire
 
 class MovieProvider: ContentProvider {
     
+    
     private let API_KEY = "e965f161f0ec9f1c3931495b713226e0"
     
     private let decoder = JSONDecoder()
+    
+    var movieTitle = ""
+    
     
     func getTopRatedContent(completion: @escaping (Result<[Content]>) -> Void) {
         
@@ -55,5 +59,19 @@ class MovieProvider: ContentProvider {
                     completion(.failure(error))
                 }
             }
+    }
+    
+    func getSearchedContent(title: String, completion: @escaping (Result<[Content]>) -> Void) {
+        movieTitle = title
+        Alamofire
+        .request("https://api.themoviedb.org/3/search/movie?api_key=\(API_KEY)&query=\(movieTitle)")
+        .responseDecodableObject(decoder: decoder) { (response: DataResponse<MovieResponse>) in
+            switch response.result {
+            case .success(let response):
+                completion(.success(response.results))
+            case .failure(let error):
+                completion(.failure(error))
+            }
+        }
     }
 }

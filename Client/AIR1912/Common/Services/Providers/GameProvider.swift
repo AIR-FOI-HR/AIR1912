@@ -11,6 +11,8 @@ import Alamofire
 
 class GameProvider: ContentProvider {
     
+    var gameTitle = ""
+    
     private let decoder = JSONDecoder()
     private let headers = [
         "x-rapidapi-host": "rawg-video-games-database.p.rapidapi.com",
@@ -79,6 +81,25 @@ class GameProvider: ContentProvider {
                }
            }
             
-}
+    }
+    func getSearchedContent(title: String, completion: @escaping (Result<[Content]>) -> Void) {
+        gameTitle = title
+        var request = URLRequest(url: NSURL(string: "https://api.rawg.io/api/games?search=\(gameTitle)")! as URL,
+                                                 cachePolicy: .useProtocolCachePolicy,
+                                             timeoutInterval: 10.0)
+         request.httpMethod = "GET"
+         request.allHTTPHeaderFields = headers
+         
+        Alamofire
+         .request(request)
+            .responseDecodableObject(decoder: decoder) { (response: DataResponse<GameResponse>) in
+                switch response.result {
+                case .success(let response):
+                 completion(.success(response.results))
+                case .failure(let error):
+                    completion(.failure(error))
+                }
+            }
+    }
 
 }
