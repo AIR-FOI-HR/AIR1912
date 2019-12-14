@@ -10,17 +10,18 @@ import UIKit
 import Kingfisher
 import CoreLocation
 
+
 class EventsViewController: UIViewController {
     // MARK: - Private outlets
         
-        @IBOutlet private weak var collectionView: UICollectionView!
-        @IBOutlet private weak var collectionView2: UICollectionView!
+        @IBOutlet private weak var nearEventsCollectionView: UICollectionView!
+        @IBOutlet private weak var myEventsCollectionView: UICollectionView!
         
        
         // MARK: - Private properties
         
-        private var gamesDatasource = [Event]()
-        private var movieDatasource = [Event]()
+        private var myEventsDataSource = [Event]()
+        private var nearEventsDataSource = [Event]()
         private let keychain:UserKeychain = UserKeychain()
         private var locationManager: CLLocationManager!
         // MARK: - Lifecycle
@@ -29,18 +30,18 @@ class EventsViewController: UIViewController {
             super.viewDidLoad()
             getUserLocation()
  
-            getAllEventsByUserID(for: .publicEvent)
-            getAllEventsByLocation(for: .privateEvent)
+            getAllEventsByUserID(for: .allEvents)
+            getAllEventsByLocation(for: .allEvents)
             
         }
         
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(true)
-        getUserLocation()
-        
-                   getAllEventsByUserID(for: .publicEvent)
-                   getAllEventsByLocation(for: .privateEvent)
-    }
+        override func viewWillAppear(_ animated: Bool) {
+            super.viewWillAppear(true)
+            getUserLocation()
+            
+            getAllEventsByUserID(for: .allEvents)
+            getAllEventsByLocation(for: .allEvents)
+        }
     
         
     }
@@ -59,65 +60,69 @@ class EventsViewController: UIViewController {
                 switch result {
                 case .success(let podaci):
                     print (podaci)
-                    self.updateContent(for: type, result: podaci)
+                    self.updateMyEventsContent(result: podaci)
                     
                 case .failure(_):
                     print("failure")
-                    self.updateContent(for: type, result: [])
+                    self.updateMyEventsContent(result: [])
                 }
             }
         }
         
         private func getAllEventsByLocation(for type: EventType){
-            let provider = PrivateEventProvider()
+           let provider = EventProviderFactory.eventProvider(forEventType: type)
             provider.getAllEvents{ (result) in
                            switch result {
                            case .success(let podaci):
                                print ("ovo su podaci \(podaci)")
-                               self.updateContent(for: type, result: podaci)
+                               self.updateNearEventsContent( result: podaci)
                                
                            case .failure(_):
                                print("failure je ovdje")
-                               self.updateContent(for: type, result: [])
+                               self.updateNearEventsContent( result: [])
                            }
                        }
         }
         
-        private func updateContent(for type: EventType, result: [Event]) {
-            switch type {
-            case .publicEvent:
-                gamesDatasource = result
-                self.collectionView2.reloadData()
-            case .privateEvent:
-                movieDatasource = result
+        private func updateMyEventsContent(result: [Event]) {
+            
+                myEventsDataSource = result
+                self.myEventsCollectionView.reloadData()
                 
-                //Izbaciti iz popisa sve one koji nisu Near korisnika
-                removeNearEvents(for: movieDatasource)
-                self.collectionView.reloadData()
-            }
+    
         }
+        
+        private func updateNearEventsContent(result: [Event]) {
+                   
+                       nearEventsDataSource = result
+                       
+                       //Izbaciti iz popisa sve one koji nisu Near korisnika
+                       removeNearEvents(for: nearEventsDataSource)
+                       self.nearEventsCollectionView.reloadData()
+                   
+               }
     }
 
     extension EventsViewController: UICollectionViewDataSource {
         
         func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-            if collectionView === self.collectionView {
-                return movieDatasource.count
+            if collectionView === self.nearEventsCollectionView {
+                return nearEventsDataSource.count
             } else {
-                return gamesDatasource.count
+                return myEventsDataSource.count
             }
         }
         
         func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "EventCollectionViewCell", for: indexPath) as! EventCollectionViewCell
             let event: Event
-            if collectionView === self.collectionView {
-                event = movieDatasource[indexPath.row]
+            if collectionView === self.nearEventsCollectionView {
+                event = nearEventsDataSource[indexPath.row]
                 cell.configureForNearEvents(with: event)
                 
                 
             } else {
-                event = gamesDatasource[indexPath.row]
+                event = myEventsDataSource[indexPath.row]
                 cell.configureForMyEvents(with: event)
             }
             
@@ -141,7 +146,7 @@ extension EventsViewController: CLLocationManagerDelegate{
     {
 
         let location = locations.last! as CLLocation
-        keychain.saveLocationData(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
+        _ = keychain.saveLocationData(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
         print(keychain.getLatestLocation().coordinate)
     }
     
@@ -155,9 +160,9 @@ extension EventsViewController: CLLocationManagerDelegate{
     }
     
     func removeNearEvents(for source:[Event]){
-        for event in movieDatasource{
+        for event in nearEventsDataSource{
             if(!isNearUser(event: event)){
-                movieDatasource.removeAll(where: { $0.id == event.id })
+                nearEventsDataSource.removeAll(where: { $0.id == event.id })
             }
             
         }

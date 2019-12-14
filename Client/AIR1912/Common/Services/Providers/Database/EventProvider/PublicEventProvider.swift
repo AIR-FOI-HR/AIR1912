@@ -18,7 +18,7 @@ class PublicEventProvider: EventProvider{
     func getAllEventsByUserID(for id: Int, completion: @escaping (Result<[Event]>) -> Void) {
         Alamofire
         .request("https://cortex.foi.hr/meetup/PublicEventProvider.php?searchByID=\(id)")
-        .responseDecodableObject(decoder: decoder) { (response: DataResponse<[PublicEvent]>) in
+        .responseDecodableObject(decoder: decoder) { (response: DataResponse<[EventDB]>) in
             switch response.result {
             case .success(let response):
              
@@ -34,7 +34,7 @@ class PublicEventProvider: EventProvider{
     func getAllEvents( completion: @escaping (Result<[Event]>) -> Void) {
          Alamofire
                .request("https://cortex.foi.hr/meetup/PublicEventProvider.php")
-               .responseDecodableObject(decoder: decoder) { (response: DataResponse<[PublicEvent]>) in
+               .responseDecodableObject(decoder: decoder) { (response: DataResponse<[EventDB]>) in
                    switch response.result {
                    case .success(let response):
                     

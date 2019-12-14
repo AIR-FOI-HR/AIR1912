@@ -13,6 +13,7 @@ import Alamofire
 enum EventType: Int {
     case privateEvent = 1
     case publicEvent = 0
+    case allEvents = 2
 }
 
 protocol Event {

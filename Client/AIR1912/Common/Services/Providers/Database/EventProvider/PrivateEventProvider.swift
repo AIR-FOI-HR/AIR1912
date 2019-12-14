@@ -14,16 +14,18 @@ class PrivateEventProvider: EventProvider{
      private let decoder = JSONDecoder()
     
     func getAllEventsByUserID(for id: Int, completion: @escaping (Result<[Event]>) -> Void) {
-        //TODO:
+        //TODO: napraviti za private evente
     }
     
    
     
     
     func getAllEvents(completion: @escaping (Result<[Event]>) -> Void) {
+        //Napraviti za private evente
+        
         Alamofire
         .request("https://cortex.foi.hr/meetup/PublicEventProvider.php")
-        .responseDecodableObject(decoder: decoder) { (response: DataResponse<[PublicEvent]>) in
+        .responseDecodableObject(decoder: decoder) { (response: DataResponse<[EventDB]>) in
             switch response.result {
             case .success(let response):
              

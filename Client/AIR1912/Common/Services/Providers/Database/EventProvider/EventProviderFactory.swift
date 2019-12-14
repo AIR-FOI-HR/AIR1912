@@ -17,6 +17,8 @@ class EventProviderFactory {
          return PrivateEventProvider()
       
         
-      }
+      case .allEvents:
+        return AllEventProvider()
+        }
    }
 }

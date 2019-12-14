@@ -8,11 +8,11 @@
 
 import Foundation
 
-struct PublicEventResponse: Decodable {
-    var results: [PublicEvent]
+struct EventResponse: Decodable {
+    var results: [EventDB]
 }
 
-struct PublicEvent: Decodable, Event{
+struct EventDB: Decodable, Event {
     var id: Int
     
     var title: String
