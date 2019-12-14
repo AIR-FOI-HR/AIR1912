@@ -27,7 +27,7 @@ class EventsViewController: UIViewController {
         
         override func viewDidLoad() {
             super.viewDidLoad()
-            //getUserLocation()
+            getUserLocation()
             
             
             getAllEventsByUserID(for: .publicEvent)
@@ -113,9 +113,8 @@ extension EventsViewController: CLLocationManagerDelegate{
     {
 
         let location = locations.last! as CLLocation
-        let center = CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
-        
-        
+        keychain.saveLocationData(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
+        print(keychain.getLatestLocation().coordinate)
     }
     
 }
