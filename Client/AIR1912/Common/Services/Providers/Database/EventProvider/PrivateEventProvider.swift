@@ -10,7 +10,14 @@ import Foundation
 import Alamofire
 
 class PrivateEventProvider: EventProvider{
-    private let decoder = JSONDecoder()
+    
+     private let decoder = JSONDecoder()
+    
+    func getAllEventsByUserID(for id: Int, completion: @escaping (Result<[Event]>) -> Void) {
+        //TODO:
+    }
+    
+   
     
     
     func getAllEvents(completion: @escaping (Result<[Event]>) -> Void) {

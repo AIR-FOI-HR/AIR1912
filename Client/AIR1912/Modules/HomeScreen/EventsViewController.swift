@@ -9,6 +9,7 @@
 import UIKit
 import Kingfisher
 
+
 class EventsViewController: UIViewController {
     // MARK: - Private outlets
         
@@ -20,13 +21,16 @@ class EventsViewController: UIViewController {
         
         private var gamesDatasource = [Event]()
         private var movieDatasource = [Event]()
+        private let keychain:UserKeychain = UserKeychain()
         
         // MARK: - Lifecycle
         
         override func viewDidLoad() {
             super.viewDidLoad()
+            getUserLocation(for: keychain.getID())
             
-            getAllEvents(for: .publicEvent)
+            
+            getAllEventsByUserID(for: .publicEvent)
             //getPopularContent(for: .game)
         }
         
@@ -37,9 +41,14 @@ class EventsViewController: UIViewController {
 
     extension EventsViewController {
         
-        private func getAllEvents(for type: EventType) {
+        private func getAllEventsByUserID(for type: EventType) {
+            
+            guard let idUser = keychain.getID() else{
+                return
+            }
+            
             let provider = EventProviderFactory.eventProvider(forEventType: type)
-            provider.getAllEvents{ (result) in
+            provider.getAllEventsByUserID(for: idUser){ (result) in
                 switch result {
                 case .success(let podaci):
                     print (podaci)
@@ -56,7 +65,6 @@ class EventsViewController: UIViewController {
             switch type {
             case .publicEvent:
                 gamesDatasource = result
-                
                 self.collectionView2.reloadData()
             case .privateEvent:
                 movieDatasource = result
@@ -88,3 +96,8 @@ class EventsViewController: UIViewController {
             return cell
         }
     }
+
+extension EventsViewController{
+    
+    
+}

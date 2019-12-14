@@ -26,8 +26,8 @@ class EventCollectionViewCell: UICollectionViewCell {
         setupView()
         
         titleName!.text = event.title
-        let provider = MovieProvider()
-        provider.getContentByIDFromDB(for: event.contentID){(result) in
+        let provider = DBMovieProvider()
+        provider.getContentByID(for: event.contentID){(result) in
                 switch result {
                 case .success(let podaci):
                     print (podaci)

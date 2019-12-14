@@ -37,6 +37,8 @@ protocol EventProvider {
     
 
      func getAllEvents(completion: @escaping (Result<[Event]>) -> Void)
+     func getAllEventsByUserID(for id:Int, completion: @escaping (Result<[Event]>) -> Void)
+    
      
      
     
