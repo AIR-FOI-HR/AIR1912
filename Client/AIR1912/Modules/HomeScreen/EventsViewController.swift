@@ -37,7 +37,7 @@ class EventsViewController: UIViewController {
         
         override func viewWillAppear(_ animated: Bool) {
             super.viewWillAppear(true)
-            getUserLocation()
+           getUserLocation()
             
             getAllEventsByUserID(for: .allEvents)
             getAllEventsByLocation(for: .allEvents)
@@ -151,11 +151,14 @@ extension EventsViewController: CLLocationManagerDelegate{
     }
     
     func isNearUser(event:Event) -> Bool {
-        let userLocationCordinates = keychain.getLatestLocation()
-        let eventLocationCordinates = CLLocation(latitude: event.latitude, longitude: event.longitude)
+        if(locationGranted()){
+            let userLocationCordinates = keychain.getLatestLocation()
+            let eventLocationCordinates = CLLocation(latitude: event.latitude, longitude: event.longitude)
+            
+            let distanceInMeters = userLocationCordinates.distance(from: eventLocationCordinates)
+            guard distanceInMeters>10000 else {return true}
+        }
         
-        let distanceInMeters = userLocationCordinates.distance(from: eventLocationCordinates)
-        guard distanceInMeters>10000 else {return true}
         return false
     }
     
@@ -166,6 +169,22 @@ extension EventsViewController: CLLocationManagerDelegate{
             }
             
         }
+    }
+    
+    func locationGranted()-> Bool{
+        if CLLocationManager.locationServicesEnabled() {
+            switch CLLocationManager.authorizationStatus() {
+                case .notDetermined, .restricted, .denied:
+                    return false
+                case .authorizedAlways, .authorizedWhenInUse:
+                    return true
+                @unknown default:
+                break
+            }
+            } else {
+                print("Location services are not enabled")
+        }
+        return false
     }
     
 }
