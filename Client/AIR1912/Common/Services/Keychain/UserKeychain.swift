@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import CoreLocation
 import SwiftKeychainWrapper
 
 class UserKeychain {
@@ -17,6 +18,8 @@ class UserKeychain {
         case nickname = "nickname"
         case avatar = "avatar"
         case id = "id"
+        case lat = "lat"
+        case lon = "lon"
     }
   
     
@@ -32,6 +35,27 @@ class UserKeychain {
                 
         }
         return true
+    }
+    
+    func saveLocationData(latitude:Double, longitude:Double)->Bool{
+        guard KeychainWrapper.standard.set(latitude, forKey: UserKeychainKey.lat.rawValue),
+            KeychainWrapper.standard.set(longitude, forKey: UserKeychainKey.lon.rawValue)
+            else {
+               return false
+                
+        }
+        return true
+    }
+    
+    func getLatestLocation()-> CLLocation{
+        
+        let lat = KeychainWrapper.standard.double(forKey: UserKeychainKey.lat.rawValue)
+        let lon = KeychainWrapper.standard.double(forKey: UserKeychainKey.lon.rawValue)
+        
+        let coordinates = CLLocation(latitude: lat!, longitude: lon!)
+        
+        
+        return coordinates
     }
     
     func getEmail() -> String? {

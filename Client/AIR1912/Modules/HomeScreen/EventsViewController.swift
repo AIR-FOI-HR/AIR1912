@@ -8,7 +8,7 @@
 
 import UIKit
 import Kingfisher
-
+import CoreLocation
 
 class EventsViewController: UIViewController {
     // MARK: - Private outlets
@@ -22,12 +22,12 @@ class EventsViewController: UIViewController {
         private var gamesDatasource = [Event]()
         private var movieDatasource = [Event]()
         private let keychain:UserKeychain = UserKeychain()
-        
+        private var locationManager: CLLocationManager!
         // MARK: - Lifecycle
         
         override func viewDidLoad() {
             super.viewDidLoad()
-            //getUserLocation(for: keychain.getID())
+            //getUserLocation()
             
             
             getAllEventsByUserID(for: .publicEvent)
@@ -97,7 +97,25 @@ class EventsViewController: UIViewController {
         }
     }
 
-extension EventsViewController{
+extension EventsViewController: CLLocationManagerDelegate{
+    func getUserLocation() {
+        if (CLLocationManager.locationServicesEnabled())
+        {
+            locationManager = CLLocationManager()
+            locationManager.delegate = self
+            locationManager.desiredAccuracy = kCLLocationAccuracyBest
+            locationManager.requestAlwaysAuthorization()
+            locationManager.startUpdatingLocation()
+        }
+    }
     
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation])
+    {
+
+        let location = locations.last! as CLLocation
+        let center = CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
+        
+        
+    }
     
 }
