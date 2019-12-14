@@ -22,14 +22,16 @@ class PrivateEventProvider: EventProvider{
     
     func getAllEvents(completion: @escaping (Result<[Event]>) -> Void) {
         Alamofire
-        .request("https://cortex.foi.hr/meetup/GameEventProvider.php")
+        .request("https://cortex.foi.hr/meetup/PublicEventProvider.php")
         .responseDecodableObject(decoder: decoder) { (response: DataResponse<[PublicEvent]>) in
             switch response.result {
             case .success(let response):
              
              completion(.success(response))
             case .failure(let error):
+                print("Error: \(error)")
                 completion(.failure(error))
+                
             }
         }
     }

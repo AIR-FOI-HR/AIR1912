@@ -28,16 +28,23 @@ class EventsViewController: UIViewController {
         override func viewDidLoad() {
             super.viewDidLoad()
             getUserLocation()
-            
-            
+ 
             getAllEventsByUserID(for: .publicEvent)
+            getAllEventsByLocation(for: .privateEvent)
             
         }
         
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        getUserLocation()
         
-        
+                   getAllEventsByUserID(for: .publicEvent)
+                   getAllEventsByLocation(for: .privateEvent)
+    }
+    
         
     }
+
 
     extension EventsViewController {
         
@@ -61,6 +68,21 @@ class EventsViewController: UIViewController {
             }
         }
         
+        private func getAllEventsByLocation(for type: EventType){
+            let provider = PrivateEventProvider()
+            provider.getAllEvents{ (result) in
+                           switch result {
+                           case .success(let podaci):
+                               print ("ovo su podaci \(podaci)")
+                               self.updateContent(for: type, result: podaci)
+                               
+                           case .failure(_):
+                               print("failure je ovdje")
+                               self.updateContent(for: type, result: [])
+                           }
+                       }
+        }
+        
         private func updateContent(for type: EventType, result: [Event]) {
             switch type {
             case .publicEvent:
@@ -68,7 +90,9 @@ class EventsViewController: UIViewController {
                 self.collectionView2.reloadData()
             case .privateEvent:
                 movieDatasource = result
-                print(movieDatasource)
+                
+                //Izbaciti iz popisa sve one koji nisu Near korisnika
+                removeNearEvents(for: movieDatasource)
                 self.collectionView.reloadData()
             }
         }
@@ -87,12 +111,16 @@ class EventsViewController: UIViewController {
         func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "EventCollectionViewCell", for: indexPath) as! EventCollectionViewCell
             let event: Event
-            if collectionView === self.collectionView{
+            if collectionView === self.collectionView {
                 event = movieDatasource[indexPath.row]
+                cell.configureForNearEvents(with: event)
+                
+                
             } else {
                 event = gamesDatasource[indexPath.row]
+                cell.configureForMyEvents(with: event)
             }
-            cell.configure(with: event)
+            
             return cell
         }
     }
@@ -115,6 +143,24 @@ extension EventsViewController: CLLocationManagerDelegate{
         let location = locations.last! as CLLocation
         keychain.saveLocationData(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
         print(keychain.getLatestLocation().coordinate)
+    }
+    
+    func isNearUser(event:Event) -> Bool {
+        let userLocationCordinates = keychain.getLatestLocation()
+        let eventLocationCordinates = CLLocation(latitude: event.latitude, longitude: event.longitude)
+        
+        let distanceInMeters = userLocationCordinates.distance(from: eventLocationCordinates)
+        guard distanceInMeters>10000 else {return true}
+        return false
+    }
+    
+    func removeNearEvents(for source:[Event]){
+        for event in movieDatasource{
+            if(!isNearUser(event: event)){
+                movieDatasource.removeAll(where: { $0.id == event.id })
+            }
+            
+        }
     }
     
 }
