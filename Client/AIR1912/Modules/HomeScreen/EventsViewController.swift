@@ -27,11 +27,11 @@ class EventsViewController: UIViewController {
         
         override func viewDidLoad() {
             super.viewDidLoad()
-            getUserLocation(for: keychain.getID())
+            //getUserLocation(for: keychain.getID())
             
             
             getAllEventsByUserID(for: .publicEvent)
-            //getPopularContent(for: .game)
+            
         }
         
         
