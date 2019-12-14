@@ -12,6 +12,7 @@ import Alamofire
 class GameProvider: ContentProvider {
     
     var gameTitle = String()
+    var gameId = Int()
     
     private let decoder = JSONDecoder()
     private let headers = [
@@ -22,8 +23,8 @@ class GameProvider: ContentProvider {
     func getTopRatedContent(completion: @escaping (Result<[Content]>) -> Void) {
          
          var request = URLRequest(url: NSURL(string: "https://api.rawg.io/api/games?dates=2010-01-01,2019-12-31&ordering=-rating")! as URL,
-                                                 cachePolicy: .useProtocolCachePolicy,
-                                             timeoutInterval: 10.0)
+             cachePolicy: .useProtocolCachePolicy,
+             timeoutInterval: 10.0)
          request.httpMethod = "GET"
          request.allHTTPHeaderFields = headers
          
@@ -92,7 +93,27 @@ class GameProvider: ContentProvider {
             .responseDecodableObject(decoder: decoder) { (response: DataResponse<GameResponse>) in
                 switch response.result {
                 case .success(let response):
-                 completion(.success(response.results))
+                    completion(.success(response.results))
+                case .failure(let error):
+                    completion(.failure(error))
+            }
+        }
+    }
+    
+    func getDescription (id: Int, completion: @escaping (Result<[Content]>) -> Void) {
+        
+        gameId = id
+        
+        var request = URLRequest(url: NSURL(string: "https://api.rawg.io/api/games/{\(gameId)}")! as URL, cachePolicy: .useProtocolCachePolicy, timeoutInterval: 10.0)
+         request.httpMethod = "GET"
+         request.allHTTPHeaderFields = headers
+         
+        Alamofire
+         .request(request)
+            .responseDecodableObject(decoder: decoder) { (response: DataResponse<GameResponse>) in
+                switch response.result {
+                case .success(let response):
+                    completion(.success(response.results))
                 case .failure(let error):
                     completion(.failure(error))
                 }

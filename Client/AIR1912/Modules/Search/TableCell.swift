@@ -13,7 +13,7 @@ class TableCell: UITableViewCell {
     
     @IBOutlet weak var imgView: UIImageView!
     @IBOutlet weak var titleLbl: UILabel!
-    @IBOutlet weak var descriptionTxtField: UITextField!
+    @IBOutlet weak var descriptionTv: UITextView!
     
     
     override func awakeFromNib() {
@@ -45,7 +45,7 @@ class TableCell: UITableViewCell {
         if let url = content.posterURL {
             self.imgView.kf.setImage(with: url)
             titleLbl!.text = content.title
-            descriptionTxtField.text = content.description
+            descriptionTv.text = content.description
             
         }
 

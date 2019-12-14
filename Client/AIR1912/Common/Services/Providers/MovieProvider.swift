@@ -11,7 +11,6 @@ import Alamofire
 
 class MovieProvider: ContentProvider {
     
-    
     private let API_KEY = "e965f161f0ec9f1c3931495b713226e0"
     
     private let decoder = JSONDecoder()

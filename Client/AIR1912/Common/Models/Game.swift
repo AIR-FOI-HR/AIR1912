@@ -31,12 +31,11 @@ struct Game: Decodable, Content {
     
     enum CodingKeys: String, CodingKey {
         case title = "name"
-        case description = "slug"
+        case description = "description"
         case poster = "background_image"
         case year = "released"
-        case id
+        case id = "id"
         case runtime = "playtime"
     }
-    
     
 }

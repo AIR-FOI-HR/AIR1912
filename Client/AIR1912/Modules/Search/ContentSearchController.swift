@@ -44,11 +44,11 @@ extension ContentSearchController: UITableViewDelegate, UISearchBarDelegate {
         switch searchBar.selectedScopeButtonIndex {
         case 0:
             if searchText.isEmpty { return getLatestContent(for: .movie)}
-            searchTitle = searchBar.text!
+            searchTitle = GetTitle(initialString: searchBar.text!)
             return getSearchedContent(for: .movie)
         case 1:
             if searchText.isEmpty { return getLatestContent(for: .game)}
-            searchTitle = searchBar.text!
+            searchTitle = GetTitle(initialString: searchBar.text!)
             return getSearchedContent(for: .game)
         default:
             return
@@ -69,6 +69,12 @@ extension ContentSearchController: UITableViewDelegate, UISearchBarDelegate {
             break
         }
    
+    }
+    
+    private func GetTitle(initialString: String) -> String {
+        let components = initialString.components(separatedBy: .whitespaces)
+        let completeTitle = components.joined(separator: "%20")
+        return completeTitle
     }
    
     private func getSearchedContent(for type: ContentType) {
