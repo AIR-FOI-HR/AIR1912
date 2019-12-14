@@ -61,4 +61,13 @@ class UserProfileViewController: UIViewController {
          self.present(InitialController, animated: true, completion: nil)
      }
     
+    @IBAction func testEventDetails(_ sender: Any) {
+        
+        let EventDetailsStoryboard:UIStoryboard = UIStoryboard(name: "EventDetails", bundle: nil)
+        let EventDetailsViewController = EventDetailsStoryboard.instantiateViewController(identifier: "EventDetails") as! EventDetailsViewController
+        EventDetailsViewController.modalPresentationStyle = .fullScreen
+        self.present(EventDetailsViewController, animated: true, completion: nil)
+        
+        
+    }
 }
