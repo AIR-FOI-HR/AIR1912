@@ -26,6 +26,8 @@
 		42A9BAFB23929173009C1912 /* JsonResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A9BAFA23929173009C1912 /* JsonResponse.swift */; };
 		42A9BAFD239293FD009C1912 /* RegisterService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A9BAFC239293FD009C1912 /* RegisterService.swift */; };
 		42B47C192385B288002C554F /* UserPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B47C182385B288002C554F /* UserPost.swift */; };
+		42B4D5FC23A3CDA500036C53 /* ContentSearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B4D5FB23A3CDA500036C53 /* ContentSearchController.swift */; };
+		42BAB2A923A3D25500572E89 /* TableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42BAB2A823A3D25500572E89 /* TableCell.swift */; };
 		D0655947A9CF0CDD85866E29 /* Pods_AIR1912.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0702C62035766E8AC911DBD4 /* Pods_AIR1912.framework */; };
 		ED156F2923A3D1EA0085BB2D /* EventsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED156F2823A3D1EA0085BB2D /* EventsViewController.swift */; };
 		ED156F2B23A3D2680085BB2D /* EventCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED156F2A23A3D2680085BB2D /* EventCollectionViewCell.swift */; };
@@ -89,6 +91,8 @@
 		42A9BAFA23929173009C1912 /* JsonResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonResponse.swift; sourceTree = "<group>"; };
 		42A9BAFC239293FD009C1912 /* RegisterService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterService.swift; sourceTree = "<group>"; };
 		42B47C182385B288002C554F /* UserPost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPost.swift; sourceTree = "<group>"; };
+		42B4D5FB23A3CDA500036C53 /* ContentSearchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentSearchController.swift; sourceTree = "<group>"; };
+		42BAB2A823A3D25500572E89 /* TableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableCell.swift; sourceTree = "<group>"; };
 		949424CDCE90C8DF2A9D94EF /* Pods-AIR1912.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AIR1912.release.xcconfig"; path = "Target Support Files/Pods-AIR1912/Pods-AIR1912.release.xcconfig"; sourceTree = "<group>"; };
 		CD0D060BD77CBC12E7F44CDE /* Pods-AIR1912.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AIR1912.debug.xcconfig"; path = "Target Support Files/Pods-AIR1912/Pods-AIR1912.debug.xcconfig"; sourceTree = "<group>"; };
 		ED156F2823A3D1EA0085BB2D /* EventsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsViewController.swift; sourceTree = "<group>"; };
@@ -413,6 +417,8 @@
 				42199179239413F800CCAA89 /* ContentViewController.swift */,
 				421991772394130000CCAA89 /* ContentCollectionViewCell.swift */,
 				EDCDA01A23A2860000E28223 /* Search.storyboard */,
+				42BAB2A823A3D25500572E89 /* TableCell.swift */,
+				42B4D5FB23A3CDA500036C53 /* ContentSearchController.swift */,
 			);
 			path = Search;
 			sourceTree = "<group>";
@@ -640,6 +646,7 @@
 				EDB57AB2238EAB060032DC9E /* FavouritesViewController.swift in Sources */,
 				421D5CB0237DD2D100C8AD1F /* Movie.swift in Sources */,
 				ED35F611237560D8009ED574 /* AppDelegate.swift in Sources */,
+				42BAB2A923A3D25500572E89 /* TableCell.swift in Sources */,
 				4212CC012385ACD300C53210 /* Game.swift in Sources */,
 				421991782394130000CCAA89 /* ContentCollectionViewCell.swift in Sources */,
 				EDB57AA8238EA6700032DC9E /* HomeSreenTabBarController.swift in Sources */,
@@ -648,6 +655,7 @@
 				ED156F3523A3DEE00085BB2D /* PrivateEventProvider.swift in Sources */,
 				ED156F4523A5174F0085BB2D /* DBMovieProvider.swift in Sources */,
 				42A9BAF923928569009C1912 /* Alerter.swift in Sources */,
+				42B4D5FC23A3CDA500036C53 /* ContentSearchController.swift in Sources */,
 				423F05A623981D6F00D92D76 /* ResponseErrorBuilder.swift in Sources */,
 				EDFD7E7E239107430028C4D5 /* UserProfileViewController.swift in Sources */,
 				EDE3EF8C239E41DA001BD61A /* EventDetailsViewController.swift in Sources */,

@@ -31,6 +31,9 @@ class MovieProvider: ContentProvider {
     
     private let decoder = JSONDecoder()
     
+    var movieTitle = String()
+    
+    
     func getTopRatedContent(completion: @escaping (Result<[Content]>) -> Void) {
         
         Alamofire
@@ -71,5 +74,21 @@ class MovieProvider: ContentProvider {
                     completion(.failure(error))
                 }
             }
+    }
+    
+    func getSearchedContent(title: String, completion: @escaping (Result<[Content]>) -> Void) {
+        
+        movieTitle = title
+        
+        Alamofire
+        .request("https://api.themoviedb.org/3/search/movie?api_key=\(API_KEY)&query=\(movieTitle)")
+        .responseDecodableObject(decoder: decoder) { (response: DataResponse<MovieResponse>) in
+            switch response.result {
+            case .success(let response):
+                completion(.success(response.results))
+            case .failure(let error):
+                completion(.failure(error))
+            }
+        }
     }
 }

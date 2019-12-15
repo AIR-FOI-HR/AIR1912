@@ -34,7 +34,6 @@ protocol ContentProvider {
     
     func getLatestContent(completion: @escaping (Result<[Content]>) -> Void)
     
-    func getContentByIDFromDB(for id:Int, completion: @escaping (Result<[Content]>) -> Void)
-    
+    func getSearchedContent(title: String, completion: @escaping (Result<[Content]>) -> Void)
     
 }
