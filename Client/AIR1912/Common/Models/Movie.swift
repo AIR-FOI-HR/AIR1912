@@ -30,9 +30,9 @@ struct Movie: Decodable, Content {
     }
     
     enum CodingKeys: String, CodingKey {
-        
-        case id
         case title
+        case id
+        
         case description = "overview"
         case poster = "poster_path"
         case year = "release_date"
@@ -40,5 +40,31 @@ struct Movie: Decodable, Content {
         
     }
     
+    
+}
+
+struct DBMovie: Decodable, Content{
+    var type: ContentType {
+           return .movie
+       }
+       var title: String
+       var id: Int
+       var description: String?
+       var poster: String
+       var year: String
+       var runtime: Int?
+       var posterURL: URL? {
+           return URL(string: "https://image.tmdb.org/t/p/original\(poster)")
+       }
+       
+       enum CodingKeys: String, CodingKey {
+           case title
+           case id = "sourceEntityId"
+           case description = "overview"
+           case poster = "poster_path"
+           case year = "release_date"
+           case runtime
+           
+       }
     
 }

@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import CoreLocation
 import SwiftKeychainWrapper
 
 class UserKeychain {
@@ -16,19 +17,45 @@ class UserKeychain {
         case password = "password"
         case nickname = "nickname"
         case avatar = "avatar"
+        case id = "id"
+        case lat = "lat"
+        case lon = "lon"
     }
   
-
     
-    func saveSessionData(email:String, password:String, nickname:String, avatar:String)->Bool{
+    func saveSessionData(email:String, password:String, nickname:String, avatar:String, id:Int)->Bool{
         
         guard KeychainWrapper.standard.set(password, forKey: UserKeychainKey.password.rawValue),
             KeychainWrapper.standard.set(email, forKey: UserKeychainKey.email.rawValue),
             KeychainWrapper.standard.set(nickname, forKey: UserKeychainKey.nickname.rawValue),
-            KeychainWrapper.standard.set(avatar, forKey: UserKeychainKey.avatar.rawValue)else {
+            KeychainWrapper.standard.set(avatar, forKey: UserKeychainKey.avatar.rawValue),
+        KeychainWrapper.standard.set(id, forKey: UserKeychainKey.id.rawValue)
+            else {
                return false
+                
         }
         return true
+    }
+    
+    func saveLocationData(latitude:Double, longitude:Double)->Bool{
+        guard KeychainWrapper.standard.set(latitude, forKey: UserKeychainKey.lat.rawValue),
+            KeychainWrapper.standard.set(longitude, forKey: UserKeychainKey.lon.rawValue)
+            else {
+               return false
+                
+        }
+        return true
+    }
+    
+    func getLatestLocation()-> CLLocation{
+        
+        let lat = KeychainWrapper.standard.double(forKey: UserKeychainKey.lat.rawValue)
+        let lon = KeychainWrapper.standard.double(forKey: UserKeychainKey.lon.rawValue)
+        
+        let coordinates = CLLocation(latitude: lat!, longitude: lon!)
+        
+        
+        return coordinates
     }
     
     func getEmail() -> String? {
@@ -55,6 +82,12 @@ class UserKeychain {
         let avatar = KeychainWrapper.standard.string(forKey: UserKeychainKey.avatar.rawValue)
         return avatar
     }
+    
+    func getID() -> Int? {
+          
+        let id = KeychainWrapper.standard.integer(forKey: UserKeychainKey.id.rawValue)
+          return id
+      }
     
     public func hasSessionData() -> Bool {
         
@@ -84,6 +117,9 @@ class UserKeychain {
         guard KeychainWrapper.standard.removeObject(forKey: UserKeychainKey.avatar.rawValue) else {
                    return false
         }
+        guard KeychainWrapper.standard.removeObject(forKey: UserKeychainKey.id.rawValue) else {
+                          return false
+               }
         return true
     }
 }

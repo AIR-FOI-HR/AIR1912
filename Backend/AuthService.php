@@ -2,7 +2,7 @@
  
 require_once("ConnectionData.php");
 include 'jsonResponse.php';
-    
+
 $connectionData = new ConnectionData();
 $connectionString = $connectionData->getConnectionString();
 

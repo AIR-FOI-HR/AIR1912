@@ -40,3 +40,28 @@ struct Game: Decodable, Content {
     
     
 }
+
+struct DBGame: Content, Decodable{
+    var type: ContentType {
+           return .game
+       }
+       
+       var id: Int
+       var title: String
+       var description: String?
+       var poster: String
+       var year: String?
+       var runtime: Int?
+       var posterURL: URL? {
+           return URL(string: poster)
+       }
+       
+       enum CodingKeys: String, CodingKey {
+           case title = "name"
+           case description = "slug"
+           case poster = "background_image"
+           case year = "released"
+           case id = "sourceEntityId"
+           case runtime = "playtime"
+       }
+}

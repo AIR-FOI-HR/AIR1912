@@ -20,6 +20,15 @@ class UserProfileViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        let gameEventProvider = PublicEventProvider()
+        gameEventProvider.getAllEvents{ (result) in
+            switch result {
+            case .success(let podaci):
+                print("podaci su \(podaci)")
+            case .failure(_):
+               print("failure")
+            }
+        }
         
         // set avatar from keychain
         let avatarValue = keychain.getAvatar()
@@ -52,4 +61,13 @@ class UserProfileViewController: UIViewController {
          self.present(InitialController, animated: true, completion: nil)
      }
     
+    @IBAction func testEventDetails(_ sender: Any) {
+        
+        let EventDetailsStoryboard:UIStoryboard = UIStoryboard(name: "EventDetails", bundle: nil)
+        let EventDetailsViewController = EventDetailsStoryboard.instantiateViewController(identifier: "EventDetails") as! EventDetailsViewController
+        EventDetailsViewController.modalPresentationStyle = .fullScreen
+        self.present(EventDetailsViewController, animated: true, completion: nil)
+        
+        
+    }
 }

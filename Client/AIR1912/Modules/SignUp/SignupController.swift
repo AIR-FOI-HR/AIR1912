@@ -153,7 +153,7 @@ class SignupController: UIViewController {
             print("we messed up")
         }
         else{
-            keychain.saveSessionData(email: user.email, password: user.password, nickname: user.nickname, avatar: user.avatar.rawValue)
+            keychain.saveSessionData(email: user.email, password: user.password, nickname: user.nickname, avatar: user.avatar.rawValue, id: Int(user.idUsers!)!)
             goToHomescreen()
         }
         

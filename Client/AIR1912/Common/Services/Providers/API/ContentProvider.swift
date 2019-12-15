@@ -33,4 +33,8 @@ protocol ContentProvider {
     func getTopRatedContent(completion: @escaping (Result<[Content]>) -> Void)
     
     func getLatestContent(completion: @escaping (Result<[Content]>) -> Void)
+    
+    func getContentByIDFromDB(for id:Int, completion: @escaping (Result<[Content]>) -> Void)
+    
+    
 }

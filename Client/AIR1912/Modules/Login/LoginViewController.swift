@@ -99,7 +99,7 @@ extension LoginViewController {
             HomeController.modalPresentationStyle = .fullScreen
             self.present(HomeController, animated: true, completion: nil)
            
-        _ = userKeychain.saveSessionData(email: emailTextField.text!, password: passwordTextField.text!, nickname: user[0].nickname, avatar: user[0].avatar.rawValue)
+        _ = userKeychain.saveSessionData(email: emailTextField.text!, password: passwordTextField.text!, nickname: user[0].nickname, avatar: user[0].avatar.rawValue, id: Int(user[0].idUsers!)!)
     }
     
     private func showErrorAlert(with error: ResponseError) {
