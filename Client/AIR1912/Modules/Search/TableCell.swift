@@ -41,14 +41,19 @@ class TableCell: UITableViewCell {
     
     func configure(with content: Content) {
         setupView()
-        
+        let provider = GameProvider()
         if let url = content.posterURL {
             self.imgView.kf.setImage(with: url)
             titleLbl!.text = content.title
+            if content.type == ContentType(rawValue: "movie") as! ContentType{
             descriptionTv.text = content.description
+            }else {
+                
+                descriptionTv.text = "1111111"
+            }
             
         }
 
     }
-
+    
 }
