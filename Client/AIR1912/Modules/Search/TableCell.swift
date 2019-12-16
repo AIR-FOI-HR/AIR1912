@@ -14,6 +14,7 @@ class TableCell: UITableViewCell {
     @IBOutlet weak var imgView: UIImageView!
     @IBOutlet weak var titleLbl: UILabel!
     @IBOutlet weak var descriptionTv: UITextView!
+ 
     
     
     override func awakeFromNib() {
@@ -24,7 +25,6 @@ class TableCell: UITableViewCell {
     override func prepareForReuse() {
         super.prepareForReuse()
         imgView.image = nil
-        
         
     }
 
@@ -37,19 +37,32 @@ class TableCell: UITableViewCell {
     private func setupView() {
         imgView.layer.cornerRadius = 12.0
         imgView.layer.masksToBounds = true
+        descriptionTv.textContainer.maximumNumberOfLines = 3
+        descriptionTv.textContainer.lineBreakMode = .byTruncatingTail
     }
+    
     
     func configure(with content: Content) {
         setupView()
-        let provider = GameProvider()
+
         if let url = content.posterURL {
             self.imgView.kf.setImage(with: url)
-            titleLbl!.text = content.title
-            if content.type == ContentType(rawValue: "movie") as! ContentType{
+            let components = content.year?.split(separator: "-")
+            titleLbl!.text = content.title + " (" + (components?[0] ?? "-") + ")"
+            if (content.type == ContentType.movie) {
             descriptionTv.text = content.description
             }else {
+                let provider = GameProvider()
+                provider.getDescription(id: content.id) { (result) in
+                    switch result {
+                    case .success(let podaci):
+                        self.descriptionTv.text = podaci.description
+                    case .failure(_):
+                        break
+                        
+                    }
+                }
                 
-                descriptionTv.text = "1111111"
             }
             
         }

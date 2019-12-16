@@ -23,7 +23,7 @@ struct Movie: Decodable, Content {
     var id: Int
     var description: String?
     var poster: String
-    var year: String
+    var year: String?
     var runtime: Int?
     var posterURL: URL? {
         return URL(string: "https://image.tmdb.org/t/p/original\(poster)")
@@ -51,7 +51,7 @@ struct DBMovie: Decodable, Content{
        var id: Int
        var description: String?
        var poster: String
-       var year: String
+       var year: String?
        var runtime: Int?
        var posterURL: URL? {
            return URL(string: "https://image.tmdb.org/t/p/original\(poster)")
