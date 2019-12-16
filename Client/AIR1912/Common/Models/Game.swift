@@ -23,7 +23,7 @@ struct Game: Decodable, Content {
     var title: String
     var description: String?
     var poster: String
-    var year: String?
+    var year: String? 
     var runtime: Int?
     var posterURL: URL? {
         return URL(string: poster)
@@ -31,7 +31,7 @@ struct Game: Decodable, Content {
     
     enum CodingKeys: String, CodingKey {
         case title = "name"
-        case description = "description"
+        case description = "description_raw"
         case poster = "background_image"
         case year = "released"
         case id = "id"

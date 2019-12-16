@@ -23,6 +23,7 @@ protocol Content {
     var poster: String { get }
     var posterURL: URL? { get }
     var runtime: Int? { get }
+    var year: String? { get }
     
 }
 

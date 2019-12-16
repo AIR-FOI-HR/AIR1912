@@ -9,6 +9,9 @@
 import Foundation
 import Alamofire
 
+  var gameTitle = String()
+  var gameId = Int()
+  
 class GameProvider: ContentProvider {
     func getContentByIDFromDB(for id: Int, completion: @escaping (Result<[Content]>) -> Void) {
         Alamofire
@@ -24,17 +27,12 @@ class GameProvider: ContentProvider {
         }
     }
     
-   
-    
-    
-    var gameTitle = String()
-    var gameId = Int()
-    
     private let decoder = JSONDecoder()
     private let headers = [
         "x-rapidapi-host": "rawg-video-games-database.p.rapidapi.com",
         "x-rapidapi-key": "8e24dd9e5dmshb82b8dcc0df400ep1f2bc1jsn0e0a57afa70e"
     ]
+
     
     func getTopRatedContent(completion: @escaping (Result<[Content]>) -> Void) {
          
@@ -96,6 +94,7 @@ class GameProvider: ContentProvider {
            }
             
     }
+    
     func getSearchedContent(title: String, completion: @escaping (Result<[Content]>) -> Void) {
         
         gameTitle = title
@@ -116,24 +115,24 @@ class GameProvider: ContentProvider {
         }
     }
     
-    func getDescription (id: Int, completion: @escaping (Result<[Content]>) -> Void) {
+    func getDescription(id: Int, completion: @escaping (Result<String>) -> Void) {
         
         gameId = id
         
-        var request = URLRequest(url: NSURL(string: "https://api.rawg.io/api/games/{\(gameId)}")! as URL, cachePolicy: .useProtocolCachePolicy, timeoutInterval: 10.0)
+        var request = URLRequest(url: NSURL(string: "https://api.rawg.io/api/games/\(gameId)")! as URL, cachePolicy: .useProtocolCachePolicy, timeoutInterval: 10.0)
          request.httpMethod = "GET"
          request.allHTTPHeaderFields = headers
          
         Alamofire
          .request(request)
-            .responseDecodableObject(decoder: decoder) { (response: DataResponse<GameResponse>) in
+            .responseDecodableObject(decoder: decoder) { (response: DataResponse<Game>) in
                 switch response.result {
                 case .success(let response):
-                    completion(.success(response.results))
+                    completion(.success(response.description!))
                 case .failure(let error):
                     completion(.failure(error))
-                }
             }
+        }
     }
 
 }
