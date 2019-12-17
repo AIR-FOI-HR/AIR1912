@@ -30,8 +30,8 @@ class EventsViewController: UIViewController {
             super.viewDidLoad()
             getUserLocation()
  
-            getAllEventsByUserID(for: .allEvents)
-            getAllEventsByLocation(for: .allEvents)
+            getAllEventsByUserID(for: .allEvent )
+            getAllEventsByLocation(for: .allEvent)
             
         }
         
@@ -39,8 +39,8 @@ class EventsViewController: UIViewController {
             super.viewWillAppear(true)
            getUserLocation()
             
-            getAllEventsByUserID(for: .allEvents)
-            getAllEventsByLocation(for: .allEvents)
+//            getAllEventsByUserID(for: .allEvents)
+//            getAllEventsByLocation(for: .allEvents)
         }
     
         
@@ -55,28 +55,28 @@ class EventsViewController: UIViewController {
                 return
             }
             
-            let provider = EventProviderFactory.eventProvider(forEventType: type)
-            provider.getAllEventsByUserID(for: idUser){ (result) in
+            let provider = WebEventProvider()
+            provider.getEventsByUserID(for: idUser, eventType: type){ (result) in
                 switch result {
                 case .success(let podaci):
                     print (podaci)
                     self.updateMyEventsContent(result: podaci)
                     
-                case .failure(_):
-                    print("failure")
+                case .failure(let error):
+                    print(error)
                     self.updateMyEventsContent(result: [])
                 }
             }
         }
         
         private func getAllEventsByLocation(for type: EventType){
-           let provider = EventProviderFactory.eventProvider(forEventType: type)
+           let provider = WebEventProvider()
             provider.getAllEvents{ (result) in
                            switch result {
                            case .success(let podaci):
                                print ("ovo su podaci \(podaci)")
                                self.updateNearEventsContent( result: podaci)
-                               
+
                            case .failure(_):
                                print("failure je ovdje")
                                self.updateNearEventsContent( result: [])
