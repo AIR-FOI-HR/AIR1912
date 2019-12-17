@@ -37,10 +37,7 @@ struct Movie: Decodable, Content {
         case poster = "poster_path"
         case year = "release_date"
         case runtime
-        
     }
-    
-    
 }
 
 struct DBMovie: Decodable, Content{
@@ -64,7 +61,5 @@ struct DBMovie: Decodable, Content{
            case poster = "poster_path"
            case year = "release_date"
            case runtime
-           
        }
-    
 }
