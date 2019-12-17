@@ -37,4 +37,6 @@ protocol ContentProvider {
     
     func getSearchedContent(title: String, completion: @escaping (Result<[Content]>) -> Void)
     
+    func getDetails(id: Int, completion: @escaping (Result<Content>) -> Void)
+    
 }

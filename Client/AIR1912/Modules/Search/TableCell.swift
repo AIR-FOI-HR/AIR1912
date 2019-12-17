@@ -46,22 +46,24 @@ class TableCell: UITableViewCell {
         setupView()
 
         if let url = content.posterURL {
+            if (content.type == ContentType.movie) {
+            descriptionTv.text = content.description
             self.imgView.kf.setImage(with: url)
             let components = content.year?.split(separator: "-")
             titleLbl!.text = content.title + " (" + (components?[0] ?? "-") + ")"
-            if (content.type == ContentType.movie) {
-            descriptionTv.text = content.description
             }else {
                 let provider = GameProvider()
-                provider.getDescription(id: content.id) { (result) in
+                provider.getDetails(id: content.id) { (result) in
                     switch result {
                     case .success(let podaci):
                         self.descriptionTv.text = podaci.description
                     case .failure(_):
                         break
-                        
                     }
                 }
+                self.imgView.kf.setImage(with: url)
+                let components = content.year?.split(separator: "-")
+                titleLbl!.text = content.title + " (" + (components?[0] ?? "-") + ")"
                 
             }
             

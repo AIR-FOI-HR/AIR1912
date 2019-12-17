@@ -115,7 +115,7 @@ class GameProvider: ContentProvider {
         }
     }
     
-    func getDescription(id: Int, completion: @escaping (Result<String>) -> Void) {
+    func getDetails(id: Int, completion: @escaping (Result<Content>) -> Void) {
         
         gameId = id
         
@@ -128,7 +128,7 @@ class GameProvider: ContentProvider {
             .responseDecodableObject(decoder: decoder) { (response: DataResponse<Game>) in
                 switch response.result {
                 case .success(let response):
-                    completion(.success(response.description!))
+                    completion(.success(response.self))
                 case .failure(let error):
                     completion(.failure(error))
             }
