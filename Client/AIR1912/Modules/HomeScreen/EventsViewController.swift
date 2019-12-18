@@ -34,9 +34,8 @@ class EventsViewController: UIViewController {
             
             view.isSkeletonable = false
            
-            view.showAnimatedGradientSkeleton()
+            //view.showAnimatedGradientSkeleton()
             getAllEventsByUserID(for: .allEvent )
-            
             getAllEventsByLocation(for: .allEvent)
            
             //self.view.hideSkeleton()
@@ -66,17 +65,26 @@ class EventsViewController: UIViewController {
             
             let provider = WebEventProvider()
             provider.getEventsByUserID(for: idUser, eventType: type){ (result) in
+                DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {  self.view.hideSkeleton()
+                }
+                
+                
                 switch result {
+                    
                 case .success(let podaci):
+                    
                     print (podaci)
                     self.updateMyEventsContent(result: podaci)
+                    
+                    
                     
                 case .failure(let error):
                     print(error)
                     self.updateMyEventsContent(result: [])
                 }
+                
             }
-            self.view.hideSkeleton()
+            
             
         }
         
@@ -85,21 +93,26 @@ class EventsViewController: UIViewController {
             provider.getAllEvents{ (result) in
                            switch result {
                            case .success(let podaci):
+                                
                                print ("ovo su podaci \(podaci)")
                                self.updateNearEventsContent( result: podaci)
+                           
+                            
 
                            case .failure(_):
                                print("failure je ovdje")
                                self.updateNearEventsContent( result: [])
                            }
+                
                        }
-             self.view.hideSkeleton()
+             
         }
         
         private func updateMyEventsContent(result: [Event]) {
             
                 myEventsDataSource = result
                 self.myEventsCollectionView.reloadData()
+                //self.view.hideSkeleton()
            
     
         }
@@ -111,6 +124,7 @@ class EventsViewController: UIViewController {
                        //Izbaciti iz popisa sve one koji nisu Near korisnika
                        removeNotNearEvents(for: nearEventsDataSource)
                        self.nearEventsCollectionView.reloadData()
+                      // self.view.hideSkeleton()
                      
                }
     }
