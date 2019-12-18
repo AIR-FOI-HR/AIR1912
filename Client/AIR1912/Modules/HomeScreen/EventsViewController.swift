@@ -39,7 +39,7 @@ class EventsViewController: UIViewController {
             
             getAllEventsByLocation(for: .allEvent)
            
-            self.view.hideSkeleton()
+            //self.view.hideSkeleton()
         }
         
         override func viewWillAppear(_ animated: Bool) {
@@ -76,7 +76,7 @@ class EventsViewController: UIViewController {
                     self.updateMyEventsContent(result: [])
                 }
             }
-            
+            self.view.hideSkeleton()
             
         }
         
@@ -93,6 +93,7 @@ class EventsViewController: UIViewController {
                                self.updateNearEventsContent( result: [])
                            }
                        }
+             self.view.hideSkeleton()
         }
         
         private func updateMyEventsContent(result: [Event]) {
