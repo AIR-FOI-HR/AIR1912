@@ -21,6 +21,8 @@ class ContentCollectionViewCell: UICollectionViewCell {
         
     }
     
+
+    
     func configure(with content: Content) {
         setupView()
         

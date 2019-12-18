@@ -18,8 +18,15 @@ class ContentDetailsController: UIViewController {
     @IBOutlet weak var joinbtn: UIButton!
     @IBOutlet weak var frontImage: UIImageView!
     @IBOutlet weak var backImage: UIImageView!
+    
+    var id: Int = 0
+    var type: String = ""
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        titleLbl.text = type
+        YearLbl.text = String(id)
 
         // Do any additional setup after loading the view.
     }

@@ -112,6 +112,8 @@ extension ContentViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ContentCollectionViewCell", for: indexPath) as! ContentCollectionViewCell
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.tap(_:)))
+        cell.featuredImageView.addGestureRecognizer(tapGestureRecognizer)
         let content: Content
         if collectionView === self.collectionView{
             content = movieDatasource[indexPath.row]
@@ -120,5 +122,14 @@ extension ContentViewController: UICollectionViewDataSource {
         }
         cell.configure(with: content)
         return cell
+    }
+    
+    @IBAction func tap(_ sender:ImageView){
+        let ContentDetails:UIStoryboard = UIStoryboard(name: "ContentDetails", bundle: nil)
+             let ContentDetailsController = ContentDetails.instantiateViewController(identifier: "ContentDetails") as! ContentDetailsController
+        ContentDetailsController.id = 1
+        ContentDetailsController.type = "game"
+        ContentDetailsController.modalPresentationStyle = .popover
+             self.present(ContentDetailsController, animated: true, completion: nil)
     }
 }

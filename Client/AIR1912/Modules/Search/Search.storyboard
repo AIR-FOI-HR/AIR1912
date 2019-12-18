@@ -109,7 +109,7 @@
                                                                                     <rect key="frame" x="0.0" y="0.0" width="140" height="250"/>
                                                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                                     <subviews>
-                                                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="vFX-8n-6a9">
+                                                                                        <imageView clipsSubviews="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="vFX-8n-6a9">
                                                                                             <rect key="frame" x="0.0" y="0.0" width="140" height="220"/>
                                                                                             <constraints>
                                                                                                 <constraint firstAttribute="height" constant="220" id="TCk-e4-c7F"/>
@@ -196,7 +196,7 @@
                                                                                     <rect key="frame" x="0.0" y="0.0" width="140" height="250"/>
                                                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                                     <subviews>
-                                                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="diS-sS-MTf">
+                                                                                        <imageView clipsSubviews="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="diS-sS-MTf">
                                                                                             <rect key="frame" x="0.0" y="0.0" width="140" height="220"/>
                                                                                             <constraints>
                                                                                                 <constraint firstAttribute="height" constant="220" id="Ejc-kP-CdU"/>
