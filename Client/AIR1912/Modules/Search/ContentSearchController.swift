@@ -146,5 +146,14 @@ extension ContentSearchController: UITableViewDataSource{
         cell.configure(with: content)
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        let ContentDetails:UIStoryboard = UIStoryboard(name: "ContentDetails", bundle: nil)
+             let ContentDetailsController = ContentDetails.instantiateViewController(identifier: "ContentDetails") as! ContentDetailsController
+        ContentDetailsController.modalPresentationStyle = .popover
+             self.present(ContentDetailsController, animated: true, completion: nil)
+             
+    }
 }
 

@@ -28,6 +28,8 @@
 		42B47C192385B288002C554F /* UserPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B47C182385B288002C554F /* UserPost.swift */; };
 		42B4D5FC23A3CDA500036C53 /* ContentSearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B4D5FB23A3CDA500036C53 /* ContentSearchController.swift */; };
 		42BAB2A923A3D25500572E89 /* TableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42BAB2A823A3D25500572E89 /* TableCell.swift */; };
+		42F2ACFA23AA5A9600C2DA20 /* ContentDetails.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 42F2ACF923AA5A9600C2DA20 /* ContentDetails.storyboard */; };
+		42F2ACFC23AA610900C2DA20 /* ContentDetailsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42F2ACFB23AA610900C2DA20 /* ContentDetailsController.swift */; };
 		D0655947A9CF0CDD85866E29 /* Pods_AIR1912.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0702C62035766E8AC911DBD4 /* Pods_AIR1912.framework */; };
 		ED156F2923A3D1EA0085BB2D /* EventsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED156F2823A3D1EA0085BB2D /* EventsViewController.swift */; };
 		ED156F2B23A3D2680085BB2D /* EventCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED156F2A23A3D2680085BB2D /* EventCollectionViewCell.swift */; };
@@ -93,6 +95,8 @@
 		42B47C182385B288002C554F /* UserPost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPost.swift; sourceTree = "<group>"; };
 		42B4D5FB23A3CDA500036C53 /* ContentSearchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentSearchController.swift; sourceTree = "<group>"; };
 		42BAB2A823A3D25500572E89 /* TableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableCell.swift; sourceTree = "<group>"; };
+		42F2ACF923AA5A9600C2DA20 /* ContentDetails.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ContentDetails.storyboard; sourceTree = "<group>"; };
+		42F2ACFB23AA610900C2DA20 /* ContentDetailsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentDetailsController.swift; sourceTree = "<group>"; };
 		949424CDCE90C8DF2A9D94EF /* Pods-AIR1912.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AIR1912.release.xcconfig"; path = "Target Support Files/Pods-AIR1912/Pods-AIR1912.release.xcconfig"; sourceTree = "<group>"; };
 		CD0D060BD77CBC12E7F44CDE /* Pods-AIR1912.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AIR1912.debug.xcconfig"; path = "Target Support Files/Pods-AIR1912/Pods-AIR1912.debug.xcconfig"; sourceTree = "<group>"; };
 		ED156F2823A3D1EA0085BB2D /* EventsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsViewController.swift; sourceTree = "<group>"; };
@@ -249,6 +253,15 @@
 			path = ErrorHandling;
 			sourceTree = "<group>";
 		};
+		42F2ACF823AA5A1900C2DA20 /* ContentDetails */ = {
+			isa = PBXGroup;
+			children = (
+				42F2ACF923AA5A9600C2DA20 /* ContentDetails.storyboard */,
+				42F2ACFB23AA610900C2DA20 /* ContentDetailsController.swift */,
+			);
+			path = ContentDetails;
+			sourceTree = "<group>";
+		};
 		D4599444072A6E24183574A5 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -385,6 +398,7 @@
 		ED56B4ED2375672E00BD4821 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				42F2ACF823AA5A1900C2DA20 /* ContentDetails */,
 				EDE3EF88239E4199001BD61A /* EventCRUD */,
 				EDE3EF87239E4184001BD61A /* EventDetails */,
 				EDB57AB3238EAB850032DC9E /* UserProfile */,
@@ -558,8 +572,8 @@
 				ED35F61D237560DC009ED574 /* Assets.xcassets in Resources */,
 				EDCA57E023846228002C3AE1 /* Homescreen.storyboard in Resources */,
 				EDB57AB0238EAA750032DC9E /* Favourites.storyboard in Resources */,
-				EDB57AAB238EA8340032DC9E /* Search.storyboard in Resources */,
 				EDE3EF8A239E41BE001BD61A /* EventDetails.storyboard in Resources */,
+				42F2ACFA23AA5A9600C2DA20 /* ContentDetails.storyboard in Resources */,
 				ED52876B2385A02700848D66 /* ForgotPassword.storyboard in Resources */,
 				4250E5F323845A5600369FBC /* Signup.storyboard in Resources */,
 				EDCDA01B23A2860000E28223 /* Search.storyboard in Resources */,
@@ -631,13 +645,14 @@
 				4219917A239413F800CCAA89 /* ContentViewController.swift in Sources */,
 				ED156F4723A5175F0085BB2D /* DBGameProvider.swift in Sources */,
 				EDE3EF8F239EEB4F001BD61A /* ImageBlur.swift in Sources */,
-				4219917A239413F800CCAA89 /* InterestsViewController.swift in Sources */,
+				4219917A239413F800CCAA89 /* ContentViewController.swift in Sources */,
 				42A9BAFB23929173009C1912 /* JsonResponse.swift in Sources */,
 				ED52876F2385A2F100848D66 /* RecoverPassService.swift in Sources */,
 				ED5287712385AE9C00848D66 /* RecoverPassCodes.swift in Sources */,
 				4250E5F723845C3B00369FBC /* SignupController.swift in Sources */,
 				ED156F2D23A3DC280085BB2D /* EventProvider.swift in Sources */,
 				EDBE0169237F1B2000F15CE5 /* MainViewController.swift in Sources */,
+				42F2ACFC23AA610900C2DA20 /* ContentDetailsController.swift in Sources */,
 				EDB57AAD238EA8E40032DC9E /* SearchController.swift in Sources */,
 				ED156F3323A3DEC80085BB2D /* PublicEventProvider.swift in Sources */,
 				ED52876F2385A2F100848D66 /* RecoverPassService.swift in Sources */,
