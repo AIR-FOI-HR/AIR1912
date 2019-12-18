@@ -17,12 +17,16 @@ class ContentSearchController: UIViewController{
     @IBOutlet weak var table: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
     
+    
     // MARK: - Private properties
     
     private var gamesDatasource = [Content]()
     private var movieDatasource = [Content]()
-    var searchTitle = String()
+    private var contentId = Int()
+    private var contentType = String()
+    private var searchTitle = String()
    
+    // MARK: -Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -144,6 +148,8 @@ extension ContentSearchController: UITableViewDataSource{
             content = gamesDatasource[indexPath.row]
         }
         cell.configure(with: content)
+        contentType = content.type.rawValue
+        contentId = content.id
         return cell
     }
     
@@ -151,6 +157,8 @@ extension ContentSearchController: UITableViewDataSource{
         
         let ContentDetails:UIStoryboard = UIStoryboard(name: "ContentDetails", bundle: nil)
              let ContentDetailsController = ContentDetails.instantiateViewController(identifier: "ContentDetails") as! ContentDetailsController
+        ContentDetailsController.id = contentId
+        ContentDetailsController.type = contentType
         ContentDetailsController.modalPresentationStyle = .popover
              self.present(ContentDetailsController, animated: true, completion: nil)
              

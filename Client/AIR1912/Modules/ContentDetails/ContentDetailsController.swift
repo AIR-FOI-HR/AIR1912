@@ -24,12 +24,68 @@ class ContentDetailsController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        titleLbl.text = type
-        YearLbl.text = String(id)
+        frontImage.layer.cornerRadius = 12
+        configure()
 
         // Do any additional setup after loading the view.
     }
     
+    func setBlurredImage(poster : URL?) {
+        
+        backImage.kf.setImage(with: poster)
+        let darkBlur = UIBlurEffect(style: .dark)
+        let blurView = UIVisualEffectView(effect: darkBlur)
+        blurView.frame = backImage.bounds
+        backImage.addSubview(blurView)
+        
+        
+    }
+    
+        func configure() {
+    
+                if (type == "movie") {
+                let provider = MovieProvider()
+                provider.getDetails(id: id) { (result) in
+                    switch result {
+                    case .success(let podaci):
+                        self.descpriptionTv.text = podaci.description
+                        self.frontImage.kf.setImage(with: podaci.posterURL)
+                        self.setBlurredImage(poster : podaci.posterURL)
+                        let components = podaci.year?.split(separator: "-")
+                        self.YearLbl.text = String(components?[0] ?? "-")
+                        if(podaci.runtime != nil) {
+                            guard let runtime = podaci.runtime else { return }
+                            self.runTimeLbl.text = String(runtime)
+                        }
+                        self.titleLbl!.text = podaci.title
+                    case .failure(_):
+                        break
+                    }
+    
+                    }
+                } else if (type == "game"){
+                    let provider = GameProvider()
+                    provider.getDetails(id: id) { (result) in
+                        switch result {
+                        case .success(let podaci):
+                            self.descpriptionTv.text = podaci.description
+                            self.frontImage.kf.setImage(with: podaci.posterURL)
+                            self.setBlurredImage(poster: podaci.posterURL)
+                            let components = podaci.year?.split(separator: "-")
+                            self.YearLbl.text = String(components?[0] ?? "-")
+                            if(podaci.runtime != nil) {
+                                guard let runtime = podaci.runtime else { return }
+                                self.runTimeLbl.text = String(runtime)
+                            }
+                            self.titleLbl!.text = podaci.title
+                        case .failure(_):
+                            break
+                        }
+                    }
+    
+                }
+                
+        }
+
 
 }

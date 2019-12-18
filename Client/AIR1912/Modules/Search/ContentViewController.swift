@@ -21,6 +21,9 @@ class ContentViewController : UIViewController {
     
     private var gamesDatasource = [Content]()
     private var movieDatasource = [Content]()
+    private var contentId = Int()
+    private var contentType = String()
+    
     
     // MARK: - Lifecycle
     
@@ -121,14 +124,17 @@ extension ContentViewController: UICollectionViewDataSource {
             content = gamesDatasource[indexPath.row]
         }
         cell.configure(with: content)
+        contentType = content.type.rawValue
+        contentId = content.id
+        
         return cell
     }
     
     @IBAction func tap(_ sender:ImageView){
         let ContentDetails:UIStoryboard = UIStoryboard(name: "ContentDetails", bundle: nil)
              let ContentDetailsController = ContentDetails.instantiateViewController(identifier: "ContentDetails") as! ContentDetailsController
-        ContentDetailsController.id = 1
-        ContentDetailsController.type = "game"
+        ContentDetailsController.id = contentId
+        ContentDetailsController.type = contentType
         ContentDetailsController.modalPresentationStyle = .popover
              self.present(ContentDetailsController, animated: true, completion: nil)
     }
