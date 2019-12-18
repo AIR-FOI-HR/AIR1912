@@ -12,10 +12,11 @@ import Kingfisher
 
 class EventCollectionViewCell: UICollectionViewCell {
     
-    
+    //Mark: -IBOUTLETS
     @IBOutlet weak var titleName: UILabel!
     @IBOutlet weak var featuredImageView: UIImageView!
-        
+    
+    //Mark: -Properties
     
     //properties
     let keychain = UserKeychain()
@@ -46,9 +47,6 @@ class EventCollectionViewCell: UICollectionViewCell {
     
     func configureForNearEvents(with event: Event) {
         setupView()
-        
-        
-    
         
         titleName!.text = event.title
         let provider = DBMovieProvider()

@@ -9,7 +9,7 @@
 import UIKit
 import Kingfisher
 import CoreLocation
-
+import SkeletonView
 
 class EventsViewController: UIViewController {
     // MARK: - Private outlets
@@ -17,7 +17,7 @@ class EventsViewController: UIViewController {
         @IBOutlet private weak var nearEventsCollectionView: UICollectionView!
         @IBOutlet private weak var myEventsCollectionView: UICollectionView!
         
-       
+    
         // MARK: - Private properties
         
         private var myEventsDataSource = [Event]()
@@ -25,14 +25,21 @@ class EventsViewController: UIViewController {
         private let keychain:UserKeychain = UserKeychain()
         private var locationManager: CLLocationManager!
         // MARK: - Lifecycle
-        
+    @IBOutlet weak var skeleton: UICollectionView!
+    
         override func viewDidLoad() {
             super.viewDidLoad()
             getUserLocation()
- 
-            getAllEventsByUserID(for: .allEvent )
-            getAllEventsByLocation(for: .allEvent)
             
+            
+            view.isSkeletonable = false
+           
+            view.showAnimatedGradientSkeleton()
+            getAllEventsByUserID(for: .allEvent )
+            
+            getAllEventsByLocation(for: .allEvent)
+           
+            self.view.hideSkeleton()
         }
         
         override func viewWillAppear(_ animated: Bool) {
@@ -43,14 +50,16 @@ class EventsViewController: UIViewController {
 //            getAllEventsByLocation(for: .allEvents)
         }
     
+    
         
     }
 
 
     extension EventsViewController {
         
+        
         private func getAllEventsByUserID(for type: EventType) {
-            
+            view.showAnimatedGradientSkeleton()
             guard let idUser = keychain.getID() else{
                 return
             }
@@ -67,6 +76,8 @@ class EventsViewController: UIViewController {
                     self.updateMyEventsContent(result: [])
                 }
             }
+            
+            
         }
         
         private func getAllEventsByLocation(for type: EventType){
@@ -88,7 +99,7 @@ class EventsViewController: UIViewController {
             
                 myEventsDataSource = result
                 self.myEventsCollectionView.reloadData()
-                
+           
     
         }
         
@@ -97,13 +108,17 @@ class EventsViewController: UIViewController {
                        nearEventsDataSource = result
                        
                        //Izbaciti iz popisa sve one koji nisu Near korisnika
-                       removeNearEvents(for: nearEventsDataSource)
+                       removeNotNearEvents(for: nearEventsDataSource)
                        self.nearEventsCollectionView.reloadData()
-                   
+                     
                }
     }
 
-    extension EventsViewController: UICollectionViewDataSource {
+extension EventsViewController: SkeletonCollectionViewDataSource {
+    func collectionSkeletonView(_ skeletonView: UICollectionView, cellIdentifierForItemAt indexPath: IndexPath) -> ReusableCellIdentifier {
+        return "EventCollectionViewCell"
+    }
+    
         
         func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
             if collectionView === self.nearEventsCollectionView {
@@ -162,7 +177,7 @@ extension EventsViewController: CLLocationManagerDelegate{
         return false
     }
     
-    func removeNearEvents(for source:[Event]){
+    func removeNotNearEvents(for source:[Event]){
         for event in nearEventsDataSource{
             if(!isNearUser(event: event)){
                 nearEventsDataSource.removeAll(where: { $0.id == event.id })
