@@ -24,21 +24,26 @@ class ContentDetailsController: UIViewController {
     var id: Int = 0
     var type: ContentType = .game
     let cornerRadius : CGFloat = 12
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        setShadowView()
+        configure(for: type)
+
+        // Do any additional setup after loading the view.
+    }
+    
+    func setShadowView() {
+        
         shadowView.layer.cornerRadius = cornerRadius
         shadowView.layer.shadowColor = UIColor.darkGray.cgColor
         shadowView.layer.shadowOffset = CGSize(width: 5.0, height: 5.0)
         shadowView.layer.shadowRadius = 22.0
         shadowView.layer.shadowOpacity = 0.6
         
-        
         frontImage.layer.cornerRadius = cornerRadius
         frontImage.clipsToBounds = true
         subView.layer.cornerRadius = 12
-        configure(for: type)
-
-        // Do any additional setup after loading the view.
     }
     
     func setBlurredImage(poster : URL?) {
@@ -52,23 +57,29 @@ class ContentDetailsController: UIViewController {
         
     }
     
+    func setUpView(for Content: Content) {
+        
+        self.descpriptionTv.text = Content.description
+        self.frontImage.kf.setImage(with: Content.posterURL)
+        self.setBlurredImage(poster : Content.posterURL)
+        let components = Content.year?.split(separator: "-")
+        if(Content.runtime != nil) {
+            guard let runtime = Content.runtime else { return }
+            self.runTimeLbl.text = "· " + String(runtime) + " min" + " · 8.2 / 10 ·"
+        }
+        self.titleLbl!.text = Content.title + " (" + (components?[0] ?? "-") + ")"
+        self.titleLbl.font = UIFont.boldSystemFont(ofSize: 24.0)
+    }
+    
     func configure(for type: ContentType) {
+        
         let provider = ContentProviderFactory.contentProvider(forContentType: type)
         switch type {
         case .movie:
             provider.getDetails(id: id) { (result) in
                             switch result {
                             case .success(let podaci):
-                                self.descpriptionTv.text = podaci.description
-                                self.frontImage.kf.setImage(with: podaci.posterURL)
-                                self.setBlurredImage(poster : podaci.posterURL)
-                                let components = podaci.year?.split(separator: "-")
-                                if(podaci.runtime != nil) {
-                                    guard let runtime = podaci.runtime else { return }
-                                    self.runTimeLbl.text = "· " + String(runtime) + " min" + " · 8.2 / 10 ·"
-                                }
-                                self.titleLbl!.text = podaci.title + " (" + (components?[0] ?? "-") + ")"
-                                self.titleLbl.font = UIFont.boldSystemFont(ofSize: 24.0)
+                                self.setUpView(for: podaci)
                             case .failure(_):
                                 break
                             }
@@ -77,16 +88,7 @@ class ContentDetailsController: UIViewController {
             provider.getDetails(id: id) { (result) in
                 switch result {
                 case .success(let podaci):
-                    self.descpriptionTv.text = podaci.description
-                    self.frontImage.kf.setImage(with: podaci.posterURL)
-                    self.setBlurredImage(poster: podaci.posterURL)
-                    let components = podaci.year?.split(separator: "-")
-                    if(podaci.runtime != nil) {
-                        guard let runtime = podaci.runtime else { return }
-                        self.runTimeLbl.text = "· " + String(runtime) + " min" + " · 8.2 / 10 ·"
-                    }
-                    self.titleLbl!.text = podaci.title + " (" + (components?[0] ?? "-") + ")"
-                    self.titleLbl.font = UIFont.boldSystemFont(ofSize: 24.0)
+                    self.setUpView(for: podaci)
                 case .failure(_):
                     break
                 }
