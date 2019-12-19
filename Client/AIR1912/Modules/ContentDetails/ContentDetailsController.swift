@@ -19,6 +19,7 @@ class ContentDetailsController: UIViewController {
     @IBOutlet weak var backImage: UIImageView!
     @IBOutlet weak var subView: UIView!
     @IBOutlet weak var shadowView: UIView!
+    @IBOutlet weak var ratingLbl: UILabel!
     
     var id: Int = 0
     var type: ContentType = .game
@@ -28,8 +29,8 @@ class ContentDetailsController: UIViewController {
         shadowView.layer.cornerRadius = cornerRadius
         shadowView.layer.shadowColor = UIColor.darkGray.cgColor
         shadowView.layer.shadowOffset = CGSize(width: 5.0, height: 5.0)
-        shadowView.layer.shadowRadius = 25.0
-        shadowView.layer.shadowOpacity = 0.9
+        shadowView.layer.shadowRadius = 22.0
+        shadowView.layer.shadowOpacity = 0.6
         
         
         frontImage.layer.cornerRadius = cornerRadius
@@ -64,9 +65,10 @@ class ContentDetailsController: UIViewController {
                                 let components = podaci.year?.split(separator: "-")
                                 if(podaci.runtime != nil) {
                                     guard let runtime = podaci.runtime else { return }
-                                    self.runTimeLbl.text = "· " + String(runtime) + " min" + " ·"
+                                    self.runTimeLbl.text = "· " + String(runtime) + " min" + " · 8.2 / 10 ·"
                                 }
                                 self.titleLbl!.text = podaci.title + " (" + (components?[0] ?? "-") + ")"
+                                self.titleLbl.font = UIFont.boldSystemFont(ofSize: 24.0)
                             case .failure(_):
                                 break
                             }
@@ -81,9 +83,10 @@ class ContentDetailsController: UIViewController {
                     let components = podaci.year?.split(separator: "-")
                     if(podaci.runtime != nil) {
                         guard let runtime = podaci.runtime else { return }
-                        self.runTimeLbl.text = "· " + String(runtime) + " min" + " ·"
+                        self.runTimeLbl.text = "· " + String(runtime) + " min" + " · 8.2 / 10 ·"
                     }
                     self.titleLbl!.text = podaci.title + " (" + (components?[0] ?? "-") + ")"
+                    self.titleLbl.font = UIFont.boldSystemFont(ofSize: 24.0)
                 case .failure(_):
                     break
                 }
