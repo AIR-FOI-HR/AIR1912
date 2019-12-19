@@ -22,8 +22,6 @@ class ContentSearchController: UIViewController{
     
     private var gamesDatasource = [Content]()
     private var movieDatasource = [Content]()
-    private var contentId = Int()
-    private var contentType = String()
     private var searchTitle = String()
    
     // MARK: -Lifecycle
@@ -148,20 +146,28 @@ extension ContentSearchController: UITableViewDataSource{
             content = gamesDatasource[indexPath.row]
         }
         cell.configure(with: content)
-        contentType = content.type.rawValue
-        contentId = content.id
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        let ContentDetails:UIStoryboard = UIStoryboard(name: "ContentDetails", bundle: nil)
-             let ContentDetailsController = ContentDetails.instantiateViewController(identifier: "ContentDetails") as! ContentDetailsController
-        ContentDetailsController.id = contentId
-        ContentDetailsController.type = contentType
-        ContentDetailsController.modalPresentationStyle = .popover
-             self.present(ContentDetailsController, animated: true, completion: nil)
-             
-    }
+        let storyboard = UIStoryboard(name: "ContentDetails", bundle: nil)
+            guard let viewController = storyboard.instantiateViewController(identifier: "ContentDetails") as? ContentDetailsController else {
+                return
+            }
+            let datasource: [Content]
+            if searchBar.selectedScopeButtonIndex == 0 {
+                datasource = movieDatasource
+            } else if searchBar.selectedScopeButtonIndex == 1 {
+                datasource = gamesDatasource
+            } else {
+                return
+            }
+            let item = datasource[indexPath.row]
+            viewController.id = item.id
+            viewController.type = item.type
+            viewController.modalPresentationStyle = .popover
+            self.present(viewController, animated: true, completion: nil)
+        }
 }
 

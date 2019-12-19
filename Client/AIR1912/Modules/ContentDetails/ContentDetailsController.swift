@@ -20,7 +20,7 @@ class ContentDetailsController: UIViewController {
     @IBOutlet weak var backImage: UIImageView!
     
     var id: Int = 0
-    var type: String = ""
+    var type: ContentType = .game
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,7 +43,7 @@ class ContentDetailsController: UIViewController {
     
         func configure() {
     
-                if (type == "movie") {
+            if (type == .movie) {
                 let provider = MovieProvider()
                 provider.getDetails(id: id) { (result) in
                     switch result {
@@ -63,7 +63,7 @@ class ContentDetailsController: UIViewController {
                     }
     
                     }
-                } else if (type == "game"){
+            } else if (type == .game){
                     let provider = GameProvider()
                     provider.getDetails(id: id) { (result) in
                         switch result {

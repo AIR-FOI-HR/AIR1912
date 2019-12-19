@@ -21,8 +21,7 @@ class ContentViewController : UIViewController {
     
     private var gamesDatasource = [Content]()
     private var movieDatasource = [Content]()
-    private var contentId = Int()
-    private var contentType = String()
+
     
     
     // MARK: - Lifecycle
@@ -103,7 +102,7 @@ extension ContentViewController {
     }
 }
 
-extension ContentViewController: UICollectionViewDataSource {
+extension ContentViewController: UICollectionViewDataSource, UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if collectionView === self.collectionView {
@@ -115,8 +114,6 @@ extension ContentViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ContentCollectionViewCell", for: indexPath) as! ContentCollectionViewCell
-        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.tap(_:)))
-        cell.featuredImageView.addGestureRecognizer(tapGestureRecognizer)
         let content: Content
         if collectionView === self.collectionView{
             content = movieDatasource[indexPath.row]
@@ -124,18 +121,26 @@ extension ContentViewController: UICollectionViewDataSource {
             content = gamesDatasource[indexPath.row]
         }
         cell.configure(with: content)
-        contentType = content.type.rawValue
-        contentId = content.id
-        
         return cell
     }
     
-    @IBAction func tap(_ sender:ImageView){
-        let ContentDetails:UIStoryboard = UIStoryboard(name: "ContentDetails", bundle: nil)
-             let ContentDetailsController = ContentDetails.instantiateViewController(identifier: "ContentDetails") as! ContentDetailsController
-        ContentDetailsController.id = contentId
-        ContentDetailsController.type = contentType
-        ContentDetailsController.modalPresentationStyle = .popover
-             self.present(ContentDetailsController, animated: true, completion: nil)
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let storyboard = UIStoryboard(name: "ContentDetails", bundle: nil)
+        guard let viewController = storyboard.instantiateViewController(identifier: "ContentDetails") as? ContentDetailsController else {
+            return
+        }
+        let datasource: [Content]
+        if collectionView === self.collectionView {
+            datasource = movieDatasource
+        } else if collectionView == self.collectionView2 {
+            datasource = gamesDatasource
+        } else {
+            return
+        }
+        let item = datasource[indexPath.row]
+        viewController.id = item.id
+        viewController.type = item.type
+        viewController.modalPresentationStyle = .popover
+        self.present(viewController, animated: true, completion: nil)
     }
 }
