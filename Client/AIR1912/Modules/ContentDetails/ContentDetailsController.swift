@@ -18,6 +18,7 @@ class ContentDetailsController: UIViewController {
     @IBOutlet weak var joinbtn: UIButton!
     @IBOutlet weak var frontImage: UIImageView!
     @IBOutlet weak var backImage: UIImageView!
+    @IBOutlet weak var subView: UIView!
     
     var id: Int = 0
     var type: ContentType = .game
@@ -25,6 +26,7 @@ class ContentDetailsController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         frontImage.layer.cornerRadius = 12
+        subView.layer.cornerRadius = 12
         configure()
 
         // Do any additional setup after loading the view.
