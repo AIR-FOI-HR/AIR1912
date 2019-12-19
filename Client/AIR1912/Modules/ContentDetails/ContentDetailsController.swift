@@ -20,6 +20,10 @@ class ContentDetailsController: UIViewController {
     @IBOutlet weak var subView: UIView!
     @IBOutlet weak var shadowView: UIView!
     @IBOutlet weak var ratingLbl: UILabel!
+    @IBOutlet weak var yearLbl: UILabel!
+    @IBOutlet weak var lengthLbl: UILabel!
+    @IBOutlet weak var genresLbl: UILabel!
+    @IBOutlet weak var descriptionHeadlineLbl: UILabel!
     
     var id: Int = 0
     var type: ContentType = .game
@@ -59,16 +63,18 @@ class ContentDetailsController: UIViewController {
     
     func setUpView(for Content: Content) {
         
+        self.genresLbl.text = "Action · Fantasy · Horror"
         self.descpriptionTv.text = Content.description
         self.frontImage.kf.setImage(with: Content.posterURL)
         self.setBlurredImage(poster : Content.posterURL)
         let components = Content.year?.split(separator: "-")
         if(Content.runtime != nil) {
             guard let runtime = Content.runtime else { return }
-            self.runTimeLbl.text = "· " + String(runtime) + " min" + " · 8.2 / 10 ·"
+            self.lengthLbl.text = String(runtime) + " min"
         }
-        self.titleLbl!.text = Content.title + " (" + (components?[0] ?? "-") + ")"
-        self.titleLbl.font = UIFont.boldSystemFont(ofSize: 24.0)
+        self.yearLbl.text = String(components?[0] ?? "-")
+        self.ratingLbl.text = String(Content.rating)
+        self.titleLbl!.text = Content.title
     }
     
     func configure(for type: ContentType) {
@@ -76,6 +82,7 @@ class ContentDetailsController: UIViewController {
         let provider = ContentProviderFactory.contentProvider(forContentType: type)
         switch type {
         case .movie:
+            self.descriptionHeadlineLbl.text = "Synopsis"
             provider.getDetails(id: id) { (result) in
                             switch result {
                             case .success(let podaci):
@@ -85,6 +92,7 @@ class ContentDetailsController: UIViewController {
                             }
                         }
         case .game:
+            self.descriptionHeadlineLbl.text = "Overview"
             provider.getDetails(id: id) { (result) in
                 switch result {
                 case .success(let podaci):
