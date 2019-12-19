@@ -17,6 +17,8 @@
 		421D5CAE237DD18B00C8AD1F /* ContentProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 421D5CAD237DD18B00C8AD1F /* ContentProvider.swift */; };
 		421D5CB0237DD2D100C8AD1F /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 421D5CAF237DD2D100C8AD1F /* Movie.swift */; };
 		4221044F23902546005B1B25 /* Encodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4221044E23902546005B1B25 /* Encodable.swift */; };
+		42347B9223AB94B80020D860 /* UserProfileCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42347B9123AB94B80020D860 /* UserProfileCollectionViewCell.swift */; };
+		42347B9423AB974C0020D860 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42347B9323AB974C0020D860 /* SettingsViewController.swift */; };
 		423F05A423981C0400D92D76 /* ResponseError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423F05A323981C0400D92D76 /* ResponseError.swift */; };
 		423F05A623981D6F00D92D76 /* ResponseErrorBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423F05A523981D6F00D92D76 /* ResponseErrorBuilder.swift */; };
 		4250E5F323845A5600369FBC /* Signup.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4250E5F223845A5600369FBC /* Signup.storyboard */; };
@@ -82,6 +84,8 @@
 		421D5CAD237DD18B00C8AD1F /* ContentProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentProvider.swift; sourceTree = "<group>"; };
 		421D5CAF237DD2D100C8AD1F /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
 		4221044E23902546005B1B25 /* Encodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Encodable.swift; sourceTree = "<group>"; };
+		42347B9123AB94B80020D860 /* UserProfileCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileCollectionViewCell.swift; sourceTree = "<group>"; };
+		42347B9323AB974C0020D860 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		423F05A323981C0400D92D76 /* ResponseError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseError.swift; sourceTree = "<group>"; };
 		423F05A523981D6F00D92D76 /* ResponseErrorBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseErrorBuilder.swift; sourceTree = "<group>"; };
 		4250E5F223845A5600369FBC /* Signup.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Signup.storyboard; sourceTree = "<group>"; };
@@ -437,6 +441,8 @@
 			children = (
 				EDB57AB4238EAB910032DC9E /* UserProfile.storyboard */,
 				EDFD7E7D239107430028C4D5 /* UserProfileViewController.swift */,
+				42347B9123AB94B80020D860 /* UserProfileCollectionViewCell.swift */,
+				42347B9323AB974C0020D860 /* SettingsViewController.swift */,
 			);
 			path = UserProfile;
 			sourceTree = "<group>";
@@ -558,7 +564,6 @@
 				ED35F61D237560DC009ED574 /* Assets.xcassets in Resources */,
 				EDCA57E023846228002C3AE1 /* Homescreen.storyboard in Resources */,
 				EDB57AB0238EAA750032DC9E /* Favourites.storyboard in Resources */,
-				EDB57AAB238EA8340032DC9E /* Search.storyboard in Resources */,
 				EDE3EF8A239E41BE001BD61A /* EventDetails.storyboard in Resources */,
 				ED52876B2385A02700848D66 /* ForgotPassword.storyboard in Resources */,
 				4250E5F323845A5600369FBC /* Signup.storyboard in Resources */,
@@ -631,8 +636,10 @@
 				4219917A239413F800CCAA89 /* ContentViewController.swift in Sources */,
 				ED156F4723A5175F0085BB2D /* DBGameProvider.swift in Sources */,
 				EDE3EF8F239EEB4F001BD61A /* ImageBlur.swift in Sources */,
-				4219917A239413F800CCAA89 /* InterestsViewController.swift in Sources */,
+				42347B9423AB974C0020D860 /* SettingsViewController.swift in Sources */,
+				4219917A239413F800CCAA89 /* ContentViewController.swift in Sources */,
 				42A9BAFB23929173009C1912 /* JsonResponse.swift in Sources */,
+				42347B9223AB94B80020D860 /* UserProfileCollectionViewCell.swift in Sources */,
 				ED52876F2385A2F100848D66 /* RecoverPassService.swift in Sources */,
 				ED5287712385AE9C00848D66 /* RecoverPassCodes.swift in Sources */,
 				4250E5F723845C3B00369FBC /* SignupController.swift in Sources */,
