@@ -24,7 +24,7 @@ protocol Content {
     var posterURL: URL? { get }
     var runtime: Int? { get }
     var year: String? { get }
-    
+    var rating: Double { get }
 }
 
 protocol ContentProvider {
