@@ -11,7 +11,6 @@ import UIKit
 class ContentDetailsController: UIViewController {
 
     @IBOutlet weak var titleLbl: UILabel!
-    @IBOutlet weak var YearLbl: UILabel!
     @IBOutlet weak var runTimeLbl: UILabel!
     @IBOutlet weak var descpriptionTv: UITextView!
     @IBOutlet weak var createBtn: UIButton!
@@ -19,15 +18,24 @@ class ContentDetailsController: UIViewController {
     @IBOutlet weak var frontImage: UIImageView!
     @IBOutlet weak var backImage: UIImageView!
     @IBOutlet weak var subView: UIView!
+    @IBOutlet weak var shadowView: UIView!
     
     var id: Int = 0
     var type: ContentType = .game
-    
+    let cornerRadius : CGFloat = 12
     override func viewDidLoad() {
         super.viewDidLoad()
-        frontImage.layer.cornerRadius = 12
+        shadowView.layer.cornerRadius = cornerRadius
+        shadowView.layer.shadowColor = UIColor.darkGray.cgColor
+        shadowView.layer.shadowOffset = CGSize(width: 5.0, height: 5.0)
+        shadowView.layer.shadowRadius = 25.0
+        shadowView.layer.shadowOpacity = 0.9
+        
+        
+        frontImage.layer.cornerRadius = cornerRadius
+        frontImage.clipsToBounds = true
         subView.layer.cornerRadius = 12
-        configure()
+        configure(for: type)
 
         // Do any additional setup after loading the view.
     }
@@ -43,49 +51,44 @@ class ContentDetailsController: UIViewController {
         
     }
     
-        func configure() {
-    
-            if (type == .movie) {
-                let provider = MovieProvider()
-                provider.getDetails(id: id) { (result) in
-                    switch result {
-                    case .success(let podaci):
-                        self.descpriptionTv.text = podaci.description
-                        self.frontImage.kf.setImage(with: podaci.posterURL)
-                        self.setBlurredImage(poster : podaci.posterURL)
-                        let components = podaci.year?.split(separator: "-")
-                        self.YearLbl.text = String(components?[0] ?? "-")
-                        if(podaci.runtime != nil) {
-                            guard let runtime = podaci.runtime else { return }
-                            self.runTimeLbl.text = String(runtime)
-                        }
-                        self.titleLbl!.text = podaci.title
-                    case .failure(_):
-                        break
-                    }
-    
-                    }
-            } else if (type == .game){
-                    let provider = GameProvider()
-                    provider.getDetails(id: id) { (result) in
-                        switch result {
-                        case .success(let podaci):
-                            self.descpriptionTv.text = podaci.description
-                            self.frontImage.kf.setImage(with: podaci.posterURL)
-                            self.setBlurredImage(poster: podaci.posterURL)
-                            let components = podaci.year?.split(separator: "-")
-                            self.YearLbl.text = String(components?[0] ?? "-")
-                            if(podaci.runtime != nil) {
-                                guard let runtime = podaci.runtime else { return }
-                                self.runTimeLbl.text = String(runtime)
+    func configure(for type: ContentType) {
+        let provider = ContentProviderFactory.contentProvider(forContentType: type)
+        switch type {
+        case .movie:
+            provider.getDetails(id: id) { (result) in
+                            switch result {
+                            case .success(let podaci):
+                                self.descpriptionTv.text = podaci.description
+                                self.frontImage.kf.setImage(with: podaci.posterURL)
+                                self.setBlurredImage(poster : podaci.posterURL)
+                                let components = podaci.year?.split(separator: "-")
+                                if(podaci.runtime != nil) {
+                                    guard let runtime = podaci.runtime else { return }
+                                    self.runTimeLbl.text = "· " + String(runtime) + " min" + " ·"
+                                }
+                                self.titleLbl!.text = podaci.title + " (" + (components?[0] ?? "-") + ")"
+                            case .failure(_):
+                                break
                             }
-                            self.titleLbl!.text = podaci.title
-                        case .failure(_):
-                            break
                         }
+        case .game:
+            provider.getDetails(id: id) { (result) in
+                switch result {
+                case .success(let podaci):
+                    self.descpriptionTv.text = podaci.description
+                    self.frontImage.kf.setImage(with: podaci.posterURL)
+                    self.setBlurredImage(poster: podaci.posterURL)
+                    let components = podaci.year?.split(separator: "-")
+                    if(podaci.runtime != nil) {
+                        guard let runtime = podaci.runtime else { return }
+                        self.runTimeLbl.text = "· " + String(runtime) + " min" + " ·"
                     }
-    
+                    self.titleLbl!.text = podaci.title + " (" + (components?[0] ?? "-") + ")"
+                case .failure(_):
+                    break
                 }
+            }
+        }
                 
         }
 
