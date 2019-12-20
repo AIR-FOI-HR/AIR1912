@@ -145,7 +145,7 @@ extension ContentSearchController: UITableViewDataSource{
         } else {
             content = gamesDatasource[indexPath.row]
         }
-        cell.configure(with: content)
+        cell.configure(id: content.id, with: content)
         return cell
     }
     
