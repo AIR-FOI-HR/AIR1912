@@ -10,6 +10,8 @@ import UIKit
 
 class ContentDetailsController: UIViewController {
 
+    //MARK: - Outlets
+    
     @IBOutlet weak var titleLbl: UILabel!
     @IBOutlet weak var runTimeLbl: UILabel!
     @IBOutlet weak var descpriptionTv: UITextView!
@@ -25,18 +27,22 @@ class ContentDetailsController: UIViewController {
     @IBOutlet weak var genresLbl: UILabel!
     @IBOutlet weak var descriptionHeadlineLbl: UILabel!
     
+    //MARK: - Properties
+    
     var id: Int = 0
     var type: ContentType = .game
     let cornerRadius : CGFloat = 12
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        setShadowView()
-        configure(for: type)
 
-        // Do any additional setup after loading the view.
-    }
-    
+    //MARK: - Lifecycle
+
+    override func viewDidLoad() {
+    super.viewDidLoad()
+    setShadowView()
+    configure(for: type)
+
+
+     }
     func setShadowView() {
         
         shadowView.layer.cornerRadius = cornerRadius
@@ -53,7 +59,7 @@ class ContentDetailsController: UIViewController {
     func setBlurredImage(poster : URL?) {
         
         backImage.kf.setImage(with: poster)
-        let darkBlur = UIBlurEffect(style: .dark)
+        let darkBlur = UIBlurEffect(style: .systemUltraThinMaterialDark)
         let blurView = UIVisualEffectView(effect: darkBlur)
         blurView.frame = backImage.bounds
         backImage.addSubview(blurView)
@@ -100,10 +106,11 @@ class ContentDetailsController: UIViewController {
                 case .failure(_):
                     break
                 }
+                
             }
+            
         }
                 
-        }
-
+    }
 
 }

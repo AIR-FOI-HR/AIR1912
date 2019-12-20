@@ -25,6 +25,7 @@ protocol Content {
     var runtime: Int? { get }
     var year: String? { get }
     var rating: Double { get }
+    var genre: [Genre]? { get }
 }
 
 protocol ContentProvider {

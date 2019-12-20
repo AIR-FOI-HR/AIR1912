@@ -29,6 +29,7 @@ struct Movie: Decodable, Content {
         return URL(string: "https://image.tmdb.org/t/p/original\(poster)")
     }
     var rating: Double
+    var genre: [Genre]?
     
     enum CodingKeys: String, CodingKey {
         case title
@@ -38,6 +39,7 @@ struct Movie: Decodable, Content {
         case year = "release_date"
         case runtime
         case rating = "vote_average"
+        case genre = "genres"
     }
     
     
@@ -57,6 +59,7 @@ struct DBMovie: Decodable, Content{
            return URL(string: "https://image.tmdb.org/t/p/original\(poster)")
        }
        var rating: Double
+    var genre: [Genre]?
     
        enum CodingKeys: String, CodingKey {
            case title
@@ -66,7 +69,7 @@ struct DBMovie: Decodable, Content{
            case year = "release_date"
            case runtime
            case rating = "vote_average"
-           
+           case genre = "genres"
        }
     
 }

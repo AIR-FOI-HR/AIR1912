@@ -21,6 +21,7 @@
 		423F05A623981D6F00D92D76 /* ResponseErrorBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423F05A523981D6F00D92D76 /* ResponseErrorBuilder.swift */; };
 		4250E5F323845A5600369FBC /* Signup.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4250E5F223845A5600369FBC /* Signup.storyboard */; };
 		4250E5F723845C3B00369FBC /* SignupController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4250E5F623845C3B00369FBC /* SignupController.swift */; };
+		4254484E23AC2E5D00740B27 /* Genre.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4254484D23AC2E5D00740B27 /* Genre.swift */; };
 		425F5C6A23A2B40E00B09368 /* ContentProviderFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 425F5C6923A2B40E00B09368 /* ContentProviderFactory.swift */; };
 		42A9BAF923928569009C1912 /* Alerter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A9BAF823928569009C1912 /* Alerter.swift */; };
 		42A9BAFB23929173009C1912 /* JsonResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A9BAFA23929173009C1912 /* JsonResponse.swift */; };
@@ -88,6 +89,7 @@
 		423F05A523981D6F00D92D76 /* ResponseErrorBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseErrorBuilder.swift; sourceTree = "<group>"; };
 		4250E5F223845A5600369FBC /* Signup.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Signup.storyboard; sourceTree = "<group>"; };
 		4250E5F623845C3B00369FBC /* SignupController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupController.swift; sourceTree = "<group>"; };
+		4254484D23AC2E5D00740B27 /* Genre.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Genre.swift; sourceTree = "<group>"; };
 		425F5C6923A2B40E00B09368 /* ContentProviderFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentProviderFactory.swift; sourceTree = "<group>"; };
 		42A9BAF823928569009C1912 /* Alerter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alerter.swift; sourceTree = "<group>"; };
 		42A9BAFA23929173009C1912 /* JsonResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonResponse.swift; sourceTree = "<group>"; };
@@ -186,6 +188,7 @@
 				42B47C182385B288002C554F /* UserPost.swift */,
 				ED156F2E23A3DCF60085BB2D /* EventDB.swift */,
 				ED156F3C23A40CF90085BB2D /* Content.swift */,
+				4254484D23AC2E5D00740B27 /* Genre.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -646,6 +649,7 @@
 				ED156F4723A5175F0085BB2D /* DBGameProvider.swift in Sources */,
 				EDE3EF8F239EEB4F001BD61A /* ImageBlur.swift in Sources */,
 				4219917A239413F800CCAA89 /* ContentViewController.swift in Sources */,
+				4254484E23AC2E5D00740B27 /* Genre.swift in Sources */,
 				42A9BAFB23929173009C1912 /* JsonResponse.swift in Sources */,
 				ED52876F2385A2F100848D66 /* RecoverPassService.swift in Sources */,
 				ED5287712385AE9C00848D66 /* RecoverPassCodes.swift in Sources */,

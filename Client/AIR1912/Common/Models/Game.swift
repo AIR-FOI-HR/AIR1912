@@ -15,6 +15,7 @@ struct GameResponse: Decodable {
 
 struct Game: Decodable, Content {
     
+    
     var type: ContentType {
         return .game
     }
@@ -29,6 +30,7 @@ struct Game: Decodable, Content {
         return URL(string: poster)
     }
     var rating: Double
+    var genre: [Genre]?
     
     enum CodingKeys: String, CodingKey {
         case title = "name"
@@ -38,6 +40,7 @@ struct Game: Decodable, Content {
         case id = "id"
         case runtime = "playtime"
         case rating
+        case genre = "genres"
     }
     
 }
@@ -58,6 +61,7 @@ struct DBGame: Content, Decodable{
            return URL(string: poster)
        }
        var rating: Double
+       var genre: [Genre]?
        
        enum CodingKeys: String, CodingKey {
            case title = "name"
@@ -67,5 +71,6 @@ struct DBGame: Content, Decodable{
            case id = "sourceEntityId"
            case runtime = "playtime"
            case rating
+           case genre = "genres"
        }
 }
