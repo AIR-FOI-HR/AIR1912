@@ -13,8 +13,9 @@ class TableCell: UITableViewCell {
     
     @IBOutlet weak var imgView: UIImageView!
     @IBOutlet weak var titleLbl: UILabel!
-    @IBOutlet weak var descriptionTv: UITextView!
- 
+    @IBOutlet weak var genresLbl: UILabel!
+    @IBOutlet weak var ratingsLbl: UILabel!
+    
     
     
     override func awakeFromNib() {
@@ -37,39 +38,29 @@ class TableCell: UITableViewCell {
     private func setupView() {
         imgView.layer.cornerRadius = 12.0
         imgView.layer.masksToBounds = true
-        descriptionTv.textContainer.maximumNumberOfLines = 3
-        descriptionTv.textContainer.lineBreakMode = .byTruncatingTail
     }
     
+    func getGenre(for Content: Content) {
+        var genreName = ""
+        if(Content.genre != nil){
+            genreName = Content.genre![0].name!
+            self.genresLbl.text = genreName
+        } else {
+            self.genresLbl.text = genreName
+        }
+    }
     
     func configure(with content: Content) {
         setupView()
-
         if let url = content.posterURL {
-            if (content.type == ContentType.movie) {
-            descriptionTv.text = content.description
+            getGenre(for: content)
             self.imgView.kf.setImage(with: url)
             let components = content.year?.split(separator: "-")
             titleLbl!.text = content.title + " (" + (components?[0] ?? "-") + ")"
-            }else {
-                let provider = GameProvider()
-                provider.getDetails(id: content.id) { (result) in
-                    switch result {
-                    case .success(let podaci):
-                        self.descriptionTv.text = podaci.description
-                    case .failure(_):
-                        break
-                    }
-                }
-                self.imgView.kf.setImage(with: url)
-                let components = content.year?.split(separator: "-")
-                titleLbl!.text = content.title + " (" + (components?[0] ?? "-") + ")"
-                
-            }
-            
+            ratingsLbl.text = String(content.rating)
         }
-
+            
     }
-    
-    
+
 }
+    

@@ -14,6 +14,7 @@ class ContentCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var titleName: UILabel!
     @IBOutlet weak var featuredImageView: UIImageView!
+    
         
     override func prepareForReuse() {
         super.prepareForReuse()
