@@ -40,20 +40,10 @@ class TableCell: UITableViewCell {
         imgView.layer.masksToBounds = true
     }
     
-    func getGenre(for Content: Content) {
-        var genreName = ""
-        if(Content.genre != nil){
-            genreName = Content.genre![0].name!
-            self.genresLbl.text = genreName
-        } else {
-            self.genresLbl.text = genreName
-        }
-    }
     
     func configure(with content: Content) {
         setupView()
         if let url = content.posterURL {
-            getGenre(for: content)
             self.imgView.kf.setImage(with: url)
             let components = content.year?.split(separator: "-")
             titleLbl!.text = content.title + " (" + (components?[0] ?? "-") + ")"

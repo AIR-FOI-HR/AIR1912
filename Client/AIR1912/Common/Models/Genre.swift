@@ -10,10 +10,12 @@ import Foundation
 import Alamofire
 
 struct Genre: Decodable {
+    var id: Int?
     var name: String?
 }
 
 enum CodingKeys: String, CodingKey {
+    case id = "id"
     case name = "name"
 }
 

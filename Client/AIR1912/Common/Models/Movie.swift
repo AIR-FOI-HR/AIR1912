@@ -59,7 +59,8 @@ struct DBMovie: Decodable, Content{
            return URL(string: "https://image.tmdb.org/t/p/original\(poster)")
        }
        var rating: Double
-    var genre: [Genre]?
+       var genre: [Genre]?
+       var genre_ids : [Int]
     
        enum CodingKeys: String, CodingKey {
            case title
@@ -70,6 +71,7 @@ struct DBMovie: Decodable, Content{
            case runtime
            case rating = "vote_average"
            case genre = "genres"
+           case genre_ids = "genre_ids"
        }
     
 }
