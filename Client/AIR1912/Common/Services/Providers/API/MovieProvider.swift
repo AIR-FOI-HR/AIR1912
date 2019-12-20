@@ -10,6 +10,9 @@ import Foundation
 import Alamofire
 
 class MovieProvider: ContentProvider {
+    
+    var movieId = Int()
+    
     func getContentByIDFromDB(for id:Int, completion: @escaping (Result<[Content]>) -> Void) {
         Alamofire
         .request("https://cortex.foi.hr/meetup/ContentProvider.php?searchByID=\(id)")
@@ -91,4 +94,20 @@ class MovieProvider: ContentProvider {
             }
         }
     }
+    
+    func getDetails(id: Int, completion: @escaping (Result<Content>) -> Void) {
+         
+        movieId = id
+        
+         Alamofire
+         .request("https://api.themoviedb.org/3/movie/\(movieId)?api_key=\(API_KEY)")
+         .responseDecodableObject(decoder: decoder) { (response: DataResponse<Movie>) in
+             switch response.result {
+             case .success(let response):
+                 completion(.success(response.self))
+             case .failure(let error):
+                 completion(.failure(error))
+             }
+         }
+     }
 }

@@ -13,9 +13,10 @@ class TableCell: UITableViewCell {
     
     @IBOutlet weak var imgView: UIImageView!
     @IBOutlet weak var titleLbl: UILabel!
-    @IBOutlet weak var descriptionTv: UITextView!
- 
+    @IBOutlet weak var genresLbl: UILabel!
+    @IBOutlet weak var ratingsLbl: UILabel!
     
+    var contentId = Int()
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -37,36 +38,44 @@ class TableCell: UITableViewCell {
     private func setupView() {
         imgView.layer.cornerRadius = 12.0
         imgView.layer.masksToBounds = true
-        descriptionTv.textContainer.maximumNumberOfLines = 3
-        descriptionTv.textContainer.lineBreakMode = .byTruncatingTail
+        
     }
     
     
-    func configure(with content: Content) {
+    func configure(id: Int, with content: Content) {
         setupView()
-
+        contentId = id
+        
+        if (content.type == .movie){
+            let provider = MovieProvider()
+            provider.getDetails(id: contentId) { (result) in
+                switch result {
+                case .success(let podaci):
+                    self.genresLbl.text = podaci.genre![0].name
+                case .failure(_):
+                    self.genresLbl.text = ""
+                    }
+                }
+        }else{
+            let provider = GameProvider()
+            provider.getDetails(id: contentId) { (result) in
+                switch result {
+                case .success(let podaci):
+                    self.genresLbl.text = podaci.genre![0].name
+                case .failure(_):
+                    self.genresLbl.text = ""
+                    }
+                }
+        }
+        
         if let url = content.posterURL {
             self.imgView.kf.setImage(with: url)
             let components = content.year?.split(separator: "-")
             titleLbl!.text = content.title + " (" + (components?[0] ?? "-") + ")"
-            if (content.type == ContentType.movie) {
-            descriptionTv.text = content.description
-            }else {
-                let provider = GameProvider()
-                provider.getDescription(id: content.id) { (result) in
-                    switch result {
-                    case .success(let podaci):
-                        self.descriptionTv.text = podaci.description
-                    case .failure(_):
-                        break
-                        
-                    }
-                }
-                
-            }
-            
+            ratingsLbl.text = String(content.rating)
         }
-
+            
     }
-    
+
 }
+    

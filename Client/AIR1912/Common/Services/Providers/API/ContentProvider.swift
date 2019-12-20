@@ -24,7 +24,8 @@ protocol Content {
     var posterURL: URL? { get }
     var runtime: Int? { get }
     var year: String? { get }
-    
+    var rating: Double { get }
+    var genre: [Genre]? { get }
 }
 
 protocol ContentProvider {
@@ -36,5 +37,7 @@ protocol ContentProvider {
     func getLatestContent(completion: @escaping (Result<[Content]>) -> Void)
     
     func getSearchedContent(title: String, completion: @escaping (Result<[Content]>) -> Void)
+    
+    func getDetails(id: Int, completion: @escaping (Result<Content>) -> Void)
     
 }
