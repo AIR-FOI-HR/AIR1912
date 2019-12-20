@@ -24,16 +24,6 @@ class SettingsViewController: UIViewController {
         logout()
     }
     
-    @IBAction func testEventDetails(_ sender: Any) {
-        
-        let EventDetailsStoryboard:UIStoryboard = UIStoryboard(name: "EventDetails", bundle: nil)
-        let EventDetailsViewController = EventDetailsStoryboard.instantiateViewController(identifier: "EventDetails") as! EventDetailsViewController
-        EventDetailsViewController.modalPresentationStyle = .fullScreen
-        self.present(EventDetailsViewController, animated: true, completion: nil)
-        
-        
-    }
-    
     private func logout() -> Void{
         // delete stored data for user
         let dataIsDeleted = keychain.clearSessionData()
