@@ -32,6 +32,7 @@ class ContentDetailsController: UIViewController {
     var id: Int = 0
     var type: ContentType = .game
     let cornerRadius : CGFloat = 12
+    var genreName = ""
     
 
     //MARK: - Lifecycle
@@ -69,7 +70,7 @@ class ContentDetailsController: UIViewController {
     
     func setUpView(for Content: Content) {
         
-        self.genresLbl.text = "Action · Fantasy · Horror"
+        //self.genresLbl.text = "Action · Fantasy · Horror"
         self.descpriptionTv.text = Content.description
         self.frontImage.kf.setImage(with: Content.posterURL)
         self.setBlurredImage(poster : Content.posterURL)
@@ -83,6 +84,25 @@ class ContentDetailsController: UIViewController {
         self.titleLbl!.text = Content.title
     }
     
+    func getGenre(for Content: Content) {
+        var genreName = ""
+        var brojac = 0
+        if (Content.genre!.count <= 3){
+            for item in (Content.genre)! {
+                brojac += 1
+                if(brojac <= (Content.genre!.count-1)) {
+                    genreName += item.name! + " · "
+                } else {
+                genreName += item.name!
+                }
+            }
+            
+        }else{
+            genreName += Content.genre![0].name! + " · " + Content.genre![1].name! + " · " + Content.genre![2].name!
+        }
+        self.genresLbl.text = genreName
+    }
+    
     func configure(for type: ContentType) {
         
         let provider = ContentProviderFactory.contentProvider(forContentType: type)
@@ -92,6 +112,7 @@ class ContentDetailsController: UIViewController {
             provider.getDetails(id: id) { (result) in
                             switch result {
                             case .success(let podaci):
+                                self.getGenre(for: podaci)
                                 self.setUpView(for: podaci)
                             case .failure(_):
                                 break
@@ -102,6 +123,7 @@ class ContentDetailsController: UIViewController {
             provider.getDetails(id: id) { (result) in
                 switch result {
                 case .success(let podaci):
+                    self.getGenre(for: podaci)
                     self.setUpView(for: podaci)
                 case .failure(_):
                     break
