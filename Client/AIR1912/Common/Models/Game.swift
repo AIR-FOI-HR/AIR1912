@@ -15,6 +15,7 @@ struct GameResponse: Decodable {
 
 struct Game: Decodable, Content {
     
+    
     var type: ContentType {
         return .game
     }
@@ -23,25 +24,29 @@ struct Game: Decodable, Content {
     var title: String
     var description: String?
     var poster: String
-    var year: String?
+    var year: String? 
     var runtime: Int?
     var posterURL: URL? {
         return URL(string: poster)
     }
+    var rating: Double
+    var genre: [Genre]?
     
     enum CodingKeys: String, CodingKey {
         case title = "name"
-        case description = "slug"
+        case description = "description_raw"
         case poster = "background_image"
         case year = "released"
-        case id
+        case id = "id"
         case runtime = "playtime"
+        case rating
+        case genre = "genres"
     }
-    
     
 }
 
 struct DBGame: Content, Decodable{
+    
     var type: ContentType {
            return .game
        }
@@ -55,6 +60,8 @@ struct DBGame: Content, Decodable{
        var posterURL: URL? {
            return URL(string: poster)
        }
+       var rating: Double
+       var genre: [Genre]?
        
        enum CodingKeys: String, CodingKey {
            case title = "name"
@@ -63,5 +70,7 @@ struct DBGame: Content, Decodable{
            case year = "released"
            case id = "sourceEntityId"
            case runtime = "playtime"
+           case rating
+           case genre = "genres"
        }
 }
