@@ -243,6 +243,9 @@
                                                                                 </connections>
                                                                             </collectionViewCell>
                                                                         </cells>
+                                                                        <connections>
+                                                                            <outlet property="dataSource" destination="nod-c7-47d" id="LOj-F6-Rbe"/>
+                                                                        </connections>
                                                                     </collectionView>
                                                                 </subviews>
                                                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>

@@ -21,6 +21,7 @@ class UserProfileViewController: UIViewController {
     //MARK: - Private properties
 
     private var myEventsDataSource = [Event]()
+    private var attendingEventsDataSource = [Event]()
     private let keychain:UserKeychain = UserKeychain()
     
     //MARK: - Lifecycle
@@ -64,6 +65,7 @@ class UserProfileViewController: UIViewController {
             super.viewWillAppear(true)
             
             getAllEventsByUserID(for: .allEvent)
+            getEventsByOwnerID(for: .allEvent)
     }
     
         @IBAction func testEventDetails(_ sender: Any) {
@@ -95,10 +97,37 @@ class UserProfileViewController: UIViewController {
             }
 
     }
+    
+    private func getEventsByOwnerID(for type: EventType) {
+               
+               guard let idUser = keychain.getID() else{
+                   return
+               }
+               
+               let provider = WebEventProvider()
+        provider.getEventsByUserID (for: idUser, eventType: EventType.allEvent){ (result) in  switch result {
+                   case .success(let podaci):
+                       print (podaci)
+                       self.updateAttendingEventsContent(result: podaci)
+                       
+                   case .failure(_):
+                       print("failure")
+                       self.updateAttendingEventsContent(result: [])
+                   }
+               }
+
+       }
         private func updateMyEventsContent(result: [Event]) {
             
                 myEventsDataSource = result
                 self.MyEventsCollectionView.reloadData()
+    
+        }
+    
+    private func updateAttendingEventsContent(result: [Event]) {
+            
+                attendingEventsDataSource = result
+                self.AttendingEventsCollectionView.reloadData()
     
         }
 }
@@ -107,8 +136,11 @@ extension UserProfileViewController: UICollectionViewDataSource {
        
        func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
           
+        if collectionView === self.MyEventsCollectionView {
                return myEventsDataSource.count
-           
+           } else {
+            return attendingEventsDataSource.count
+           }
        }
        
        func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -118,7 +150,10 @@ extension UserProfileViewController: UICollectionViewDataSource {
                event = myEventsDataSource[indexPath.row]
                cell.configureForMyEvents(with: event)
                
-           }
+           } else {
+            event = attendingEventsDataSource[indexPath.row]
+            cell.configureForMyEvents(with: event)
+        }
            
            return cell
        }

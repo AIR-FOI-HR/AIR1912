@@ -31,8 +31,8 @@ class UserProfileCollectionViewCell: UICollectionViewCell {
            setupView()
                
            eventTitle!.text = event.title
-           let provider = DBMovieProvider()
-           provider.getContentByID(for: event.contentID){(result) in
+           let provider = WebContentProvider()
+           provider.getContentById(for: event.contentID){(result) in
                    switch result {
                    case .success(let podaci):
                        print (podaci)
@@ -42,9 +42,9 @@ class UserProfileCollectionViewCell: UICollectionViewCell {
                        print("failure")
                        
                    }
-               }
+            }
        }
-       
+    
        
        private func setupView() {
            featuredImageView.layer.cornerRadius = 12.0
