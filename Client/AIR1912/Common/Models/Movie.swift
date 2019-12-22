@@ -41,8 +41,6 @@ struct Movie: Decodable, Content {
         case rating = "vote_average"
         case genre = "genres"
     }
-    
-    
 }
 
 struct DBMovie: Decodable {
@@ -58,5 +56,4 @@ struct DBMovie: Decodable {
        var posterURL: URL? {
            return URL(string: "https://image.tmdb.org/t/p/original\(poster_path)")
        }
-    
 }

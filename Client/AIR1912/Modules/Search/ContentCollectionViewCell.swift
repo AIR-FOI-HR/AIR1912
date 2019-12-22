@@ -30,9 +30,7 @@ class ContentCollectionViewCell: UICollectionViewCell {
         if let url = content.posterURL {
             self.featuredImageView.kf.setImage(with: url)
             titleName!.text = content.title
-            
         }
-
     }
     
     private func setupView() {
