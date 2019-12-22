@@ -14,7 +14,7 @@ import Alamofire
 class DBMovieProvider: DBContentProvider {
      private let decoder = JSONDecoder()
     
-     func getContentByID(for id:Int, completion: @escaping (Result<[Content]>) -> Void) {
+     func getContentByID(for id:Int, completion: @escaping (Result<[DBMovie]>) -> Void) {
         Alamofire
         .request("https://cortex.foi.hr/meetup/ContentProvider.php?searchByID=\(id)")
         .responseDecodableObject(decoder: decoder) { (response: DataResponse<[DBMovie]>) in

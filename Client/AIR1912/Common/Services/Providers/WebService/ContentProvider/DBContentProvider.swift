@@ -13,7 +13,7 @@ import Alamofire
 
 protocol DBContentProvider {
     
-    func getContentByID(for id:Int, completion: @escaping (Result<[Content]>) -> Void)
+    func getContentByID(for id:Int, completion: @escaping (Result<[DBMovie]>) -> Void)
     
     
 }

@@ -39,12 +39,13 @@
 		ED156F3D23A40CF90085BB2D /* Content.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED156F3C23A40CF90085BB2D /* Content.swift */; };
 		ED156F4323A517380085BB2D /* DBContentProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED156F4223A517380085BB2D /* DBContentProvider.swift */; };
 		ED156F4523A5174F0085BB2D /* DBMovieProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED156F4423A5174F0085BB2D /* DBMovieProvider.swift */; };
-		ED156F4723A5175F0085BB2D /* DBGameProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED156F4623A5175F0085BB2D /* DBGameProvider.swift */; };
 		ED35F611237560D8009ED574 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED35F610237560D8009ED574 /* AppDelegate.swift */; };
 		ED35F613237560D8009ED574 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED35F612237560D8009ED574 /* SceneDelegate.swift */; };
 		ED35F61B237560D8009ED574 /* AIR1912.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = ED35F619237560D8009ED574 /* AIR1912.xcdatamodeld */; };
 		ED35F61D237560DC009ED574 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ED35F61C237560DC009ED574 /* Assets.xcassets */; };
 		ED35F620237560DC009ED574 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ED35F61E237560DC009ED574 /* LaunchScreen.storyboard */; };
+		ED3CE89C23AEBCFC0052015F /* EventCRUD.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ED3CE89B23AEBCFC0052015F /* EventCRUD.storyboard */; };
+		ED3CE89E23AEBD0C0052015F /* EventCRUDViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED3CE89D23AEBD0C0052015F /* EventCRUDViewController.swift */; };
 		ED52876B2385A02700848D66 /* ForgotPassword.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ED52876A2385A02700848D66 /* ForgotPassword.storyboard */; };
 		ED52876D2385A04000848D66 /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED52876C2385A04000848D66 /* ForgotPasswordViewController.swift */; };
 		ED52876F2385A2F100848D66 /* RecoverPassService.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED52876E2385A2F100848D66 /* RecoverPassService.swift */; };
@@ -104,7 +105,6 @@
 		ED156F3C23A40CF90085BB2D /* Content.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Content.swift; sourceTree = "<group>"; };
 		ED156F4223A517380085BB2D /* DBContentProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBContentProvider.swift; sourceTree = "<group>"; };
 		ED156F4423A5174F0085BB2D /* DBMovieProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBMovieProvider.swift; sourceTree = "<group>"; };
-		ED156F4623A5175F0085BB2D /* DBGameProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBGameProvider.swift; sourceTree = "<group>"; };
 		ED35F60D237560D8009ED574 /* AIR1912.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AIR1912.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED35F610237560D8009ED574 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ED35F612237560D8009ED574 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -112,6 +112,8 @@
 		ED35F61C237560DC009ED574 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		ED35F61F237560DC009ED574 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		ED35F621237560DC009ED574 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		ED3CE89B23AEBCFC0052015F /* EventCRUD.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = EventCRUD.storyboard; sourceTree = "<group>"; };
+		ED3CE89D23AEBD0C0052015F /* EventCRUDViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventCRUDViewController.swift; sourceTree = "<group>"; };
 		ED52876A2385A02700848D66 /* ForgotPassword.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ForgotPassword.storyboard; sourceTree = "<group>"; };
 		ED52876C2385A04000848D66 /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
 		ED52876E2385A2F100848D66 /* RecoverPassService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecoverPassService.swift; sourceTree = "<group>"; };
@@ -318,7 +320,6 @@
 			children = (
 				ED156F4223A517380085BB2D /* DBContentProvider.swift */,
 				ED156F4423A5174F0085BB2D /* DBMovieProvider.swift */,
-				ED156F4623A5175F0085BB2D /* DBGameProvider.swift */,
 			);
 			path = ContentProvider;
 			sourceTree = "<group>";
@@ -350,6 +351,15 @@
 				ED13FF5123788B9400E3402C /* Resources */,
 			);
 			path = AIR1912;
+			sourceTree = "<group>";
+		};
+		ED3CE89623AEBCB40052015F /* EventCRUD */ = {
+			isa = PBXGroup;
+			children = (
+				ED3CE89B23AEBCFC0052015F /* EventCRUD.storyboard */,
+				ED3CE89D23AEBD0C0052015F /* EventCRUDViewController.swift */,
+			);
+			path = EventCRUD;
 			sourceTree = "<group>";
 		};
 		ED3F51E22375616500A2F370 /* App */ = {
@@ -389,8 +399,8 @@
 		ED56B4ED2375672E00BD4821 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				ED3CE89623AEBCB40052015F /* EventCRUD */,
 				42F2ACF823AA5A1900C2DA20 /* ContentDetails */,
-				EDE3EF88239E4199001BD61A /* EventCRUD */,
 				EDE3EF87239E4184001BD61A /* EventDetails */,
 				EDB57AB3238EAB850032DC9E /* UserProfile */,
 				EDB57AAE238EAA650032DC9E /* Favourites */,
@@ -475,13 +485,6 @@
 			path = EventDetails;
 			sourceTree = "<group>";
 		};
-		EDE3EF88239E4199001BD61A /* EventCRUD */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = EventCRUD;
-			sourceTree = "<group>";
-		};
 		EDE3EF8D239EEB2C001BD61A /* Utilites */ = {
 			isa = PBXGroup;
 			children = (
@@ -559,6 +562,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EDCA57DD23845B03002C3AE1 /* Login.storyboard in Resources */,
+				ED3CE89C23AEBCFC0052015F /* EventCRUD.storyboard in Resources */,
 				ED35F620237560DC009ED574 /* LaunchScreen.storyboard in Resources */,
 				ED35F61D237560DC009ED574 /* Assets.xcassets in Resources */,
 				EDCA57E023846228002C3AE1 /* Homescreen.storyboard in Resources */,
@@ -626,13 +630,13 @@
 				EDCA57DC23845B03002C3AE1 /* LoginViewController.swift in Sources */,
 				425F5C6A23A2B40E00B09368 /* ContentProviderFactory.swift in Sources */,
 				ED35F61B237560D8009ED574 /* AIR1912.xcdatamodeld in Sources */,
+				ED3CE89E23AEBD0C0052015F /* EventCRUDViewController.swift in Sources */,
 				421D5CAC237DD17700C8AD1F /* GameProvider.swift in Sources */,
 				42B47C192385B288002C554F /* UserPost.swift in Sources */,
 				421D5CAE237DD18B00C8AD1F /* ContentProvider.swift in Sources */,
 				ED156F3D23A40CF90085BB2D /* Content.swift in Sources */,
 				EDBE0169237F1B2000F15CE5 /* MainViewController.swift in Sources */,
 				4219917A239413F800CCAA89 /* ContentViewController.swift in Sources */,
-				ED156F4723A5175F0085BB2D /* DBGameProvider.swift in Sources */,
 				EDE3EF8F239EEB4F001BD61A /* ImageBlur.swift in Sources */,
 				4219917A239413F800CCAA89 /* ContentViewController.swift in Sources */,
 				4254484E23AC2E5D00740B27 /* Genre.swift in Sources */,

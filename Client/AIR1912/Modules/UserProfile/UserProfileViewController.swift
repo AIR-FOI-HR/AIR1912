@@ -63,9 +63,9 @@ class UserProfileViewController: UIViewController {
     
     @IBAction func testEventDetails(_ sender: Any) {
         
-        let EventDetailsStoryboard:UIStoryboard = UIStoryboard(name: "EventDetails", bundle: nil)
-        let EventDetailsViewController = EventDetailsStoryboard.instantiateViewController(identifier: "EventDetails") as! EventDetailsViewController
-        EventDetailsViewController.modalPresentationStyle = .fullScreen
+        let EventDetailsStoryboard:UIStoryboard = UIStoryboard(name: "EventCRUD", bundle: nil)
+        let EventDetailsViewController = EventDetailsStoryboard.instantiateViewController(identifier: "EventCRUD") as! EventCRUDViewController
+        EventDetailsViewController.modalPresentationStyle = .popover
         self.present(EventDetailsViewController, animated: true, completion: nil)
         
         
