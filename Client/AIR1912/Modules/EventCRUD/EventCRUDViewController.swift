@@ -34,6 +34,7 @@ class EventCRUDViewController: UIViewController, UIPickerViewDelegate, UIPickerV
     
     @IBOutlet weak var subView: UIView!
     @IBOutlet weak var backImage: UIImageView!
+    @IBOutlet weak var dateTimeLabel: UILabel!
     //MARK: - Properties
     
     var id: Int = 512200
@@ -41,6 +42,7 @@ class EventCRUDViewController: UIViewController, UIPickerViewDelegate, UIPickerV
     let cornerRadius : CGFloat = 12
     var genreName = ""
     var pickerData: [Int] = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]
+    
 
     //MARK: - Lifecycle
 
@@ -127,6 +129,22 @@ class EventCRUDViewController: UIViewController, UIPickerViewDelegate, UIPickerV
         present(navigationController, animated: true, completion: nil)
     }
     
-
+    @IBAction func openDateTimePicker(_ sender: Any) {
+        let DateTimePickerStoryboard:UIStoryboard = UIStoryboard(name: "DateTimePicker", bundle: nil)
+        let DateTimeVC = DateTimePickerStoryboard.instantiateViewController(identifier: "DateTimePicker") as? DateTimePickerViewController
+        DateTimeVC?.delegate = self
+        self.present(DateTimeVC!, animated: true, completion: nil)
+    }
+    
+    
+}
+extension EventCRUDViewController: DateTimePickerDelegate{
+    func setDateTime(dateTime: Date) {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd.MM.YYYY HH:mm"
+        let stringDate = dateFormatter.string(from: dateTime)
+        dateTimeLabel.text = stringDate
+    }
+    
     
 }

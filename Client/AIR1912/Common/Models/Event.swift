@@ -10,12 +10,12 @@ import Foundation
 
 
 
-class Event: Decodable {
+class Event: Decodable, Encodable {
     
     var id: Int
     var title: String
     var maxNumberOfPeople: Int
-    var numberOfPeople: Int
+    var numberOfPeople: Int?
     var password: String?
     var description: String
     var latitude: Double

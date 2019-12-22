@@ -29,11 +29,11 @@
 		42B47C192385B288002C554F /* UserPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B47C182385B288002C554F /* UserPost.swift */; };
 		42B4D5FC23A3CDA500036C53 /* ContentSearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B4D5FB23A3CDA500036C53 /* ContentSearchController.swift */; };
 		42BAB2A923A3D25500572E89 /* TableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42BAB2A823A3D25500572E89 /* TableCell.swift */; };
-		42F2ACFA23AA5A9600C2DA20 /* ContentDetails.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 42F2ACF923AA5A9600C2DA20 /* ContentDetails.storyboard */; };
-		42F2ACFC23AA610900C2DA20 /* ContentDetailsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42F2ACFB23AA610900C2DA20 /* ContentDetailsController.swift */; };
 		42C7AE1C23A6B96000398BE9 /* DBContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42C7AE1B23A6B96000398BE9 /* DBContent.swift */; };
 		42C7AE1E23A8E10E00398BE9 /* WebContentProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42C7AE1D23A8E10E00398BE9 /* WebContentProvider.swift */; };
 		42C7AE2023A8F9B300398BE9 /* FavouritesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42C7AE1F23A8F9B300398BE9 /* FavouritesCollectionViewCell.swift */; };
+		42F2ACFA23AA5A9600C2DA20 /* ContentDetails.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 42F2ACF923AA5A9600C2DA20 /* ContentDetails.storyboard */; };
+		42F2ACFC23AA610900C2DA20 /* ContentDetailsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42F2ACFB23AA610900C2DA20 /* ContentDetailsController.swift */; };
 		D0655947A9CF0CDD85866E29 /* Pods_AIR1912.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0702C62035766E8AC911DBD4 /* Pods_AIR1912.framework */; };
 		ED156F2923A3D1EA0085BB2D /* EventsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED156F2823A3D1EA0085BB2D /* EventsViewController.swift */; };
 		ED156F2B23A3D2680085BB2D /* EventCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED156F2A23A3D2680085BB2D /* EventCollectionViewCell.swift */; };
@@ -49,6 +49,9 @@
 		ED35F620237560DC009ED574 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ED35F61E237560DC009ED574 /* LaunchScreen.storyboard */; };
 		ED3CE89C23AEBCFC0052015F /* EventCRUD.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ED3CE89B23AEBCFC0052015F /* EventCRUD.storyboard */; };
 		ED3CE89E23AEBD0C0052015F /* EventCRUDViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED3CE89D23AEBD0C0052015F /* EventCRUDViewController.swift */; };
+		ED3CE8A323AFE3420052015F /* DateFromString.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED3CE8A223AFE3420052015F /* DateFromString.swift */; };
+		ED3CE8A523AFEB490052015F /* DateTimePicker.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ED3CE8A423AFEB490052015F /* DateTimePicker.storyboard */; };
+		ED3CE8A723AFEC4B0052015F /* DateTimePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED3CE8A623AFEC4B0052015F /* DateTimePickerViewController.swift */; };
 		ED52876B2385A02700848D66 /* ForgotPassword.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ED52876A2385A02700848D66 /* ForgotPassword.storyboard */; };
 		ED52876D2385A04000848D66 /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED52876C2385A04000848D66 /* ForgotPasswordViewController.swift */; };
 		ED52876F2385A2F100848D66 /* RecoverPassService.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED52876E2385A2F100848D66 /* RecoverPassService.swift */; };
@@ -97,11 +100,11 @@
 		42B47C182385B288002C554F /* UserPost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPost.swift; sourceTree = "<group>"; };
 		42B4D5FB23A3CDA500036C53 /* ContentSearchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentSearchController.swift; sourceTree = "<group>"; };
 		42BAB2A823A3D25500572E89 /* TableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableCell.swift; sourceTree = "<group>"; };
-		42F2ACF923AA5A9600C2DA20 /* ContentDetails.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ContentDetails.storyboard; sourceTree = "<group>"; };
-		42F2ACFB23AA610900C2DA20 /* ContentDetailsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentDetailsController.swift; sourceTree = "<group>"; };
 		42C7AE1B23A6B96000398BE9 /* DBContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBContent.swift; sourceTree = "<group>"; };
 		42C7AE1D23A8E10E00398BE9 /* WebContentProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebContentProvider.swift; sourceTree = "<group>"; };
 		42C7AE1F23A8F9B300398BE9 /* FavouritesCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritesCollectionViewCell.swift; sourceTree = "<group>"; };
+		42F2ACF923AA5A9600C2DA20 /* ContentDetails.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ContentDetails.storyboard; sourceTree = "<group>"; };
+		42F2ACFB23AA610900C2DA20 /* ContentDetailsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentDetailsController.swift; sourceTree = "<group>"; };
 		949424CDCE90C8DF2A9D94EF /* Pods-AIR1912.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AIR1912.release.xcconfig"; path = "Target Support Files/Pods-AIR1912/Pods-AIR1912.release.xcconfig"; sourceTree = "<group>"; };
 		CD0D060BD77CBC12E7F44CDE /* Pods-AIR1912.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AIR1912.debug.xcconfig"; path = "Target Support Files/Pods-AIR1912/Pods-AIR1912.debug.xcconfig"; sourceTree = "<group>"; };
 		ED156F2823A3D1EA0085BB2D /* EventsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsViewController.swift; sourceTree = "<group>"; };
@@ -120,6 +123,9 @@
 		ED35F621237560DC009ED574 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		ED3CE89B23AEBCFC0052015F /* EventCRUD.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = EventCRUD.storyboard; sourceTree = "<group>"; };
 		ED3CE89D23AEBD0C0052015F /* EventCRUDViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventCRUDViewController.swift; sourceTree = "<group>"; };
+		ED3CE8A223AFE3420052015F /* DateFromString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFromString.swift; sourceTree = "<group>"; };
+		ED3CE8A423AFEB490052015F /* DateTimePicker.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DateTimePicker.storyboard; sourceTree = "<group>"; };
+		ED3CE8A623AFEC4B0052015F /* DateTimePickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateTimePickerViewController.swift; sourceTree = "<group>"; };
 		ED52876A2385A02700848D66 /* ForgotPassword.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ForgotPassword.storyboard; sourceTree = "<group>"; };
 		ED52876C2385A04000848D66 /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
 		ED52876E2385A2F100848D66 /* RecoverPassService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecoverPassService.swift; sourceTree = "<group>"; };
@@ -327,7 +333,6 @@
 			children = (
 				ED156F4223A517380085BB2D /* DBContentProvider.swift */,
 				ED156F4423A5174F0085BB2D /* DBMovieProvider.swift */,
-				ED156F4623A5175F0085BB2D /* DBGameProvider.swift */,
 				42C7AE1D23A8E10E00398BE9 /* WebContentProvider.swift */,
 			);
 			path = ContentProvider;
@@ -367,6 +372,8 @@
 			children = (
 				ED3CE89B23AEBCFC0052015F /* EventCRUD.storyboard */,
 				ED3CE89D23AEBD0C0052015F /* EventCRUDViewController.swift */,
+				ED3CE8A423AFEB490052015F /* DateTimePicker.storyboard */,
+				ED3CE8A623AFEC4B0052015F /* DateTimePickerViewController.swift */,
 			);
 			path = EventCRUD;
 			sourceTree = "<group>";
@@ -408,8 +415,8 @@
 		ED56B4ED2375672E00BD4821 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
-				ED3CE89623AEBCB40052015F /* EventCRUD */,
 				42F2ACF823AA5A1900C2DA20 /* ContentDetails */,
+				ED3CE89623AEBCB40052015F /* EventCRUD */,
 				EDE3EF87239E4184001BD61A /* EventDetails */,
 				EDB57AB3238EAB850032DC9E /* UserProfile */,
 				EDB57AAE238EAA650032DC9E /* Favourites */,
@@ -499,6 +506,7 @@
 			isa = PBXGroup;
 			children = (
 				EDE3EF8E239EEB4F001BD61A /* ImageBlur.swift */,
+				ED3CE8A223AFE3420052015F /* DateFromString.swift */,
 			);
 			path = Utilites;
 			sourceTree = "<group>";
@@ -585,6 +593,7 @@
 				EDBE016A237F1B2000F15CE5 /* Main.storyboard in Resources */,
 				EDB57AA6238EA4920032DC9E /* Maps.storyboard in Resources */,
 				EDB57AB5238EAB910032DC9E /* UserProfile.storyboard in Resources */,
+				ED3CE8A523AFEB490052015F /* DateTimePicker.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -651,7 +660,6 @@
 				4219917A239413F800CCAA89 /* ContentViewController.swift in Sources */,
 				4254484E23AC2E5D00740B27 /* Genre.swift in Sources */,
 				42C7AE1E23A8E10E00398BE9 /* WebContentProvider.swift in Sources */,
-				ED156F4723A5175F0085BB2D /* DBGameProvider.swift in Sources */,
 				EDE3EF8F239EEB4F001BD61A /* ImageBlur.swift in Sources */,
 				4219917A239413F800CCAA89 /* ContentViewController.swift in Sources */,
 				42A9BAFB23929173009C1912 /* JsonResponse.swift in Sources */,
@@ -665,6 +673,7 @@
 				ED52876F2385A2F100848D66 /* RecoverPassService.swift in Sources */,
 				ED5287712385AE9C00848D66 /* RecoverPassCodes.swift in Sources */,
 				4250E5F723845C3B00369FBC /* SignupController.swift in Sources */,
+				ED3CE8A723AFEC4B0052015F /* DateTimePickerViewController.swift in Sources */,
 				EDB57AB2238EAB060032DC9E /* FavouritesViewController.swift in Sources */,
 				421D5CB0237DD2D100C8AD1F /* Movie.swift in Sources */,
 				ED35F611237560D8009ED574 /* AppDelegate.swift in Sources */,
@@ -693,6 +702,7 @@
 				421D5CA3237DC3CC00C8AD1F /* User.swift in Sources */,
 				EDB57AA4238EA4430032DC9E /* MapsController.swift in Sources */,
 				ED156F2923A3D1EA0085BB2D /* EventsViewController.swift in Sources */,
+				ED3CE8A323AFE3420052015F /* DateFromString.swift in Sources */,
 				ED35F613237560D8009ED574 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
