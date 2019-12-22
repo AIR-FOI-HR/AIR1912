@@ -13,8 +13,10 @@ class TableCell: UITableViewCell {
     
     @IBOutlet weak var imgView: UIImageView!
     @IBOutlet weak var titleLbl: UILabel!
-    @IBOutlet weak var descriptionTv: UITextView!
+    @IBOutlet weak var genresLbl: UILabel!
+    @IBOutlet weak var ratingsLbl: UILabel!
     
+    var contentId = Int()
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -24,7 +26,6 @@ class TableCell: UITableViewCell {
     override func prepareForReuse() {
         super.prepareForReuse()
         imgView.image = nil
-        
         
     }
 
@@ -37,23 +38,44 @@ class TableCell: UITableViewCell {
     private func setupView() {
         imgView.layer.cornerRadius = 12.0
         imgView.layer.masksToBounds = true
+        
     }
     
-    func configure(with content: Content) {
+    
+    func configure(id: Int, with content: Content) {
         setupView()
-        let provider = GameProvider()
+        contentId = id
+        
+        if (content.type == .movie){
+            let provider = MovieProvider()
+            provider.getDetails(id: contentId) { (result) in
+                switch result {
+                case .success(let podaci):
+                    self.genresLbl.text = podaci.genre![0].name
+                case .failure(_):
+                    self.genresLbl.text = ""
+                    }
+                }
+        }else{
+            let provider = GameProvider()
+            provider.getDetails(id: contentId) { (result) in
+                switch result {
+                case .success(let podaci):
+                    self.genresLbl.text = podaci.genre![0].name
+                case .failure(_):
+                    self.genresLbl.text = ""
+                    }
+                }
+        }
+        
         if let url = content.posterURL {
             self.imgView.kf.setImage(with: url)
-            titleLbl!.text = content.title
-            if content.type == ContentType(rawValue: "movie") as! ContentType{
-            descriptionTv.text = content.description
-            }else {
-                
-                descriptionTv.text = "1111111"
-            }
-            
+            let components = content.year?.split(separator: "-")
+            titleLbl!.text = content.title + " (" + (components?[0] ?? "-") + ")"
+            ratingsLbl.text = String(content.rating)
         }
-
+            
     }
-    
+
 }
+    

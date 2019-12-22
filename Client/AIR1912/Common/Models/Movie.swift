@@ -23,48 +23,37 @@ struct Movie: Decodable, Content {
     var id: Int
     var description: String?
     var poster: String
-    var year: String
+    var year: String?
     var runtime: Int?
     var posterURL: URL? {
         return URL(string: "https://image.tmdb.org/t/p/original\(poster)")
     }
+    var rating: Double
+    var genre: [Genre]?
     
     enum CodingKeys: String, CodingKey {
         case title
         case id
-        
         case description = "overview"
         case poster = "poster_path"
         case year = "release_date"
         case runtime
-        
+        case rating = "vote_average"
+        case genre = "genres"
     }
-    
-    
 }
 
-struct DBMovie: Decodable, Content{
+struct DBMovie: Decodable {
     var type: ContentType {
            return .movie
        }
        var title: String
-       var id: Int
-       var description: String?
-       var poster: String
-       var year: String
+       var sourceEntityId: Int
+       var overview: String
+       var poster_path: String
+       var release_date: String?
        var runtime: Int?
        var posterURL: URL? {
-           return URL(string: "https://image.tmdb.org/t/p/original\(poster)")
+           return URL(string: "https://image.tmdb.org/t/p/original\(poster_path)")
        }
-       
-       enum CodingKeys: String, CodingKey {
-           case title
-           case id = "sourceEntityId"
-           case description = "overview"
-           case poster = "poster_path"
-           case year = "release_date"
-           case runtime
-           
-       }
-    
 }

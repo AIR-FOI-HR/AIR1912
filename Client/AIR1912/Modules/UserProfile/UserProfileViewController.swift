@@ -27,6 +27,22 @@ class UserProfileViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //Primjer za korištenje funkcije getEventsByOwnerId
+        // !!!!!!!
+        let eventProvider = WebEventProvider()
+        eventProvider.getEventsByOwnerId(for: 49, eventType: EventType.allEvent){ (result) in
+            
+            switch result{
+            case .success(let event):
+                print(event[0].title)
+            case .failure(let error):
+                //error handling
+                break;
+            }
+            
+            
+        }
+        
         // set avatar from keychain
         
             let avatarValue = self.keychain.getAvatar()
@@ -48,6 +64,12 @@ class UserProfileViewController: UIViewController {
             super.viewWillAppear(true)
             
             getAllEventsByUserID(for: .allEvents)
+    @IBAction func testEventDetails(_ sender: Any) {
+        
+        let EventDetailsStoryboard:UIStoryboard = UIStoryboard(name: "EventCRUD", bundle: nil)
+        let EventDetailsViewController = EventDetailsStoryboard.instantiateViewController(identifier: "EventCRUD") as! EventCRUDViewController
+        EventDetailsViewController.modalPresentationStyle = .popover
+        self.present(EventDetailsViewController, animated: true, completion: nil)
         
         }
         
