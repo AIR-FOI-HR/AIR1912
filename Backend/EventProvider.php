@@ -30,12 +30,17 @@ switch ($postType) {
     case "allEvents":
         $sql  = "SELECT Event.* FROM `Event`";
         break;
-    /*case label3:
-        code to be executed if n=label3;
-        break;*/
+    case "createdByUserId":
+        if($eventType=2){
+        $sql  = "SELECT Event.* FROM `Event` WHERE ownerId = '$firstParam'";
+        }
+        else {
+
+        }
+        break;
+        
     default:
         $sql  = "SELECT Event.* FROM `Event`";
-        
         break;
 }
 
