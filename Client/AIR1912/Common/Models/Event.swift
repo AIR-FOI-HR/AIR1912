@@ -24,6 +24,7 @@ class Event: Decodable {
     var isPrivate: Int
     var contentID:Int
     var customImage: String?
-    
+    var dateTime: String
+    var ownerId: Int
     
 }

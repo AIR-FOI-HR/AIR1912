@@ -19,6 +19,7 @@ enum EventType: Int {
 enum PostType:String {
     case allEvents = "allEvents"
     case searchByUserId = "searchByUserId"
+    case createdByUserId = "createdByUserId"
 }
 
 class WebEventProvider {
@@ -61,6 +62,26 @@ class WebEventProvider {
                        completion(.failure(error))
                    }
                }
+    }
+    
+    func getEventsByOwnerId(for id: Int, eventType: EventType, completion: @escaping (Result<[Event]>) -> Void){
+        let parameters = [
+                   "postType": PostType.createdByUserId.rawValue,
+                   "eventType": eventType.rawValue,
+                   "firstParam": id
+                   ] as [String : Any]
+               
+               Alamofire
+                   .request("https://cortex.foi.hr/meetup/EventProvider.php", method: .get, parameters: parameters)
+               .responseDecodableObject(decoder: decoder) { (response: DataResponse<[Event]>) in
+                   switch response.result {
+                   case .success(let response):
+                    completion(.success(response))
+                   case .failure(let error):
+                       completion(.failure(error))
+                   }
+               }
+        
     }
     
     

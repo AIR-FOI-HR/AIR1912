@@ -20,15 +20,21 @@ class UserProfileViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        //let gameEventProvider = PublicEventProvider()
-//        gameEventProvider.getAllEvents{ (result) in
-//            switch result {
-//            case .success(let podaci):
-//                print("podaci su \(podaci)")
-//            case .failure(_):
-//               print("failure")
-//            }
-//        }
+        
+        
+        let eventProvider = WebEventProvider()
+        eventProvider.getEventsByOwnerId(for: 49, eventType: EventType.allEvent){ (result) in
+            
+            switch result{
+            case .success(let event):
+                print(event[0].title)
+            case .failure(let error):
+                //error handling
+                break;
+            }
+            
+            
+        }
         
         // set avatar from keychain
         let avatarValue = keychain.getAvatar()
