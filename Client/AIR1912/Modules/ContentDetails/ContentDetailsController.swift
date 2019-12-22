@@ -134,5 +134,17 @@ class ContentDetailsController: UIViewController {
         }
                 
     }
-
+    
+    
+    @IBAction func createEvent(_ sender: Any) {
+        let EventStoryBoard:UIStoryboard = UIStoryboard(name: "EventCRUD", bundle: nil)
+        let EventVC = EventStoryBoard.instantiateViewController(identifier: "EventCRUD") as! EventCRUDViewController
+        EventVC.modalPresentationStyle = .popover
+        EventVC.id = self.id
+        EventVC.type = self.type
+        self.present(EventVC, animated: true, completion: nil)
+        
+        
+    }
+    
 }
