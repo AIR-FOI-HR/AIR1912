@@ -55,7 +55,7 @@ class UserProfileViewController: UIViewController {
             let userNickname = self.keychain.getNickname()
             self.nicknameText.text = "Hi " + userNickname!
         
-        getAllEventsByUserID(for: .allEvents)
+        getAllEventsByUserID(for: .allEvent)
 
     
 }
@@ -63,8 +63,10 @@ class UserProfileViewController: UIViewController {
         override func viewWillAppear(_ animated: Bool) {
             super.viewWillAppear(true)
             
-            getAllEventsByUserID(for: .allEvents)
-    @IBAction func testEventDetails(_ sender: Any) {
+            getAllEventsByUserID(for: .allEvent)
+    }
+    
+        @IBAction func testEventDetails(_ sender: Any) {
         
         let EventDetailsStoryboard:UIStoryboard = UIStoryboard(name: "EventCRUD", bundle: nil)
         let EventDetailsViewController = EventDetailsStoryboard.instantiateViewController(identifier: "EventCRUD") as! EventCRUDViewController
@@ -72,7 +74,6 @@ class UserProfileViewController: UIViewController {
         self.present(EventDetailsViewController, animated: true, completion: nil)
         
         }
-        
                
         private func getAllEventsByUserID(for type: EventType) {
             
@@ -80,8 +81,8 @@ class UserProfileViewController: UIViewController {
                 return
             }
             
-            let provider = EventProviderFactory.eventProvider(forEventType: type)
-            provider.getAllEventsByUserID(for: idUser){ (result) in
+            let provider = WebEventProvider()
+            provider.getEventsByUserID(for: idUser, eventType: EventType.allEvent){ (result) in
                 switch result {
                 case .success(let podaci):
                     print (podaci)
