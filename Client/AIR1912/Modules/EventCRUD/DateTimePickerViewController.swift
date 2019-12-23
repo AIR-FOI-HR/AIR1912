@@ -31,6 +31,9 @@ class DateTimePickerViewController: UIViewController {
         self.dismiss(animated: true, completion: nil)
     }
     
+    @IBAction func closeCurrentContext(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
     
 
 }

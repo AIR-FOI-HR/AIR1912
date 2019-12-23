@@ -9,32 +9,18 @@
 import UIKit
 import LocationPickerViewController
 
-class EventCRUDViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
-    func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        return 1
-    }
+class EventCRUDViewController: UIViewController {
     
-    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        pickerData.count
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return String(pickerData[row])
-    }
-    
-
     //MARK: - Outlets
-    
-   
     @IBOutlet weak var pickerNumber: UIPickerView!
     @IBOutlet weak var pickedLocationAdressLabel: UILabel!
     @IBOutlet weak var pickedLocationNameTextField: UITextView!
     @IBOutlet weak var shadowView: UIView!
     @IBOutlet weak var frontImage: UIImageView!
-    
     @IBOutlet weak var subView: UIView!
     @IBOutlet weak var backImage: UIImageView!
     @IBOutlet weak var dateTimeLabel: UILabel!
+   
     //MARK: - Properties
     
     var id: Int = 512200
@@ -42,81 +28,20 @@ class EventCRUDViewController: UIViewController, UIPickerViewDelegate, UIPickerV
     let cornerRadius : CGFloat = 12
     var genreName = ""
     var pickerData: [Int] = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]
+    var pickedDate:Date = Date()
     
 
     //MARK: - Lifecycle
 
     override func viewDidLoad() {
-    super.viewDidLoad()
-    setShadowView()
-    configure(for: type)
-    self.pickerNumber.delegate = self
-    self.pickerNumber.dataSource = self
-
+        
+        super.viewDidLoad()
+        setShadowView()
+        configure(for: type)
+        setPickerView()
      }
-    func setShadowView() {
-        
-        shadowView.layer.cornerRadius = cornerRadius
-        shadowView.layer.shadowColor = UIColor.darkGray.cgColor
-        shadowView.layer.shadowOffset = CGSize(width: 5.0, height: 5.0)
-        shadowView.layer.shadowRadius = 22.0
-        shadowView.layer.shadowOpacity = 0.6
-      
-        frontImage.layer.cornerRadius = cornerRadius
-        frontImage.clipsToBounds = true
-        subView.layer.cornerRadius = 12
-     
-    }
     
-    func setBlurredImage(poster : URL?) {
-        
-        backImage.kf.setImage(with: poster)
-        let darkBlur = UIBlurEffect(style: .systemUltraThinMaterialDark)
-        let blurView = UIVisualEffectView(effect: darkBlur)
-        blurView.frame = backImage.bounds
-        backImage.addSubview(blurView)
-        
-    }
-    
-    func setUpView(for Content: Content) {
-        self.frontImage.kf.setImage(with: Content.posterURL)
-        self.setBlurredImage(poster: Content.posterURL)
-        
-    }
-    
-   
-    
-    func configure(for type: ContentType) {
-        let provider = ContentProviderFactory.contentProvider(forContentType: type)
-               switch type {
-               case .movie:
-                  
-                   provider.getDetails(id: id) { (result) in
-                                   switch result {
-                                   case .success(let podaci):
-                                      
-                                       self.setUpView(for: podaci)
-                                   case .failure(_):
-                                       break
-                                   }
-                               }
-               case .game:
-                   
-                   provider.getDetails(id: id) { (result) in
-                       switch result {
-                       case .success(let podaci):
-                           
-                           self.setUpView(for: podaci)
-                       case .failure(_):
-                           break
-                       }
-                       
-                   }
-                   
-               }
-                
-    }
-    
+ 
     @IBAction func openPickLocation(_ sender: Any) {
         
         let locationPicker = LocationPicker()
@@ -132,12 +57,94 @@ class EventCRUDViewController: UIViewController, UIPickerViewDelegate, UIPickerV
     @IBAction func openDateTimePicker(_ sender: Any) {
         let DateTimePickerStoryboard:UIStoryboard = UIStoryboard(name: "DateTimePicker", bundle: nil)
         let DateTimeVC = DateTimePickerStoryboard.instantiateViewController(identifier: "DateTimePicker") as? DateTimePickerViewController
+        DateTimeVC?.modalPresentationStyle = .overCurrentContext
         DateTimeVC?.delegate = self
         self.present(DateTimeVC!, animated: true, completion: nil)
     }
     
+    @IBAction func createEventButtonSelected(_ sender: Any) {
+        guard checkIfContentExistInWebDatabase(for: self.id, contentType: self.type) else{
+            //TODO: Implementirati ukoliko sadržaj ne postoji u bazi
+            //implementirati umetanje sadržaja u bazu
+            //kreiranje Eventa na bazi
+            return
+        }
+        //TODO: Umetanje sadržaja Contenta u bazu
+        //kreiranje Eventa na bazi
+        
+        
+    }
     
 }
+
+extension EventCRUDViewController{
+    
+    func setPickerView(){
+         
+         self.pickerNumber.delegate = self
+         self.pickerNumber.dataSource = self
+         self.pickerNumber.selectRow(4, inComponent: 0, animated: true)
+     }
+     
+     func setShadowView() {
+         
+         shadowView.layer.cornerRadius = cornerRadius
+         shadowView.layer.shadowColor = UIColor.darkGray.cgColor
+         shadowView.layer.shadowOffset = CGSize(width: 5.0, height: 5.0)
+         shadowView.layer.shadowRadius = 22.0
+         shadowView.layer.shadowOpacity = 0.6
+       
+         frontImage.layer.cornerRadius = cornerRadius
+         frontImage.clipsToBounds = true
+         subView.layer.cornerRadius = 12
+      
+     }
+     
+     func setBlurredImage(poster : URL?) {
+         
+         backImage.kf.setImage(with: poster)
+         let darkBlur = UIBlurEffect(style: .systemUltraThinMaterialDark)
+         let blurView = UIVisualEffectView(effect: darkBlur)
+         blurView.frame = backImage.bounds
+         backImage.addSubview(blurView)
+         
+     }
+     
+     func setUpView(for Content: Content) {
+         self.frontImage.kf.setImage(with: Content.posterURL)
+         self.setBlurredImage(poster: Content.posterURL)
+         
+     }
+     
+    
+     
+     func configure(for type: ContentType) {
+         let provider = ContentProviderFactory.contentProvider(forContentType: type)
+        switch type {
+            case .movie:
+                provider.getDetails(id: id) { (result) in
+                    switch result {
+                        case .success(let podaci):
+                            self.setUpView(for: podaci)
+                        case .failure(_):
+                            break
+                        }
+                }
+            case .game:
+                provider.getDetails(id: id) { (result) in
+                    switch result {
+                        case .success(let podaci):
+                            self.setUpView(for: podaci)
+                        case .failure(_):
+                            break
+                        }
+                    }
+            }
+                 
+     }
+}
+
+
 extension EventCRUDViewController: DateTimePickerDelegate{
     func setDateTime(dateTime: Date) {
         let dateFormatter = DateFormatter()
@@ -145,6 +152,34 @@ extension EventCRUDViewController: DateTimePickerDelegate{
         let stringDate = dateFormatter.string(from: dateTime)
         dateTimeLabel.text = stringDate
     }
+    
+    
+}
+
+extension EventCRUDViewController: UIPickerViewDelegate, UIPickerViewDataSource{
+    
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        pickerData.count
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return String(pickerData[row])
+    }
+}
+
+
+extension EventCRUDViewController{
+    
+    func checkIfContentExistInWebDatabase(for sourceContentId:Int, contentType:ContentType) -> Bool {
+        //TODO: Implement check to database
+        //
+        return false
+    }
+    
     
     
 }
