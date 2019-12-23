@@ -28,22 +28,6 @@ class UserProfileViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //Primjer za korištenje funkcije getEventsByOwnerId
-        // !!!!!!!
-        let eventProvider = WebEventProvider()
-        eventProvider.getEventsByOwnerId(for: 49, eventType: EventType.allEvent){ (result) in
-            
-            switch result{
-            case .success(let event):
-                print(event[0].title)
-            case .failure(let error):
-                //error handling
-                break;
-            }
-            
-            
-        }
-        
         // set avatar from keychain
         
             let avatarValue = self.keychain.getAvatar()
@@ -55,16 +39,13 @@ class UserProfileViewController: UIViewController {
         // set welcome message with nickname
             let userNickname = self.keychain.getNickname()
             self.nicknameText.text = "Hi " + userNickname!
-        
-        getAllEventsByUserID(for: .allEvent)
-
     
 }
     
         override func viewWillAppear(_ animated: Bool) {
             super.viewWillAppear(true)
             
-            getAllEventsByUserID(for: .allEvent)
+            getEventsByUserID(for: .allEvent)
             getEventsByOwnerID(for: .allEvent)
     }
     
@@ -77,14 +58,14 @@ class UserProfileViewController: UIViewController {
         
         }
                
-        private func getAllEventsByUserID(for type: EventType) {
+        private func getEventsByOwnerID(for type: EventType) {
             
             guard let idUser = keychain.getID() else{
                 return
             }
             
             let provider = WebEventProvider()
-            provider.getEventsByUserID(for: idUser, eventType: EventType.allEvent){ (result) in
+            provider.getEventsByOwnerId (for: idUser, eventType: EventType.allEvent){ (result) in
                 switch result {
                 case .success(let podaci):
                     print (podaci)
@@ -98,7 +79,7 @@ class UserProfileViewController: UIViewController {
 
     }
     
-    private func getEventsByOwnerID(for type: EventType) {
+    private func getEventsByUserID(for type: EventType) {
                
                guard let idUser = keychain.getID() else{
                    return
