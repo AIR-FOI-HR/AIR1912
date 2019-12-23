@@ -29,6 +29,7 @@ class EventCRUDViewController: UIViewController {
     var genreName = ""
     var pickerData: [Int] = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]
     var pickedDate:Date = Date()
+    var contentInDatabase:DBContent?
     
 
     //MARK: - Lifecycle
@@ -63,19 +64,23 @@ class EventCRUDViewController: UIViewController {
     }
     
     @IBAction func createEventButtonSelected(_ sender: Any) {
-        guard checkIfContentExistInWebDatabase(for: self.id, contentType: self.type) else{
-            //TODO: Implementirati ukoliko sadržaj ne postoji u bazi
-            //implementirati umetanje sadržaja u bazu
-            //kreiranje Eventa na bazi
-            return
+        
+        checkIfContentExistInWebDatabase(for: self.id, contentType: self.type)
+        
+        //TODO:
+        //Insert Event into Database with content ID from contentInDatabase.id
+        
+            
+            
+            
+            
+            
         }
-        //TODO: Umetanje sadržaja Contenta u bazu
-        //kreiranje Eventa na bazi
         
         
-    }
-    
 }
+    
+
 
 extension EventCRUDViewController{
     
@@ -119,7 +124,7 @@ extension EventCRUDViewController{
     
      
      func configure(for type: ContentType) {
-         let provider = ContentProviderFactory.contentProvider(forContentType: type)
+        let provider = ContentProviderFactory.contentProvider(forContentType: type)
         switch type {
             case .movie:
                 provider.getDetails(id: id) { (result) in
@@ -174,11 +179,63 @@ extension EventCRUDViewController: UIPickerViewDelegate, UIPickerViewDataSource{
 
 extension EventCRUDViewController{
     
-    func checkIfContentExistInWebDatabase(for sourceContentId:Int, contentType:ContentType) -> Bool {
-        //TODO: Implement check to database
-        //
-        return false
+    func checkIfContentExistInWebDatabase(for sourceContentId:Int, contentType:ContentType) {
+    
+        let provider = WebContentProvider()
+        provider.checkIfContentExist(for: sourceContentId, contentType: contentType){(result) in
+            
+            switch result{
+                case .success(let content):
+                    //Ako Content postoji u bazi
+                    self.contentInDatabase = content[0]
+                    
+            case .failure(_):
+                //Ako ne postoji u bazi taj Content
+                self.getContentFromAPI(for: self.type, id: self.id)
+                break
+            }
+            
+            }
+            
+        
     }
+    
+    func getContentFromAPI(for type:ContentType, id:Int){
+        let contentProvider = ContentProviderFactory.contentProvider(forContentType: type)
+        
+        var contentDB:DBContent?
+        contentProvider.getDetails(id: id){(result) in
+            
+            switch result{
+                case .success(let content):
+                    contentDB = DBContent(content: content, type: self.type)
+                    self.insertContentIntoDatabase(for: contentDB!)
+                    
+                    
+                case .failure(let error):
+                    print(error)
+            }
+            
+        }
+    }
+    
+    func insertContentIntoDatabase(for content:DBContent){
+        let contentHandler = WebContentHandler()
+        
+        contentHandler.insertNewContent(for: content){(result) in
+            
+            switch result{
+            case .success(let content):
+                print("Content koji se unasa:\(content)")
+                self.contentInDatabase = content
+            case .failure(let errors):
+                print("greska pri unosu contenta\(errors)");
+            }
+            
+        }
+        
+    }
+    
     
     
     

@@ -18,3 +18,4 @@ extension Encodable {
     return dictionary
   }
 }
+

@@ -8,10 +8,8 @@
 
 import Foundation
 
-struct DBContent: Decodable {
-     var type: ContentType {
-              return .movie
-          }
+struct DBContent: Decodable, Encodable {
+          var type: String?
           var title: String
           var sourceEntityId: Int
           var overview: String
@@ -21,4 +19,16 @@ struct DBContent: Decodable {
           var posterURL: URL? {
               return URL(string: "https://image.tmdb.org/t/p/original\(poster_path)")
           }
+    
+    init(content:Content, type:ContentType) {
+        self.type = type.rawValue
+        self.title = content.title
+        self.sourceEntityId = content.id
+        self.overview = content.description!
+        self.poster_path = content.poster
+        self.release_date = content.year
+        self.runtime = content.runtime
+        
+
+    }
 }

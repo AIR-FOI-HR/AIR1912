@@ -38,8 +38,8 @@ class EventCollectionViewCell: UICollectionViewCell {
                     print (podaci)
                     self.featuredImageView.kf.setImage(with: podaci[0].posterURL)
                     
-                case .failure(_):
-                    print("failure")
+                case .failure(let error):
+                    print("failure\(error)")
                     
                 }
             }
