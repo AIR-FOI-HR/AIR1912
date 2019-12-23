@@ -29,8 +29,25 @@ switch ($requestType){
         $sqlQuery  = "SELECT `sourceEntityId`,`type`,`title`,`overview`,`poster_path`,`release_date`,`runtime`,`posterURL`  FROM `Contents`  WHERE id='$parameter1' ";
         getContentById($sqlQuery);
         break;
+    case "checkIfContentExist":
+        $sqlQuery  = "SELECT `sourceEntityId`,`type`,`title`,`overview`,`poster_path`,`release_date`,`runtime`,`posterURL`  FROM `Contents`  WHERE `sourceEntityId`= '$parameter1' AND `type`='$parameter2'";
+        checkIfContentExist($sqlQuery);
+        break;
 
 
+}
+
+function checkIfContentExist($sqlQuery){
+    $requestHandler = new RequestHandler();
+    $data = $requestHandler->getMultipleDataFromDatabase($sqlQuery);
+    
+    if(empty($data)){
+        echo JsonResponseBuilder::error_response('Content doesnt exist','Content is not in database', 400);
+    }
+    else{
+        $dataEncoded = json_encode($data, JSON_NUMERIC_CHECK);
+        echo $dataEncoded;
+    }
 }
 
 function getContentById($sqlQuery){
@@ -48,7 +65,7 @@ function getFavourites($sqlQuery){
         echo JsonResponseBuilder::error_response('Sorry but...','You have no existing favourites!', 400);
     }
     else{
-        $dataEncoded = json_encode($data);
+        $dataEncoded = json_encode($data, JSON_NUMERIC_CHECK);
         echo $dataEncoded;
     }
 
