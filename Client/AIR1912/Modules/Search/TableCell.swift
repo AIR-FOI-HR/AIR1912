@@ -47,7 +47,9 @@ class TableCell: UITableViewCell {
         provider.getDetails(id: contentId) { (result) in
             switch result {
             case .success(let podaci):
-                self.genresLbl.text = podaci.genre![0].name
+                if(podaci.genre?.count != 0){
+                    self.genresLbl.text = podaci.genre![0].name
+                }
             case .failure(_):
                 self.genresLbl.text = ""
         }
