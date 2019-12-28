@@ -15,7 +15,7 @@ class Event: Decodable {
     var id: Int
     var title: String
     var maxNumberOfPeople: Int
-    var numberOfPeople: Int
+    var numberOfPeople: Int?
     var password: String?
     var description: String
     var latitude: Double

@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="C9z-6t-urK">
-    <device id="ipad11_0rounded" orientation="portrait" layout="fullscreen" appearance="light"/>
+feature/izrada_korisnickog_profila
+    <device id="retina6_5" orientation="portrait" appearance="light"/>
+Development
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -103,7 +105,7 @@
                                                                         </collectionViewFlowLayout>
                                                                         <cells>
                                                                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ContentCollectionViewCell" id="5OV-RV-dSv" customClass="ContentCollectionViewCell" customModule="AIR1912" customModuleProvider="target">
-                                                                                <rect key="frame" x="16" y="6.5" width="140" height="250"/>
+                                                                                <rect key="frame" x="16" y="6.666666666666667" width="140" height="250"/>
                                                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                                 <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="Xul-wp-qnV">
                                                                                     <rect key="frame" x="0.0" y="0.0" width="140" height="250"/>
@@ -190,7 +192,7 @@
                                                                         </collectionViewFlowLayout>
                                                                         <cells>
                                                                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ContentCollectionViewCell" id="UZM-kV-4fY" customClass="ContentCollectionViewCell" customModule="AIR1912" customModuleProvider="target">
-                                                                                <rect key="frame" x="16" y="6.5" width="140" height="250"/>
+                                                                                <rect key="frame" x="16" y="6.666666666666667" width="140" height="250"/>
                                                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                                 <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="4X0-bk-aQk">
                                                                                     <rect key="frame" x="0.0" y="0.0" width="140" height="250"/>
