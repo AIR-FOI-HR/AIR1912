@@ -42,31 +42,24 @@ class TableCell: UITableViewCell {
     }
     
     
+    private func getDetails(for type: ContentType) {
+        let provider = ContentProviderFactory.contentProvider(forContentType: type)
+        provider.getDetails(id: contentId) { (result) in
+            switch result {
+            case .success(let podaci):
+                if(podaci.genre?.count != 0){
+                    self.genresLbl.text = podaci.genre![0].name
+                }
+            case .failure(_):
+                self.genresLbl.text = ""
+        }
+    }
+}
+    
     func configure(id: Int, with content: Content) {
         setupView()
         contentId = id
-        
-        if (content.type == .movie){
-            let provider = MovieProvider()
-            provider.getDetails(id: contentId) { (result) in
-                switch result {
-                case .success(let podaci):
-                    self.genresLbl.text = podaci.genre![0].name
-                case .failure(_):
-                    self.genresLbl.text = ""
-                    }
-                }
-        }else{
-            let provider = GameProvider()
-            provider.getDetails(id: contentId) { (result) in
-                switch result {
-                case .success(let podaci):
-                    self.genresLbl.text = podaci.genre![0].name
-                case .failure(_):
-                    self.genresLbl.text = ""
-                    }
-                }
-        }
+        getDetails(for: content.type)
         
         if let url = content.posterURL {
             self.imgView.kf.setImage(with: url)
