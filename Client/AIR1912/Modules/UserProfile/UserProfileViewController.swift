@@ -7,67 +7,140 @@
 //
 
 import UIKit
+import Kingfisher
 
 class UserProfileViewController: UIViewController {
 
-    let keychain = UserKeychain()
+    //MARK: - Outlets
     
     @IBOutlet weak var userAvatar: UIImageView!
-    @IBAction func logoutButton(_ sender: Any) {
-        logout()
-    }
     @IBOutlet weak var nicknameText: UILabel!
+    @IBOutlet weak var MyEventsCollectionView: UICollectionView!
+    @IBOutlet weak var AttendingEventsCollectionView: UICollectionView!
     
+    //MARK: - Private properties
+
+    private var myEventsDataSource = [Event]()
+    private var attendingEventsDataSource = [Event]()
+    private let keychain:UserKeychain = UserKeychain()
+    
+    //MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        let gameEventProvider = PublicEventProvider()
-        gameEventProvider.getAllEvents{ (result) in
-            switch result {
-            case .success(let podaci):
-                print("podaci su \(podaci)")
-            case .failure(_):
-               print("failure")
-            }
-        }
         
         // set avatar from keychain
-        let avatarValue = keychain.getAvatar()
+        
+            let avatarValue = self.keychain.getAvatar()
         let avatar = Avatar(rawValue: avatarValue!)
         let userImage = avatar!.image
 
-        userAvatar.image = userImage
+            self.userAvatar.image = userImage
         
         // set welcome message with nickname
-        let userNickname = keychain.getNickname()
-        nicknameText.text = "Hi " + userNickname!
+            let userNickname = self.keychain.getNickname()
+            self.nicknameText.text = "Hi " + userNickname!
+    
+}
+    
+        override func viewWillAppear(_ animated: Bool) {
+            super.viewWillAppear(true)
+            
+            getEventsByUserID(for: .allEvent)
+            getEventsByOwnerID(for: .allEvent)
     }
     
-    private func logout() -> Void{
-        // delete stored data for user
-        let dataIsDeleted = keychain.clearSessionData()
-        if(!dataIsDeleted){
-            let alerter = Alerter(title: "Oops", message: "Something went wrong with logout")
-            alerter.alertError()
-        }
-        else{
-            goToInitialScreen()
-        }
-    }
-    
-    private func goToInitialScreen() -> Void{
-         let InitialStoryboard:UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-         let InitialController = InitialStoryboard.instantiateViewController(identifier: "InitialScreen") as! MainViewController
-         InitialController.modalPresentationStyle = .fullScreen
-         self.present(InitialController, animated: true, completion: nil)
-     }
-    
-    @IBAction func testEventDetails(_ sender: Any) {
+        @IBAction func testEventDetails(_ sender: Any) {
         
-        let EventDetailsStoryboard:UIStoryboard = UIStoryboard(name: "EventDetails", bundle: nil)
-        let EventDetailsViewController = EventDetailsStoryboard.instantiateViewController(identifier: "EventDetails") as! EventDetailsViewController
-        EventDetailsViewController.modalPresentationStyle = .fullScreen
+        let EventDetailsStoryboard:UIStoryboard = UIStoryboard(name: "EventCRUD", bundle: nil)
+        let EventDetailsViewController = EventDetailsStoryboard.instantiateViewController(identifier: "EventCRUD") as! EventCRUDViewController
+        EventDetailsViewController.modalPresentationStyle = .popover
         self.present(EventDetailsViewController, animated: true, completion: nil)
         
-        
+        }
+               
+        private func getEventsByOwnerID(for type: EventType) {
+            
+            guard let idUser = keychain.getID() else{
+                return
+            }
+            
+            let provider = WebEventProvider()
+            provider.getEventsByOwnerId (for: idUser, eventType: EventType.allEvent){ (result) in
+                switch result {
+                case .success(let podaci):
+                    print (podaci)
+                    self.updateMyEventsContent(result: podaci)
+                    
+                case .failure(_):
+                    print("failure")
+                    self.updateMyEventsContent(result: [])
+                }
+            }
+
     }
+    
+    private func getEventsByUserID(for type: EventType) {
+               
+               guard let idUser = keychain.getID() else{
+                   return
+               }
+               
+               let provider = WebEventProvider()
+        provider.getEventsByUserID (for: idUser, eventType: EventType.allEvent){ (result) in  switch result {
+                   case .success(let podaci):
+                       print (podaci)
+                       self.updateAttendingEventsContent(result: podaci)
+                       
+                   case .failure(_):
+                       print("failure")
+                       self.updateAttendingEventsContent(result: [])
+                   }
+               }
+
+       }
+        private func updateMyEventsContent(result: [Event]) {
+            
+                myEventsDataSource = result
+                self.MyEventsCollectionView.reloadData()
+    
+        }
+    
+    private func updateAttendingEventsContent(result: [Event]) {
+            
+                attendingEventsDataSource = result
+                self.AttendingEventsCollectionView.reloadData()
+    
+        }
 }
+
+extension UserProfileViewController: UICollectionViewDataSource {
+       
+       func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+          
+        if collectionView === self.MyEventsCollectionView {
+               return myEventsDataSource.count
+           } else {
+            return attendingEventsDataSource.count
+           }
+       }
+       
+       func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+           let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "UserProfileCollectionViewCell", for: indexPath) as! UserProfileCollectionViewCell
+           let event: Event
+        if collectionView === self.MyEventsCollectionView {
+               event = myEventsDataSource[indexPath.row]
+               cell.configureForMyEvents(with: event)
+               
+           } else {
+            event = attendingEventsDataSource[indexPath.row]
+            cell.configureForMyEvents(with: event)
+        }
+           
+           return cell
+       }
+   }
+    
+    
+    
+    
+

@@ -8,14 +8,17 @@
 
 import Foundation
 
-struct DBContent: Codable{
-    let id:Int?
-    let sourceEntityId:Int
-    let type:String
-    let title:String
-    let overview:String
-    let poster_path:String
-    let release_date: String
-    let runtime:Int
-    let posterURL:String
+struct DBContent: Decodable {
+     var type: ContentType {
+              return .movie
+          }
+          var title: String
+          var sourceEntityId: Int
+          var overview: String
+          var poster_path: String
+          var release_date: String?
+          var runtime: Int?
+          var posterURL: URL? {
+              return URL(string: "https://image.tmdb.org/t/p/original\(poster_path)")
+          }
 }

@@ -14,4 +14,7 @@ target 'AIR1912' do
   pod 'CodableAlamofire'
   pod 'Kingfisher'
   pod 'SCLAlertView'
+  pod 'SkeletonView'
+  pod 'LocationPickerViewController'
+
 end

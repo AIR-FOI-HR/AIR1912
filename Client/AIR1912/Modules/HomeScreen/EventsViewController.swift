@@ -9,7 +9,7 @@
 import UIKit
 import Kingfisher
 import CoreLocation
-
+import SkeletonView
 
 class EventsViewController: UIViewController {
     // MARK: - Private outlets
@@ -17,7 +17,7 @@ class EventsViewController: UIViewController {
         @IBOutlet private weak var nearEventsCollectionView: UICollectionView!
         @IBOutlet private weak var myEventsCollectionView: UICollectionView!
         
-       
+    
         // MARK: - Private properties
         
         private var myEventsDataSource = [Event]()
@@ -25,23 +25,30 @@ class EventsViewController: UIViewController {
         private let keychain:UserKeychain = UserKeychain()
         private var locationManager: CLLocationManager!
         // MARK: - Lifecycle
-        
+    @IBOutlet weak var skeleton: UICollectionView!
+    
         override func viewDidLoad() {
             super.viewDidLoad()
             getUserLocation()
- 
-            getAllEventsByUserID(for: .allEvents)
-            getAllEventsByLocation(for: .allEvents)
             
+            
+            view.isSkeletonable = false
+           
+            //view.showAnimatedGradientSkeleton()
+            getAllEventsByUserID(for: .allEvent )
+            getAllEventsByLocation(for: .allEvent)
+           
+            //self.view.hideSkeleton()
         }
         
         override func viewWillAppear(_ animated: Bool) {
             super.viewWillAppear(true)
            getUserLocation()
             
-            getAllEventsByUserID(for: .allEvents)
-            getAllEventsByLocation(for: .allEvents)
+//            getAllEventsByUserID(for: .allEvents)
+//            getAllEventsByLocation(for: .allEvents)
         }
+    
     
         
     }
@@ -49,46 +56,64 @@ class EventsViewController: UIViewController {
 
     extension EventsViewController {
         
+        
         private func getAllEventsByUserID(for type: EventType) {
-            
+            view.showAnimatedGradientSkeleton()
             guard let idUser = keychain.getID() else{
                 return
             }
             
-            let provider = EventProviderFactory.eventProvider(forEventType: type)
-            provider.getAllEventsByUserID(for: idUser){ (result) in
+            let provider = WebEventProvider()
+            provider.getEventsByUserID(for: idUser, eventType: type){ (result) in
+                DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {  self.view.hideSkeleton()
+                }
+                
+                
                 switch result {
+                    
                 case .success(let podaci):
+                    
                     print (podaci)
                     self.updateMyEventsContent(result: podaci)
                     
-                case .failure(_):
-                    print("failure")
+                    
+                    
+                case .failure(let error):
+                    print(error)
                     self.updateMyEventsContent(result: [])
                 }
+                
             }
+            
+            
         }
         
         private func getAllEventsByLocation(for type: EventType){
-           let provider = EventProviderFactory.eventProvider(forEventType: type)
+           let provider = WebEventProvider()
             provider.getAllEvents{ (result) in
                            switch result {
                            case .success(let podaci):
+                                
                                print ("ovo su podaci \(podaci)")
                                self.updateNearEventsContent( result: podaci)
-                               
+                           
+                            
+
                            case .failure(_):
                                print("failure je ovdje")
                                self.updateNearEventsContent( result: [])
                            }
+                
                        }
+             
         }
         
         private func updateMyEventsContent(result: [Event]) {
             
                 myEventsDataSource = result
                 self.myEventsCollectionView.reloadData()
-                
+                //self.view.hideSkeleton()
+           
     
         }
         
@@ -97,13 +122,18 @@ class EventsViewController: UIViewController {
                        nearEventsDataSource = result
                        
                        //Izbaciti iz popisa sve one koji nisu Near korisnika
-                       removeNearEvents(for: nearEventsDataSource)
+                       removeNotNearEvents(for: nearEventsDataSource)
                        self.nearEventsCollectionView.reloadData()
-                   
+                      // self.view.hideSkeleton()
+                     
                }
     }
 
-    extension EventsViewController: UICollectionViewDataSource {
+extension EventsViewController: SkeletonCollectionViewDataSource {
+    func collectionSkeletonView(_ skeletonView: UICollectionView, cellIdentifierForItemAt indexPath: IndexPath) -> ReusableCellIdentifier {
+        return "EventCollectionViewCell"
+    }
+    
         
         func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
             if collectionView === self.nearEventsCollectionView {
@@ -162,7 +192,7 @@ extension EventsViewController: CLLocationManagerDelegate{
         return false
     }
     
-    func removeNearEvents(for source:[Event]){
+    func removeNotNearEvents(for source:[Event]){
         for event in nearEventsDataSource{
             if(!isNearUser(event: event)){
                 nearEventsDataSource.removeAll(where: { $0.id == event.id })
