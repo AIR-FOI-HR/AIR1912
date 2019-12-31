@@ -91,6 +91,22 @@ extension MainViewController {
                 self.showSuccessAlert(for: user)
 
             case .failure(let error):
+                
+                // if you are offline, error is not set because error
+                // is expected to return from server
+                // therefore, we have to check if we got error
+                // if we didn't, we should create new errorResponse
+                // and set title and message for offline case
+                var errorIsEmpty = false
+                if(error == nil){
+                    errorIsEmpty = true
+                }
+                guard errorIsEmpty else {
+                    print("Something is wrong")
+                    
+                    return
+                }
+                // cannot be shown if there is no error set
                 self.showErrorAlert(with: error as! ResponseError)
             }
         }
