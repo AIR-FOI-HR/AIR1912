@@ -39,7 +39,7 @@ extension FavouritesViewController {
     
     private func getFavouriteContent(for type: ContentType, userId: Int){
         let provider = WebContentProvider()
-        _ = provider.getFavouritesByUserId(with: userId, contentType: type.rawValue) { (result) in
+        _ = provider.getFavouritesByUserId(with: userId, contentType: type) { (result) in
             switch result {
             case .success(let podaci):
                 self.updateContent(for: type, result: podaci)

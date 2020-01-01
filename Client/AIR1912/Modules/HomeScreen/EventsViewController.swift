@@ -44,9 +44,9 @@ class EventsViewController: UIViewController {
         override func viewWillAppear(_ animated: Bool) {
             super.viewWillAppear(true)
            getUserLocation()
-            
-//            getAllEventsByUserID(for: .allEvents)
-//            getAllEventsByLocation(for: .allEvents)
+            getAllEventsByUserID(for: .allEvent )
+            getAllEventsByLocation(for: .allEvent)
+
         }
     
     
@@ -65,7 +65,7 @@ class EventsViewController: UIViewController {
             
             let provider = WebEventProvider()
             provider.getEventsByUserID(for: idUser, eventType: type){ (result) in
-                DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {  self.view.hideSkeleton()
+                DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {  self.view.hideSkeleton()
                 }
                 
                 

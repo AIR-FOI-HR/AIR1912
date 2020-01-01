@@ -110,4 +110,21 @@ class MovieProvider: ContentProvider {
              }
          }
      }
+    
+    func searchById(id: Int, completion: @escaping (Result<DBContent>) -> Void) {
+        
+       movieId = id
+       
+        Alamofire
+        .request("https://api.themoviedb.org/3/movie/\(movieId)?api_key=\(API_KEY)")
+        .responseDecodableObject(decoder: decoder) { (response: DataResponse<DBContent>) in
+            switch response.result {
+            case .success(let response):
+                completion(.success(response.self))
+            case .failure(let error):
+                completion(.failure(error))
+            }
+        }
+    }
+    
 }
