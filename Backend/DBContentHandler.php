@@ -19,10 +19,12 @@ $posterURL= $_GET['posterURL'];
 switch ($requestType) {
     case "insertNewContent":
         $newContent = new DBContent(0, $sourceEntityId, $type, $title, $overview, $poster_path, $release_date, $runtime, $posterURL);
-        if ($newContent->insertNewContent()){
-            echo json_encode($newContent, JSON_NUMERIC_CHECK);
+        if ($newContent->insertNewContent()=== TRUE){
+            
         }
-        else {echo 'greska';
+        else {
+            $response = JsonResponseBuilder::error_response('Credentials not right', 'Try again', '400');
+            echo $response;
         }
 
     default:

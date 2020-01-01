@@ -2,18 +2,16 @@
 require_once('ConnectionData.php');
 
 class RequestHandler{
-    public $sqlQuery;
-
-    public function __construct($sqlQuery)
+    public function __construct()
     {
-        $this->sqlQuery = $sqlQuery;
+        
     }
 
-    public function getMultipleDataFromDatabase(){
-        $connectionString = new ConnectionData();
-        
+    public function getMultipleDataFromDatabase($sqlQuery){
+        $connectionData = new ConnectionData();
+        $connectionString = $connectionData->getConnectionString();
         // Check if there are results
-        if ($result = mysqli_query($connectionString, $this->sqlQuery))
+        if ($result = mysqli_query($connectionString, $sqlQuery))
         {
        
         $resultArray = array();
@@ -32,11 +30,25 @@ class RequestHandler{
             
         }
         
-        echo $resultArray;
+        return $resultArray;
         }
         
         // Close connections
         mysqli_close($connectionString);  
+    }
+
+    public function tryToInsertData($sqlQuery){
+        $connectionData = new ConnectionData();
+        $connectionString = $connectionData->getConnectionString();
+
+        $result = mysqli_query($connectionString, $sqlQuery);
+
+        if($result === TRUE){
+            return TRUE;
+        }
+        else {
+            return FALSE;
+        }
     }
 
 }

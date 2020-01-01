@@ -1,8 +1,6 @@
 <?php
 
-error_reporting(E_ALL);
-ini_set('display_errors', TRUE);
-ini_set('display_startup_errors', TRUE);
+
 
 include 'Event.php';
 include 'jsonResponse.php';
@@ -27,7 +25,8 @@ $newEvent = new Event(0, $title, $maxNumberOfPeople, 0, $password, $description,
 $newEvent->insertNewEvent();
 
 
-echo 'stvoren';
+//napraviti Switch logiku, vratiti van kod funkcije insertNewEvent event koji se kreirao
+
 
 
 

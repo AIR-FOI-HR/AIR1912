@@ -26,11 +26,11 @@ switch ($requestType){
         break;
     
     case "getContentById":
-        $sqlQuery  = "SELECT `sourceEntityId`,`type`,`title`,`overview`,`poster_path`,`release_date`,`runtime`,`posterURL`  FROM `Contents`  WHERE id='$parameter1' ";
+        $sqlQuery  = "SELECT `id`,`sourceEntityId`,`type`,`title`,`overview`,`poster_path`,`release_date`,`runtime`,`posterURL`  FROM `Contents`  WHERE id='$parameter1' ";
         getContentById($sqlQuery);
         break;
     case "checkIfContentExist":
-        $sqlQuery  = "SELECT `sourceEntityId`,`type`,`title`,`overview`,`poster_path`,`release_date`,`runtime`,`posterURL`  FROM `Contents`  WHERE `sourceEntityId`= '$parameter1' AND `type`='$parameter2'";
+        $sqlQuery  = "SELECT `id`,`sourceEntityId`,`type`,`title`,`overview`,`poster_path`,`release_date`,`runtime`,`posterURL`  FROM `Contents`  WHERE `sourceEntityId`= '$parameter1' AND `type`='$parameter2'";
         checkIfContentExist($sqlQuery);
         break;
 
