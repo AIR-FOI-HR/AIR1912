@@ -13,7 +13,7 @@ import CodableAlamofire
 
 class WebContentProvider{
 
-    func getFavouritesByUserId(with userId:Int, contentType:String, completion: @escaping (Result<[DBContent]>) -> Void)
+    func getFavouritesByUserId(with userId:Int, contentType:ContentType, completion: @escaping (Result<[DBContent]>) -> Void)
     {
         let decoder = JSONDecoder()
         let parameters = [
@@ -56,6 +56,31 @@ class WebContentProvider{
         }
         
     }
+    
+    func checkIfContentExist(for sourceEntityId:Int, contentType: ContentType, completion: @escaping (Result<[DBContent]>) -> Void){
+        
+        let decoder = JSONDecoder()
+        let parameters = [
+        "requestType": "checkIfContentExist",
+        "parameter1": sourceEntityId,
+        "parameter2": contentType
+            ] as [String : Any]
+        
+        Alamofire
+            .request("https://cortex.foi.hr/meetup/DBContentProvider.php", method: .get, parameters: parameters)
+            .validate()
+            .responseDecodableObject(decoder: decoder) { (response: DataResponse<[DBContent]>) in
+                switch response.result {
+                case .success(let content):
+                    completion(.success(content))
+                case .failure(let error):
+                    completion(.failure(error))
+            }
+        }
+        
+    }
+    
+
     
 }
 

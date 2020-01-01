@@ -134,5 +134,25 @@ class GameProvider: ContentProvider {
             }
         }
     }
+    
+    func searchById(id: Int, completion: @escaping (Result<DBContent>) -> Void) {
+        
+        gameId = id
+        
+        var request = URLRequest(url: NSURL(string: "https://api.rawg.io/api/games/\(gameId)")! as URL, cachePolicy: .useProtocolCachePolicy, timeoutInterval: 10.0)
+         request.httpMethod = "GET"
+         request.allHTTPHeaderFields = headers
+         
+        Alamofire
+         .request(request)
+            .responseDecodableObject(decoder: decoder) { (response: DataResponse<DBContent>) in
+                switch response.result {
+                case .success(let response):
+                    completion(.success(response.self))
+                case .failure(let error):
+                    completion(.failure(error))
+            }
+        }
+    }
 
 }

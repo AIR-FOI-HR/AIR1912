@@ -36,10 +36,10 @@ class EventCollectionViewCell: UICollectionViewCell {
                 switch result {
                 case .success(let podaci):
                     print (podaci)
-                    self.featuredImageView.kf.setImage(with: podaci[0].posterURL)
+                    self.featuredImageView.kf.setImage(with: URL(string: podaci[0].posterURL!))
                     
-                case .failure(_):
-                    print("failure")
+                case .failure(let error):
+                    print("failure\(error)")
                     
                 }
             }
@@ -54,7 +54,7 @@ class EventCollectionViewCell: UICollectionViewCell {
                switch result {
                case .success(let podaci):
                    print (podaci)
-                   self.featuredImageView.kf.setImage(with: podaci[0].posterURL)
+                   self.featuredImageView.kf.setImage(with: URL(string: podaci[0].posterURL!))
                     
                    
                case .failure(let error):
