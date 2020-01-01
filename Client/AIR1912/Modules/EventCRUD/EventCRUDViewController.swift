@@ -20,7 +20,13 @@ class EventCRUDViewController: UIViewController {
     @IBOutlet weak var subView: UIView!
     @IBOutlet weak var backImage: UIImageView!
     @IBOutlet weak var dateTimeLabel: UILabel!
-   
+    @IBOutlet weak var eventNameTextField: UITextField!
+    @IBOutlet weak var locationDescriptionTextView: UITextView!
+    @IBOutlet weak var eventPrivatePublicSegmentedControl: UISegmentedControl!
+    @IBOutlet weak var eventDescriptionTextField: UITextView!
+    
+    
+    
     //MARK: - Properties
     
     var id: Int = 512200
@@ -28,8 +34,9 @@ class EventCRUDViewController: UIViewController {
     let cornerRadius : CGFloat = 12
     var genreName = ""
     var pickerData: [Int] = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]
-    var pickedDate:Date = Date()
-    var contentInDatabase:DBContent?
+    var pickedDate:Date?
+    var pickedLocation:LocationItem?
+    var pickedNumberOfPeople:Int = 5
     
 
     //MARK: - Lifecycle
@@ -48,6 +55,7 @@ class EventCRUDViewController: UIViewController {
         let locationPicker = LocationPicker()
         locationPicker.pickCompletion = { (pickedLocationItem) in
             self.pickedLocationNameTextField.text = pickedLocationItem.name
+            self.pickedLocation = pickedLocationItem
         }
         locationPicker.addBarButtons()
         
@@ -64,17 +72,8 @@ class EventCRUDViewController: UIViewController {
     }
     
     @IBAction func createEventButtonSelected(_ sender: Any) {
-        
+
         checkIfContentExistInWebDatabase(for: self.id, contentType: self.type)
-        
-        //TODO:
-        //Insert Event into Database with content ID from contentInDatabase.id
-        
-            
-            
-            
-            
-            
         }
         
         
@@ -151,11 +150,13 @@ extension EventCRUDViewController{
 
 
 extension EventCRUDViewController: DateTimePickerDelegate{
+    
     func setDateTime(dateTime: Date) {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "dd.MM.YYYY HH:mm"
-        let stringDate = dateFormatter.string(from: dateTime)
+        
+        let stringDate = FormatDate.getStringFromDate(date: dateTime as NSDate)
         dateTimeLabel.text = stringDate
+        pickedDate = dateTime
+        
     }
     
     
@@ -174,8 +175,19 @@ extension EventCRUDViewController: UIPickerViewDelegate, UIPickerViewDataSource{
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         return String(pickerData[row])
     }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int)
+    {
+         // use the row to get the selected row from the picker view
+         // using the row extract the value from your datasource (array[row])
+        self.pickedNumberOfPeople = pickerData[row]
+        
+     }
+    
 }
 
+
+//MARK: -EventHandling
 
 extension EventCRUDViewController{
     
@@ -187,7 +199,9 @@ extension EventCRUDViewController{
             switch result{
                 case .success(let content):
                     //Ako Content postoji u bazi
-                    self.contentInDatabase = content[0]
+                    //createEvent
+                    self.tryToInsertEvent(for: content[0])
+                    
                     
             case .failure(_):
                 //Ako ne postoji u bazi taj Content
@@ -223,11 +237,13 @@ extension EventCRUDViewController{
         let contentHandler = WebContentHandler()
         
         contentHandler.insertNewContent(for: content){(result) in
-            
+            print(content)
             switch result{
             case .success(let content):
                 print("Content koji se unasa:\(content)")
-                self.contentInDatabase = content
+                //tryToInsertEvent
+                self.tryToInsertEvent(for: content[0])
+                
             case .failure(let errors):
                 print("greska pri unosu contenta\(errors)");
             }
@@ -236,7 +252,83 @@ extension EventCRUDViewController{
         
     }
     
+    func tryToInsertEvent(for content:DBContent) {
+        
+         let keychain = UserKeychain()
+        
+        //sakupiti podatke u new DBContent
+        guard let eventTitle = eventNameTextField.text else {
+            let alert = Alerter(title: "You need to insert all data in fields", message: "Missing some datas")
+            alert.alertWarning()
+            return
+        }
+        guard let eventDescription = eventDescriptionTextField else {
+            let alert = Alerter(title: "You need to insert all data in fields", message: "Missing some datas")
+            alert.alertWarning()
+            return
+        }
+        guard let pickedLocation = pickedLocation else {
+            let alert = Alerter(title: "You need to insert all data in fields", message: "Missing some datas")
+            alert.alertWarning()
+            return
+        }
+        
+        guard let dateToFormat = pickedDate else{
+            let alert = Alerter(title: "You need to insert all data in fields", message: "Missing some datas")
+                       alert.alertWarning()
+                       return
+        }
+        
+        
+        //dateToStringForDatabase
+        let dateForDatabase = FormatDate.getStringFromDate(date: dateToFormat as NSDate)
+        
+        let newEvent:Event = Event(title: eventTitle, maxNumberOfPeople: pickedNumberOfPeople , description: eventDescription.text, latitude: pickedLocation.coordinate!.latitude , longitude: pickedLocation.coordinate!.longitude, isPrivate: eventPrivatePublicSegmentedControl.selectedSegmentIndex, contentID: content.id!, dateTime: dateForDatabase!, ownerId: keychain.getID()!)
+        print("Event koji će se unašati: \(newEvent)")
+        
+        
+        
+        
+        //pretvoriti podatke u dictionary i push na bazu
+        //succes -> alert Kreiran Event -> na Home Screen
+        //failure -> alert Neuspjesno kreiran Event, provjerite podatke i pokušajte ponovno
+        
+        
+        
+        let eventHandler = WebEventHandler()
+        eventHandler.insertNewEvent(for: newEvent){
+            (result) in
+            switch(result){
+            case .success(let event):
+                print(event[0])
+                let alerter = Alerter(title: "Created Succesfully", message: "Your Event is created successfully")
+                //kad se stisne na Ok na alertu, idemo na Home screen
+            case .failure(let error):
+                print(error)
+                //prikazati alert error
+            }
+        }
+        
+        
+        
+        //za sad
+        goToHomeScreen()
+        
+        
+    }
     
     
+    
+    
+}
+
+extension EventCRUDViewController{
+    
+    func goToHomeScreen(){
+        let HomeStoryboard:UIStoryboard = UIStoryboard(name: "Homescreen", bundle: nil)
+        let HomeController = HomeStoryboard.instantiateViewController(identifier: "HomeScreen") as! HomeSreenTabBarController
+        HomeController.modalPresentationStyle = .fullScreen
+        self.present(HomeController, animated: true, completion: nil)
+    }
     
 }

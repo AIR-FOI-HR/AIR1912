@@ -9,6 +9,7 @@
 import Foundation
 
 struct DBContent: Decodable, Encodable {
+          var id:Int?
           var type: String?
           var title: String
           var sourceEntityId: Int
@@ -16,9 +17,7 @@ struct DBContent: Decodable, Encodable {
           var poster_path: String
           var release_date: String?
           var runtime: Int?
-          var posterURL: URL? {
-              return URL(string: "https://image.tmdb.org/t/p/original\(poster_path)")
-          }
+          var posterURL: String?
     
     init(content:Content, type:ContentType) {
         self.type = type.rawValue
@@ -28,7 +27,6 @@ struct DBContent: Decodable, Encodable {
         self.poster_path = content.poster
         self.release_date = content.year
         self.runtime = content.runtime
-        
-
+        self.posterURL = content.posterURL?.absoluteString
     }
 }

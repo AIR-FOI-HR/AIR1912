@@ -47,7 +47,6 @@
 		ED35F620237560DC009ED574 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ED35F61E237560DC009ED574 /* LaunchScreen.storyboard */; };
 		ED3CE89C23AEBCFC0052015F /* EventCRUD.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ED3CE89B23AEBCFC0052015F /* EventCRUD.storyboard */; };
 		ED3CE89E23AEBD0C0052015F /* EventCRUDViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED3CE89D23AEBD0C0052015F /* EventCRUDViewController.swift */; };
-		ED3CE8A323AFE3420052015F /* DateFromString.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED3CE8A223AFE3420052015F /* DateFromString.swift */; };
 		ED3CE8A523AFEB490052015F /* DateTimePicker.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ED3CE8A423AFEB490052015F /* DateTimePicker.storyboard */; };
 		ED3CE8A723AFEC4B0052015F /* DateTimePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED3CE8A623AFEC4B0052015F /* DateTimePickerViewController.swift */; };
 		ED52876B2385A02700848D66 /* ForgotPassword.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ED52876A2385A02700848D66 /* ForgotPassword.storyboard */; };
@@ -71,6 +70,8 @@
 		EDE3EF8A239E41BE001BD61A /* EventDetails.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EDE3EF89239E41BE001BD61A /* EventDetails.storyboard */; };
 		EDE3EF8C239E41DA001BD61A /* EventDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDE3EF8B239E41DA001BD61A /* EventDetailsViewController.swift */; };
 		EDE3EF8F239EEB4F001BD61A /* ImageBlur.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDE3EF8E239EEB4F001BD61A /* ImageBlur.swift */; };
+		EDF46CA923BCE30D00E2F5E8 /* WebEventHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF46CA823BCE30D00E2F5E8 /* WebEventHandler.swift */; };
+		EDF46CAD23BCE6D700E2F5E8 /* FormatDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF46CAC23BCE6D700E2F5E8 /* FormatDate.swift */; };
 		EDFD7E7E239107430028C4D5 /* UserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDFD7E7D239107430028C4D5 /* UserProfileViewController.swift */; };
 		EDFD7E8223910EAD0028C4D5 /* UserKeychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDFD7E8123910EAD0028C4D5 /* UserKeychain.swift */; };
 /* End PBXBuildFile section */
@@ -120,7 +121,6 @@
 		ED35F621237560DC009ED574 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		ED3CE89B23AEBCFC0052015F /* EventCRUD.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = EventCRUD.storyboard; sourceTree = "<group>"; };
 		ED3CE89D23AEBD0C0052015F /* EventCRUDViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventCRUDViewController.swift; sourceTree = "<group>"; };
-		ED3CE8A223AFE3420052015F /* DateFromString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFromString.swift; sourceTree = "<group>"; };
 		ED3CE8A423AFEB490052015F /* DateTimePicker.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DateTimePicker.storyboard; sourceTree = "<group>"; };
 		ED3CE8A623AFEC4B0052015F /* DateTimePickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateTimePickerViewController.swift; sourceTree = "<group>"; };
 		ED52876A2385A02700848D66 /* ForgotPassword.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ForgotPassword.storyboard; sourceTree = "<group>"; };
@@ -144,6 +144,8 @@
 		EDE3EF89239E41BE001BD61A /* EventDetails.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = EventDetails.storyboard; sourceTree = "<group>"; };
 		EDE3EF8B239E41DA001BD61A /* EventDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetailsViewController.swift; sourceTree = "<group>"; };
 		EDE3EF8E239EEB4F001BD61A /* ImageBlur.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageBlur.swift; sourceTree = "<group>"; };
+		EDF46CA823BCE30D00E2F5E8 /* WebEventHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebEventHandler.swift; sourceTree = "<group>"; };
+		EDF46CAC23BCE6D700E2F5E8 /* FormatDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormatDate.swift; sourceTree = "<group>"; };
 		EDFD7E7D239107430028C4D5 /* UserProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileViewController.swift; sourceTree = "<group>"; };
 		EDFD7E8123910EAD0028C4D5 /* UserKeychain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserKeychain.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -322,6 +324,7 @@
 			isa = PBXGroup;
 			children = (
 				ED156F2C23A3DC280085BB2D /* WebEventProvider.swift */,
+				EDF46CA823BCE30D00E2F5E8 /* WebEventHandler.swift */,
 			);
 			path = EventProvider;
 			sourceTree = "<group>";
@@ -503,7 +506,7 @@
 			isa = PBXGroup;
 			children = (
 				EDE3EF8E239EEB4F001BD61A /* ImageBlur.swift */,
-				ED3CE8A223AFE3420052015F /* DateFromString.swift */,
+				EDF46CAC23BCE6D700E2F5E8 /* FormatDate.swift */,
 			);
 			path = Utilites;
 			sourceTree = "<group>";
@@ -653,6 +656,7 @@
 				ED156F3D23A40CF90085BB2D /* Content.swift in Sources */,
 				EDBE0169237F1B2000F15CE5 /* MainViewController.swift in Sources */,
 				4219917A239413F800CCAA89 /* ContentViewController.swift in Sources */,
+				EDF46CAD23BCE6D700E2F5E8 /* FormatDate.swift in Sources */,
 				EDE3EF8F239EEB4F001BD61A /* ImageBlur.swift in Sources */,
 				4219917A239413F800CCAA89 /* ContentViewController.swift in Sources */,
 				4254484E23AC2E5D00740B27 /* Genre.swift in Sources */,
@@ -691,6 +695,7 @@
 				EDBDD51323B11CAF00F4106A /* WebContentHandler.swift in Sources */,
 				ED52876D2385A04000848D66 /* ForgotPasswordViewController.swift in Sources */,
 				421D5CA7237DCC6F00C8AD1F /* AuthService.swift in Sources */,
+				EDF46CA923BCE30D00E2F5E8 /* WebEventHandler.swift in Sources */,
 				423F05A423981C0400D92D76 /* ResponseError.swift in Sources */,
 				ED156F2B23A3D2680085BB2D /* EventCollectionViewCell.swift in Sources */,
 				4221044F23902546005B1B25 /* Encodable.swift in Sources */,
@@ -698,7 +703,6 @@
 				421D5CA3237DC3CC00C8AD1F /* User.swift in Sources */,
 				EDB57AA4238EA4430032DC9E /* MapsController.swift in Sources */,
 				ED156F2923A3D1EA0085BB2D /* EventsViewController.swift in Sources */,
-				ED3CE8A323AFE3420052015F /* DateFromString.swift in Sources */,
 				ED35F613237560D8009ED574 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
