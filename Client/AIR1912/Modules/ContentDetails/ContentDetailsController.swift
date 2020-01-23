@@ -26,6 +26,7 @@ class ContentDetailsController: UIViewController {
     @IBOutlet weak var lengthLbl: UILabel!
     @IBOutlet weak var genresLbl: UILabel!
     @IBOutlet weak var descriptionHeadlineLbl: UILabel!
+    @IBOutlet weak var favouritesButton: UIImageView!
     
     //MARK: - Properties
     
@@ -44,6 +45,8 @@ class ContentDetailsController: UIViewController {
 
 
      }
+    
+    
     func setShadowView() {
         
         shadowView.layer.cornerRadius = cornerRadius
@@ -68,8 +71,44 @@ class ContentDetailsController: UIViewController {
         
     }
     
-    func setUpView(for Content: Content) {
+    func isFavourite() -> Bool{
         
+        return true
+    }
+    
+    func addToFavourites(){
+        
+    }
+    
+    func checkIfContentExistInWebDatabase(for sourceContentId:Int, contentType:ContentType) {
+    
+        let provider = WebContentProvider()
+        provider.checkIfContentExist(for: sourceContentId, contentType: contentType){(result) in
+            
+            switch result{
+                case .success(let content):
+                    print(content)
+                    // if content exists in db
+                    // add to favourites
+                    //self.tryToInsertEvent(for: content[0])
+                    
+                    
+            case .failure(_):
+                // if content is not in db
+                //self.getContentFromAPI(for: self.type, id: self.id)
+                break
+            }
+            
+            }
+            
+        
+    }
+    
+    
+    func setUpView(for Content: Content) {
+        if(isFavourite()){
+            
+        }
         //self.genresLbl.text = "Action · Fantasy · Horror"
         self.descpriptionTv.text = Content.description
         self.frontImage.kf.setImage(with: Content.posterURL)

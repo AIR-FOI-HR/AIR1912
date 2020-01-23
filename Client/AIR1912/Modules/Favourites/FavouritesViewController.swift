@@ -42,6 +42,7 @@ extension FavouritesViewController {
         _ = provider.getFavouritesByUserId(with: userId, contentType: type) { (result) in
             switch result {
             case .success(let podaci):
+                print(podaci)
                 self.updateContent(for: type, result: podaci)
             case .failure(_):
                 self.updateContent(for: type, result: [])
