@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -148,6 +148,7 @@
                         <outlet property="createBtn" destination="Jcc-7i-xdu" id="Qfx-Ve-zP2"/>
                         <outlet property="descpriptionTv" destination="F9o-cl-13T" id="Kfc-Nr-Wx2"/>
                         <outlet property="descriptionHeadlineLbl" destination="Znl-yB-hk3" id="sRf-z7-dLJ"/>
+                        <outlet property="favouritesButton" destination="p4L-XV-jdE" id="X3W-No-lW7"/>
                         <outlet property="frontImage" destination="5v8-AZ-Cga" id="0vl-2D-t5T"/>
                         <outlet property="genresLbl" destination="r7G-yq-2mE" id="QXY-zh-pp7"/>
                         <outlet property="joinbtn" destination="R8O-ma-kmB" id="oOr-5B-SnP"/>
