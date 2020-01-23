@@ -17,7 +17,7 @@ class WebContentProvider{
     {
         let decoder = JSONDecoder()
         let parameters = [
-        "requestType": "getFavouritesByUserId",
+        "requestType": "getFavouritesForUserId",
         "parameter1": userId,
         "parameter2": contentType
             ] as [String : Any]
