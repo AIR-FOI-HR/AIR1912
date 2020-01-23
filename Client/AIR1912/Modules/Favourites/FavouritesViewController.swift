@@ -60,7 +60,7 @@ class FavouritesViewController: UIViewController {
 
 }
 
-extension FavouritesViewController: UICollectionViewDataSource {
+extension FavouritesViewController: UICollectionViewDataSource, UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if collectionView === self.favouriteMoviesCollectionView {
                    return moviesDataSource.count
@@ -82,6 +82,26 @@ extension FavouritesViewController: UICollectionViewDataSource {
         
         return cell
     }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+           let storyboard = UIStoryboard(name: "ContentDetails", bundle: nil)
+           guard let viewController = storyboard.instantiateViewController(identifier: "ContentDetails") as? ContentDetailsController else {
+               return
+           }
+           let datasource: [DBContent]
+        if collectionView === self.favouriteMoviesCollectionView {
+            datasource = moviesDataSource
+        } else if collectionView == self.favouriteGamesCollectionView {
+            datasource = gamesDataSource
+           } else {
+               return
+           }
+           let item = datasource[indexPath.row]
+           viewController.id = item.sourceEntityId
+           viewController.type = ContentType(rawValue: item.type!)!
+           viewController.modalPresentationStyle = .popover
+           self.present(viewController, animated: true, completion: nil)
+       }
     
     
 
