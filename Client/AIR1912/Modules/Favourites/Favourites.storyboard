@@ -85,7 +85,7 @@
                                                                             <inset key="sectionInset" minX="16" minY="0.0" maxX="16" maxY="0.0"/>
                                                                         </collectionViewFlowLayout>
                                                                         <cells>
-                                                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="EventCollectionViewCell" id="nns-21-f3n" userLabel="FavouriteMovieCollectionViewCell" customClass="EventCollectionViewCell" customModule="AIR1912" customModuleProvider="target">
+                                                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="FavouritesCollectionViewCell" id="nns-21-f3n" userLabel="FavouriteMovieCollectionViewCell" customClass="FavouritesCollectionViewCell" customModule="AIR1912" customModuleProvider="target">
                                                                                 <rect key="frame" x="16" y="6.5" width="140" height="250"/>
                                                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                                 <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="obu-6M-xFE">
@@ -124,6 +124,9 @@
                                                                                 </connections>
                                                                             </collectionViewCell>
                                                                         </cells>
+                                                                        <connections>
+                                                                            <outlet property="dataSource" destination="YJo-N3-qu0" id="qRM-Jr-WTI"/>
+                                                                        </connections>
                                                                     </collectionView>
                                                                 </subviews>
                                                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -168,7 +171,7 @@
                                                                             <inset key="sectionInset" minX="16" minY="0.0" maxX="16" maxY="0.0"/>
                                                                         </collectionViewFlowLayout>
                                                                         <cells>
-                                                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="EventCollectionViewCell" id="lot-x5-eqE" userLabel="FavouriteGameCollectionViewCell" customClass="EventCollectionViewCell" customModule="AIR1912" customModuleProvider="target">
+                                                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="FavouritesCollectionViewCell" id="lot-x5-eqE" userLabel="FavouriteGameCollectionViewCell" customClass="FavouritesCollectionViewCell" customModule="AIR1912" customModuleProvider="target">
                                                                                 <rect key="frame" x="16" y="6.5" width="140" height="250"/>
                                                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                                 <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="NfG-g7-FKc">
@@ -207,6 +210,9 @@
                                                                                 </connections>
                                                                             </collectionViewCell>
                                                                         </cells>
+                                                                        <connections>
+                                                                            <outlet property="dataSource" destination="YJo-N3-qu0" id="uGc-jG-tcO"/>
+                                                                        </connections>
                                                                     </collectionView>
                                                                 </subviews>
                                                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>

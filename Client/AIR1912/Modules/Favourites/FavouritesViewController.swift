@@ -32,10 +32,6 @@ class FavouritesViewController: UIViewController {
         getFavouriteContent(for: .game, userId: userId)
         
     }
-
-}
-
-extension FavouritesViewController {
     
     private func getFavouriteContent(for type: ContentType, userId: Int){
         let provider = WebContentProvider()
@@ -60,4 +56,32 @@ extension FavouritesViewController {
             self.favouriteMoviesCollectionView.reloadData()
         }
     }
+
+}
+
+extension FavouritesViewController: UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        if collectionView === self.favouriteMoviesCollectionView {
+                   return moviesDataSource.count
+               } else {
+                   return gamesDataSource.count
+               }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "FavouritesCollectionViewCell", for: indexPath) as! FavouritesCollectionViewCell
+        let content: DBContent
+        if collectionView === self.favouriteMoviesCollectionView{
+            content = moviesDataSource[indexPath.row]
+            cell.configure(with: content)
+        } else {
+            content = gamesDataSource[indexPath.row]
+            cell.configure(with: content)
+        }
+        
+        return cell
+    }
+    
+    
+
 }

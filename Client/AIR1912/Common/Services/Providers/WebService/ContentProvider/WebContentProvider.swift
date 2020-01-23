@@ -23,7 +23,7 @@ class WebContentProvider{
             ] as [String : Any]
         
         Alamofire
-            .request("https://cortex.foi.hr/meetup/RegisterService.php", method: .post, parameters: parameters)
+            .request("https://cortex.foi.hr/meetup//DBContentProvider.php", method: .post, parameters: parameters)
             .validate()
             .responseDecodableObject(decoder: decoder) { (response: DataResponse<[DBContent]>) in
                 switch response.result {

@@ -17,8 +17,6 @@ class UserProfileCollectionViewCell: UICollectionViewCell {
     
     //MARK: - Private properties
     
-    private let keychain = UserKeychain()
-
     //MARK: - Lifecycle
     
     override func prepareForReuse() {
