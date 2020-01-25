@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_5" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -46,7 +46,7 @@
                                                         </connections>
                                                     </button>
                                                 </subviews>
-                                                <color key="backgroundColor" red="0.049217484891414642" green="0.68733376264572144" blue="0.96709209680557251" alpha="0.9995727539" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="backgroundColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="bottom" secondItem="vgu-Rt-k3b" secondAttribute="bottom" constant="106" id="3Z2-ap-Rp7"/>
                                                     <constraint firstItem="vgu-Rt-k3b" firstAttribute="leading" secondItem="YZE-bt-eS8" secondAttribute="leading" constant="48" id="GRh-rT-ksU"/>
@@ -125,19 +125,21 @@
                                                         <subviews>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cru-Ab-hLI" customClass="KBRoundedButton">
                                                                 <rect key="frame" x="8" y="8" width="164" height="45"/>
+                                                                <color key="backgroundColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" constant="164" id="3kG-Ve-gsL"/>
                                                                     <constraint firstAttribute="height" constant="45" id="jq2-xO-gZE"/>
                                                                 </constraints>
                                                                 <state key="normal" title="Log In">
                                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                    <color key="titleShadowColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 </state>
                                                                 <userDefinedRuntimeAttributes>
                                                                     <userDefinedRuntimeAttribute type="color" keyPath="backgroundColorForStateNormal">
-                                                                        <color key="value" red="0.00158788159" green="0.51872479920000003" blue="1" alpha="0.9990234375" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                        <color key="value" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                     </userDefinedRuntimeAttribute>
                                                                     <userDefinedRuntimeAttribute type="color" keyPath="backgroundColorForStateSelected">
-                                                                        <color key="value" red="0.049217484890000003" green="0.68733376260000001" blue="0.96709209679999997" alpha="0.9995727539" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                        <color key="value" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                     </userDefinedRuntimeAttribute>
                                                                     <userDefinedRuntimeAttribute type="boolean" keyPath="shadowEnabled" value="YES"/>
                                                                 </userDefinedRuntimeAttributes>
@@ -192,6 +194,7 @@
                                             </view>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        <color key="tintColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="bottom" secondItem="kVP-HV-nbo" secondAttribute="bottom" id="735-bO-D9E"/>
                                             <constraint firstAttribute="trailing" secondItem="YZE-bt-eS8" secondAttribute="trailing" id="AOB-dE-dXq"/>
@@ -230,6 +233,7 @@
                     </view>
                     <connections>
                         <outlet property="emailTextField" destination="FJR-xU-IZU" id="UdC-m5-sF4"/>
+                        <outlet property="logInButton" destination="cru-Ab-hLI" id="Ybx-Mt-mnT"/>
                         <outlet property="passwordTextField" destination="MBz-Kc-mim" id="V1U-H3-0Im"/>
                         <outlet property="scrollView" destination="Ozz-Lm-MH7" id="5ej-Y7-heb"/>
                     </connections>

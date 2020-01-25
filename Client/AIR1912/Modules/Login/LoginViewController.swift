@@ -18,7 +18,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     // MARK: - IBOutlets
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
-    
+    @IBOutlet weak var logInButton: UIButton!
     @IBOutlet weak var scrollView: UIScrollView!
     
     // MARK: - Properties
@@ -65,6 +65,7 @@ extension LoginViewController {
         super.viewDidLoad()
         emailTextField.delegate = self
         passwordTextField.delegate = self
+        logInButton.backgroundColor = UIColor.red
         
         startScrollIndicatorInset = scrollView.verticalScrollIndicatorInsets.bottom
         
