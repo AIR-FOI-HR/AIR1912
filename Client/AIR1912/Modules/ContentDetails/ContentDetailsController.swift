@@ -113,13 +113,15 @@ class ContentDetailsController: UIViewController {
         self.descpriptionTv.text = Content.description
         self.frontImage.kf.setImage(with: Content.posterURL)
         self.setBlurredImage(poster : Content.posterURL)
-        let components = Content.year?.split(separator: "-")
+        if(Content.year != ""){
+            let components = Content.year?.split(separator: "-")
+            self.yearLbl.text = String(components?[0] ?? "-")
+        } else {self.yearLbl.text = "-"}
         if(Content.runtime != nil) {
             guard let runtime = Content.runtime else { return }
             self.lengthLbl.text = String(runtime) + " min"
-        }
-        self.yearLbl.text = String(components?[0] ?? "-")
-        self.ratingLbl.text = String(Content.rating)
+        } else {self.lengthLbl.text = "-"}
+        self.ratingLbl.text = String(Content.rating!)
         self.titleLbl!.text = Content.title
     }
     

@@ -63,9 +63,15 @@ class TableCell: UITableViewCell {
         
         if let url = content.posterURL {
             self.imgView.kf.setImage(with: url)
-            let components = content.year?.split(separator: "-")
-            titleLbl!.text = content.title + " (" + (components?[0] ?? "-") + ")"
-            ratingsLbl.text = String(content.rating)
+            if (content.year != "") {
+                let components = content.year?.split(separator: "-")
+                 self.titleLbl!.text = content.title! + " (" + (components?[0] ?? "-") + ")"
+            }
+            else {
+                self.titleLbl.text = content.title! + " (-)"
+            }
+           
+            self.ratingsLbl.text = String(content.rating!)
         }
             
     }

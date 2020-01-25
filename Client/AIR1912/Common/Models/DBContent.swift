@@ -21,10 +21,10 @@ struct DBContent: Decodable, Encodable {
     
     init(content:Content, type:ContentType) {
         self.type = type.rawValue
-        self.title = content.title
+        self.title = content.title!
         self.sourceEntityId = content.id
         self.overview = content.description!
-        self.poster_path = content.poster
+        self.poster_path = content.poster!
         self.release_date = content.year
         self.runtime = content.runtime
         self.posterURL = content.posterURL?.absoluteString
