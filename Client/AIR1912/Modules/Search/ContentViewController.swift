@@ -8,6 +8,7 @@
 
 import UIKit
 import Kingfisher
+import SkeletonView
 
 class ContentViewController : UIViewController {
     
@@ -16,6 +17,7 @@ class ContentViewController : UIViewController {
     @IBOutlet private weak var collectionView: UICollectionView!
     @IBOutlet private weak var collectionView2: UICollectionView!
     
+    @IBOutlet weak var skeleton: UICollectionView!
     @IBOutlet weak var segmentButton: UISegmentedControl!
     // MARK: - Private properties
     
@@ -28,6 +30,8 @@ class ContentViewController : UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        view.isSkeletonable = false
         
         getLatestContent(for: .movie)
         getLatestContent(for: .game)
@@ -67,8 +71,11 @@ extension ContentViewController {
     }
     
     private func getLatestContent(for type: ContentType) {
+        skeleton.showAnimatedGradientSkeleton()
         let provider = ContentProviderFactory.contentProvider(forContentType: type)
         provider.getLatestContent { (result) in
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {  self.skeleton.hideSkeleton()
+            }
             switch result {
             case .success(let podaci):
                 self.updateContent(for: type, result: podaci)
@@ -102,7 +109,11 @@ extension ContentViewController {
     }
 }
 
-extension ContentViewController: UICollectionViewDataSource, UICollectionViewDelegate {
+extension ContentViewController: SkeletonCollectionViewDataSource{
+    
+    func collectionSkeletonView(_ skeletonView: UICollectionView, cellIdentifierForItemAt indexPath: IndexPath) -> ReusableCellIdentifier {
+        return "ContentCollectionViewCell"
+    }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if collectionView === self.collectionView {
