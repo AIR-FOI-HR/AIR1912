@@ -17,7 +17,6 @@ class ContentViewController : UIViewController {
     @IBOutlet private weak var collectionView: UICollectionView!
     @IBOutlet private weak var collectionView2: UICollectionView!
     
-    @IBOutlet weak var skeleton: UICollectionView!
     @IBOutlet weak var segmentButton: UISegmentedControl!
     // MARK: - Private properties
     
@@ -31,11 +30,17 @@ class ContentViewController : UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.isSkeletonable = false
-        
+        self.view.isSkeletonable = false
         getLatestContent(for: .movie)
         getLatestContent(for: .game)
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+         super.viewWillAppear(true)
+        
+         getLatestContent(for: .movie)
+         getLatestContent(for: .game)
+     }
     
     
     @IBAction func segmentClick(_ sender: Any) {
@@ -59,8 +64,13 @@ class ContentViewController : UIViewController {
 extension ContentViewController {
     
     private func getPopularContent(for type: ContentType) {
+        self.collectionView.showAnimatedGradientSkeleton()
+        self.collectionView2.showAnimatedGradientSkeleton()
         let provider = ContentProviderFactory.contentProvider(forContentType: type)
         provider.getPopularContent { (result) in
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {  self.collectionView.hideSkeleton()
+                self.collectionView2.hideSkeleton()
+            }
             switch result {
             case .success(let podaci):
                 self.updateContent(for: type, result: podaci)
@@ -71,10 +81,12 @@ extension ContentViewController {
     }
     
     private func getLatestContent(for type: ContentType) {
-        skeleton.showAnimatedGradientSkeleton()
+        self.collectionView.showAnimatedGradientSkeleton()
+        self.collectionView2.showAnimatedGradientSkeleton()
         let provider = ContentProviderFactory.contentProvider(forContentType: type)
         provider.getLatestContent { (result) in
-            DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {  self.skeleton.hideSkeleton()
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {  self.collectionView.hideSkeleton()
+                self.collectionView2.hideSkeleton()
             }
             switch result {
             case .success(let podaci):
@@ -86,8 +98,13 @@ extension ContentViewController {
     }
     
     private func getTopRatedContent(for type: ContentType) {
+        self.collectionView.showAnimatedGradientSkeleton()
+        self.collectionView2.showAnimatedGradientSkeleton()
         let provider = ContentProviderFactory.contentProvider(forContentType: type)
         provider.getTopRatedContent { (result) in
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {  self.collectionView.hideSkeleton()
+                self.collectionView2.hideSkeleton()
+            }
             switch result {
             case .success(let podaci):
                 self.updateContent(for: type, result: podaci)
@@ -109,7 +126,7 @@ extension ContentViewController {
     }
 }
 
-extension ContentViewController: SkeletonCollectionViewDataSource{
+extension ContentViewController: SkeletonCollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDataSource {
     
     func collectionSkeletonView(_ skeletonView: UICollectionView, cellIdentifierForItemAt indexPath: IndexPath) -> ReusableCellIdentifier {
         return "ContentCollectionViewCell"

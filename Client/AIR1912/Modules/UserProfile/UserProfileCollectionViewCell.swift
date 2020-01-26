@@ -47,6 +47,7 @@ class UserProfileCollectionViewCell: UICollectionViewCell {
        private func setupView() {
            featuredImageView.layer.cornerRadius = 12.0
            featuredImageView.layer.masksToBounds = true
+ 
        }
        
 }

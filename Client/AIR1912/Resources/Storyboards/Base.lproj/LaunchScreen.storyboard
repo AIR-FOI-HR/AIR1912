@@ -15,7 +15,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="beacon" translatesAutoresizingMaskIntoConstraints="NO" id="eL6-j2-Uwg">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="beaconSystemRed" translatesAutoresizingMaskIntoConstraints="NO" id="eL6-j2-Uwg">
                                 <rect key="frame" x="-87" y="-251" width="588" height="1398"/>
                                 <color key="backgroundColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="tintColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -25,9 +25,9 @@
                         <color key="tintColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="eL6-j2-Uwg" secondAttribute="trailing" constant="-87" id="CbT-ep-ElI"/>
-                            <constraint firstItem="eL6-j2-Uwg" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" constant="-87" id="KkO-po-pzL"/>
+                            <constraint firstAttribute="bottom" secondItem="eL6-j2-Uwg" secondAttribute="bottom" constant="-251" id="Vp6-uv-zPi"/>
                             <constraint firstItem="eL6-j2-Uwg" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" constant="-251" id="WlD-7T-67I"/>
-                            <constraint firstAttribute="bottom" secondItem="eL6-j2-Uwg" secondAttribute="bottom" constant="-251" id="t5D-H7-jMf"/>
+                            <constraint firstItem="eL6-j2-Uwg" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" constant="-87" id="vdY-Cu-Gey"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -38,6 +38,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="beacon" width="1310" height="922"/>
+        <image name="beaconSystemRed" width="1310" height="922"/>
     </resources>
 </document>

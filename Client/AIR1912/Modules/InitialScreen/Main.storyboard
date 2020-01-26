@@ -21,7 +21,7 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Zli-6f-8dM">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="358.33333333333331"/>
                                         <subviews>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="252" verticalCompressionResistancePriority="749" image="beacon" translatesAutoresizingMaskIntoConstraints="NO" id="ApN-Ew-Rzv">
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="252" verticalCompressionResistancePriority="749" image="beaconSystemRed" translatesAutoresizingMaskIntoConstraints="NO" id="ApN-Ew-Rzv">
                                                 <rect key="frame" x="0.0" y="0.0" width="414" height="358.33333333333331"/>
                                                 <color key="backgroundColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </imageView>
@@ -163,6 +163,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="beacon" width="1308" height="922"/>
+        <image name="beaconSystemRed" width="1310" height="922"/>
     </resources>
 </document>
