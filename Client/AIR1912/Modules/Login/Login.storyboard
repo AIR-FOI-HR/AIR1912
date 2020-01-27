@@ -3,6 +3,7 @@
     <device id="retina6_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -125,7 +126,7 @@
                                                         <subviews>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cru-Ab-hLI" customClass="KBRoundedButton">
                                                                 <rect key="frame" x="8" y="8" width="164" height="45"/>
-                                                                <color key="backgroundColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                <color key="backgroundColor" name="BaseRed"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" constant="164" id="3kG-Ve-gsL"/>
                                                                     <constraint firstAttribute="height" constant="45" id="jq2-xO-gZE"/>
@@ -233,9 +234,10 @@
                     </view>
                     <connections>
                         <outlet property="emailTextField" destination="FJR-xU-IZU" id="UdC-m5-sF4"/>
-                        <outlet property="logInButton" destination="cru-Ab-hLI" id="Ybx-Mt-mnT"/>
+                        <outlet property="logInButton" destination="cru-Ab-hLI" id="9dg-aw-QNF"/>
                         <outlet property="passwordTextField" destination="MBz-Kc-mim" id="V1U-H3-0Im"/>
                         <outlet property="scrollView" destination="Ozz-Lm-MH7" id="5ej-Y7-heb"/>
+                        <outlet property="upContentView" destination="YZE-bt-eS8" id="wBU-At-jCO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jte-SV-Rbp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -250,5 +252,8 @@
     </scenes>
     <resources>
         <image name="xmark.circle" catalog="system" width="64" height="60"/>
+        <namedColor name="BaseRed">
+            <color red="1" green="0.23100000619888306" blue="0.18799999356269836" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
     </resources>
 </document>

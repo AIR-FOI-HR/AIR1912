@@ -18,6 +18,7 @@ class EventsViewController: UIViewController {
         @IBOutlet private weak var myEventsCollectionView: UICollectionView!
         
         @IBOutlet weak var eventsNearMeLabel: UILabel!
+        @IBOutlet weak var myEventsLabel: UILabel!
     
         // MARK: - Private properties
         
@@ -32,6 +33,7 @@ class EventsViewController: UIViewController {
             super.viewDidLoad()
             getUserLocation()
             eventsNearMeLabel.textColor = ThemesManager.shared.theme?.baseColor
+            myEventsLabel.textColor = ThemesManager.shared.theme?.baseColor
             
             view.isSkeletonable = false
            

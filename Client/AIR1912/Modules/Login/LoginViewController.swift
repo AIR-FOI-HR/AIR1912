@@ -8,7 +8,7 @@
 
 import UIKit
 import Alamofire
-
+import KBRoundedButton
 
 let API_URL = "http://air1912.000webhostapp.com/service.php"
 
@@ -18,8 +18,9 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     // MARK: - IBOutlets
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
-    @IBOutlet weak var logInButton: UIButton!
     @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var upContentView: UIView!
+    @IBOutlet weak var logInButton: KBRoundedButton!
     
     // MARK: - Properties
     private let authService: AuthService = AuthService()
@@ -65,7 +66,8 @@ extension LoginViewController {
         super.viewDidLoad()
         emailTextField.delegate = self
         passwordTextField.delegate = self
-        logInButton.backgroundColor = UIColor.red
+        upContentView.backgroundColor = ThemesManager.shared.theme?.baseColor
+        logInButton.backgroundColor = ThemesManager.shared.theme?.baseColor
         
         startScrollIndicatorInset = scrollView.verticalScrollIndicatorInsets.bottom
         

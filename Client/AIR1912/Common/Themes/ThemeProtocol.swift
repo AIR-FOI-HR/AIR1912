@@ -22,5 +22,5 @@ struct DarkTheme: Theme {
 }
 
 struct PinkTheme: Theme {
-    var baseColor: UIColor = UIColor.systemPink
+    var baseColor: UIColor = UIColor.init(named: "BasePink")!
 }
