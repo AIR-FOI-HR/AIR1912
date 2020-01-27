@@ -16,6 +16,7 @@ class ContentSearchController: UIViewController{
     
     @IBOutlet weak var table: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
+    @IBOutlet weak var segmentControl: UISegmentedControl!
     
     
     // MARK: - Private properties
