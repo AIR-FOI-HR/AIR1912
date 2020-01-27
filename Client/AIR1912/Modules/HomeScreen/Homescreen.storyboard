@@ -387,6 +387,7 @@
                     <navigationItem key="navigationItem" title="Home" id="tCA-Su-7cn"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="eventsNearMeLabel" destination="XYL-US-ZIP" id="0K3-4c-Gzg"/>
                         <outlet property="myEventsCollectionView" destination="iew-vs-Dun" id="k58-kx-ayC"/>
                         <outlet property="nearEventsCollectionView" destination="G1x-6E-0K9" id="trZ-vp-Ivw"/>
                         <outlet property="skeleton" destination="G1x-6E-0K9" id="G8V-Lt-r0C"/>

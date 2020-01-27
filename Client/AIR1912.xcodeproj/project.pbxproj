@@ -17,6 +17,9 @@
 		421D5CAE237DD18B00C8AD1F /* ContentProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 421D5CAD237DD18B00C8AD1F /* ContentProvider.swift */; };
 		421D5CB0237DD2D100C8AD1F /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 421D5CAF237DD2D100C8AD1F /* Movie.swift */; };
 		4221044F23902546005B1B25 /* Encodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4221044E23902546005B1B25 /* Encodable.swift */; };
+		4221F7D523DF2B3000A977AE /* Theme.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4221F7D423DF2B3000A977AE /* Theme.xcassets */; };
+		4221F7D723DF2D4800A977AE /* ThemeProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4221F7D623DF2D4800A977AE /* ThemeProtocol.swift */; };
+		4221F7D923DF2F3B00A977AE /* ThemeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4221F7D823DF2F3B00A977AE /* ThemeManager.swift */; };
 		42347B9223AB94B80020D860 /* UserProfileCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42347B9123AB94B80020D860 /* UserProfileCollectionViewCell.swift */; };
 		42347B9423AB974C0020D860 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42347B9323AB974C0020D860 /* SettingsViewController.swift */; };
 		423F05A423981C0400D92D76 /* ResponseError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423F05A323981C0400D92D76 /* ResponseError.swift */; };
@@ -90,6 +93,9 @@
 		421D5CAD237DD18B00C8AD1F /* ContentProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentProvider.swift; sourceTree = "<group>"; };
 		421D5CAF237DD2D100C8AD1F /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
 		4221044E23902546005B1B25 /* Encodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Encodable.swift; sourceTree = "<group>"; };
+		4221F7D423DF2B3000A977AE /* Theme.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Theme.xcassets; sourceTree = "<group>"; };
+		4221F7D623DF2D4800A977AE /* ThemeProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeProtocol.swift; sourceTree = "<group>"; };
+		4221F7D823DF2F3B00A977AE /* ThemeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeManager.swift; sourceTree = "<group>"; };
 		42347B9123AB94B80020D860 /* UserProfileCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileCollectionViewCell.swift; sourceTree = "<group>"; };
 		42347B9323AB974C0020D860 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		423F05A323981C0400D92D76 /* ResponseError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseError.swift; sourceTree = "<group>"; };
@@ -177,6 +183,7 @@
 		421D5CA0237DC3A400C8AD1F /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				4221F7D323DF2AEC00A977AE /* Themes */,
 				EDE3EF8D239EEB2C001BD61A /* Utilites */,
 				423F05A0239681E000D92D76 /* ModuleSwitching */,
 				42A9BAF7239284FD009C1912 /* ErrorHandling */,
@@ -239,6 +246,16 @@
 				4221044E23902546005B1B25 /* Encodable.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		4221F7D323DF2AEC00A977AE /* Themes */ = {
+			isa = PBXGroup;
+			children = (
+				4221F7D423DF2B3000A977AE /* Theme.xcassets */,
+				4221F7D623DF2D4800A977AE /* ThemeProtocol.swift */,
+				4221F7D823DF2F3B00A977AE /* ThemeManager.swift */,
+			);
+			path = Themes;
 			sourceTree = "<group>";
 		};
 		423F05A0239681E000D92D76 /* ModuleSwitching */ = {
@@ -598,6 +615,7 @@
 				EDCDA01B23A2860000E28223 /* Search.storyboard in Resources */,
 				EDBE016A237F1B2000F15CE5 /* Main.storyboard in Resources */,
 				EDB57AA6238EA4920032DC9E /* Maps.storyboard in Resources */,
+				4221F7D523DF2B3000A977AE /* Theme.xcassets in Resources */,
 				EDB57AB5238EAB910032DC9E /* UserProfile.storyboard in Resources */,
 				ED3CE8A523AFEB490052015F /* DateTimePicker.storyboard in Resources */,
 			);
@@ -666,10 +684,12 @@
 				EDE3EF8F239EEB4F001BD61A /* ImageBlur.swift in Sources */,
 				4219917A239413F800CCAA89 /* ContentViewController.swift in Sources */,
 				4254484E23AC2E5D00740B27 /* Genre.swift in Sources */,
+				4221F7D723DF2D4800A977AE /* ThemeProtocol.swift in Sources */,
 				42C7AE1E23A8E10E00398BE9 /* WebContentProvider.swift in Sources */,
 				EDE3EF8F239EEB4F001BD61A /* ImageBlur.swift in Sources */,
 				42347B9423AB974C0020D860 /* SettingsViewController.swift in Sources */,
 				4219917A239413F800CCAA89 /* ContentViewController.swift in Sources */,
+				4221F7D923DF2F3B00A977AE /* ThemeManager.swift in Sources */,
 				42A9BAFB23929173009C1912 /* JsonResponse.swift in Sources */,
 				42347B9223AB94B80020D860 /* UserProfileCollectionViewCell.swift in Sources */,
 				ED52876F2385A2F100848D66 /* RecoverPassService.swift in Sources */,
