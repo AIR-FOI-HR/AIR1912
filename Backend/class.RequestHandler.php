@@ -37,19 +37,29 @@ class RequestHandler{
         mysqli_close($connectionString);  
     }
 
-    public function tryToInsertData($sqlQuery){
+    public function addOneRowToDatabase($sqlQuery){
+        // Create connection Data with connection string
         $connectionData = new ConnectionData();
         $connectionString = $connectionData->getConnectionString();
-
-        $result = mysqli_query($connectionString, $sqlQuery);
-
-        if($result === TRUE){
-            return TRUE;
+          
+           // Check connection
+        if (mysqli_connect_errno())
+        {
+            return false;
+            echo "Failed to connect to MySQL: " . mysqli_connect_error();
+        } 
+        if(!mysqli_query($connectionString,$sqlQuery)) 
+        {
+            return false;
+            die('Error : Query Not Executed. Please Fix the Issue! '); 
+        } 
+  
+        else
+        {
+           return true;
         }
-        else {
-            return FALSE;
-        }
-    }
-
+        // Close connections
+        mysqli_close($connectionString);
+      }
 }
 ?>
