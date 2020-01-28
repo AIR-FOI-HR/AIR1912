@@ -22,11 +22,13 @@ class ContentCollectionViewCell: UICollectionViewCell {
         
     }
     
-
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        setupView()
+    }
+    
     
     func configure(with content: Content) {
-        setupView()
-        
         if let url = content.posterURL {
             self.featuredImageView.kf.setImage(with: url)
             titleName!.text = content.title

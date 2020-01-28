@@ -128,6 +128,10 @@ extension ContentViewController {
 
 extension ContentViewController: SkeletonCollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDataSource {
     
+    func collectionSkeletonView(_ skeletonView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 3
+    }
+    
     func collectionSkeletonView(_ skeletonView: UICollectionView, cellIdentifierForItemAt indexPath: IndexPath) -> ReusableCellIdentifier {
         return "ContentCollectionViewCell"
     }
