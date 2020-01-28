@@ -2,6 +2,7 @@ PODS:
   - Alamofire (4.9.1)
   - CodableAlamofire (1.1.2):
     - Alamofire (~> 4.0)
+  - Floaty (4.1.0)
   - Hero (1.4.0)
   - KBRoundedButton (1.0.4)
   - Kingfisher (4.10.1)
@@ -14,6 +15,7 @@ PODS:
 DEPENDENCIES:
   - Alamofire
   - CodableAlamofire
+  - Floaty
   - Hero
   - KBRoundedButton
   - Kingfisher
@@ -27,6 +29,7 @@ SPEC REPOS:
   trunk:
     - Alamofire
     - CodableAlamofire
+    - Floaty
     - Hero
     - KBRoundedButton
     - Kingfisher
@@ -47,6 +50,7 @@ CHECKOUT OPTIONS:
 SPEC CHECKSUMS:
   Alamofire: 85e8a02c69d6020a0d734f6054870d7ecb75cf18
   CodableAlamofire: b7adfb2e5e980392014b4b3f3b8b62c01b9de4aa
+  Floaty: 1a4e213f3512cf3045ef9cb0c1ff456226d1f66a
   Hero: bac92350d7201a1a940003e0767c7b52ce7c99a1
   KBRoundedButton: 8fde755b8f1df3ddd3c3c280d9b27ce04ab55d00
   Kingfisher: c148cd7b47ebde9989f6bc7c27dcaa79d81279a0
@@ -56,6 +60,6 @@ SPEC CHECKSUMS:
   Spring: 3d113f14575ef79aec9c5f906dfa4f5001c03254
   SwiftKeychainWrapper: 6fc49fbf7d4a6b0772917acb0e53a1639f6078d6
 
-PODFILE CHECKSUM: cad0c056051c1cf243f39ba6c147be5193684d07
+PODFILE CHECKSUM: 155e5d7eabc087d842821c115495c9256314ec04
 
 COCOAPODS: 1.8.3
