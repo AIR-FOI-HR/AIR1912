@@ -17,7 +17,7 @@ class WebEventHandler{
         
         let decoder = JSONDecoder()
         var eventDictionary = try! event.asDictionary()
-        //contentDic["requestType"] = "insertNewEvent"
+        eventDictionary["requestType"] = "insert"
         
         Alamofire
             .request("https://cortex.foi.hr/meetup/EventHandler.php", method: .get, parameters: eventDictionary)
