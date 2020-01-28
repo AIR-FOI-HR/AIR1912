@@ -126,32 +126,62 @@
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <color key="tintColor" systemColor="systemIndigoColor" red="0.34509803919999998" green="0.33725490200000002" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </imageView>
-                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EeQ-1Q-EKy">
-                                                <rect key="frame" x="157" y="497" width="100" height="30"/>
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EeQ-1Q-EKy" customClass="KBRoundedButton">
+                                                <rect key="frame" x="81" y="497" width="120" height="30"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <state key="normal" title="Create"/>
+                                                <state key="normal" title="Create">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="backgroundColorForStateNormal">
+                                                        <color key="value" red="0.00158788159" green="0.51872479920000003" blue="1" alpha="0.9990234375" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="backgroundColorForStateSelected">
+                                                        <color key="value" red="0.049217484890000003" green="0.68733376260000001" blue="0.96709209679999997" alpha="0.9995727539" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="shadowEnabled" value="YES"/>
+                                                </userDefinedRuntimeAttributes>
                                                 <connections>
-                                                    <action selector="createEventButtonSelected:" destination="vYA-36-1rP" eventType="touchUpInside" id="V4O-vV-BRF"/>
+                                                    <action selector="createEventButtonSelected:" destination="vYA-36-1rP" eventType="touchUpInside" id="nbV-bm-aG1"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yam-2U-1Fc" customClass="KBRoundedButton">
+                                                <rect key="frame" x="213" y="497" width="120" height="30"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <state key="normal" title="Cancel">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="backgroundColorForStateNormal">
+                                                        <color key="value" red="0.00158788159" green="0.51872479920000003" blue="1" alpha="0.9990234375" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="backgroundColorForStateSelected">
+                                                        <color key="value" red="0.049217484890000003" green="0.68733376260000001" blue="0.96709209679999997" alpha="0.9995727539" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="shadowEnabled" value="YES"/>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="dismissScreen:" destination="vYA-36-1rP" eventType="touchUpInside" id="NRk-oz-ua9"/>
                                                 </connections>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                     </view>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="minus" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="SDc-Es-g2v">
-                                        <rect key="frame" x="192" y="36.333333333333329" width="70" height="3.6666666666666714"/>
+                                        <rect key="frame" x="142" y="34.333333333333329" width="170" height="3.6666666666666714"/>
                                         <color key="tintColor" cocoaTouchSystemColor="lightTextColor"/>
                                     </imageView>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="LBw-i2-A8I" firstAttribute="bottom" secondItem="dNV-yc-kGd" secondAttribute="bottom" constant="21" id="3fl-zR-X70"/>
-                                    <constraint firstItem="SDc-Es-g2v" firstAttribute="leading" secondItem="8Az-Xh-eEa" secondAttribute="leading" constant="192" id="6g5-us-iBp"/>
+                                    <constraint firstItem="SDc-Es-g2v" firstAttribute="leading" secondItem="8Az-Xh-eEa" secondAttribute="leading" constant="142" id="6g5-us-iBp"/>
                                     <constraint firstItem="dNV-yc-kGd" firstAttribute="top" secondItem="LBw-i2-A8I" secondAttribute="top" constant="271" id="DHF-7e-TOR"/>
                                     <constraint firstItem="dNV-yc-kGd" firstAttribute="leading" secondItem="LBw-i2-A8I" secondAttribute="leading" constant="20" id="Msy-KN-HfC"/>
                                     <constraint firstItem="LBw-i2-A8I" firstAttribute="trailing" secondItem="dNV-yc-kGd" secondAttribute="trailing" constant="20" id="PCR-Bu-MmU"/>
-                                    <constraint firstItem="8Az-Xh-eEa" firstAttribute="trailing" secondItem="SDc-Es-g2v" secondAttribute="trailing" constant="192" id="Yrc-RZ-scA"/>
+                                    <constraint firstItem="8Az-Xh-eEa" firstAttribute="trailing" secondItem="SDc-Es-g2v" secondAttribute="trailing" constant="142" id="Yrc-RZ-scA"/>
                                     <constraint firstAttribute="trailing" secondItem="dNV-yc-kGd" secondAttribute="trailing" constant="20" id="enG-pu-Hi4"/>
                                     <constraint firstAttribute="bottom" secondItem="dNV-yc-kGd" secondAttribute="bottom" constant="21" id="nH1-8o-wbu"/>
-                                    <constraint firstItem="SDc-Es-g2v" firstAttribute="top" secondItem="8Az-Xh-eEa" secondAttribute="top" constant="28" id="scZ-To-Dm8"/>
+                                    <constraint firstItem="SDc-Es-g2v" firstAttribute="top" secondItem="8Az-Xh-eEa" secondAttribute="top" constant="25.999999999999986" id="scZ-To-Dm8"/>
                                     <constraint firstAttribute="centerX" secondItem="SDc-Es-g2v" secondAttribute="centerX" id="wE9-67-yGR"/>
                                 </constraints>
                                 <viewLayoutGuide key="contentLayoutGuide" id="8Az-Xh-eEa"/>

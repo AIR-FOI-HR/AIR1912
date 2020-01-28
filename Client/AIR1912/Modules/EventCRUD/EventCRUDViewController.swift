@@ -73,10 +73,14 @@ class EventCRUDViewController: UIViewController {
     
     @IBAction func createEventButtonSelected(_ sender: Any) {
 
-        checkIfContentExistInWebDatabase(for: self.id, contentType: self.type)
+         checkIfContentExistInWebDatabase(for: self.id, contentType: self.type)
         }
         
+    @IBAction func dismissScreen(_ sender: Any) {
         
+        self.dismiss(animated: true, completion: nil)
+    }
+    
 }
     
 
