@@ -36,42 +36,36 @@ class MapsController: UIViewController, MKMapViewDelegate {
     }
     
     func populateMapWithPins(events:[Event]){
-        for Event in events{
-            setPinOnMap(event: Event)
+        // provjeri je li event privatan ili javan i ovisno o tome postavi boju
+        for event in events{
+            if(event.isPrivate == 1){
+                let pin = MapPin(event: event, pinColor: UIColor.red)
+                mapView.addAnnotation(pin)
+            }
+            else{
+                let pin = MapPin(event: event, pinColor:UIColor.green)
+                mapView.addAnnotation(pin)
+            }
+            
         }
     }
     
-    func setPinOnMap(event: Event) -> Void
-    {
-        let pinColor = UIColor.white
-        let pin = MapPin(event: event, pinColor:pinColor)
+    // pokusaj bojanja pinova - ne funkcionira
+    private func mapView(_ mapView: MKMapView, viewFor annotation: MapPin) -> MKAnnotationView? {
         
-        
-        mapView.addAnnotation(pin)
-        
-        let view = MKPinAnnotationView(annotation: pin, reuseIdentifier: nil)
-        view.backgroundColor = UIColor.white
-        view.pinTintColor = UIColor.red
-   }
-    
-    
-    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: "myAnnotation")
-
+        
         if annotationView == nil {
             annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: "myAnnotation")
         } else {
             annotationView?.annotation = annotation
         }
 
-        if annotation is MapPin {
-            //annotationView?.backgroundColor  = UIColor.white
-        }
-
+        annotationView?.tintColor = UIColor(red: 0, green: 100, blue: 0, alpha: 0.5)
+        annotationView?.backgroundColor = UIColor.white
+        
         return annotationView
     }
-    
-    
 
     
     // on click
@@ -82,6 +76,7 @@ class MapsController: UIViewController, MKMapViewDelegate {
             print("User tapped on annotation with title: \(annotationTitle!)")
         }
         
+        let selectedEvent = view.annotation as? MapPin
         
         let storyboard = UIStoryboard(name: "MapDetails", bundle: nil)
         guard let viewController = storyboard.instantiateViewController(identifier: "MapDetails") as? MapDetailsController else {
@@ -89,11 +84,10 @@ class MapsController: UIViewController, MKMapViewDelegate {
         }
       
         viewController.modalPresentationStyle = .formSheet
-        viewController.test = "woooowooo"
+        viewController.selectedEvent = selectedEvent?.event
         
         self.present(viewController, animated: true, completion: nil)
     }
-    
     
     
     func setRegion(latitude: Double, longitude: Double) -> Void{

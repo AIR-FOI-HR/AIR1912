@@ -13,6 +13,7 @@ class MapPin: NSObject, MKAnnotation{
     let title: String?
     let subtitle: String?
     let coordinate: CLLocationCoordinate2D
+    let event: Event
     let pinColor: UIColor
     
     init(event: Event, pinColor: UIColor){
@@ -20,5 +21,6 @@ class MapPin: NSObject, MKAnnotation{
         self.subtitle = "Number of people: \(String(describing: event.numberOfPeople))"
         self.coordinate = CLLocationCoordinate2D(latitude: event.latitude, longitude: event.longitude)
         self.pinColor = pinColor
+        self.event = event
     }
 }
