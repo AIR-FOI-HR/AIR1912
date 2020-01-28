@@ -84,7 +84,9 @@ class MapsController: UIViewController, MKMapViewDelegate {
         }
       
         viewController.modalPresentationStyle = .formSheet
-        viewController.selectedEvent = selectedEvent?.event
+        
+        // na view controller detaljnog prikaza pridodaj odabrani event
+        viewController.selectedEvent = selectedEvent!.event
         
         self.present(viewController, animated: true, completion: nil)
     }

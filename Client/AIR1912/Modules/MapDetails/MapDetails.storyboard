@@ -18,13 +18,25 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3UV-WO-533">
                                 <rect key="frame" x="0.0" y="668" width="414" height="228"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uX3-jE-1IG">
-                                        <rect key="frame" x="184" y="81" width="46" height="30"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" title="Button"/>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Jzi-Rv-ajO">
+                                        <rect key="frame" x="191" y="13" width="32" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uX3-jE-1IG">
+                                        <rect key="frame" x="192" y="164" width="30" height="30"/>
+                                        <state key="normal" title="Join"/>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstItem="uX3-jE-1IG" firstAttribute="top" secondItem="3UV-WO-533" secondAttribute="top" constant="164" id="2bl-ss-jTR"/>
+                                    <constraint firstItem="Jzi-Rv-ajO" firstAttribute="top" secondItem="3UV-WO-533" secondAttribute="top" constant="13" id="Ffi-R3-NQE"/>
+                                    <constraint firstItem="Jzi-Rv-ajO" firstAttribute="centerX" secondItem="3UV-WO-533" secondAttribute="centerX" id="RJH-AM-p3U"/>
+                                    <constraint firstItem="uX3-jE-1IG" firstAttribute="centerX" secondItem="3UV-WO-533" secondAttribute="centerX" id="SPl-KN-RtN"/>
+                                    <constraint firstAttribute="bottom" secondItem="uX3-jE-1IG" secondAttribute="bottom" constant="34" id="vXK-ux-lVl"/>
+                                    <constraint firstAttribute="bottom" secondItem="Jzi-Rv-ajO" secondAttribute="bottom" constant="181" id="wlj-2o-6LV"/>
+                                </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -36,6 +48,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="IsR-xI-dzw"/>
                     </view>
+                    <connections>
+                        <outlet property="eventTitleTxt" destination="Jzi-Rv-ajO" id="ZKw-gU-EWz"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JGS-WY-amP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
