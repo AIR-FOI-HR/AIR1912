@@ -34,6 +34,7 @@
 		42C7AE1C23A6B96000398BE9 /* DBContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42C7AE1B23A6B96000398BE9 /* DBContent.swift */; };
 		42C7AE1E23A8E10E00398BE9 /* WebContentProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42C7AE1D23A8E10E00398BE9 /* WebContentProvider.swift */; };
 		42C7AE2023A8F9B300398BE9 /* FavouritesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42C7AE1F23A8F9B300398BE9 /* FavouritesCollectionViewCell.swift */; };
+		42D7159423E08FC6005C4646 /* MapPin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D7159323E08FC6005C4646 /* MapPin.swift */; };
 		42F2ACFA23AA5A9600C2DA20 /* ContentDetails.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 42F2ACF923AA5A9600C2DA20 /* ContentDetails.storyboard */; };
 		42F2ACFC23AA610900C2DA20 /* ContentDetailsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42F2ACFB23AA610900C2DA20 /* ContentDetailsController.swift */; };
 		D0655947A9CF0CDD85866E29 /* Pods_AIR1912.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0702C62035766E8AC911DBD4 /* Pods_AIR1912.framework */; };
@@ -107,6 +108,7 @@
 		42C7AE1B23A6B96000398BE9 /* DBContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBContent.swift; sourceTree = "<group>"; };
 		42C7AE1D23A8E10E00398BE9 /* WebContentProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebContentProvider.swift; sourceTree = "<group>"; };
 		42C7AE1F23A8F9B300398BE9 /* FavouritesCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritesCollectionViewCell.swift; sourceTree = "<group>"; };
+		42D7159323E08FC6005C4646 /* MapPin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapPin.swift; sourceTree = "<group>"; };
 		42F2ACF923AA5A9600C2DA20 /* ContentDetails.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ContentDetails.storyboard; sourceTree = "<group>"; };
 		42F2ACFB23AA610900C2DA20 /* ContentDetailsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentDetailsController.swift; sourceTree = "<group>"; };
 		949424CDCE90C8DF2A9D94EF /* Pods-AIR1912.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AIR1912.release.xcconfig"; path = "Target Support Files/Pods-AIR1912/Pods-AIR1912.release.xcconfig"; sourceTree = "<group>"; };
@@ -441,6 +443,7 @@
 			children = (
 				EDB57AA3238EA4430032DC9E /* MapsController.swift */,
 				EDB57AA5238EA4920032DC9E /* Maps.storyboard */,
+				42D7159323E08FC6005C4646 /* MapPin.swift */,
 			);
 			path = Maps;
 			sourceTree = "<group>";
@@ -672,6 +675,7 @@
 				4219917A239413F800CCAA89 /* ContentViewController.swift in Sources */,
 				42A9BAFB23929173009C1912 /* JsonResponse.swift in Sources */,
 				42347B9223AB94B80020D860 /* UserProfileCollectionViewCell.swift in Sources */,
+				42D7159423E08FC6005C4646 /* MapPin.swift in Sources */,
 				ED52876F2385A2F100848D66 /* RecoverPassService.swift in Sources */,
 				ED5287712385AE9C00848D66 /* RecoverPassCodes.swift in Sources */,
 				4250E5F723845C3B00369FBC /* SignupController.swift in Sources */,
