@@ -64,8 +64,24 @@ struct Event: Decodable, Encodable {
         self.dateTime = dateTime
         self.ownerId = ownerId
     }
-   
     
+    init(){
+        self.id = 0
+               self.title = ""
+               self.maxNumberOfPeople = 0
+               self.numberOfPeople = 0
+               self.password = nil
+               self.description = ""
+               self.latitude = 0
+               self.longitude = 0
+               self.phoneNumber = nil
+               self.isPrivate = 0
+               self.contentID = 0
+               self.customImage = nil
+               self.dateTime = ""
+               self.ownerId = 0
+    }
+   
     
     
 }

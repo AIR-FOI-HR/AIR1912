@@ -44,7 +44,7 @@ class DBContent{
         $query = "INSERT INTO `Contents` (`id`, `sourceEntityId`, `type`, `title`, `overview`, `poster_path`, `release_date`, `runtime`, `posterURL`) 
         VALUES (NULL, '$this->sourceEntityId', '$this->type', '$this->title', '$this->overview', '$this->poster_path', 
         '$this->release_date', '$this->runtime', '$this->posterURL')";
-        $insertData = $requestHandler->tryToInsertData($query);
+        $insertData = $requestHandler->addOneRowToDatabase($query);
         if($insertData ===FALSE){
             return FALSE;
         }
