@@ -8,6 +8,7 @@
 
 import UIKit
 import Kingfisher
+import SkeletonView
 
 class UserProfileViewController: UIViewController {
 
@@ -63,9 +64,13 @@ class UserProfileViewController: UIViewController {
             guard let idUser = keychain.getID() else{
                 return
             }
-            
+            self.MyEventsCollectionView.showAnimatedGradientSkeleton()
+            self.AttendingEventsCollectionView.showAnimatedGradientSkeleton()
             let provider = WebEventProvider()
             provider.getEventsByOwnerId (for: idUser, eventType: EventType.allEvent){ (result) in
+                DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {  self.MyEventsCollectionView.hideSkeleton()
+                    self.AttendingEventsCollectionView.hideSkeleton()
+                }
                 switch result {
                 case .success(let podaci):
                     print (podaci)
@@ -84,9 +89,14 @@ class UserProfileViewController: UIViewController {
                guard let idUser = keychain.getID() else{
                    return
                }
-               
+               self.MyEventsCollectionView.showAnimatedGradientSkeleton()
+               self.AttendingEventsCollectionView.showAnimatedGradientSkeleton()
                let provider = WebEventProvider()
-        provider.getEventsByUserID (for: idUser, eventType: EventType.allEvent){ (result) in  switch result {
+        provider.getEventsByUserID (for: idUser, eventType: EventType.allEvent){ (result) in
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {  self.MyEventsCollectionView.hideSkeleton()
+                self.AttendingEventsCollectionView.hideSkeleton()
+            }
+            switch result {
                    case .success(let podaci):
                        print (podaci)
                        self.updateAttendingEventsContent(result: podaci)
@@ -113,8 +123,16 @@ class UserProfileViewController: UIViewController {
         }
 }
 
-extension UserProfileViewController: UICollectionViewDataSource {
+extension UserProfileViewController: SkeletonCollectionViewDataSource, UICollectionViewDataSource {
        
+    func collectionSkeletonView(_ skeletonView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 3
+    }
+    
+    func collectionSkeletonView(_ skeletonView: UICollectionView, cellIdentifierForItemAt indexPath: IndexPath) -> ReusableCellIdentifier {
+        return "UserProfileCollectionViewCell"
+    }
+    
        func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
           
         if collectionView === self.MyEventsCollectionView {

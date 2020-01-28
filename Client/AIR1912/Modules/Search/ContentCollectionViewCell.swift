@@ -36,6 +36,8 @@ class ContentCollectionViewCell: UICollectionViewCell {
     }
     
     private func setupView() {
+        titleName.layer.cornerRadius = 6.0
+        titleName.layer.masksToBounds = true
         featuredImageView.layer.cornerRadius = 12.0
         featuredImageView.layer.masksToBounds = true
     }

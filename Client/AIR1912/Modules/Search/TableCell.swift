@@ -20,7 +20,7 @@ class TableCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        setupView()
     }
     
     override func prepareForReuse() {
@@ -28,6 +28,7 @@ class TableCell: UITableViewCell {
         imgView.image = nil
         
     }
+    
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
@@ -36,7 +37,13 @@ class TableCell: UITableViewCell {
     }
     
     private func setupView() {
-        imgView.layer.cornerRadius = 12.0
+        titleLbl.layer.cornerRadius = 4.0
+        titleLbl.layer.masksToBounds = true
+        genresLbl.layer.cornerRadius = 4.0
+        genresLbl.layer.masksToBounds = true
+        ratingsLbl.layer.cornerRadius = 4.0
+        ratingsLbl.layer.masksToBounds = true
+        imgView.layer.cornerRadius = 8.0
         imgView.layer.masksToBounds = true
         
     }
@@ -57,7 +64,6 @@ class TableCell: UITableViewCell {
 }
     
     func configure(id: Int, with content: Content) {
-        setupView()
         contentId = id
         getDetails(for: content.type)
         

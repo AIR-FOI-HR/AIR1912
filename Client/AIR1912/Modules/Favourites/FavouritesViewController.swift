@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SkeletonView
 
 class FavouritesViewController: UIViewController {
 
@@ -34,8 +35,13 @@ class FavouritesViewController: UIViewController {
     }
     
     private func getFavouriteContent(for type: ContentType, userId: Int){
+        self.favouriteMoviesCollectionView.showAnimatedGradientSkeleton()
+        self.favouriteGamesCollectionView.showAnimatedGradientSkeleton()
         let provider = WebContentProvider()
         _ = provider.getFavouritesByUserId(with: userId, contentType: type) { (result) in
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {  self.favouriteMoviesCollectionView.hideSkeleton()
+                self.favouriteGamesCollectionView.hideSkeleton()
+            }
             switch result {
             case .success(let podaci):
                 print(podaci)
@@ -60,7 +66,16 @@ class FavouritesViewController: UIViewController {
 
 }
 
-extension FavouritesViewController: UICollectionViewDataSource, UICollectionViewDelegate {
+extension FavouritesViewController: SkeletonCollectionViewDataSource, UICollectionViewDataSource, UICollectionViewDelegate {
+    
+    func collectionSkeletonView(_ skeletonView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 3
+    }
+    
+    func collectionSkeletonView(_ skeletonView: UICollectionView, cellIdentifierForItemAt indexPath: IndexPath) -> ReusableCellIdentifier {
+        return "FavouritesCollectionViewCell"
+    }
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if collectionView === self.favouriteMoviesCollectionView {
                    return moviesDataSource.count
