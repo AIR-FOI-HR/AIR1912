@@ -1,6 +1,7 @@
 <?php
 
 require_once("ConnectionData.php");
+require_once("class.RequestHandler.php");
 
 class Event{
    public $id;
@@ -41,7 +42,7 @@ class Event{
         $connectionData = new ConnectionData();
         $connectionString = $connectionData->getConnectionString();
       
-        // Check connection
+        
         if (mysqli_connect_errno())
         {
         echo "Failed to connect to MySQL: " . mysqli_connect_error();
@@ -55,19 +56,47 @@ class Event{
         if(!mysqli_query($connectionString,$query)) 
         {
             echo mysqli_error($connectionString);
-        die('Error : Query Not Executed. Please Fix the Issue! '); 
+            die('Error : Query Not Executed. Please Fix the Issue! '); 
         
-        } 
-
-        else
+        }else
         {
-        echo "Data Inserted Successully!!!"; 
+            $newRecordId = mysql_insert_id();
+            $sql  = "SELECT Event.* FROM `Event` WHERE id = '$newRecordId'";
+            $requestHandler = new RequestHandler();
+            $data = $requestHandler->getMultipleDataFromDatabase($sql);
+            echo json_encode($data, JSON_NUMERIC_CHECK);
+        }
+        mysqli_close($connectionString);  
+    }
+
+    function updateEvent(){
+        $connectionData = new ConnectionData();
+        $connectionString = $connectionData->getConnectionString();
+      
+        
+        if (mysqli_connect_errno())
+        {
+        echo "Failed to connect to MySQL: " . mysqli_connect_error();
         }
 
-        // Close connections
-        mysqli_close($connectionString);
-        
+        $query = "UPDATE `Event` SET `title` = '$this->title', `maxNumberOfPeople` = '$this->maxNumberOfPeople', `password` = '$this->password', `description` = '$this->description', `latitude` = '$this->latitude', `longitude` = '$this->longitude', `isPrivate` = '$this->isPrivate', `contentID` = '$this->contentID', `dateTime` = '$this->dateTime' WHERE `Event`.`id` = '$this->id'";
 
+        if(!mysqli_query($connectionString,$query)) 
+        {
+            echo mysqli_error($connectionString);
+            die('Error : Query Not Executed. Please Fix the Issue! '); 
+        
+        }else
+        {
+            $updatedRecordId = $this->id;
+            $sql  = "SELECT Event.* FROM `Event` WHERE id = '$updatedRecordId'";
+            $requestHandler = new RequestHandler();
+            $data = $requestHandler->getMultipleDataFromDatabase($sql);
+            echo json_encode($data, JSON_NUMERIC_CHECK);
+        }
+        mysqli_close($connectionString);  
+        
     }
+
 }
 ?>
