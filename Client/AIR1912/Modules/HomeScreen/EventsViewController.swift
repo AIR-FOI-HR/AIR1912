@@ -129,7 +129,7 @@ class EventsViewController: UIViewController {
                }
     }
 
-extension EventsViewController: SkeletonCollectionViewDataSource {
+extension EventsViewController: SkeletonCollectionViewDataSource, UICollectionViewDelegate {
     func collectionSkeletonView(_ skeletonView: UICollectionView, cellIdentifierForItemAt indexPath: IndexPath) -> ReusableCellIdentifier {
         return "EventCollectionViewCell"
     }
@@ -158,6 +158,27 @@ extension EventsViewController: SkeletonCollectionViewDataSource {
             
             return cell
         }
+        
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+                print("KLIKIĆ")
+               let storyboard = UIStoryboard(name: "EventDetails", bundle: nil)
+               guard let viewController = storyboard.instantiateViewController(identifier: "EventDetails") as? EventDetailsViewController else {
+                   return
+               }
+               let datasource: [Event]
+               if collectionView === self.nearEventsCollectionView {
+                   datasource = nearEventsDataSource
+               } else if collectionView == self.myEventsCollectionView {
+                   datasource = myEventsDataSource
+               } else {
+                   return
+               }
+               let event = datasource[indexPath.row]
+               viewController.event = event
+               viewController.modalPresentationStyle = .popover
+               self.present(viewController, animated: true, completion: nil)
+           }
+    
     }
 
 extension EventsViewController: CLLocationManagerDelegate{
