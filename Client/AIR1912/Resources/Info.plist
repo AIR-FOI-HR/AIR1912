@@ -67,6 +67,8 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>NSFaceIDUsageDescription</key>
+	<string>To be able to login in to the App</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>We use your location to give you best Events around you</string>
 	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>

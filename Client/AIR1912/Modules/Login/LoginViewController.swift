@@ -9,6 +9,7 @@
 import UIKit
 import Alamofire
 import KBRoundedButton
+import LocalAuthentication
 
 let API_URL = "http://air1912.000webhostapp.com/service.php"
 
@@ -22,6 +23,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var upContentView: UIView!
     @IBOutlet weak var logInButton: KBRoundedButton!
     
+    @IBOutlet weak var touchIDButton: UIButton!
+    @IBOutlet weak var faceIDButton: UIButton!
     // MARK: - Properties
     private let authService: AuthService = AuthService()
     private let userKeychain: UserKeychain = UserKeychain()
@@ -56,7 +59,11 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
            self.present(RecoverPsaswordController, animated: true, completion: nil)
            
        }
-
+    
+    @IBAction func faceIDLogIn(_ sender: Any) {
+        handleFaceIDTouchID()
+    }
+    
 }
 
 
@@ -75,6 +82,29 @@ extension LoginViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
+    
+    @objc fileprivate func handleFaceIDTouchID() {
+        let context = LAContext()
+        
+        if context.canEvaluatePolicy(.deviceOwnerAuthentication, error: nil) {
+            context.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: "To have an access to the door that we need to check your FaceID/TouchID") { (wasSuccessful, error) in
+                if wasSuccessful{
+                    DispatchQueue.main.async {
+                          self.dismiss(animated: true, completion: nil)
+                    }
+                } else {
+                    let alerter = Alerter(title: "Incorrect credentials", message: "Please try again")
+                    alerter.alertError()
+                }
+            }
+            
+        } else {
+            let alerter = Alerter(title: "FaceID/TouchID not configured", message: "Please go to device settings")
+            alerter.alertError()
+        }
+    }
+    
+ 
     
     private func loginUser() {
         
