@@ -35,6 +35,8 @@
 		42C7AE1E23A8E10E00398BE9 /* WebContentProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42C7AE1D23A8E10E00398BE9 /* WebContentProvider.swift */; };
 		42C7AE2023A8F9B300398BE9 /* FavouritesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42C7AE1F23A8F9B300398BE9 /* FavouritesCollectionViewCell.swift */; };
 		42D7159423E08FC6005C4646 /* MapPin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D7159323E08FC6005C4646 /* MapPin.swift */; };
+		42D7159723E0A554005C4646 /* MapDetails.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 42D7159623E0A554005C4646 /* MapDetails.storyboard */; };
+		42D7159B23E0AA43005C4646 /* MapDetailsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D7159A23E0AA43005C4646 /* MapDetailsController.swift */; };
 		42F2ACFA23AA5A9600C2DA20 /* ContentDetails.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 42F2ACF923AA5A9600C2DA20 /* ContentDetails.storyboard */; };
 		42F2ACFC23AA610900C2DA20 /* ContentDetailsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42F2ACFB23AA610900C2DA20 /* ContentDetailsController.swift */; };
 		D0655947A9CF0CDD85866E29 /* Pods_AIR1912.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0702C62035766E8AC911DBD4 /* Pods_AIR1912.framework */; };
@@ -109,6 +111,8 @@
 		42C7AE1D23A8E10E00398BE9 /* WebContentProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebContentProvider.swift; sourceTree = "<group>"; };
 		42C7AE1F23A8F9B300398BE9 /* FavouritesCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritesCollectionViewCell.swift; sourceTree = "<group>"; };
 		42D7159323E08FC6005C4646 /* MapPin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapPin.swift; sourceTree = "<group>"; };
+		42D7159623E0A554005C4646 /* MapDetails.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MapDetails.storyboard; sourceTree = "<group>"; };
+		42D7159A23E0AA43005C4646 /* MapDetailsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapDetailsController.swift; sourceTree = "<group>"; };
 		42F2ACF923AA5A9600C2DA20 /* ContentDetails.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ContentDetails.storyboard; sourceTree = "<group>"; };
 		42F2ACFB23AA610900C2DA20 /* ContentDetailsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentDetailsController.swift; sourceTree = "<group>"; };
 		949424CDCE90C8DF2A9D94EF /* Pods-AIR1912.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AIR1912.release.xcconfig"; path = "Target Support Files/Pods-AIR1912/Pods-AIR1912.release.xcconfig"; sourceTree = "<group>"; };
@@ -269,6 +273,15 @@
 			path = ErrorHandling;
 			sourceTree = "<group>";
 		};
+		42D7159523E0A531005C4646 /* MapDetails */ = {
+			isa = PBXGroup;
+			children = (
+				42D7159623E0A554005C4646 /* MapDetails.storyboard */,
+				42D7159A23E0AA43005C4646 /* MapDetailsController.swift */,
+			);
+			path = MapDetails;
+			sourceTree = "<group>";
+		};
 		42F2ACF823AA5A1900C2DA20 /* ContentDetails */ = {
 			isa = PBXGroup;
 			children = (
@@ -421,6 +434,7 @@
 		ED56B4ED2375672E00BD4821 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				42D7159523E0A531005C4646 /* MapDetails */,
 				42F2ACF823AA5A1900C2DA20 /* ContentDetails */,
 				ED3CE89623AEBCB40052015F /* EventCRUD */,
 				EDE3EF87239E4184001BD61A /* EventDetails */,
@@ -588,6 +602,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				42D7159723E0A554005C4646 /* MapDetails.storyboard in Resources */,
 				EDCA57DD23845B03002C3AE1 /* Login.storyboard in Resources */,
 				ED3CE89C23AEBCFC0052015F /* EventCRUD.storyboard in Resources */,
 				ED35F620237560DC009ED574 /* LaunchScreen.storyboard in Resources */,
@@ -656,6 +671,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EDCA57DC23845B03002C3AE1 /* LoginViewController.swift in Sources */,
+				42D7159B23E0AA43005C4646 /* MapDetailsController.swift in Sources */,
 				425F5C6A23A2B40E00B09368 /* ContentProviderFactory.swift in Sources */,
 				ED35F61B237560D8009ED574 /* AIR1912.xcdatamodeld in Sources */,
 				ED3CE89E23AEBD0C0052015F /* EventCRUDViewController.swift in Sources */,

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Map Details Controller-->
+        <scene sceneID="4tu-q8-bo4">
+            <objects>
+                <viewController storyboardIdentifier="MapDetails" useStoryboardIdentifierAsRestorationIdentifier="YES" id="LLx-nI-WwI" customClass="MapDetailsController" customModule="AIR1912" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="t5a-MO-QLB">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3UV-WO-533">
+                                <rect key="frame" x="0.0" y="668" width="414" height="228"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uX3-jE-1IG">
+                                        <rect key="frame" x="184" y="81" width="46" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="Button"/>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="3UV-WO-533" secondAttribute="bottom" id="0Xn-7l-B80"/>
+                            <constraint firstItem="3UV-WO-533" firstAttribute="top" secondItem="IsR-xI-dzw" secondAttribute="top" constant="624" id="3ks-ZR-DIK"/>
+                            <constraint firstItem="3UV-WO-533" firstAttribute="leading" secondItem="t5a-MO-QLB" secondAttribute="leading" id="H4W-vY-flj"/>
+                            <constraint firstAttribute="trailing" secondItem="3UV-WO-533" secondAttribute="trailing" id="MKg-N6-WzH"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="IsR-xI-dzw"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JGS-WY-amP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="276.81159420289856" y="397.76785714285711"/>
+        </scene>
+    </scenes>
+</document>
