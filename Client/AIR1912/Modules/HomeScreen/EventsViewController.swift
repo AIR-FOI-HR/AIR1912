@@ -32,8 +32,8 @@ class EventsViewController: UIViewController {
         override func viewDidLoad() {
             super.viewDidLoad()
             getUserLocation()
-            eventsNearMeLabel.textColor = ThemesManager.shared.theme?.baseColor
-            myEventsLabel.textColor = ThemesManager.shared.theme?.baseColor
+            eventsNearMeLabel.textColor = ThemesManager.shared.theme.baseColor
+            myEventsLabel.textColor = ThemesManager.shared.theme.baseColor
             
             view.isSkeletonable = false
            
@@ -133,6 +133,11 @@ class EventsViewController: UIViewController {
     }
 
 extension EventsViewController: SkeletonCollectionViewDataSource {
+    
+    func collectionSkeletonView(_ skeletonView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 3
+    }
+    
     func collectionSkeletonView(_ skeletonView: UICollectionView, cellIdentifierForItemAt indexPath: IndexPath) -> ReusableCellIdentifier {
         return "EventCollectionViewCell"
     }

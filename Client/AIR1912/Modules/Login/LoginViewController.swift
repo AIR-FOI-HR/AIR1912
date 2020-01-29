@@ -72,8 +72,8 @@ extension LoginViewController {
         super.viewDidLoad()
         emailTextField.delegate = self
         passwordTextField.delegate = self
-        upContentView.backgroundColor = ThemesManager.shared.theme?.baseColor
-        logInButton.backgroundColor = ThemesManager.shared.theme?.baseColor
+        upContentView.backgroundColor = ThemesManager.shared.theme.baseColor
+        logInButton.backgroundColor = ThemesManager.shared.theme.baseColor
         
         startScrollIndicatorInset = scrollView.verticalScrollIndicatorInsets.bottom
         

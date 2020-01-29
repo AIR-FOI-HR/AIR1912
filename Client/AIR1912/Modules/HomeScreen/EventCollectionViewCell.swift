@@ -27,8 +27,12 @@ class EventCollectionViewCell: UICollectionViewCell {
         
     }
     
-    func configureForMyEvents(with event: Event) {
+    override func awakeFromNib() {
+        super.awakeFromNib()
         setupView()
+    }
+    
+    func configureForMyEvents(with event: Event) {
             
         titleName!.text = event.title
         let provider =  WebContentProvider()
@@ -67,6 +71,8 @@ class EventCollectionViewCell: UICollectionViewCell {
     
     
     private func setupView() {
+        titleName.layer.cornerRadius = 6.0
+        titleName.layer.masksToBounds = true
         featuredImageView.layer.cornerRadius = 12.0
         featuredImageView.layer.masksToBounds = true
     }

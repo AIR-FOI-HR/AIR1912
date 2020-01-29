@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 import Alamofire
+import SkeletonView
 
 class ContentSearchController: UIViewController{
     
@@ -29,15 +30,24 @@ class ContentSearchController: UIViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        table.rowHeight = UITableView.automaticDimension
         setupSearchBar()
+        table.showAnimatedSkeleton()
         getLatestContent(for: .movie)
         
     }
     
 }
 
-extension ContentSearchController: UITableViewDelegate, UISearchBarDelegate {
+extension ContentSearchController: SkeletonTableViewDataSource, UITableViewDelegate, UISearchBarDelegate {
     
+    func collectionSkeletonView(_ skeletonView: UITableView, numberOfRowsInSection section: Int) -> Int {
+       return 5
+    }
+    
+    func collectionSkeletonView(_ skeletonView: UITableView, cellIdentifierForRowAt indexPath: IndexPath) -> ReusableCellIdentifier {
+       return "Cell"
+    }
     
     private func setupSearchBar() {
         searchBar.delegate = self
@@ -81,6 +91,7 @@ extension ContentSearchController: UITableViewDelegate, UISearchBarDelegate {
     }
    
     private func getSearchedContent(for type: ContentType) {
+        
         let provider = ContentProviderFactory.contentProvider(forContentType: type)
         provider.getSearchedContent(title: searchTitle) { (result) in
             switch result {
@@ -95,8 +106,12 @@ extension ContentSearchController: UITableViewDelegate, UISearchBarDelegate {
    
     
     private func getLatestContent(for type: ContentType) {
+    //self.table.showAnimatedGradientSkeleton()
     let provider = ContentProviderFactory.contentProvider(forContentType: type)
     provider.getLatestContent { (result) in
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+        self.table.hideSkeleton()
+        }
         switch result {
         case .success(let podaci):
             self.updateContent(for: type, result: podaci)
@@ -146,6 +161,7 @@ extension ContentSearchController: UITableViewDataSource{
         } else {
             content = gamesDatasource[indexPath.row]
         }
+        cell.hideSkeleton()
         cell.configure(id: content.id, with: content)
         return cell
     }

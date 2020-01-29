@@ -92,6 +92,9 @@
                                                                                                 <constraint firstAttribute="height" constant="220" id="XEZ-ex-4An"/>
                                                                                                 <constraint firstAttribute="width" constant="140" id="yZ0-ng-Ya5"/>
                                                                                             </constraints>
+                                                                                            <userDefinedRuntimeAttributes>
+                                                                                                <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                                                                                            </userDefinedRuntimeAttributes>
                                                                                         </imageView>
                                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6ku-St-Paa">
                                                                                             <rect key="frame" x="0.0" y="228" width="140" height="18"/>
@@ -101,6 +104,9 @@
                                                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                                             <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                             <nil key="highlightedColor"/>
+                                                                                            <userDefinedRuntimeAttributes>
+                                                                                                <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                                                                                            </userDefinedRuntimeAttributes>
                                                                                         </label>
                                                                                     </subviews>
                                                                                     <constraints>
@@ -113,14 +119,23 @@
                                                                                         <constraint firstAttribute="trailing" secondItem="6ku-St-Paa" secondAttribute="trailing" id="fjm-oo-cJF"/>
                                                                                         <constraint firstItem="QDs-2M-emo" firstAttribute="leading" secondItem="obu-6M-xFE" secondAttribute="leading" id="pBQ-Ht-MHo"/>
                                                                                     </constraints>
+                                                                                    <userDefinedRuntimeAttributes>
+                                                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                                                                                    </userDefinedRuntimeAttributes>
                                                                                 </collectionViewCellContentView>
                                                                                 <size key="customSize" width="140" height="250"/>
+                                                                                <userDefinedRuntimeAttributes>
+                                                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                                                                                </userDefinedRuntimeAttributes>
                                                                                 <connections>
                                                                                     <outlet property="featuredImageView" destination="QDs-2M-emo" id="Pjc-Bn-ECs"/>
                                                                                     <outlet property="titleName" destination="6ku-St-Paa" id="AwM-y8-aOu"/>
                                                                                 </connections>
                                                                             </collectionViewCell>
                                                                         </cells>
+                                                                        <userDefinedRuntimeAttributes>
+                                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                                                                        </userDefinedRuntimeAttributes>
                                                                         <connections>
                                                                             <outlet property="dataSource" destination="YJo-N3-qu0" id="qRM-Jr-WTI"/>
                                                                             <outlet property="delegate" destination="YJo-N3-qu0" id="mxC-vk-X3e"/>
@@ -134,6 +149,9 @@
                                                                     <constraint firstAttribute="trailing" secondItem="m8p-lM-C2y" secondAttribute="trailing" id="qGe-Lz-o8p"/>
                                                                     <constraint firstItem="m8p-lM-C2y" firstAttribute="leading" secondItem="yXN-MF-RPW" secondAttribute="leading" id="tIN-hJ-tM9"/>
                                                                 </constraints>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                                                                </userDefinedRuntimeAttributes>
                                                             </view>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="h5r-x8-Y78">
                                                                 <rect key="frame" x="0.0" y="423" width="414" height="128"/>
@@ -182,6 +200,9 @@
                                                                                                 <constraint firstAttribute="height" constant="220" id="IKl-00-EQV"/>
                                                                                                 <constraint firstAttribute="width" constant="140" id="yb7-M7-hhK"/>
                                                                                             </constraints>
+                                                                                            <userDefinedRuntimeAttributes>
+                                                                                                <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                                                                                            </userDefinedRuntimeAttributes>
                                                                                         </imageView>
                                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="adO-Ij-qOb">
                                                                                             <rect key="frame" x="0.0" y="228" width="140" height="18"/>
@@ -191,6 +212,9 @@
                                                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                                             <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                             <nil key="highlightedColor"/>
+                                                                                            <userDefinedRuntimeAttributes>
+                                                                                                <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                                                                                            </userDefinedRuntimeAttributes>
                                                                                         </label>
                                                                                     </subviews>
                                                                                     <constraints>
@@ -202,14 +226,23 @@
                                                                                         <constraint firstItem="adO-Ij-qOb" firstAttribute="leading" secondItem="NfG-g7-FKc" secondAttribute="leading" id="WTR-XW-IOf"/>
                                                                                         <constraint firstAttribute="trailing" secondItem="kdv-xc-n1i" secondAttribute="trailing" id="jmh-KF-LSg"/>
                                                                                     </constraints>
+                                                                                    <userDefinedRuntimeAttributes>
+                                                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                                                                                    </userDefinedRuntimeAttributes>
                                                                                 </collectionViewCellContentView>
                                                                                 <size key="customSize" width="140" height="250"/>
+                                                                                <userDefinedRuntimeAttributes>
+                                                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                                                                                </userDefinedRuntimeAttributes>
                                                                                 <connections>
                                                                                     <outlet property="featuredImageView" destination="kdv-xc-n1i" id="gJW-aq-ExL"/>
                                                                                     <outlet property="titleName" destination="adO-Ij-qOb" id="plo-Vo-kam"/>
                                                                                 </connections>
                                                                             </collectionViewCell>
                                                                         </cells>
+                                                                        <userDefinedRuntimeAttributes>
+                                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                                                                        </userDefinedRuntimeAttributes>
                                                                         <connections>
                                                                             <outlet property="dataSource" destination="YJo-N3-qu0" id="uGc-jG-tcO"/>
                                                                             <outlet property="delegate" destination="YJo-N3-qu0" id="qjL-8B-9Z2"/>
@@ -223,6 +256,9 @@
                                                                     <constraint firstAttribute="trailing" secondItem="POV-ju-Fxq" secondAttribute="trailing" id="tOd-jI-hla"/>
                                                                     <constraint firstAttribute="bottom" secondItem="POV-ju-Fxq" secondAttribute="bottom" id="uGz-HE-GOn"/>
                                                                 </constraints>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                                                                </userDefinedRuntimeAttributes>
                                                             </view>
                                                         </subviews>
                                                     </stackView>

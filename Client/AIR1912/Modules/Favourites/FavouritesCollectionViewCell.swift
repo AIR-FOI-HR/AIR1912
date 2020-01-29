@@ -25,8 +25,12 @@ class FavouritesCollectionViewCell: UICollectionViewCell {
         
     }
     
-    func configure(with content: DBContent) {
+    override func awakeFromNib() {
+        super.awakeFromNib()
         setupView()
+    }
+    
+    func configure(with content: DBContent) {
         userId = keychain.getID()!
         titleName!.text = content.title
         let provider =  WebContentProvider()
@@ -45,6 +49,8 @@ class FavouritesCollectionViewCell: UICollectionViewCell {
     
     
     private func setupView() {
+        titleName.layer.cornerRadius = 6.0
+        titleName.layer.masksToBounds = true
         featuredImageView.layer.cornerRadius = 12.0
         featuredImageView.layer.masksToBounds = true
     }
