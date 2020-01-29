@@ -40,10 +40,24 @@
                         <viewLayoutGuide key="safeArea" id="5Pd-ax-Mc1"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Maps" image="mappin.and.ellipse" catalog="system" id="OSh-uT-poJ"/>
-                    <navigationItem key="navigationItem" id="AYA-FF-cAQ"/>
+                    <navigationItem key="navigationItem" id="AYA-FF-cAQ">
+                        <nil key="title"/>
+                        <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="Kv7-x9-ZH3">
+                            <rect key="frame" x="144.5" y="5.5" width="125" height="33"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <segments>
+                                <segment title="Movies"/>
+                                <segment title="Games"/>
+                            </segments>
+                            <connections>
+                                <action selector="movieGameSelector:" destination="NiQ-IV-ToW" eventType="valueChanged" id="zFm-wi-fzh"/>
+                            </connections>
+                        </segmentedControl>
+                    </navigationItem>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="mapView" destination="2fc-id-SXH" id="wnS-w9-E2L"/>
+                        <outlet property="movieGameSelector" destination="Kv7-x9-ZH3" id="d3B-0J-CKP"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vcC-DV-BJA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

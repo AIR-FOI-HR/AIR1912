@@ -10,24 +10,45 @@ import UIKit
 import MapKit
 
 class MapsController: UIViewController, MKMapViewDelegate {
-
+    
     @IBOutlet weak var mapView: MKMapView!
+    @IBOutlet weak var movieGameSelector: UISegmentedControl!
+    @IBAction func movieGameSelector(_ sender: Any) {
+        let getIndex = movieGameSelector.selectedSegmentIndex
+        
+        switch (getIndex){
+        case 0:
+            getEvents(type: "movie")
+            
+        case 1:
+            getEvents(type: "game")
+            
+        default:
+            print("default")
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         mapView.delegate = self
         
-        getAllEvents()
+        getEvents(type: "movie")
         
     }
     
-    func getAllEvents(){
+    func getEvents(type: String){
+       let annotations = self.mapView.annotations
+            for annotation in annotations {
+                self.mapView.removeAnnotation(annotation)
+            }
+        
+        
         let provider = WebEventProvider()
         provider.getAllEvents(){ (result) in
             
             switch result {
             case .success(let events):
-                self.populateMapWithPins(events: events)
+                self.populateMapWithPins(events: events, type: type)
                 
             case .failure(let error):
                 print(error)
@@ -35,16 +56,40 @@ class MapsController: UIViewController, MKMapViewDelegate {
         }
     }
     
-    func populateMapWithPins(events:[Event]){
-        // provjeri je li event privatan ili javan i ovisno o tome postavi boju
+    func removeAllAnnotations(){
+        
+    }
+    
+    func populateMapWithPins(events:[Event], type: String){
         for event in events{
-            if(event.isPrivate == 1){
-                let pin = MapPin(event: event, pinColor: UIColor.red)
-                mapView.addAnnotation(pin)
+            // provjera tipa contenta
+            let provider = WebContentProvider()
+            provider.getContentById(for: event.contentID){ (result) in
+
+                switch result{
+                case .success(let content):
+                    test(contentType: content[0].type!)
+                case .failure(let error):
+                    print(error)
+                }
             }
-            else{
-                let pin = MapPin(event: event, pinColor:UIColor.green)
-                mapView.addAnnotation(pin)
+
+            func test(contentType: String){
+                
+                // provjera privatnosti eventa
+                if(contentType == type)
+                {
+                    print(contentType)
+                    if(event.isPrivate == 1){
+                        let pin = MapPin(event: event, pinColor: UIColor.red)
+                        mapView.addAnnotation(pin)
+                    }
+                    else{
+                        let pin = MapPin(event: event, pinColor:UIColor.green)
+                        mapView.addAnnotation(pin)
+                    }
+                }
+                
             }
             
         }
