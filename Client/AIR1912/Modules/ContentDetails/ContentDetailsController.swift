@@ -28,6 +28,8 @@ class ContentDetailsController: UIViewController {
     @IBOutlet weak var descriptionHeadlineLbl: UILabel!
     @IBOutlet weak var favouritesButton: UIImageView!
     
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    
     //MARK: - Properties
     
     var id: Int = 0
@@ -84,6 +86,7 @@ class ContentDetailsController: UIViewController {
             
             case .failure( _):
                 print("is not favourite")
+                self.stopAnimatingActivityIndicator()
             }
         
         }
@@ -91,10 +94,13 @@ class ContentDetailsController: UIViewController {
     
     func setHeartFavourite(){
         favouritesButton.tintColor = UIColor.red
-        //favouritesButton.image = UIImage(named: "Heart")
+        favouritesButton.image = UIImage(named: "Heart")
+        stopAnimatingActivityIndicator()
     }
     
-
+    func stopAnimatingActivityIndicator(){
+        activityIndicator.stopAnimating()
+    }
     
     func addToFavourites(){
         
@@ -112,6 +118,7 @@ class ContentDetailsController: UIViewController {
                     
             case .failure(_):
                 print("is not in database")
+                self.stopAnimatingActivityIndicator()
             }
         }
     }
