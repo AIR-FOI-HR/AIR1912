@@ -166,24 +166,27 @@
                                                                                             </userDefinedRuntimeAttributes>
                                                                                         </imageView>
                                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ofe-hc-FO5">
-                                                                                            <rect key="frame" x="0.0" y="225" width="118" height="21"/>
+                                                                                            <rect key="frame" x="11" y="221" width="118" height="21"/>
                                                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                                             <nil key="textColor"/>
                                                                                             <nil key="highlightedColor"/>
                                                                                             <userDefinedRuntimeAttributes>
                                                                                                 <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                                                                                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                                                    <integer key="value" value="15"/>
+                                                                                                </userDefinedRuntimeAttribute>
                                                                                             </userDefinedRuntimeAttributes>
                                                                                         </label>
                                                                                     </subviews>
                                                                                     <constraints>
                                                                                         <constraint firstItem="od3-FV-JJR" firstAttribute="leading" secondItem="bQU-ZD-pBr" secondAttribute="leading" id="5hb-3N-LO1"/>
-                                                                                        <constraint firstAttribute="bottom" secondItem="ofe-hc-FO5" secondAttribute="bottom" constant="4" id="AH4-bg-v6s"/>
-                                                                                        <constraint firstItem="ofe-hc-FO5" firstAttribute="top" secondItem="od3-FV-JJR" secondAttribute="bottom" constant="5" id="EJR-Uu-Pdf"/>
-                                                                                        <constraint firstItem="ofe-hc-FO5" firstAttribute="leading" secondItem="bQU-ZD-pBr" secondAttribute="leading" id="Ed2-wI-CNK"/>
+                                                                                        <constraint firstAttribute="bottom" secondItem="ofe-hc-FO5" secondAttribute="bottom" constant="8" id="AH4-bg-v6s"/>
+                                                                                        <constraint firstItem="ofe-hc-FO5" firstAttribute="top" secondItem="od3-FV-JJR" secondAttribute="bottom" constant="1" id="EJR-Uu-Pdf"/>
+                                                                                        <constraint firstItem="ofe-hc-FO5" firstAttribute="leading" secondItem="bQU-ZD-pBr" secondAttribute="leading" constant="11" id="Ed2-wI-CNK"/>
                                                                                         <constraint firstAttribute="trailing" secondItem="od3-FV-JJR" secondAttribute="trailing" id="PCQ-xR-31f"/>
                                                                                         <constraint firstItem="od3-FV-JJR" firstAttribute="top" secondItem="bQU-ZD-pBr" secondAttribute="top" id="PPk-hH-wvC"/>
                                                                                         <constraint firstAttribute="bottom" secondItem="od3-FV-JJR" secondAttribute="bottom" constant="30" id="R8P-QX-hIp"/>
-                                                                                        <constraint firstAttribute="trailing" secondItem="ofe-hc-FO5" secondAttribute="trailing" constant="22" id="SGW-48-CnG"/>
+                                                                                        <constraint firstAttribute="trailing" secondItem="ofe-hc-FO5" secondAttribute="trailing" constant="11" id="SGW-48-CnG"/>
                                                                                     </constraints>
                                                                                     <userDefinedRuntimeAttributes>
                                                                                         <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
@@ -271,22 +274,25 @@
                                                                                             </userDefinedRuntimeAttributes>
                                                                                         </imageView>
                                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yQJ-6R-ETl">
-                                                                                            <rect key="frame" x="0.0" y="225" width="116" height="25"/>
+                                                                                            <rect key="frame" x="8" y="225" width="124" height="25"/>
                                                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                                             <nil key="textColor"/>
                                                                                             <nil key="highlightedColor"/>
                                                                                             <userDefinedRuntimeAttributes>
                                                                                                 <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                                                                                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                                                    <integer key="value" value="15"/>
+                                                                                                </userDefinedRuntimeAttribute>
                                                                                             </userDefinedRuntimeAttributes>
                                                                                         </label>
                                                                                     </subviews>
                                                                                     <constraints>
-                                                                                        <constraint firstAttribute="trailing" secondItem="yQJ-6R-ETl" secondAttribute="trailing" constant="24" id="1Fn-rc-LAM"/>
+                                                                                        <constraint firstAttribute="trailing" secondItem="yQJ-6R-ETl" secondAttribute="trailing" constant="8" id="1Fn-rc-LAM"/>
                                                                                         <constraint firstItem="yQJ-6R-ETl" firstAttribute="top" secondItem="hPM-rY-QUa" secondAttribute="bottom" constant="5" id="36e-vW-G2d"/>
                                                                                         <constraint firstAttribute="bottom" secondItem="hPM-rY-QUa" secondAttribute="bottom" constant="30" id="GRN-bN-0up"/>
                                                                                         <constraint firstItem="hPM-rY-QUa" firstAttribute="leading" secondItem="c9T-32-IKn" secondAttribute="leading" id="W8x-oq-cT5"/>
                                                                                         <constraint firstAttribute="trailing" secondItem="hPM-rY-QUa" secondAttribute="trailing" id="ZNq-Yc-8KM"/>
-                                                                                        <constraint firstItem="yQJ-6R-ETl" firstAttribute="leading" secondItem="c9T-32-IKn" secondAttribute="leading" id="s8m-TH-eCY"/>
+                                                                                        <constraint firstItem="yQJ-6R-ETl" firstAttribute="leading" secondItem="c9T-32-IKn" secondAttribute="leading" constant="8" id="s8m-TH-eCY"/>
                                                                                         <constraint firstItem="hPM-rY-QUa" firstAttribute="top" secondItem="c9T-32-IKn" secondAttribute="top" id="vq2-IM-lkf"/>
                                                                                         <constraint firstAttribute="bottom" secondItem="yQJ-6R-ETl" secondAttribute="bottom" id="wVD-Lx-nZO"/>
                                                                                     </constraints>

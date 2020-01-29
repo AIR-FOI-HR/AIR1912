@@ -11,7 +11,11 @@ import Kingfisher
 import CoreLocation
 import SkeletonView
 
-class EventsViewController: UIViewController {
+class EventsViewController: UIViewController, EventDetailsDelegate {
+    func didHideView() {
+        self.viewDidLoad()
+    }
+    
     // MARK: - Private outlets
         
         @IBOutlet private weak var nearEventsCollectionView: UICollectionView!
@@ -48,6 +52,7 @@ class EventsViewController: UIViewController {
             getAllEventsByLocation(for: .allEvent)
 
         }
+   
     
     
         
@@ -160,7 +165,7 @@ extension EventsViewController: SkeletonCollectionViewDataSource, UICollectionVi
         }
         
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-                print("KLIKIĆ")
+                
                let storyboard = UIStoryboard(name: "EventDetails", bundle: nil)
                guard let viewController = storyboard.instantiateViewController(identifier: "EventDetails") as? EventDetailsViewController else {
                    return
@@ -176,6 +181,7 @@ extension EventsViewController: SkeletonCollectionViewDataSource, UICollectionVi
                let event = datasource[indexPath.row]
                viewController.event = event
                viewController.modalPresentationStyle = .popover
+                viewController.delegate = self
                self.present(viewController, animated: true, completion: nil)
            }
     

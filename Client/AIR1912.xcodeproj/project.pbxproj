@@ -57,6 +57,7 @@
 		ED5287712385AE9C00848D66 /* RecoverPassCodes.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED5287702385AE9C00848D66 /* RecoverPassCodes.swift */; };
 		ED62C01A23E0890D00ECC86D /* EventDetails.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ED62C01923E0890D00ECC86D /* EventDetails.storyboard */; };
 		ED62C01C23E0892100ECC86D /* EventDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED62C01B23E0892100ECC86D /* EventDetailsViewController.swift */; };
+		EDAC7C5323E1CD38006177A8 /* GeoLocationInverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDAC7C5223E1CD38006177A8 /* GeoLocationInverter.swift */; };
 		EDB57AA4238EA4430032DC9E /* MapsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB57AA3238EA4430032DC9E /* MapsController.swift */; };
 		EDB57AA6238EA4920032DC9E /* Maps.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EDB57AA5238EA4920032DC9E /* Maps.storyboard */; };
 		EDB57AA8238EA6700032DC9E /* HomeSreenTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB57AA7238EA6700032DC9E /* HomeSreenTabBarController.swift */; };
@@ -133,6 +134,7 @@
 		ED5287702385AE9C00848D66 /* RecoverPassCodes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecoverPassCodes.swift; sourceTree = "<group>"; };
 		ED62C01923E0890D00ECC86D /* EventDetails.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = EventDetails.storyboard; sourceTree = "<group>"; };
 		ED62C01B23E0892100ECC86D /* EventDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetailsViewController.swift; sourceTree = "<group>"; };
+		EDAC7C5223E1CD38006177A8 /* GeoLocationInverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeoLocationInverter.swift; sourceTree = "<group>"; };
 		EDB57AA3238EA4430032DC9E /* MapsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapsController.swift; sourceTree = "<group>"; };
 		EDB57AA5238EA4920032DC9E /* Maps.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Maps.storyboard; sourceTree = "<group>"; };
 		EDB57AA7238EA6700032DC9E /* HomeSreenTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeSreenTabBarController.swift; sourceTree = "<group>"; };
@@ -513,6 +515,7 @@
 			children = (
 				EDE3EF8E239EEB4F001BD61A /* ImageBlur.swift */,
 				EDF46CAC23BCE6D700E2F5E8 /* FormatDate.swift */,
+				EDAC7C5223E1CD38006177A8 /* GeoLocationInverter.swift */,
 			);
 			path = Utilites;
 			sourceTree = "<group>";
@@ -654,6 +657,7 @@
 			files = (
 				EDCA57DC23845B03002C3AE1 /* LoginViewController.swift in Sources */,
 				425F5C6A23A2B40E00B09368 /* ContentProviderFactory.swift in Sources */,
+				EDAC7C5323E1CD38006177A8 /* GeoLocationInverter.swift in Sources */,
 				ED35F61B237560D8009ED574 /* AIR1912.xcdatamodeld in Sources */,
 				ED3CE89E23AEBD0C0052015F /* EventCRUDViewController.swift in Sources */,
 				421D5CAC237DD17700C8AD1F /* GameProvider.swift in Sources */,
