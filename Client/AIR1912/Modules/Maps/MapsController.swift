@@ -14,6 +14,9 @@ class MapsController: UIViewController, MKMapViewDelegate {
     private var locationManager: CLLocationManager!
     private let keychain: UserKeychain = UserKeychain()
     
+    @IBOutlet weak var blur: UIView!
+    @IBOutlet weak var loadingAnimation: UIActivityIndicatorView!
+    
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var movieGameSelector: UISegmentedControl!
     @IBAction func movieGameSelector(_ sender: Any) {
@@ -34,13 +37,29 @@ class MapsController: UIViewController, MKMapViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         mapView.delegate = self
+        blur.isHidden = true
         
         getEvents(type: "movie")
         setRegion()
         
+    
+    }
+    
+    func startLoadingAnimation(){
+        blur.isHidden = false
+        blur.backgroundColor = UIColor(red: 0.5, green: 0.5, blue: 0.5, alpha: 0.5)
+        loadingAnimation.startAnimating()
+    }
+    
+    func stopLoadingAnimation(){
+        blur.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0)
+        blur.isHidden = true
+        loadingAnimation.stopAnimating()
     }
     
     func getEvents(type: String){
+        self.startLoadingAnimation()
+        
        let annotations = self.mapView.annotations
             for annotation in annotations {
                 self.mapView.removeAnnotation(annotation)
@@ -58,6 +77,7 @@ class MapsController: UIViewController, MKMapViewDelegate {
                 print(error)
             }
         }
+        
     }
     
     func removeAllAnnotations(){
@@ -95,8 +115,9 @@ class MapsController: UIViewController, MKMapViewDelegate {
                 }
                 
             }
-            
         }
+        
+        stopLoadingAnimation()
     }
     
     // pokusaj bojanja pinova - ne funkcionira
