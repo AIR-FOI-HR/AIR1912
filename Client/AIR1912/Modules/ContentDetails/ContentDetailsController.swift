@@ -28,13 +28,15 @@ class ContentDetailsController: UIViewController {
     @IBOutlet weak var descriptionHeadlineLbl: UILabel!
     @IBOutlet weak var favouritesButton: UIImageView!
     
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    
     //MARK: - Properties
     
     var id: Int = 0
     var type: ContentType = .game
     let cornerRadius : CGFloat = 12
     var genreName = ""
-    
+    let keychain = UserKeychain()
 
     //MARK: - Lifecycle
 
@@ -61,19 +63,43 @@ class ContentDetailsController: UIViewController {
     }
     
     func setBlurredImage(poster : URL?) {
-        
+    
         backImage.kf.setImage(with: poster)
         let darkBlur = UIBlurEffect(style: .systemUltraThinMaterialDark)
         let blurView = UIVisualEffectView(effect: darkBlur)
         blurView.frame = backImage.bounds
         backImage.addSubview(blurView)
         
-        
     }
     
-    func isFavourite() -> Bool{
+    
+    func isFavourite(content: DBContent){
+        let userId = keychain.getID()!
+        let provider = WebContentProvider()
+        provider.checkFavouriteByContentIdAndUserId(for: userId, contentId: content.id!){ (result) in
+            
+            switch result{
+            case .success( _):
+                print("is favourite")
+                self.setHeartFavourite()
+                
+            
+            case .failure( _):
+                print("is not favourite")
+                self.stopAnimatingActivityIndicator()
+            }
         
-        return true
+        }
+    }
+    
+    func setHeartFavourite(){
+        favouritesButton.tintColor = UIColor.red
+        favouritesButton.image = UIImage(named: "Heart")
+        stopAnimatingActivityIndicator()
+    }
+    
+    func stopAnimatingActivityIndicator(){
+        activityIndicator.stopAnimating()
     }
     
     func addToFavourites(){
@@ -86,29 +112,21 @@ class ContentDetailsController: UIViewController {
         provider.checkIfContentExist(for: sourceContentId, contentType: contentType){(result) in
             
             switch result{
-                case .success(let content):
-                    print(content)
-                    // if content exists in db
-                    // add to favourites
-                    //self.tryToInsertEvent(for: content[0])
-                    
+            case .success(let content):
+                    print("is in database")
+                    self.isFavourite(content: content[0])
                     
             case .failure(_):
-                // if content is not in db
-                //self.getContentFromAPI(for: self.type, id: self.id)
-                break
+                print("is not in database")
+                self.stopAnimatingActivityIndicator()
             }
-            
-            }
-            
-        
+        }
     }
     
     
     func setUpView(for Content: Content) {
-        if(isFavourite()){
-            
-        }
+        
+        
         //self.genresLbl.text = "Action · Fantasy · Horror"
         self.descpriptionTv.text = Content.description
         self.frontImage.kf.setImage(with: Content.posterURL)
@@ -126,6 +144,8 @@ class ContentDetailsController: UIViewController {
     }
     
     func getGenre(for Content: Content) {
+        checkIfContentExistInWebDatabase(for: Content.id, contentType: Content.type)
+        
         var genreName = ""
         var brojac = 0
         if (Content.genre!.count <= 3){
@@ -189,3 +209,4 @@ class ContentDetailsController: UIViewController {
     }
     
 }
+
