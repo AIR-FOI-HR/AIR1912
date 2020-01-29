@@ -22,7 +22,9 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var upContentView: UIView!
     @IBOutlet weak var logInButton: KBRoundedButton!
-    
+    @IBOutlet weak var forgotPasswordButton: UIButton!
+    @IBOutlet weak var passwordLabel: UILabel!
+    @IBOutlet weak var userNameLabel: UILabel!
     @IBOutlet weak var faceIDButton: UIButton!
     // MARK: - Properties
     private let authService: AuthService = AuthService()
@@ -32,6 +34,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     private var emailTextFieldIsActive:Bool = false
     private var passwordTextFieldIsActive:Bool = false
     private var scrollViewWasChanged:Bool = false
+    private let context:LAContext = LAContext()
     
     //MARK: -
     
@@ -70,20 +73,49 @@ extension LoginViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        emailTextField.delegate = self
-        passwordTextField.delegate = self
-        upContentView.backgroundColor = ThemesManager.shared.theme.baseColor
-        logInButton.backgroundColor = ThemesManager.shared.theme.baseColor
         
-        startScrollIndicatorInset = scrollView.verticalScrollIndicatorInsets.bottom
+        if(userKeychain.getEmail() != nil && userKeychain.hasSessionData() == true){
+            emailTextField.isHidden = true
+            passwordTextField.isHidden = true
+            logInButton.isHidden = true
+            userNameLabel.isHidden = true
+            passwordLabel.isHidden = true
+            forgotPasswordButton.isHidden = true
+            faceIDButton.isHidden = false
+            context.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: nil)
+            if(context.biometryType == .faceID) {
+                faceIDButton.setImage(UIImage(named: "FaceID"), for: .normal)
+            } else {
+                faceIDButton.setImage(UIImage(named: "TouchID"), for: .normal)
+            }
+            
+            
+        } else {
+            
+            emailTextField.isHidden = false
+            passwordTextField.isHidden = false
+            logInButton.isHidden = false
+            userNameLabel.isHidden = false
+            passwordLabel.isHidden = false
+            forgotPasswordButton.isHidden = false
+            faceIDButton.isHidden = true
+            
+            emailTextField.delegate = self
+            passwordTextField.delegate = self
+            upContentView.backgroundColor = ThemesManager.shared.theme.baseColor
+            logInButton.backgroundColor = ThemesManager.shared.theme.baseColor
+            
+            startScrollIndicatorInset = scrollView.verticalScrollIndicatorInsets.bottom
+            
+            startContentInset = scrollView.contentInset.bottom
+            NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+            NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+        }
         
-        startContentInset = scrollView.contentInset.bottom
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+        
     }
     
     @objc fileprivate func handleFaceIDTouchID() {
-        let context = LAContext()
         
         if context.canEvaluatePolicy(.deviceOwnerAuthentication, error: nil) {
             context.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: "To have an access to the door that we need to check your FaceID/TouchID") { (wasSuccessful, error) in
@@ -113,13 +145,18 @@ extension LoginViewController {
     }
     
     private func userloginUser() {
-        
-        guard let email = emailTextField.text, !email.isEmpty, let password = passwordTextField.text, !password.isEmpty else {
-            let alerter = Alerter(title: "Some fields missing", message: "Insert value into all fields")
-            alerter.alertError()
-            return
+        let email = userKeychain.getEmail()
+        if(email != nil && userKeychain.hasSessionData() == true){
+        biometricLoginUser()
+        } else {
+            guard let email = emailTextField.text, !email.isEmpty, let password = passwordTextField.text, !password.isEmpty else {
+                let alerter = Alerter(title: "Some fields missing", message: "Insert value into all fields")
+                alerter.alertError()
+                return
+            }
+            login(email: email, password: password)
         }
-        login(email: email, password: password)
+        
     }
     
     private func login(email: String, password: String) {
@@ -135,12 +172,19 @@ extension LoginViewController {
     }
     
     private func showSuccessAlert(for user: [User]) {
+        
             let HomeStoryboard:UIStoryboard = UIStoryboard(name: "Homescreen", bundle: nil)
             let HomeController = HomeStoryboard.instantiateViewController(identifier: "HomeScreen") as! HomeSreenTabBarController
             HomeController.modalPresentationStyle = .fullScreen
             self.present(HomeController, animated: true, completion: nil)
-           
-        _ = userKeychain.saveSessionData(email: emailTextField.text!, password: passwordTextField.text!, nickname: user[0].nickname, avatar: user[0].avatar.rawValue, id: Int(user[0].idUsers!)!)
+        
+        if(userKeychain.getEmail() != nil && userKeychain.hasSessionData() == true){
+            biometricLoginUser()
+        } else {
+
+            _ = userKeychain.saveSessionData(email: emailTextField.text!, password: passwordTextField.text!, nickname: user[0].nickname, avatar: user[0].avatar.rawValue, id: Int(user[0].idUsers!)!)
+        }
+        
     }
     
     private func showErrorAlert(with error: ResponseError) {

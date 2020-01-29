@@ -91,7 +91,7 @@ class UserKeychain {
     
     public func hasSessionData() -> Bool {
         
-        guard KeychainWrapper.standard.string(forKey: UserKeychainKey.email.rawValue) != nil && KeychainWrapper.standard.string(forKey: UserKeychainKey.password.rawValue) != nil && KeychainWrapper.standard.string(forKey: UserKeychainKey.nickname.rawValue) != nil && KeychainWrapper.standard.string(forKey: UserKeychainKey.avatar.rawValue) != nil else {
+        guard KeychainWrapper.standard.string(forKey: UserKeychainKey.email.rawValue) != "" && KeychainWrapper.standard.string(forKey: UserKeychainKey.password.rawValue) != "" && KeychainWrapper.standard.string(forKey: UserKeychainKey.nickname.rawValue) != "" && KeychainWrapper.standard.string(forKey: UserKeychainKey.avatar.rawValue) != "" else {
             return false
         }
         return true
