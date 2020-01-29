@@ -11,6 +11,9 @@ import MapKit
 
 class MapsController: UIViewController, MKMapViewDelegate {
     
+    private var locationManager: CLLocationManager!
+    private let keychain: UserKeychain = UserKeychain()
+    
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var movieGameSelector: UISegmentedControl!
     @IBAction func movieGameSelector(_ sender: Any) {
@@ -33,6 +36,7 @@ class MapsController: UIViewController, MKMapViewDelegate {
         mapView.delegate = self
         
         getEvents(type: "movie")
+        setRegion()
         
     }
     
@@ -137,11 +141,34 @@ class MapsController: UIViewController, MKMapViewDelegate {
     }
     
     
-    func setRegion(latitude: Double, longitude: Double) -> Void{
-        let userLocation = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
-        let coordinateRegion = MKCoordinateRegion(center: userLocation, latitudinalMeters: 800, longitudinalMeters: 800)
+    func setRegion() -> Void{
+        getUserLocation()
+
+        let coordinateRegion = MKCoordinateRegion(center: locationManager.location!.coordinate, latitudinalMeters: 8000, longitudinalMeters: 8000)
         mapView.setRegion(coordinateRegion, animated: true)
     }
     
 
+}
+
+
+extension MapsController: CLLocationManagerDelegate{
+func getUserLocation() {
+    if (CLLocationManager.locationServicesEnabled())
+    {
+        locationManager = CLLocationManager()
+        locationManager.delegate = self
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        locationManager.requestAlwaysAuthorization()
+        locationManager.startUpdatingLocation()
+    }
+}
+
+func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation])
+{
+
+    let location = locations.last! as CLLocation
+    _ = keychain.saveLocationData(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
+    print(keychain.getLatestLocation().coordinate)
+}
 }
