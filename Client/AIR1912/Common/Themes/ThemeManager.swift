@@ -10,45 +10,58 @@ import Foundation
 import UIKit
 
 class ThemesManager {
+    var theme : Theme?
+    static var shared : ThemesManager = {
+         let themeneManager  = ThemesManager()
+         return themeneManager
+     }()
+    func setTheme(theme : Theme){
+         self.theme = theme
+     }
     
-    var theme: Theme {
-        didSet {
-            applyTheme()
-        }
-    }
     
-    private init() {
-//        let initialTheme: String
-//        if let themeValue = UserDefaults.standard.value(forKey: "theme") {
-//            if themeValue == "red" {
-//                initialTheme = RedTheme()
-//            } else if theme == "dark" {
-//                initialTheme = DarkTheme()
-//            } else if ...
-//            else
-//            Red
-//        } else {
-//            initialTheme = RedTheme()
-//        }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+//    private(set) lazy var currentTheme = loadTheme()
+//    private let defaults: UserDefaults
+//    private let defaultsKey = "theme"
 //
-//        theme = initialTheme
-        theme = RedTheme()
-    }
-    
-    static var shared: ThemesManager = {
-        let themeneManager  = ThemesManager()
-        return themeneManager
-    }()
-    
-    func setTheme(theme: Theme) {
-        self.theme = theme
-    }
-    
-    func applyTheme() {
-        UINavigationBar.appearance().barTintColor = UIColor(red: 63.0/255.0, green: 172.0/255.0, blue: 236.0/255.0, alpha: 1.0)
-    }
-    
-    func changeTheme(with identifier: String) {
-        UserDefaults.standard.setValue(identifier, forKey: "theme")
-    }
+//    init(defaults: UserDefaults = .standard) {
+//        self.defaults = defaults
+//    }
+//
+//    func changeTheme(to theme: Themes) {
+//        currentTheme = theme
+//        defaults.setValue(theme.rawValue, forKey: defaultsKey)
+//    }
+//
+//    private func loadTheme() -> Themes {
+//        let rawValue = defaults.string(forKey: defaultsKey)
+//
+//        if let themeValue = UserDefaults.standard.value(forKey: defaultsKey) {
+//            if case Themes.red = themeValue{
+//                return rawValue.flatMap(Themes.init) ?? .red
+//            }else if case Themes.dark = themeValue{
+//                return rawValue.flatMap(Themes.init) ?? .dark
+//            }else if case Themes.pink = themeValue{
+//                return rawValue.flatMap(Themes.init) ?? .pink
+//            }else{
+//                return rawValue.flatMap(Themes.init) ?? .red
+//            }
+//        }else{
+//            return rawValue.flatMap(Themes.init) ?? .red
+//        }
+//    }
 }
