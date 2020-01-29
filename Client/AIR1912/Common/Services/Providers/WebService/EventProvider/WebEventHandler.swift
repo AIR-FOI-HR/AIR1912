@@ -35,6 +35,51 @@ class WebEventHandler{
         
     }
     
+    func updateEvent(for event:Event, completion: @escaping (Result<[Event]>) -> Void){
+        
+        let decoder = JSONDecoder()
+        var eventDictionary = try! event.asDictionary()
+        eventDictionary["requestType"] = "update"
+        
+        Alamofire
+            .request("https://cortex.foi.hr/meetup/EventHandler.php", method: .get, parameters: eventDictionary)
+            .validate()
+            .responseDecodableObject(decoder: decoder) { (response: DataResponse<[Event]>) in
+                switch response.result {
+                case .success(let event):
+                    completion(.success(event))
+                case .failure(let error):
+                    completion(.failure(ResponseErrorBuilder.decodedError(fromData: response.data, fallbackError: error)))
+                    print(error)
+                    
+            }
+        }
+        
+    }
+    
+    func deleteEvent(for eventId:Int, completion: @escaping (Result<String>) -> Void){
+        
+        let decoder = JSONDecoder()
+        var eventDictionary:[String:Any] =  [:]
+        eventDictionary["requestType"] = "delete"
+        eventDictionary["deletionId"] = eventId
+        
+        Alamofire
+            .request("https://cortex.foi.hr/meetup/EventHandler.php", method: .get, parameters: eventDictionary)
+            .validate()
+            .responseDecodableObject(decoder: decoder) { (response: DataResponse<String>) in
+                switch response.result {
+                case .success(let event):
+                    completion(.success(event))
+                case .failure(let error):
+                    completion(.failure(ResponseErrorBuilder.decodedError(fromData: response.data, fallbackError: error)))
+                    print(error)
+                    
+            }
+        }
+        
+    }
+    
 
     
 }
