@@ -32,6 +32,10 @@ class AuthService {
             }
     }
     
+    func update(){
+        
+    }
+    
     
     
 }
