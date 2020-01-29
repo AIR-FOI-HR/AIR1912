@@ -174,17 +174,12 @@
                                                         </userDefinedRuntimeAttributes>
                                                     </view>
                                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k7f-FO-LWc">
-                                                        <rect key="frame" x="43" y="404" width="135" height="40"/>
+                                                        <rect key="frame" x="43" y="350" width="135" height="40"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <state key="normal" title="FaceID"/>
                                                         <connections>
                                                             <action selector="faceIDLogIn:" destination="hhD-1v-KY5" eventType="touchUpInside" id="J8s-V1-TBV"/>
                                                         </connections>
-                                                    </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cxj-33-Mdt">
-                                                        <rect key="frame" x="213" y="409" width="96" height="30"/>
-                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                        <state key="normal" title="TouchID"/>
                                                     </button>
                                                 </subviews>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -251,7 +246,6 @@
                         <outlet property="logInButton" destination="cru-Ab-hLI" id="9dg-aw-QNF"/>
                         <outlet property="passwordTextField" destination="MBz-Kc-mim" id="V1U-H3-0Im"/>
                         <outlet property="scrollView" destination="Ozz-Lm-MH7" id="5ej-Y7-heb"/>
-                        <outlet property="touchIDButton" destination="cxj-33-Mdt" id="rYW-Gm-cbg"/>
                         <outlet property="upContentView" destination="YZE-bt-eS8" id="wBU-At-jCO"/>
                     </connections>
                 </viewController>

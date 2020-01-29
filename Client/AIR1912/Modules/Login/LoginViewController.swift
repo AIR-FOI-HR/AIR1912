@@ -23,7 +23,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var upContentView: UIView!
     @IBOutlet weak var logInButton: KBRoundedButton!
     
-    @IBOutlet weak var touchIDButton: UIButton!
     @IBOutlet weak var faceIDButton: UIButton!
     // MARK: - Properties
     private let authService: AuthService = AuthService()
@@ -46,7 +45,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
     
     @IBAction func btnLoginClicked(_ sender: Any) {
-        loginUser()
+        userloginUser()
         
         
     }
@@ -90,11 +89,13 @@ extension LoginViewController {
             context.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: "To have an access to the door that we need to check your FaceID/TouchID") { (wasSuccessful, error) in
                 if wasSuccessful{
                     DispatchQueue.main.async {
-                          self.dismiss(animated: true, completion: nil)
+                        self.biometricLoginUser()
                     }
                 } else {
-                    let alerter = Alerter(title: "Incorrect credentials", message: "Please try again")
-                    alerter.alertError()
+                    DispatchQueue.main.async {
+                        let alerter = Alerter(title: "Incorrect credentials", message: "Please try again")
+                        alerter.alertError()
+                    }
                 }
             }
             
@@ -105,16 +106,23 @@ extension LoginViewController {
     }
     
  
+    private func biometricLoginUser() {
+        let email = self.userKeychain.getEmail()!
+        let password = self.userKeychain.getPassword()!
+        login(email: email, password: password)
+    }
     
-    private func loginUser() {
+    private func userloginUser() {
         
         guard let email = emailTextField.text, !email.isEmpty, let password = passwordTextField.text, !password.isEmpty else {
             let alerter = Alerter(title: "Some fields missing", message: "Insert value into all fields")
             alerter.alertError()
             return
-            
         }
-        
+        login(email: email, password: password)
+    }
+    
+    private func login(email: String, password: String) {
         authService.login( with: email, password: password ) { (result) in
             switch result {
             case .success(let user):
@@ -160,12 +168,7 @@ extension LoginViewController {
             scrollViewWasChanged = true
     }
     
-     
-    
-    
-   
-    
-   }
+}
      
    
    @objc func keyboardWillShow(_ notification: Notification) {
@@ -195,7 +198,7 @@ extension LoginViewController {
             
         case passwordTextField:
             textField.resignFirstResponder()
-            loginUser()
+            userloginUser()
         
         default:
             break
