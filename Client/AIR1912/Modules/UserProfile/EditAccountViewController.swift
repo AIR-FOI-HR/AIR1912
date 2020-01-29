@@ -70,16 +70,31 @@ class EditAccountViewController: UIViewController {
                                name: name, surname: surname, email: email,
                                password: password, avatar: avatar)
         
-        //AuthService.update(user: updatedUser)
+        updateUserInDatabase(user: updatedUser)
         
-        //switch result {
-        //case .success(let user):
-        //    self.updateUserData(with: user)
-        //    self.refreshUserData()
-        //case .failure(_):
-        //    let alerter = Alerter(title: "Error", message: "Something went wrong")
-        //}
     }
+    
+    private func updateUserInDatabase(user: User){
+        print(user.idUsers!)
+        let registerService: RegisterService = RegisterService()
+            registerService.updateUser(with: user) { (result) in
+                switch result {
+                case .success(let user):
+                    print("user updatean")
+                    self.updateUserDataInKeychain(user: user)
+        
+                case .failure(let error):
+                    self.showRegisterError(error)
+                }
+            }
+    }
+    
+    private func showRegisterError(_ error:Error) -> Void{
+          let responseError = error as! ResponseError
+          let alerter = Alerter(responseError: responseError)
+          let alertController = alerter.getUIAlertController()
+          self.present(alertController, animated: true, completion: nil)
+      }
     
     func currentAvatar() -> Avatar {
         let allCases = Avatar.allCases // all avatars from enum
@@ -89,7 +104,7 @@ class EditAccountViewController: UIViewController {
         return allCases[currentIndex] // selected avatar
     }
     
-    func updateUserData(user: User) {
+    func updateUserDataInKeychain(user: User) {
         // Updateaj podatke u keychainu za usera
         
     }
