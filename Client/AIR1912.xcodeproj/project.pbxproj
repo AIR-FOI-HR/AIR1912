@@ -34,9 +34,14 @@
 		42C7AE1C23A6B96000398BE9 /* DBContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42C7AE1B23A6B96000398BE9 /* DBContent.swift */; };
 		42C7AE1E23A8E10E00398BE9 /* WebContentProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42C7AE1D23A8E10E00398BE9 /* WebContentProvider.swift */; };
 		42C7AE2023A8F9B300398BE9 /* FavouritesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42C7AE1F23A8F9B300398BE9 /* FavouritesCollectionViewCell.swift */; };
+
 		42DC2F2B23DF25FB005DDAC6 /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42DC2F2A23DF25FB005DDAC6 /* AccountViewController.swift */; };
 		42DD3BF323E05DC9004A241D /* EditAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42DD3BF223E05DC9004A241D /* EditAccountViewController.swift */; };
 		42DD3BF523E0650A004A241D /* UserProfile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 42DD3BF423E0650A004A241D /* UserProfile.storyboard */; };
+		42D7159423E08FC6005C4646 /* MapPin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D7159323E08FC6005C4646 /* MapPin.swift */; };
+		42D7159723E0A554005C4646 /* MapDetails.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 42D7159623E0A554005C4646 /* MapDetails.storyboard */; };
+		42D7159B23E0AA43005C4646 /* MapDetailsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D7159A23E0AA43005C4646 /* MapDetailsController.swift */; };
+
 		42F2ACFA23AA5A9600C2DA20 /* ContentDetails.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 42F2ACF923AA5A9600C2DA20 /* ContentDetails.storyboard */; };
 		42F2ACFC23AA610900C2DA20 /* ContentDetailsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42F2ACFB23AA610900C2DA20 /* ContentDetailsController.swift */; };
 		D0655947A9CF0CDD85866E29 /* Pods_AIR1912.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0702C62035766E8AC911DBD4 /* Pods_AIR1912.framework */; };
@@ -58,6 +63,8 @@
 		ED52876D2385A04000848D66 /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED52876C2385A04000848D66 /* ForgotPasswordViewController.swift */; };
 		ED52876F2385A2F100848D66 /* RecoverPassService.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED52876E2385A2F100848D66 /* RecoverPassService.swift */; };
 		ED5287712385AE9C00848D66 /* RecoverPassCodes.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED5287702385AE9C00848D66 /* RecoverPassCodes.swift */; };
+		ED62C01A23E0890D00ECC86D /* EventDetails.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ED62C01923E0890D00ECC86D /* EventDetails.storyboard */; };
+		ED62C01C23E0892100ECC86D /* EventDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED62C01B23E0892100ECC86D /* EventDetailsViewController.swift */; };
 		EDB57AA4238EA4430032DC9E /* MapsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB57AA3238EA4430032DC9E /* MapsController.swift */; };
 		EDB57AA6238EA4920032DC9E /* Maps.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EDB57AA5238EA4920032DC9E /* Maps.storyboard */; };
 		EDB57AA8238EA6700032DC9E /* HomeSreenTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB57AA7238EA6700032DC9E /* HomeSreenTabBarController.swift */; };
@@ -71,8 +78,6 @@
 		EDCA57DD23845B03002C3AE1 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EDCA57DB23845B03002C3AE1 /* Login.storyboard */; };
 		EDCA57E023846228002C3AE1 /* Homescreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EDCA57DF23846228002C3AE1 /* Homescreen.storyboard */; };
 		EDCDA01B23A2860000E28223 /* Search.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EDCDA01A23A2860000E28223 /* Search.storyboard */; };
-		EDE3EF8A239E41BE001BD61A /* EventDetails.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EDE3EF89239E41BE001BD61A /* EventDetails.storyboard */; };
-		EDE3EF8C239E41DA001BD61A /* EventDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDE3EF8B239E41DA001BD61A /* EventDetailsViewController.swift */; };
 		EDE3EF8F239EEB4F001BD61A /* ImageBlur.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDE3EF8E239EEB4F001BD61A /* ImageBlur.swift */; };
 		EDF46CA923BCE30D00E2F5E8 /* WebEventHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF46CA823BCE30D00E2F5E8 /* WebEventHandler.swift */; };
 		EDF46CAD23BCE6D700E2F5E8 /* FormatDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF46CAC23BCE6D700E2F5E8 /* FormatDate.swift */; };
@@ -109,9 +114,14 @@
 		42C7AE1B23A6B96000398BE9 /* DBContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBContent.swift; sourceTree = "<group>"; };
 		42C7AE1D23A8E10E00398BE9 /* WebContentProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebContentProvider.swift; sourceTree = "<group>"; };
 		42C7AE1F23A8F9B300398BE9 /* FavouritesCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritesCollectionViewCell.swift; sourceTree = "<group>"; };
+
 		42DC2F2A23DF25FB005DDAC6 /* AccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
 		42DD3BF223E05DC9004A241D /* EditAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditAccountViewController.swift; sourceTree = "<group>"; };
 		42DD3BF423E0650A004A241D /* UserProfile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = UserProfile.storyboard; sourceTree = "<group>"; };
+		42D7159323E08FC6005C4646 /* MapPin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapPin.swift; sourceTree = "<group>"; };
+		42D7159623E0A554005C4646 /* MapDetails.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MapDetails.storyboard; sourceTree = "<group>"; };
+		42D7159A23E0AA43005C4646 /* MapDetailsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapDetailsController.swift; sourceTree = "<group>"; };
+
 		42F2ACF923AA5A9600C2DA20 /* ContentDetails.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ContentDetails.storyboard; sourceTree = "<group>"; };
 		42F2ACFB23AA610900C2DA20 /* ContentDetailsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentDetailsController.swift; sourceTree = "<group>"; };
 		949424CDCE90C8DF2A9D94EF /* Pods-AIR1912.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AIR1912.release.xcconfig"; path = "Target Support Files/Pods-AIR1912/Pods-AIR1912.release.xcconfig"; sourceTree = "<group>"; };
@@ -136,6 +146,8 @@
 		ED52876C2385A04000848D66 /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
 		ED52876E2385A2F100848D66 /* RecoverPassService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecoverPassService.swift; sourceTree = "<group>"; };
 		ED5287702385AE9C00848D66 /* RecoverPassCodes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecoverPassCodes.swift; sourceTree = "<group>"; };
+		ED62C01923E0890D00ECC86D /* EventDetails.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = EventDetails.storyboard; sourceTree = "<group>"; };
+		ED62C01B23E0892100ECC86D /* EventDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetailsViewController.swift; sourceTree = "<group>"; };
 		EDB57AA3238EA4430032DC9E /* MapsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapsController.swift; sourceTree = "<group>"; };
 		EDB57AA5238EA4920032DC9E /* Maps.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Maps.storyboard; sourceTree = "<group>"; };
 		EDB57AA7238EA6700032DC9E /* HomeSreenTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeSreenTabBarController.swift; sourceTree = "<group>"; };
@@ -149,8 +161,6 @@
 		EDCA57DB23845B03002C3AE1 /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		EDCA57DF23846228002C3AE1 /* Homescreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Homescreen.storyboard; sourceTree = "<group>"; };
 		EDCDA01A23A2860000E28223 /* Search.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Search.storyboard; sourceTree = "<group>"; };
-		EDE3EF89239E41BE001BD61A /* EventDetails.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = EventDetails.storyboard; sourceTree = "<group>"; };
-		EDE3EF8B239E41DA001BD61A /* EventDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetailsViewController.swift; sourceTree = "<group>"; };
 		EDE3EF8E239EEB4F001BD61A /* ImageBlur.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageBlur.swift; sourceTree = "<group>"; };
 		EDF46CA823BCE30D00E2F5E8 /* WebEventHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebEventHandler.swift; sourceTree = "<group>"; };
 		EDF46CAC23BCE6D700E2F5E8 /* FormatDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormatDate.swift; sourceTree = "<group>"; };
@@ -269,6 +279,15 @@
 				423F05A523981D6F00D92D76 /* ResponseErrorBuilder.swift */,
 			);
 			path = ErrorHandling;
+			sourceTree = "<group>";
+		};
+		42D7159523E0A531005C4646 /* MapDetails */ = {
+			isa = PBXGroup;
+			children = (
+				42D7159623E0A554005C4646 /* MapDetails.storyboard */,
+				42D7159A23E0AA43005C4646 /* MapDetailsController.swift */,
+			);
+			path = MapDetails;
 			sourceTree = "<group>";
 		};
 		42F2ACF823AA5A1900C2DA20 /* ContentDetails */ = {
@@ -423,6 +442,7 @@
 		ED56B4ED2375672E00BD4821 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				42D7159523E0A531005C4646 /* MapDetails */,
 				42F2ACF823AA5A1900C2DA20 /* ContentDetails */,
 				ED3CE89623AEBCB40052015F /* EventCRUD */,
 				EDE3EF87239E4184001BD61A /* EventDetails */,
@@ -445,6 +465,7 @@
 			children = (
 				EDB57AA3238EA4430032DC9E /* MapsController.swift */,
 				EDB57AA5238EA4920032DC9E /* Maps.storyboard */,
+				42D7159323E08FC6005C4646 /* MapPin.swift */,
 			);
 			path = Maps;
 			sourceTree = "<group>";
@@ -508,8 +529,8 @@
 		EDE3EF87239E4184001BD61A /* EventDetails */ = {
 			isa = PBXGroup;
 			children = (
-				EDE3EF89239E41BE001BD61A /* EventDetails.storyboard */,
-				EDE3EF8B239E41DA001BD61A /* EventDetailsViewController.swift */,
+				ED62C01923E0890D00ECC86D /* EventDetails.storyboard */,
+				ED62C01B23E0892100ECC86D /* EventDetailsViewController.swift */,
 			);
 			path = EventDetails;
 			sourceTree = "<group>";
@@ -591,13 +612,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				42D7159723E0A554005C4646 /* MapDetails.storyboard in Resources */,
 				EDCA57DD23845B03002C3AE1 /* Login.storyboard in Resources */,
 				ED3CE89C23AEBCFC0052015F /* EventCRUD.storyboard in Resources */,
 				ED35F620237560DC009ED574 /* LaunchScreen.storyboard in Resources */,
 				ED35F61D237560DC009ED574 /* Assets.xcassets in Resources */,
 				EDCA57E023846228002C3AE1 /* Homescreen.storyboard in Resources */,
 				EDB57AB0238EAA750032DC9E /* Favourites.storyboard in Resources */,
-				EDE3EF8A239E41BE001BD61A /* EventDetails.storyboard in Resources */,
+				ED62C01A23E0890D00ECC86D /* EventDetails.storyboard in Resources */,
 				42F2ACFA23AA5A9600C2DA20 /* ContentDetails.storyboard in Resources */,
 				ED52876B2385A02700848D66 /* ForgotPassword.storyboard in Resources */,
 				42DD3BF523E0650A004A241D /* UserProfile.storyboard in Resources */,
@@ -659,6 +681,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EDCA57DC23845B03002C3AE1 /* LoginViewController.swift in Sources */,
+				42D7159B23E0AA43005C4646 /* MapDetailsController.swift in Sources */,
 				425F5C6A23A2B40E00B09368 /* ContentProviderFactory.swift in Sources */,
 				ED35F61B237560D8009ED574 /* AIR1912.xcdatamodeld in Sources */,
 				ED3CE89E23AEBD0C0052015F /* EventCRUDViewController.swift in Sources */,
@@ -678,6 +701,7 @@
 				4219917A239413F800CCAA89 /* ContentViewController.swift in Sources */,
 				42A9BAFB23929173009C1912 /* JsonResponse.swift in Sources */,
 				42347B9223AB94B80020D860 /* UserProfileCollectionViewCell.swift in Sources */,
+				42D7159423E08FC6005C4646 /* MapPin.swift in Sources */,
 				ED52876F2385A2F100848D66 /* RecoverPassService.swift in Sources */,
 				42DC2F2B23DF25FB005DDAC6 /* AccountViewController.swift in Sources */,
 				ED5287712385AE9C00848D66 /* RecoverPassCodes.swift in Sources */,
@@ -695,6 +719,7 @@
 				ED35F611237560D8009ED574 /* AppDelegate.swift in Sources */,
 				42BAB2A923A3D25500572E89 /* TableCell.swift in Sources */,
 				4212CC012385ACD300C53210 /* Game.swift in Sources */,
+				ED62C01C23E0892100ECC86D /* EventDetailsViewController.swift in Sources */,
 				421991782394130000CCAA89 /* ContentCollectionViewCell.swift in Sources */,
 				EDB57AA8238EA6700032DC9E /* HomeSreenTabBarController.swift in Sources */,
 				ED156F2F23A3DCF60085BB2D /* Event.swift in Sources */,
@@ -706,7 +731,6 @@
 				42C7AE1C23A6B96000398BE9 /* DBContent.swift in Sources */,
 				42DD3BF323E05DC9004A241D /* EditAccountViewController.swift in Sources */,
 				42C7AE2023A8F9B300398BE9 /* FavouritesCollectionViewCell.swift in Sources */,
-				EDE3EF8C239E41DA001BD61A /* EventDetailsViewController.swift in Sources */,
 				42A9BAFD239293FD009C1912 /* RegisterService.swift in Sources */,
 				EDBDD51323B11CAF00F4106A /* WebContentHandler.swift in Sources */,
 				ED52876D2385A04000848D66 /* ForgotPasswordViewController.swift in Sources */,
