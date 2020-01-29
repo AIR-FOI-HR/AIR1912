@@ -116,7 +116,11 @@ class EditAccountViewController: UIViewController {
             readyToProceed = false
             
         }
+        if readyToProceed{
+            let selectedAvatar = currentAvatar()
+            self.updateUserData()
+        }
         
-    }
-
+        
+}
 }

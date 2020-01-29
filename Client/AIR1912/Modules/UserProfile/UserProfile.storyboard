@@ -639,6 +639,9 @@
                                                                         <state key="normal" title="Save">
                                                                             <color key="titleColor" red="0.84863233569999996" green="0.14901781080000001" blue="0.1704194248" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                         </state>
+                                                                        <connections>
+                                                                            <action selector="saveButton:" destination="eTG-u4-sA6" eventType="touchUpInside" id="dcT-Jq-lvo"/>
+                                                                        </connections>
                                                                     </button>
                                                                 </subviews>
                                                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -691,7 +694,6 @@
                         <outlet property="nameTxt" destination="8Ak-S5-M0l" id="ssp-Vo-KII"/>
                         <outlet property="nicknameTxt" destination="Rg1-zr-raD" id="Ctf-Zx-z9c"/>
                         <outlet property="passTxt" destination="Tgv-3X-luG" id="esv-K0-YpZ"/>
-                        <outlet property="saveButton" destination="mkV-k2-BWg" id="eYg-Ir-C25"/>
                         <outlet property="surnameTxt" destination="yRn-og-L2w" id="BgB-T2-N6M"/>
                     </connections>
                 </viewController>
