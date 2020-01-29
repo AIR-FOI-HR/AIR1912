@@ -164,6 +164,25 @@
                                                     <action selector="dismissScreen:" destination="vYA-36-1rP" eventType="touchUpInside" id="NRk-oz-ua9"/>
                                                 </connections>
                                             </button>
+                                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ahl-pI-e4y" customClass="KBRoundedButton">
+                                                <rect key="frame" x="85" y="497" width="120" height="30"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <state key="normal" title="Update">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="backgroundColorForStateNormal">
+                                                        <color key="value" red="0.00158788159" green="0.51872479920000003" blue="1" alpha="0.9990234375" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="backgroundColorForStateSelected">
+                                                        <color key="value" red="0.049217484890000003" green="0.68733376260000001" blue="0.96709209679999997" alpha="0.9995727539" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="shadowEnabled" value="YES"/>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="tryToUpdateEvent:" destination="vYA-36-1rP" eventType="touchUpInside" id="PCn-1a-EtU"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                         <color key="tintColor" red="0.57481449842453003" green="0.29405476354918492" blue="0.29458029564574795" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -206,6 +225,8 @@
                     </view>
                     <connections>
                         <outlet property="backImage" destination="Qaj-1t-8KD" id="acp-eS-JWo"/>
+                        <outlet property="buttonCreate" destination="EeQ-1Q-EKy" id="edZ-oD-dk1"/>
+                        <outlet property="buttonUpdate" destination="ahl-pI-e4y" id="M3T-xS-kYQ"/>
                         <outlet property="dateTimeLabel" destination="FYB-8f-Tf5" id="AwU-hB-tMy"/>
                         <outlet property="eventDescriptionTextField" destination="qkv-o4-09t" id="1Sy-5z-miR"/>
                         <outlet property="eventNameTextField" destination="XpX-su-jTo" id="E8I-8S-njj"/>
