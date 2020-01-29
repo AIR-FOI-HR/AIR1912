@@ -92,6 +92,12 @@ extension MainViewController {
 
             case .failure(let error):
                 
+                self.loadingActivity.isHidden = true
+                self.buttonOutlet.isHidden = false
+                self.buttonSignuUpOutlet.isHidden = false
+                self.loadingActivity.stopAnimating()
+
+                
                 // if you are offline, error is not set because error
                 // is expected to return from server
                 // therefore, we have to check if we got error
