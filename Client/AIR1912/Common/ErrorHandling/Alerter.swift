@@ -34,6 +34,13 @@ class Alerter{
     
     func alertError(){
         alerter.showError(title, subTitle: message)
+        
+    }
+    
+    func addButton(vc:UIViewController) {
+        alerter.addButton("Dismiss") {
+            vc.dismiss(animated: true, completion: nil)
+        }
     }
     
     func alertWarning(){

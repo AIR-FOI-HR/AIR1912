@@ -123,6 +123,7 @@ open class LocationItem: NSObject, NSCoding {
     }
     
     
+    
     public required convenience init(coder aDecoder: NSCoder) {
         let latitude = aDecoder.decodeDouble(forKey: "latitude")
         let longitude = aDecoder.decodeDouble(forKey: "longitude")

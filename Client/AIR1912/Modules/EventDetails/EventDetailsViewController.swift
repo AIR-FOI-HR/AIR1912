@@ -10,6 +10,12 @@ import UIKit
 import CoreLocation
 import KBRoundedButton
 import Floaty
+import SCLAlertView
+
+protocol EventDetailsDelegate{
+    func didHideView()
+}
+
 class EventDetailsViewController: UIViewController {
     
     //iboutlets
@@ -37,6 +43,7 @@ class EventDetailsViewController: UIViewController {
     var event:Event = Event()
     let cornerRadius : CGFloat = 12
     let keychain = UserKeychain()
+    var delegate:EventDetailsDelegate! = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,10 +59,13 @@ class EventDetailsViewController: UIViewController {
         update.icon = UIImage(named: "update")
         update.buttonColor = UIColor(hex:  "97FFA8")
         update.imageSize = CGSize(width: 20, height: 20)
+        update.handler = {item in self.goToEventCRUD(floaty: update)}
         floatyButton.addItem(item: update)
+        
         let trash = FloatyItem()
         trash.icon = UIImage(named: "trash")
         trash.buttonColor = UIColor(hex:  "FF1306")
+        trash.handler = {item in self.deleteEvent(floaty: trash)}
         floatyButton.addItem(item: trash)
         
         
@@ -131,7 +141,8 @@ extension EventDetailsViewController{
         let nameOfMonth = FormatDate.getNameOfMonthFromDate(date: dateFromString)
         
         let calendar = Calendar.current
-        let comp = calendar.dateComponents([.day, .hour, .minute, .year], from: dateFromString as! Date)
+        let comp = calendar.dateComponents([.day, .hour, .minute, .year], from: dateFromString! as Date)
+        
         
         let dayOfMonth = comp.day
         labelDay.text = "\(dayOfMonth!).\(nameOfMonth!)"
@@ -180,6 +191,8 @@ extension EventDetailsViewController{
 
 extension EventDetailsViewController{
     
+   
+    
     func confIfPrivate(){
         buttonJoin.backgroundColorForStateNormal = UIColor(hex: "FF1306")
         shadowView.backgroundColor = UIColor(hex: "FF1306").withAlphaComponent(0.55)
@@ -189,4 +202,42 @@ extension EventDetailsViewController{
     func geocode(latitude: Double , longitude: Double, completion: @escaping (CLPlacemark?, Error?) -> ())  {
                CLGeocoder().reverseGeocodeLocation(CLLocation(latitude: latitude, longitude: longitude)) { completion($0?.first, $1) }
            }
+    
+    func goToEventCRUD(floaty:FloatyItem){
+        let CRUDStoryBoard:UIStoryboard = UIStoryboard(name: "EventCRUD", bundle: nil)
+        let CRUDController = CRUDStoryBoard.instantiateViewController(identifier: "EventCRUD") as! EventCRUDViewController
+        CRUDController.event = self.event
+        CRUDController.delegate = self
+        self.present(CRUDController, animated: true, completion: nil)
+    }
+    
+    func deleteEvent(floaty:FloatyItem){
+        
+        
+        let appearance = SCLAlertView.SCLAppearance(
+            showCloseButton: false
+        )
+        let alertView = SCLAlertView(appearance: appearance)
+        alertView.addButton("Yes") {
+            let webEventHandler = WebEventHandler()
+            webEventHandler.deleteEvent(for: self.event.id) { (result) in
+                switch result{
+                case .success(let variable):
+                    let alert = Alerter(title: "You've successfully deleted Event", message: "Event is no longer available")
+                    alert.alertSuccess()
+                    self.delegate.didHideView()
+                    self.dismiss(animated: true, completion: nil)
+                    
+                case .failure(_):
+                    print("failure")
+                }
+            }
+        }
+        alertView.addButton("No") {
+            alertView.hideView()
+        }
+        alertView.showWarning("Do you really want to delete event", subTitle: "Last chance to abort")
+        
+        
+    }
 }
