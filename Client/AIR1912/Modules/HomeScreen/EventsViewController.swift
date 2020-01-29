@@ -32,16 +32,11 @@ class EventsViewController: UIViewController {
         override func viewDidLoad() {
             super.viewDidLoad()
             getUserLocation()
-            eventsNearMeLabel.textColor = ThemesManager.shared.theme.baseColor
-            myEventsLabel.textColor = ThemesManager.shared.theme.baseColor
             
             view.isSkeletonable = false
-           
-            //view.showAnimatedGradientSkeleton()
+
             getAllEventsByUserID(for: .allEvent )
             getAllEventsByLocation(for: .allEvent)
-           
-            //self.view.hideSkeleton()
         }
         
         override func viewWillAppear(_ animated: Bool) {
@@ -49,7 +44,8 @@ class EventsViewController: UIViewController {
            getUserLocation()
             getAllEventsByUserID(for: .allEvent )
             getAllEventsByLocation(for: .allEvent)
-
+            eventsNearMeLabel.textColor = Theme.current.baseColor
+            myEventsLabel.textColor = Theme.current.baseColor
         }
     
     
@@ -115,9 +111,6 @@ class EventsViewController: UIViewController {
             
                 myEventsDataSource = result
                 self.myEventsCollectionView.reloadData()
-                //self.view.hideSkeleton()
-           
-    
         }
         
         private func updateNearEventsContent(result: [Event]) {
@@ -127,7 +120,7 @@ class EventsViewController: UIViewController {
                        //Izbaciti iz popisa sve one koji nisu Near korisnika
                        removeNotNearEvents(for: nearEventsDataSource)
                        self.nearEventsCollectionView.reloadData()
-                      // self.view.hideSkeleton()
+                      
                      
                }
     }

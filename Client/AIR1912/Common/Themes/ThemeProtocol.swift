@@ -9,18 +9,18 @@
 import Foundation
 import UIKit
 
-protocol Theme {
+protocol ThemeProtocol {
     var baseColor : UIColor { get }
 }
 
-struct RedTheme: Theme {
-    var baseColor: UIColor = UIColor.init(named: "BaseRed")!
+struct RedTheme: ThemeProtocol {
+    var baseColor: UIColor = UIColor(named: "BaseRed")!
 }
 
-struct DarkTheme: Theme {
+struct DarkTheme: ThemeProtocol {
     var baseColor: UIColor = UIColor.black
 }
 
-struct PinkTheme: Theme {
-    var baseColor: UIColor = UIColor.init(named: "BasePink")!
+struct PinkTheme: ThemeProtocol {
+    var baseColor: UIColor = UIColor(named: "BasePink")!
 }

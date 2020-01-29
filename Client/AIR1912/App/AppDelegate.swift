@@ -16,7 +16,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
-        ThemesManager.shared.applyTheme()
+            if (UserDefaults.standard.object(forKey: "Theme") != nil) {
+                if UserDefaults.standard.string(forKey: "Theme") == "0" {
+                    Theme.current = RedTheme()
+                }else if UserDefaults.standard.string(forKey: "Theme") == "1" {
+                    Theme.current = DarkTheme()
+                }else{
+                    Theme.current = PinkTheme()
+                }
+                
+            }
+        
+        
         return true
     }
 

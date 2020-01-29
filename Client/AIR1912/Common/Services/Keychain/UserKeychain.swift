@@ -20,16 +20,20 @@ class UserKeychain {
         case id = "id"
         case lat = "lat"
         case lon = "lon"
+        case name = "name"
+        case surname = "surname"
     }
   
     
-    func saveSessionData(email:String, password:String, nickname:String, avatar:String, id:Int)->Bool{
+    func saveSessionData(email:String, password:String, nickname:String, avatar:String, id:Int, name:String, surname:String)->Bool{
         
         guard KeychainWrapper.standard.set(password, forKey: UserKeychainKey.password.rawValue),
             KeychainWrapper.standard.set(email, forKey: UserKeychainKey.email.rawValue),
             KeychainWrapper.standard.set(nickname, forKey: UserKeychainKey.nickname.rawValue),
             KeychainWrapper.standard.set(avatar, forKey: UserKeychainKey.avatar.rawValue),
-        KeychainWrapper.standard.set(id, forKey: UserKeychainKey.id.rawValue)
+        KeychainWrapper.standard.set(id, forKey: UserKeychainKey.id.rawValue),
+        KeychainWrapper.standard.set(name, forKey: UserKeychainKey.name.rawValue),
+        KeychainWrapper.standard.set(surname,forKey: UserKeychainKey.surname.rawValue)
             else {
                return false
                 
@@ -77,6 +81,19 @@ class UserKeychain {
         return nickname
     }
     
+    func getName() -> String? {
+         
+        let name = KeychainWrapper.standard.string(forKey: UserKeychainKey.name.rawValue)
+         return name
+     }
+ 
+    func getSurname() -> String? {
+         
+        let surname = KeychainWrapper.standard.string(forKey: UserKeychainKey.surname.rawValue)
+         return surname
+     }
+    
+    
     func getAvatar() -> String? {
         
         let avatar = KeychainWrapper.standard.string(forKey: UserKeychainKey.avatar.rawValue)
@@ -91,7 +108,9 @@ class UserKeychain {
     
     public func hasSessionData() -> Bool {
         
-        guard KeychainWrapper.standard.string(forKey: UserKeychainKey.email.rawValue) != "" && KeychainWrapper.standard.string(forKey: UserKeychainKey.password.rawValue) != "" && KeychainWrapper.standard.string(forKey: UserKeychainKey.nickname.rawValue) != "" && KeychainWrapper.standard.string(forKey: UserKeychainKey.avatar.rawValue) != "" else {
+        guard KeychainWrapper.standard.string(forKey: UserKeychainKey.email.rawValue) != nil && KeychainWrapper.standard.string(forKey: UserKeychainKey.password.rawValue) != nil && KeychainWrapper.standard.string(forKey: UserKeychainKey.nickname.rawValue) != nil && KeychainWrapper.standard.string(forKey: UserKeychainKey.avatar.rawValue) != nil &&
+            KeychainWrapper.standard.string(forKey: UserKeychainKey.name.rawValue) != nil && KeychainWrapper.standard.string(forKey: UserKeychainKey.surname.rawValue) != nil
+        else {
             return false
         }
         return true
@@ -115,6 +134,12 @@ class UserKeychain {
         }
         
         guard KeychainWrapper.standard.removeObject(forKey: UserKeychainKey.avatar.rawValue) else {
+                   return false
+        }
+        guard KeychainWrapper.standard.removeObject(forKey: UserKeychainKey.name.rawValue) else {
+                   return false
+        }
+        guard KeychainWrapper.standard.removeObject(forKey: UserKeychainKey.surname.rawValue) else {
                    return false
         }
         guard KeychainWrapper.standard.removeObject(forKey: UserKeychainKey.id.rawValue) else {

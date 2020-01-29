@@ -73,6 +73,10 @@ extension LoginViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        emailTextField.delegate = self
+        passwordTextField.delegate = self
+//        upContentView.backgroundColor = ThemesManager.shared.theme.baseColor
+//        logInButton.backgroundColor = ThemesManager.shared.theme.baseColor
         
         if(userKeychain.getEmail() != nil && userKeychain.hasSessionData() == true){
             emailTextField.isHidden = true
