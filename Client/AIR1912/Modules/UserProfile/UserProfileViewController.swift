@@ -9,7 +9,11 @@
 import UIKit
 import Kingfisher
 
-class UserProfileViewController: UIViewController {
+class UserProfileViewController: UIViewController, EventDetailsDelegate {
+    func didHideView() {
+        self.viewWillAppear(true)
+    }
+    
 
     //MARK: - Outlets
     
@@ -39,7 +43,8 @@ class UserProfileViewController: UIViewController {
         // set welcome message with nickname
             let userNickname = self.keychain.getNickname()
             self.nicknameText.text = "Hi " + userNickname!
-    
+        AttendingEventsCollectionView.delegate = self
+        MyEventsCollectionView.delegate=self
 }
     
         override func viewWillAppear(_ animated: Bool) {
@@ -113,7 +118,7 @@ class UserProfileViewController: UIViewController {
         }
 }
 
-extension UserProfileViewController: UICollectionViewDataSource {
+extension UserProfileViewController: UICollectionViewDataSource, UICollectionViewDelegate {
        
        func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
           
@@ -138,6 +143,30 @@ extension UserProfileViewController: UICollectionViewDataSource {
            
            return cell
        }
+       
+        func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+                    print("KLIK")
+                   let storyboard = UIStoryboard(name: "EventDetails", bundle: nil)
+                   guard let viewController = storyboard.instantiateViewController(identifier: "EventDetails") as? EventDetailsViewController else {
+                       return
+                   }
+                   let datasource: [Event]
+            if collectionView === self.MyEventsCollectionView {
+                       datasource = myEventsDataSource
+            } else if collectionView == self.AttendingEventsCollectionView {
+                       datasource = attendingEventsDataSource
+                   } else {
+                       return
+                   }
+                   let event = datasource[indexPath.row]
+                   viewController.event = event
+                   viewController.modalPresentationStyle = .popover
+                    viewController.delegate = self
+                   self.present(viewController, animated: true, completion: nil)
+               }
+        
+    
+    
    }
     
     
