@@ -8,6 +8,8 @@
 
 import UIKit
 import LocationPickerViewController
+import KBRoundedButton
+import SCLAlertView
 
 class EventCRUDViewController: UIViewController {
     
@@ -24,6 +26,8 @@ class EventCRUDViewController: UIViewController {
     @IBOutlet weak var locationDescriptionTextView: UITextView!
     @IBOutlet weak var eventPrivatePublicSegmentedControl: UISegmentedControl!
     @IBOutlet weak var eventDescriptionTextField: UITextView!
+    @IBOutlet weak var buttonUpdate: KBRoundedButton!
+    @IBOutlet weak var buttonCreate: KBRoundedButton!
     
     
     
@@ -32,12 +36,14 @@ class EventCRUDViewController: UIViewController {
     var id: Int = 512200
     var type: ContentType = .movie
     let cornerRadius : CGFloat = 12
-    var genreName = ""
     var pickerData: [Int] = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]
     var pickedDate:Date?
     var pickedLocation:LocationItem?
+    var lat:Double = 1
+    var lon:Double = 1
     var pickedNumberOfPeople:Int = 5
-    
+    var event:Event = Event()
+    var delegate:EventDetailsViewController!
 
     //MARK: - Lifecycle
 
@@ -45,8 +51,14 @@ class EventCRUDViewController: UIViewController {
         
         super.viewDidLoad()
         setShadowView()
-        configure(for: type)
         setPickerView()
+        if(event.contentID == 0){
+            configureForCreate(for: type)
+        }else{
+            setUpViewForUpdate()
+            configureForUpdateDelete()
+        }
+        
      }
     
  
@@ -56,6 +68,8 @@ class EventCRUDViewController: UIViewController {
         locationPicker.pickCompletion = { (pickedLocationItem) in
             self.pickedLocationNameTextField.text = pickedLocationItem.name
             self.pickedLocation = pickedLocationItem
+            self.lat = (self.pickedLocation?.coordinate!.latitude)!
+            self.lon = (self.pickedLocation?.coordinate!.longitude)!
         }
         locationPicker.addBarButtons()
         
@@ -79,6 +93,10 @@ class EventCRUDViewController: UIViewController {
     @IBAction func dismissScreen(_ sender: Any) {
         
         self.dismiss(animated: true, completion: nil)
+    }
+    
+    @IBAction func tryToUpdateEvent(_ sender: Any) {
+        tryToUpdateEventOnDB()
     }
     
 }
@@ -123,10 +141,27 @@ extension EventCRUDViewController{
          self.setBlurredImage(poster: Content.posterURL)
          
      }
+    func setUpViewForUpdate() {
+        
+        let contentWebProvider = WebContentProvider()
+        contentWebProvider.getContentById(for: event.contentID) { (result) in
+            switch result{
+                case .success(let content):
+                    self.frontImage.kf.setImage(with: URL(string: content[0].posterURL!))
+                    self.setBlurredImage(poster:URL(string: content[0].posterURL!))
+                case .failure(_):
+                    print("cant get content")
+            }
+        }
+        
+        
+        
+    }
+    
      
     
      
-     func configure(for type: ContentType) {
+     func configureForCreate(for type: ContentType) {
         let provider = ContentProviderFactory.contentProvider(forContentType: type)
         switch type {
             case .movie:
@@ -182,8 +217,7 @@ extension EventCRUDViewController: UIPickerViewDelegate, UIPickerViewDataSource{
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int)
     {
-         // use the row to get the selected row from the picker view
-         // using the row extract the value from your datasource (array[row])
+         
         self.pickedNumberOfPeople = pickerData[row]
         
      }
@@ -326,6 +360,78 @@ extension EventCRUDViewController{
     
 }
 
+//MARK: -UpdateDeleteHandling
+
+extension EventCRUDViewController{
+    
+    func configureForUpdateDelete(){
+        buttonUpdate.isHidden=false
+        buttonCreate.isHidden = true
+        
+        dateTimeLabel.text = event.dateTime
+        self.pickerNumber.selectRow((event.maxNumberOfPeople-1), inComponent: 0, animated: true)
+        
+        GeoLocationInverter.geocode(latitude: event.latitude, longitude: event.longitude) { placemark, error in
+        guard let placemark = placemark, error == nil else { return }
+           
+               DispatchQueue.main.async {
+                   
+                self.pickedLocationNameTextField.text = "\(placemark.thoroughfare!)"
+                
+               }
+        }
+        
+        self.lat = event.latitude
+        self.lon = event.longitude
+        eventPrivatePublicSegmentedControl.selectedSegmentIndex = event.isPrivate
+        eventDescriptionTextField.text = event.description
+        eventNameTextField.text = event.title
+        
+        
+    }
+    
+    func tryToUpdateEventOnDB(){
+        
+        var modifiedEvent = self.event
+        modifiedEvent.title = self.eventNameTextField.text!
+        modifiedEvent.maxNumberOfPeople = pickedNumberOfPeople
+        modifiedEvent.latitude = self.lat
+        modifiedEvent.longitude = self.lon
+        modifiedEvent.dateTime = self.dateTimeLabel.text!
+        modifiedEvent.isPrivate = self.eventPrivatePublicSegmentedControl.selectedSegmentIndex
+        
+        
+        
+        let changerEvent = WebEventHandler()
+              changerEvent.updateEvent(for: modifiedEvent) { (result) in
+                  switch result{
+                      case .success(let event):
+                          
+                          
+                          let appearance = SCLAlertView.SCLAppearance(
+                              showCloseButton: false
+                          )
+                          let alerter = SCLAlertView(appearance: appearance)
+                          alerter.addButton("Dismiss") {
+                            self.delegate.event = event[0]
+                            self.delegate.configure()
+                            self.delegate.delegate.didHideView()
+                            self.dismiss(animated: true, completion: nil)
+                          }
+                          alerter.showSuccess("Great!", subTitle: "You've changed Event")
+                          
+                          
+                          
+                  case .failure(_):
+                      print("Nije izmijenjen event")
+                  }
+              }
+        
+    }
+    
+    
+}
+
 extension EventCRUDViewController{
     
     func goToHomeScreen(){
@@ -333,6 +439,12 @@ extension EventCRUDViewController{
         let HomeController = HomeStoryboard.instantiateViewController(identifier: "HomeScreen") as! HomeSreenTabBarController
         HomeController.modalPresentationStyle = .fullScreen
         self.present(HomeController, animated: true, completion: nil)
+    }
+    
+    func makeDelay(for sec:Double){
+        DispatchQueue.main.asyncAfter(deadline: .now() + sec) {
+            
+        }
     }
     
 }
