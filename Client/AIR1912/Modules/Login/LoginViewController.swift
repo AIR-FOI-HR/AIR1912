@@ -106,8 +106,8 @@ extension LoginViewController {
             
             emailTextField.delegate = self
             passwordTextField.delegate = self
-            upContentView.backgroundColor = ThemesManager.shared.theme.baseColor
-            logInButton.backgroundColor = ThemesManager.shared.theme.baseColor
+//            upContentView.backgroundColor = ThemesManager.shared.theme.baseColor
+//            logInButton.backgroundColor = ThemesManager.shared.theme.baseColor
             
             startScrollIndicatorInset = scrollView.verticalScrollIndicatorInsets.bottom
             
@@ -186,7 +186,7 @@ extension LoginViewController {
             biometricLoginUser()
         } else {
 
-            _ = userKeychain.saveSessionData(email: emailTextField.text!, password: passwordTextField.text!, nickname: user[0].nickname, avatar: user[0].avatar.rawValue, id: Int(user[0].idUsers!)!)
+            _ = userKeychain.saveSessionData(email: emailTextField.text!, password: passwordTextField.text!, nickname: user[0].nickname, avatar: user[0].avatar.rawValue, id: Int(user[0].idUsers!)!, name: user[0].name, surname: user[0].surname)
         }
         
     }
