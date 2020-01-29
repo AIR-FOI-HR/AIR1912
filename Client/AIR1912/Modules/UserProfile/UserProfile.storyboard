@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="6Tc-0h-tuW">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <device id="retina6_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -50,7 +51,7 @@
                                                                 <rect key="frame" x="0.0" y="0.0" width="414" height="100"/>
                                                                 <subviews>
                                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="boy-38262_1280" translatesAutoresizingMaskIntoConstraints="NO" id="n4v-Oc-hww">
-                                                                        <rect key="frame" x="164.5" y="0.0" width="85" height="100"/>
+                                                                        <rect key="frame" x="164.66666666666666" y="0.0" width="85" height="100"/>
                                                                     </imageView>
                                                                 </subviews>
                                                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -225,7 +226,7 @@
                                                                         </collectionViewFlowLayout>
                                                                         <cells>
                                                                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="UserProfileCollectionViewCell" id="7JZ-To-Xhv" customClass="UserProfileCollectionViewCell" customModule="AIR1912" customModuleProvider="target">
-                                                                                <rect key="frame" x="16" y="6.5" width="140" height="250"/>
+                                                                                <rect key="frame" x="16" y="6.666666666666667" width="140" height="250"/>
                                                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                                 <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="ol1-18-R8v">
                                                                                     <rect key="frame" x="0.0" y="0.0" width="140" height="250"/>
@@ -372,6 +373,9 @@
                                 <state key="normal" title="Themes">
                                     <color key="titleColor" red="0.84863233569999996" green="0.14901781080000001" blue="0.1704194248" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <connections>
+                                    <segue destination="XDA-N6-IIs" kind="show" id="7mk-gR-Bq7"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="imO-Oh-s6e">
                                 <rect key="frame" x="20" y="184" width="143" height="40"/>
@@ -736,10 +740,71 @@
             </objects>
             <point key="canvasLocation" x="2082.608695652174" y="170.75892857142856"/>
         </scene>
+        <!--Theme settings-->
+        <scene sceneID="EQK-kz-iT5">
+            <objects>
+                <viewController id="XDA-N6-IIs" customClass="ThemesViewController" customModule="AIR1912" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="rDz-qb-dTS">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Choose your theme" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iDE-7V-aqx">
+                                <rect key="frame" x="20" y="112" width="374" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Ue-09-jF4">
+                                <rect key="frame" x="20" y="191" width="30" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" name="BaseRed"/>
+                                <connections>
+                                    <action selector="redThemeButton:" destination="XDA-N6-IIs" eventType="touchUpInside" id="D8n-cT-sjt"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lI7-vW-cVX">
+                                <rect key="frame" x="82" y="191" width="30" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" name="BaseDark"/>
+                                <connections>
+                                    <action selector="darkThemeButton:" destination="XDA-N6-IIs" eventType="touchUpInside" id="TMI-84-fzc"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="2" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NVJ-5u-NE3">
+                                <rect key="frame" x="143" y="191" width="30" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" name="BasePink"/>
+                                <connections>
+                                    <action selector="pinkThemeButton:" destination="XDA-N6-IIs" eventType="touchUpInside" id="84i-27-nWa"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="dZl-9o-7zP"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Theme settings" id="Akv-rU-pf7"/>
+                    <connections>
+                        <outlet property="lightThemeLabel" destination="iDE-7V-aqx" id="m73-sg-sEl"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="n4E-q2-p60" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3018.840579710145" y="170.75892857142856"/>
+        </scene>
     </scenes>
     <resources>
         <image name="boy-38262_1280" width="1112" height="1280"/>
-        <image name="ellipsis" catalog="system" width="32" height="32"/>
-        <image name="person" catalog="system" width="32" height="32"/>
+        <image name="ellipsis" catalog="system" width="64" height="18"/>
+        <image name="person" catalog="system" width="64" height="58"/>
+        <namedColor name="BaseDark">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </namedColor>
+        <namedColor name="BasePink">
+            <color red="0.8784313725490196" green="0.12941176470588237" blue="0.54117647058823526" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="BaseRed">
+            <color red="1" green="0.23100000619888306" blue="0.18799999356269836" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
     </resources>
 </document>

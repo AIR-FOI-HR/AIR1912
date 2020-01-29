@@ -32,8 +32,6 @@ class EventsViewController: UIViewController {
         override func viewDidLoad() {
             super.viewDidLoad()
             getUserLocation()
-            eventsNearMeLabel.textColor = ThemesManager.shared.theme?.baseColor
-            myEventsLabel.textColor = ThemesManager.shared.theme?.baseColor
             
             view.isSkeletonable = false
 
@@ -46,7 +44,8 @@ class EventsViewController: UIViewController {
            getUserLocation()
             getAllEventsByUserID(for: .allEvent )
             getAllEventsByLocation(for: .allEvent)
-
+            eventsNearMeLabel.textColor = Theme.current.baseColor
+            myEventsLabel.textColor = Theme.current.baseColor
         }
     
     

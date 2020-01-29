@@ -9,15 +9,9 @@
 import Foundation
 import UIKit
 
-class ThemesManager {
-    var theme : Theme?
-    static var shared : ThemesManager = {
-         let themeneManager  = ThemesManager()
-         return themeneManager
-     }()
-    func setTheme(theme : Theme){
-         self.theme = theme
-     }
+class Theme {
+    static var current: ThemeProtocol = RedTheme()
+}
     
     
     
@@ -64,4 +58,4 @@ class ThemesManager {
 //            return rawValue.flatMap(Themes.init) ?? .red
 //        }
 //    }
-}
+
