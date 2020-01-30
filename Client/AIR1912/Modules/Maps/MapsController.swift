@@ -45,6 +45,13 @@ class MapsController: UIViewController, MKMapViewDelegate {
     
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        self.tabBarController?.tabBar.tintColor = Theme.current.headingColor
+        self.navigationController?.navigationBar.tintColor = Theme.current.headingColor
+        let textAttributes = [NSAttributedString.Key.foregroundColor:Theme.current.headingColor]
+        navigationController?.navigationBar.titleTextAttributes = textAttributes
+    }
+    
     func startLoadingAnimation(){
         blur.isHidden = false
         blur.backgroundColor = UIColor(red: 0.5, green: 0.5, blue: 0.5, alpha: 0.5)
@@ -130,12 +137,7 @@ class MapsController: UIViewController, MKMapViewDelegate {
         } else {
             annotationView?.annotation = annotation
         }
-    override func viewWillAppear(_ animated: Bool) {
-        self.tabBarController?.tabBar.tintColor = Theme.current.headingColor
-        self.navigationController?.navigationBar.tintColor = Theme.current.headingColor
-        let textAttributes = [NSAttributedString.Key.foregroundColor:Theme.current.headingColor]
-        navigationController?.navigationBar.titleTextAttributes = textAttributes
-    }
+    
 
         annotationView?.tintColor = UIColor(red: 0, green: 100, blue: 0, alpha: 0.5)
         annotationView?.backgroundColor = UIColor.white
