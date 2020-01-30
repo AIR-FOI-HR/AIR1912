@@ -16,6 +16,7 @@ class AccountViewController: UIViewController {
     @IBOutlet weak var nameTxt: UITextField!
     @IBOutlet weak var surnameTxt: UITextField!
     @IBOutlet weak var emailTxt: UITextField!
+    @IBOutlet weak var editButton: UIButton!
     
     @IBOutlet weak var userAvatar: UIImageView!
     
@@ -45,5 +46,13 @@ class AccountViewController: UIViewController {
             let userEmail = self.keychain.getEmail()
             self.emailTxt.text = userEmail
         
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        editButton.setTitleColor(Theme.current.headingColor, for: .normal)
+        nameTxt.textColor = Theme.current.headingColor
+        nicknameTxt.textColor = Theme.current.headingColor
+        surnameTxt.textColor = Theme.current.headingColor
+        emailTxt.textColor = Theme.current.headingColor
     }
 }

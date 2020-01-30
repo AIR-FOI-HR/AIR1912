@@ -27,6 +27,9 @@ class ContentDetailsController: UIViewController {
     @IBOutlet weak var genresLbl: UILabel!
     @IBOutlet weak var descriptionHeadlineLbl: UILabel!
     @IBOutlet weak var favouritesButton: UIImageView!
+    @IBOutlet weak var year: UILabel!
+    @IBOutlet weak var rating: UILabel!
+    @IBOutlet weak var length: UILabel!
     
     //MARK: - Properties
     
@@ -46,6 +49,19 @@ class ContentDetailsController: UIViewController {
 
      }
     
+    override func viewWillAppear(_ animated: Bool) {
+        titleLbl.textColor = Theme.current.headingColor
+        yearLbl.textColor = Theme.current.headingColor
+        ratingLbl.textColor = Theme.current.headingColor
+        lengthLbl.textColor = Theme.current.headingColor
+        descriptionHeadlineLbl.textColor = Theme.current.headingColor
+        descpriptionTv.textColor = Theme.current.textColor
+        genresLbl.textColor = Theme.current.textColor
+        year.textColor = Theme.current.textColor
+        rating.textColor = Theme.current.textColor
+        length.textColor = Theme.current.textColor
+        
+    }
     
     func setShadowView() {
         

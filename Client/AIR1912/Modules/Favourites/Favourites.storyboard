@@ -296,7 +296,9 @@
                     <navigationItem key="navigationItem" title="Favourites" id="bWo-sC-24R"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="favourite2Label" destination="5I3-16-9JQ" id="7nf-II-hVh"/>
                         <outlet property="favouriteGamesCollectionView" destination="POV-ju-Fxq" id="T2T-ni-aNt"/>
+                        <outlet property="favouriteLabel" destination="R4K-bP-CTb" id="P1K-d4-H4w"/>
                         <outlet property="favouriteMoviesCollectionView" destination="m8p-lM-C2y" id="3P8-n7-Jcu"/>
                     </connections>
                 </viewController>

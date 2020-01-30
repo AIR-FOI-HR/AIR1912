@@ -75,6 +75,7 @@ class EventCollectionViewCell: UICollectionViewCell {
         titleName.layer.masksToBounds = true
         featuredImageView.layer.cornerRadius = 12.0
         featuredImageView.layer.masksToBounds = true
+        titleName.textColor = Theme.current.textColor
     }
     
     private func isNear()->Bool{

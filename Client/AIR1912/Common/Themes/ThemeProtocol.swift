@@ -17,19 +17,19 @@ protocol ThemeProtocol {
 }
 
 struct RedTheme: ThemeProtocol {
-    var backgroundColor: UIColor = UIColor(named: "BaseRed")!
-    var headingColor: UIColor = UIColor.white
-    var textColor: UIColor = UIColor.white
+    var backgroundColor: UIColor = UIColor.white
+    var headingColor: UIColor = UIColor(named: "BaseRed")!
+    var textColor: UIColor = UIColor.darkGray
 }
 
 struct DarkTheme: ThemeProtocol {
-    var backgroundColor: UIColor = UIColor(named: "DarkGray")!
-    var headingColor: UIColor = UIColor.white
-    var textColor: UIColor = UIColor.lightGray
+    var backgroundColor: UIColor = UIColor.white
+    var headingColor: UIColor = UIColor.black
+    var textColor: UIColor = UIColor.darkGray
 }
 
 struct PinkTheme: ThemeProtocol {
-    var backgroundColor: UIColor = UIColor(named: "BasePink")!
-    var headingColor: UIColor = UIColor.white
-    var textColor: UIColor = UIColor.white
+    var backgroundColor: UIColor = UIColor.white
+    var headingColor: UIColor = UIColor(named: "BasePink")!
+    var textColor: UIColor = UIColor.darkGray
 }

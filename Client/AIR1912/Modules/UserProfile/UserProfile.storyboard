@@ -339,7 +339,13 @@
                     <connections>
                         <outlet property="AttendingEventsCollectionView" destination="Z4O-OH-gVh" id="hbb-0O-5XS"/>
                         <outlet property="MyEventsCollectionView" destination="X7P-Ii-iai" id="riR-b8-uLe"/>
+                        <outlet property="atendingEventsLabel" destination="ifz-OJ-RzR" id="0UW-g0-QaR"/>
+                        <outlet property="behindView" destination="Ten-Gc-ovS" id="6lP-4p-W4i"/>
+                        <outlet property="myEventsLabel" destination="VIy-ZR-VUV" id="cva-0e-eaI"/>
                         <outlet property="nicknameText" destination="62R-8O-1Af" id="QWj-4f-HrK"/>
+                        <outlet property="scrollView" destination="8zb-W4-NDY" id="m7f-PP-KHU"/>
+                        <outlet property="settingButton" destination="W0Q-w3-ja2" id="zeC-lD-YFK"/>
+                        <outlet property="stackView" destination="SUN-hx-Vae" id="YGY-rS-f6F"/>
                         <outlet property="userAvatar" destination="n4v-Oc-hww" id="wlA-Sy-mfV"/>
                     </connections>
                 </viewController>
@@ -356,9 +362,9 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="klA-gb-Dcq">
-                                <rect key="frame" x="20" y="88" width="84" height="40"/>
+                                <rect key="frame" x="15" y="89" width="95" height="41"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
                                 <state key="normal" title="Account">
                                     <color key="titleColor" red="0.84863233569999996" green="0.14901781080000001" blue="0.1704194248" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
@@ -367,9 +373,9 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ow1-NQ-8EP">
-                                <rect key="frame" x="20" y="136" width="81" height="40"/>
+                                <rect key="frame" x="16" y="137" width="91" height="41"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
                                 <state key="normal" title="Themes">
                                     <color key="titleColor" red="0.84863233569999996" green="0.14901781080000001" blue="0.1704194248" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
@@ -378,28 +384,28 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="imO-Oh-s6e">
-                                <rect key="frame" x="20" y="184" width="143" height="40"/>
+                                <rect key="frame" x="12" y="185" width="161" height="41"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <accessibility key="accessibilityConfiguration">
                                     <accessibilityTraits key="traits" button="YES" notEnabled="YES"/>
                                 </accessibility>
-                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
                                 <state key="normal" title="Face/Touch ID">
                                     <color key="titleColor" red="0.84863233569999996" green="0.14901781080000001" blue="0.1704194248" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rth-Bd-8bO">
-                                <rect key="frame" x="20" y="232" width="126" height="40"/>
+                                <rect key="frame" x="11" y="233" width="145" height="41"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
                                 <state key="normal" title="Notifications">
                                     <color key="titleColor" red="0.84863233569999996" green="0.14901781080000001" blue="0.1704194248" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TjD-ah-7gK">
-                                <rect key="frame" x="20" y="280" width="70" height="40"/>
+                                <rect key="frame" x="16" y="281" width="80" height="41"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
                                 <state key="normal" title="Logout">
                                     <color key="titleColor" red="0.84863233569999996" green="0.14901781080000001" blue="0.1704194248" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
@@ -423,8 +429,12 @@
                     </view>
                     <navigationItem key="navigationItem" id="tVA-ki-lVg"/>
                     <connections>
+                        <outlet property="accountLabel" destination="klA-gb-Dcq" id="SY5-Ze-JmR"/>
                         <outlet property="biometricsSwitch" destination="FXs-rJ-7wJ" id="ycG-jE-Srw"/>
+                        <outlet property="faceIDLabel" destination="imO-Oh-s6e" id="zSi-zG-NRU"/>
                         <outlet property="logoutButton" destination="TjD-ah-7gK" id="9TB-8T-8Fv"/>
+                        <outlet property="notificationLabel" destination="Rth-Bd-8bO" id="dX6-ES-MwY"/>
+                        <outlet property="themesLabel" destination="ow1-NQ-8EP" id="NcZ-R3-f2g"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qwh-kP-nn7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -494,6 +504,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="LLU-I8-pzk"/>
                     <connections>
+                        <outlet property="editButton" destination="ANX-lp-oTP" id="ECB-MZ-DVi"/>
                         <outlet property="emailTxt" destination="ID9-es-2CQ" id="Fhg-Te-agA"/>
                         <outlet property="nameTxt" destination="ecN-t6-78a" id="vzt-pO-4ml"/>
                         <outlet property="nicknameTxt" destination="OGL-K9-Ugb" id="qbk-xn-JY9"/>
@@ -737,7 +748,7 @@
                         <outlet property="nameTxt" destination="8Ak-S5-M0l" id="ssp-Vo-KII"/>
                         <outlet property="nicknameTxt" destination="Rg1-zr-raD" id="Ctf-Zx-z9c"/>
                         <outlet property="passTxt" destination="Tgv-3X-luG" id="esv-K0-YpZ"/>
-                        <outlet property="saveButton" destination="mkV-k2-BWg" id="eYg-Ir-C25"/>
+                        <outlet property="saveButton" destination="mkV-k2-BWg" id="5lu-MC-z35"/>
                         <outlet property="surnameTxt" destination="yRn-og-L2w" id="BgB-T2-N6M"/>
                     </connections>
                 </viewController>
