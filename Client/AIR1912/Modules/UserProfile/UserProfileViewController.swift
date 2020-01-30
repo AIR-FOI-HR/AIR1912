@@ -47,8 +47,8 @@ class UserProfileViewController: UIViewController, EventDetailsDelegate {
         // set welcome message with nickname
             let userNickname = self.keychain.getNickname()
             self.nicknameText.text = "Hi " + userNickname!
-        AttendingEventsCollectionView.delegate = self
-        MyEventsCollectionView.delegate=self
+        AttendingEventsCollectionView.delegate = self as! UICollectionViewDelegate
+        MyEventsCollectionView.delegate=self as! UICollectionViewDelegate
     }
     
     override func viewDidLoad() {
