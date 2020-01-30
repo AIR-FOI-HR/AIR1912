@@ -52,6 +52,7 @@ class UserProfileViewController: UIViewController, EventDetailsDelegate {
             
             getEventsByUserID(for: .allEvent)
             getEventsByOwnerID(for: .allEvent)
+            
     }
     
         @IBAction func testEventDetails(_ sender: Any) {

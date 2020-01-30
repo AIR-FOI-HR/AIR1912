@@ -99,7 +99,9 @@ class SignupController: UIViewController {
         //avatar.rawValue
         
         // Check if all fields are filled
-        if  nicknameTxt.text?.isEmpty ?? true || nameTxt.text?.isEmpty ?? true || surnameTxt.text?.isEmpty ?? true || emailTxt.text?.isEmpty ?? true || passwordTxt.text?.isEmpty ?? true || confirmPassowordTxt.text?.isEmpty ?? true{
+        if  nicknameTxt.text?.isEmpty ?? true || nameTxt.text?.isEmpty ?? true || surnameTxt.text?.isEmpty ??
+            true || emailTxt.text?.isEmpty ?? true || passwordTxt.text?.isEmpty ?? true
+            || confirmPassowordTxt.text?.isEmpty ?? true{
             
             alerter.title = "Sorry"
             alerter.message = "All fields have to be filled"
@@ -119,7 +121,8 @@ class SignupController: UIViewController {
         
         if readyToProceed{
             let selectedAvatar = currentAvatar()
-            let newUser = User(nickname: nicknameTxt.text!, idUsers: nil,name: nameTxt.text!,surname: surnameTxt.text!, email: emailTxt.text!, password: passwordTxt.text!, avatar: selectedAvatar)
+            let newUser = User(nickname: nicknameTxt.text!, idUsers: nil,name: nameTxt.text!,surname: surnameTxt.text!,
+                               email: emailTxt.text!, password: passwordTxt.text!, avatar: selectedAvatar)
             addUser(newUser)
         }
         
@@ -153,7 +156,9 @@ class SignupController: UIViewController {
             print("we messed up")
         }
         else{
-            keychain.saveSessionData(email: user.email, password: user.password, nickname: user.nickname, avatar: user.avatar.rawValue, id: Int(user.idUsers!)!)
+            keychain.saveSessionData(email: user.email, password: user.password,
+                                     nickname: user.nickname, avatar: user.avatar.rawValue, id: Int(user.idUsers!)!,
+                                     name: user.name, surname: user.surname)
             goToHomescreen()
         }
         
