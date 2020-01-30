@@ -51,7 +51,7 @@
                                                                 <rect key="frame" x="0.0" y="0.0" width="414" height="100"/>
                                                                 <subviews>
                                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="boy-38262_1280" translatesAutoresizingMaskIntoConstraints="NO" id="n4v-Oc-hww">
-                                                                        <rect key="frame" x="164.66666666666666" y="0.0" width="85" height="100"/>
+                                                                        <rect key="frame" x="155" y="0.0" width="1112" height="100"/>
                                                                     </imageView>
                                                                 </subviews>
                                                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -66,7 +66,7 @@
                                                                 <rect key="frame" x="0.0" y="100" width="414" height="25"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nickname" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="62R-8O-1Af">
-                                                                        <rect key="frame" x="164.66666666666666" y="0.0" width="85" height="25"/>
+                                                                        <rect key="frame" x="153" y="0.0" width="117.33333333333331" height="25"/>
                                                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
                                                                         <color key="textColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                         <nil key="highlightedColor"/>
@@ -175,6 +175,7 @@
                                                                         </userDefinedRuntimeAttributes>
                                                                         <connections>
                                                                             <outlet property="dataSource" destination="nod-c7-47d" id="7jQ-Bf-gur"/>
+                                                                            <outlet property="delegate" destination="nod-c7-47d" id="A6o-FF-8nw"/>
                                                                         </connections>
                                                                     </collectionView>
                                                                 </subviews>
@@ -278,6 +279,7 @@
                                                                         </userDefinedRuntimeAttributes>
                                                                         <connections>
                                                                             <outlet property="dataSource" destination="nod-c7-47d" id="LOj-F6-Rbe"/>
+                                                                            <outlet property="delegate" destination="nod-c7-47d" id="TDT-DG-iY6"/>
                                                                         </connections>
                                                                     </collectionView>
                                                                 </subviews>

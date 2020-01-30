@@ -48,7 +48,7 @@ class UserProfileViewController: UIViewController, EventDetailsDelegate {
             let userNickname = self.keychain.getNickname()
             self.nicknameText.text = "Hi " + userNickname!
         AttendingEventsCollectionView.delegate = self
-        MyEventsCollectionView.delegate=self
+        MyEventsCollectionView.delegate = self
     }
     
     override func viewDidLoad() {
