@@ -83,7 +83,7 @@ extension LoginViewController {
         forgotPasswordButton.setTitleColor(Theme.current.headingColor, for: .normal)
         loginLabel.textColor = Theme.current.backgroundColor
         
-        if(userKeychain.getEmail() != nil && userKeychain.hasSessionData() && (UserDefaults.standard.bool(forKey: "SwitchValue"))) {
+        if(userKeychain.getEmail() != nil  && (UserDefaults.standard.bool(forKey: "SwitchValue"))) {
             emailTextField.isHidden = true
             passwordTextField.isHidden = true
             logInButton.isHidden = true
@@ -97,7 +97,7 @@ extension LoginViewController {
             } else {
                 faceIDButton.setImage(UIImage(named: "TouchID"), for: .normal)
             }
-            
+            handleFaceIDTouchID()
             
         } else {
             
