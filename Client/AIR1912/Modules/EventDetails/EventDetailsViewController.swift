@@ -38,6 +38,7 @@ class EventDetailsViewController: UIViewController {
     @IBOutlet weak var floatyButton: Floaty!
     
     @IBOutlet weak var labelButtonName: UILabel!
+    @IBOutlet weak var imageCheckedEvent: UIImageView!
     
     
     //properties
@@ -216,6 +217,7 @@ extension EventDetailsViewController{
                             self.buttonJoin.titleLabel?.textColor = .white
                             self.labelButtonName.text = "Leave"
                             self.userAttending = true
+                            self.imageCheckedEvent.isHidden = false
                             
                             
                         }
