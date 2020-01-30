@@ -329,6 +329,9 @@
                     <connections>
                         <outlet property="collectionView" destination="wvT-hM-a5B" id="okN-at-AGc"/>
                         <outlet property="collectionView2" destination="Axq-WO-vSr" id="LEl-pP-Ysi"/>
+                        <outlet property="gamesLabel" destination="DBk-Nd-Bs3" id="4Lp-oz-bXG"/>
+                        <outlet property="moviesLabel" destination="fNP-cG-loe" id="dXO-rf-l8P"/>
+                        <outlet property="searchButton" destination="pvh-IM-8u8" id="HhB-IF-oLc"/>
                         <outlet property="segmentButton" destination="tLT-dR-QWj" id="ueX-GW-xkl"/>
                     </connections>
                 </viewController>

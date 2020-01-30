@@ -45,6 +45,9 @@ class TableCell: UITableViewCell {
         ratingsLbl.layer.masksToBounds = true
         imgView.layer.cornerRadius = 8.0
         imgView.layer.masksToBounds = true
+        titleLbl.textColor = Theme.current.headingColor
+        genresLbl.textColor = Theme.current.textColor
+        ratingsLbl.textColor = Theme.current.textColor
         
     }
     

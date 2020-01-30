@@ -16,8 +16,10 @@ class ContentViewController : UIViewController {
     
     @IBOutlet private weak var collectionView: UICollectionView!
     @IBOutlet private weak var collectionView2: UICollectionView!
-    
     @IBOutlet weak var segmentButton: UISegmentedControl!
+    @IBOutlet weak var searchButton: UIBarButtonItem!
+    @IBOutlet weak var gamesLabel: UILabel!
+    @IBOutlet weak var moviesLabel: UILabel!
     // MARK: - Private properties
     
     private var gamesDatasource = [Content]()
@@ -40,6 +42,11 @@ class ContentViewController : UIViewController {
         
          getLatestContent(for: .movie)
          getLatestContent(for: .game)
+        
+        segmentButton.selectedSegmentTintColor = Theme.current.headingColor
+        searchButton.tintColor = Theme.current.headingColor
+        moviesLabel.textColor = Theme.current.headingColor
+        gamesLabel.textColor = Theme.current.headingColor
      }
     
     
