@@ -57,7 +57,7 @@ class MapDetailsController: UIViewController, EventDetailsDelegate {
             eventNumberOfPeopleTxt.text = "0"
         }
         else{
-            eventNumberOfPeopleTxt.text = " \(String(describing: selectedEvent?.numberOfPeople))"
+            eventNumberOfPeopleTxt.text = "People:  \r\n\(String(describing: selectedEvent!.numberOfPeople!))"
         }
         
         

@@ -38,11 +38,12 @@ class MapsController: UIViewController, MKMapViewDelegate {
         super.viewDidLoad()
         mapView.delegate = self
         blur.isHidden = true
-        
-        getEvents(type: "movie")
-        setRegion()
-        
+    }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        getEvents(type :movieGameSelector.selectedSegmentIndex == 0 ? "movie" : "game")
+        setRegion()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -68,9 +69,9 @@ class MapsController: UIViewController, MKMapViewDelegate {
         self.startLoadingAnimation()
         
        let annotations = self.mapView.annotations
-            for annotation in annotations {
-                self.mapView.removeAnnotation(annotation)
-            }
+        for annotation in annotations {
+            self.mapView.removeAnnotation(annotation)
+        }
         
         
         let provider = WebEventProvider()
@@ -127,20 +128,20 @@ class MapsController: UIViewController, MKMapViewDelegate {
         stopLoadingAnimation()
     }
     
-    // pokusaj bojanja pinova - ne funkcionira
-    private func mapView(_ mapView: MKMapView, viewFor annotation: MapPin) -> MKAnnotationView? {
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         
-        var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: "myAnnotation")
+        var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: "myAnnotation") as? MKMarkerAnnotationView
         
         if annotationView == nil {
-            annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: "myAnnotation")
+            annotationView = MKMarkerAnnotationView(annotation: annotation, reuseIdentifier: "myAnnotation")
         } else {
             annotationView?.annotation = annotation
         }
+        
+        if let _annotation = annotation as? MapPin {
+            annotationView?.markerTintColor = _annotation.pinColor
+        }
     
-
-        annotationView?.tintColor = UIColor(red: 0, green: 100, blue: 0, alpha: 0.5)
-        annotationView?.backgroundColor = UIColor.white
         
         return annotationView
     }
@@ -165,7 +166,6 @@ class MapsController: UIViewController, MKMapViewDelegate {
         
         // na view controller detaljnog prikaza pridodaj odabrani event
         viewController.selectedEvent = selectedEvent!.event
-        
         self.present(viewController, animated: true, completion: nil)
     }
     
