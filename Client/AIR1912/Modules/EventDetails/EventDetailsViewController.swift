@@ -294,13 +294,37 @@ extension EventDetailsViewController{
     func tryToJoinEvent(){
         let date = NSDate()
         
-//        let eventDate = FormatDate.getDateFromWebDBString(date: event.dateTime)
-//        let earlierDate = eventDate?.earlierDate(date as Date)
-//        if(earlierDate as! NSDate == date){
-//            //Logika da može pustiti dalje Joinanje na Event
-//        }
+        let eventDate = FormatDate.getDateFromWebDBString(date: event.dateTime)
+        let earlierDate = eventDate?.earlierDate(date as Date)
+        guard(earlierDate as! NSDate == date)else{
+            let alerter = Alerter(title: "Event je završio", message: "Ne možete se pridružiti")
+            alerter.alertWarning()
+            return
+        }
+        if(self.event.isPrivate == 1){
+            let appearance = SCLAlertView.SCLAppearance(
+                           showCloseButton: false
+                       )
+            let alerter = SCLAlertView(appearance: appearance)
+            let textfield = alerter.addTextField("Password")
+                       
+            alerter.addButton("Enter") {
+                if(self.event.password == textfield.text){
+                    self.checkIfEventFull()
+                }else{
+                    alerter.showError("Password is not correct", subTitle: "Try again")
+                }
+            }
+            alerter.showInfo("Enter password for event", subTitle: "If you know it 😉")
+        }else{
+            checkIfEventFull()
+        }
         
         
+        
+    }
+    
+    func checkIfEventFull(){
         webProvider.getEventsByEventId(for: self.event.id) { (result) in
             switch result{
             case .success(let event):
@@ -316,8 +340,6 @@ extension EventDetailsViewController{
                 print("failure")
             }
         }
-        
-        
     }
     
     func JoinUserToEvent(){

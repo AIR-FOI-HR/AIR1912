@@ -361,7 +361,7 @@ extension EventCRUDViewController{
                   (result) in
                   switch(result){
                   case .success(let event):
-                      print(event[0])
+                      
                       let alerter = Alerter(title: "Created Succesfully", message: "Your Event is created successfully")
                       alerter.alertSuccess()
                       
