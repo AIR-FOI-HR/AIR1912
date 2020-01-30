@@ -21,7 +21,7 @@ class AccountViewController: UIViewController {
     
     private let keychain:UserKeychain = UserKeychain()
     
-    func updateUser(){
+    private func updateUser(){
             let avatarValue = self.keychain.getAvatar()
             let avatar = Avatar(rawValue: avatarValue!)
             let userImage = avatar

@@ -25,11 +25,8 @@ class UserProfileViewController: UIViewController {
     private let keychain:UserKeychain = UserKeychain()
     
     //MARK: - Lifecycle
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
+    private func updateUser(){
         // set avatar from keychain
-        
             let avatarValue = self.keychain.getAvatar()
         let avatar = Avatar(rawValue: avatarValue!)
         let userImage = avatar!.image
@@ -39,12 +36,18 @@ class UserProfileViewController: UIViewController {
         // set welcome message with nickname
             let userNickname = self.keychain.getNickname()
             self.nicknameText.text = "Hi " + userNickname!
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        updateUser()
     
 }
     
         override func viewWillAppear(_ animated: Bool) {
             super.viewWillAppear(true)
             
+            updateUser()
             getEventsByUserID(for: .allEvent)
             getEventsByOwnerID(for: .allEvent)
             
