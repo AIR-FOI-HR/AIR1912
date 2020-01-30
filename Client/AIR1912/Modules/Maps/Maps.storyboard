@@ -69,6 +69,15 @@
                                 <action selector="movieGameSelector:" destination="NiQ-IV-ToW" eventType="valueChanged" id="zFm-wi-fzh"/>
                             </connections>
                         </segmentedControl>
+                        <barButtonItem key="rightBarButtonItem" title="Radius" springLoaded="YES" style="plain" id="4Zb-11-QxC">
+                            <slider key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="20" minValue="1" maxValue="100" id="mf8-9c-zSP">
+                                <rect key="frame" x="302" y="5" width="92" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="radiusSliderChange:" destination="NiQ-IV-ToW" eventType="valueChanged" id="V8W-0j-7wN"/>
+                                </connections>
+                            </slider>
+                        </barButtonItem>
                     </navigationItem>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
@@ -76,6 +85,7 @@
                         <outlet property="loadingAnimation" destination="qI9-CB-v92" id="gFS-iv-Cnb"/>
                         <outlet property="mapView" destination="2fc-id-SXH" id="wnS-w9-E2L"/>
                         <outlet property="movieGameSelector" destination="Kv7-x9-ZH3" id="d3B-0J-CKP"/>
+                        <outlet property="radiusSlider" destination="mf8-9c-zSP" id="elQ-9Y-i60"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vcC-DV-BJA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
