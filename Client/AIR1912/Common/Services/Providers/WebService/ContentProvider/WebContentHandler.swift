@@ -15,10 +15,12 @@ class WebContentHandler{
 
     func insertNewContent(for content:DBContent, completion: @escaping (Result<[DBContent]>) -> Void){
         
+        
         let decoder = JSONDecoder()
         var contentDic = try! content.asDictionary()
-        contentDic["requestType"] = "insertNewContent"
         
+        contentDic["requestType"] = "insertNewContent"
+        contentDic["overview"] = " "
         Alamofire
             .request("https://cortex.foi.hr/meetup/DBContentHandler.php", method: .get, parameters: contentDic)
             .validate()
