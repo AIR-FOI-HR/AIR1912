@@ -40,6 +40,7 @@ class EditAccountViewController: UIViewController {
         passTxt.textColor = Theme.current.headingColor
         cpassTxt.textColor = Theme.current.headingColor
         saveButton.setTitleColor(Theme.current.headingColor, for: .normal)
+        self.tabBarController?.tabBar.tintColor = Theme.current.headingColor
     }
     
     func refreshUserData(){

@@ -17,8 +17,7 @@ class UserProfileCollectionViewCell: UICollectionViewCell {
     
     //MARK: - Private properties
     
-    //MARK: - Lifecycle
-    
+
     override func prepareForReuse() {
            super.prepareForReuse()
            featuredImageView.image = nil
@@ -53,6 +52,7 @@ class UserProfileCollectionViewCell: UICollectionViewCell {
            featuredImageView.layer.cornerRadius = 12.0
            featuredImageView.layer.masksToBounds = true
         eventTitle.textColor = Theme.current.textColor
+ 
        }
        
 }

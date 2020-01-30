@@ -54,5 +54,6 @@ class AccountViewController: UIViewController {
         nicknameTxt.textColor = Theme.current.headingColor
         surnameTxt.textColor = Theme.current.headingColor
         emailTxt.textColor = Theme.current.headingColor
+        self.tabBarController?.tabBar.tintColor = Theme.current.headingColor
     }
 }

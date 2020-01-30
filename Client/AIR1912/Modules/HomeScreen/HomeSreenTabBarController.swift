@@ -18,7 +18,12 @@ class HomeSreenTabBarController: UITabBarController {
         
         super.viewDidLoad()
         setupTabBar()
+        self.tabBarController?.tabBar.tintColor = Theme.current.headingColor
     
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.tabBarController?.tabBar.tintColor = Theme.current.headingColor
     }
     
 }

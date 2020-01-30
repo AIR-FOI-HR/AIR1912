@@ -35,7 +35,7 @@ class SettingsViewController: UIViewController {
     notificationLabel.setTitleColor(Theme.current.headingColor, for: .normal)
         logoutButton.setTitleColor(Theme.current.headingColor, for: .normal)
         biometricsSwitch.onTintColor = Theme.current.headingColor
-        
+        self.tabBarController?.tabBar.tintColor = Theme.current.headingColor
     }
     
     @IBAction func biometricsSettings(_ sender: Any) {

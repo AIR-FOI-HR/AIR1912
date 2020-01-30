@@ -39,6 +39,7 @@ class FavouritesViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         favouriteLabel.textColor = Theme.current.headingColor
         favourite2Label.textColor = Theme.current.headingColor
+        self.tabBarController?.tabBar.tintColor = Theme.current.headingColor
     }
     
     private func getFavouriteContent(for type: ContentType, userId: Int){

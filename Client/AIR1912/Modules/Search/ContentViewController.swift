@@ -47,6 +47,7 @@ class ContentViewController : UIViewController {
         searchButton.tintColor = Theme.current.headingColor
         moviesLabel.textColor = Theme.current.headingColor
         gamesLabel.textColor = Theme.current.headingColor
+        self.tabBarController?.tabBar.tintColor = Theme.current.headingColor
      }
     
     

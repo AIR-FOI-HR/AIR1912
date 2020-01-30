@@ -41,6 +41,7 @@ class ContentSearchController: UIViewController{
         getLatestContent(for: .movie)
         table.rowHeight = UITableView.automaticDimension
         setupSearchBar()
+        self.tabBarController?.tabBar.tintColor = Theme.current.headingColor
     }
     
 }
