@@ -50,15 +50,17 @@
                                                                 <rect key="frame" x="0.0" y="0.0" width="414" height="100"/>
                                                                 <subviews>
                                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="boy-38262_1280" translatesAutoresizingMaskIntoConstraints="NO" id="n4v-Oc-hww">
-                                                                        <rect key="frame" x="164.5" y="0.0" width="85" height="100"/>
+                                                                        <rect key="frame" x="155" y="0.0" width="105" height="100"/>
+                                                                        <constraints>
+                                                                            <constraint firstAttribute="width" constant="105" id="Gph-eQ-4M5"/>
+                                                                        </constraints>
                                                                     </imageView>
                                                                 </subviews>
                                                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                                 <constraints>
                                                                     <constraint firstItem="n4v-Oc-hww" firstAttribute="top" secondItem="n5Q-OB-7cq" secondAttribute="top" id="0FP-Lb-qv7"/>
-                                                                    <constraint firstAttribute="trailing" secondItem="n4v-Oc-hww" secondAttribute="trailing" constant="164.5" id="2jh-bt-o74"/>
-                                                                    <constraint firstItem="n4v-Oc-hww" firstAttribute="leading" secondItem="n5Q-OB-7cq" secondAttribute="leading" constant="164.5" id="POt-6f-72J"/>
                                                                     <constraint firstAttribute="height" constant="100" id="bUN-1R-3sB"/>
+                                                                    <constraint firstItem="n4v-Oc-hww" firstAttribute="leading" secondItem="n5Q-OB-7cq" secondAttribute="leading" constant="155" id="dty-dE-aHE"/>
                                                                     <constraint firstAttribute="bottom" secondItem="n4v-Oc-hww" secondAttribute="bottom" id="pCs-4f-gxT"/>
                                                                 </constraints>
                                                             </view>
@@ -66,7 +68,7 @@
                                                                 <rect key="frame" x="0.0" y="100" width="414" height="25"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nickname" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="62R-8O-1Af">
-                                                                        <rect key="frame" x="164.5" y="0.0" width="85" height="25"/>
+                                                                        <rect key="frame" x="153" y="0.0" width="109" height="25"/>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                                                         <color key="textColor" red="0.84863233569999996" green="0.14901781080000001" blue="0.1704194248" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                         <nil key="highlightedColor"/>
@@ -74,10 +76,9 @@
                                                                 </subviews>
                                                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                                 <constraints>
-                                                                    <constraint firstAttribute="trailing" secondItem="62R-8O-1Af" secondAttribute="trailing" constant="164.5" id="D3V-9D-08e"/>
                                                                     <constraint firstAttribute="bottom" secondItem="62R-8O-1Af" secondAttribute="bottom" id="Kil-6q-Mh9"/>
+                                                                    <constraint firstItem="62R-8O-1Af" firstAttribute="leading" secondItem="ffe-zU-F7E" secondAttribute="leading" constant="153" id="OOO-K3-s7f"/>
                                                                     <constraint firstAttribute="height" constant="25" id="WZL-UW-7ZY"/>
-                                                                    <constraint firstItem="62R-8O-1Af" firstAttribute="leading" secondItem="ffe-zU-F7E" secondAttribute="leading" constant="164.5" id="X4W-Bl-m1Z"/>
                                                                     <constraint firstItem="62R-8O-1Af" firstAttribute="top" secondItem="ffe-zU-F7E" secondAttribute="top" id="wBP-uC-iuj"/>
                                                                 </constraints>
                                                             </view>
