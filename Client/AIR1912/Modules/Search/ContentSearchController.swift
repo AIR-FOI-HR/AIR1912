@@ -37,6 +37,12 @@ class ContentSearchController: UIViewController{
         
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        getLatestContent(for: .movie)
+        table.rowHeight = UITableView.automaticDimension
+        setupSearchBar()
+    }
+    
 }
 
 extension ContentSearchController: SkeletonTableViewDataSource, UITableViewDelegate, UISearchBarDelegate {
@@ -51,6 +57,8 @@ extension ContentSearchController: SkeletonTableViewDataSource, UITableViewDeleg
     
     private func setupSearchBar() {
         searchBar.delegate = self
+    searchBar.setScopeBarButtonTitleTextAttributes([NSAttributedString.Key.foregroundColor : Theme.current.headingColor], for: .selected)
+        
     }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String){
@@ -106,7 +114,7 @@ extension ContentSearchController: SkeletonTableViewDataSource, UITableViewDeleg
    
     
     private func getLatestContent(for type: ContentType) {
-    //self.table.showAnimatedGradientSkeleton()
+
     let provider = ContentProviderFactory.contentProvider(forContentType: type)
     provider.getLatestContent { (result) in
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
