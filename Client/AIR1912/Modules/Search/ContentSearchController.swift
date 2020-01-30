@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 import Alamofire
+import SkeletonView
 
 class ContentSearchController: UIViewController{
     
@@ -16,6 +17,7 @@ class ContentSearchController: UIViewController{
     
     @IBOutlet weak var table: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
+    @IBOutlet weak var segmentControl: UISegmentedControl!
     
     
     // MARK: - Private properties
@@ -28,18 +30,40 @@ class ContentSearchController: UIViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        table.rowHeight = UITableView.automaticDimension
         setupSearchBar()
+        table.showAnimatedSkeleton()
         getLatestContent(for: .movie)
         
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        getLatestContent(for: .movie)
+        table.rowHeight = UITableView.automaticDimension
+        setupSearchBar()
+        self.tabBarController?.tabBar.tintColor = Theme.current.headingColor
+        self.navigationController?.navigationBar.tintColor = Theme.current.headingColor
+        let textAttributes = [NSAttributedString.Key.foregroundColor:Theme.current.headingColor]
+        navigationController?.navigationBar.titleTextAttributes = textAttributes
+    
+    }
+    
 }
 
-extension ContentSearchController: UITableViewDelegate, UISearchBarDelegate {
+extension ContentSearchController: SkeletonTableViewDataSource, UITableViewDelegate, UISearchBarDelegate {
     
+    func collectionSkeletonView(_ skeletonView: UITableView, numberOfRowsInSection section: Int) -> Int {
+       return 5
+    }
+    
+    func collectionSkeletonView(_ skeletonView: UITableView, cellIdentifierForRowAt indexPath: IndexPath) -> ReusableCellIdentifier {
+       return "Cell"
+    }
     
     private func setupSearchBar() {
         searchBar.delegate = self
+    searchBar.setScopeBarButtonTitleTextAttributes([NSAttributedString.Key.foregroundColor : Theme.current.headingColor], for: .selected)
+        
     }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String){
@@ -80,6 +104,7 @@ extension ContentSearchController: UITableViewDelegate, UISearchBarDelegate {
     }
    
     private func getSearchedContent(for type: ContentType) {
+        
         let provider = ContentProviderFactory.contentProvider(forContentType: type)
         provider.getSearchedContent(title: searchTitle) { (result) in
             switch result {
@@ -94,8 +119,12 @@ extension ContentSearchController: UITableViewDelegate, UISearchBarDelegate {
    
     
     private func getLatestContent(for type: ContentType) {
+
     let provider = ContentProviderFactory.contentProvider(forContentType: type)
     provider.getLatestContent { (result) in
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+        self.table.hideSkeleton()
+        }
         switch result {
         case .success(let podaci):
             self.updateContent(for: type, result: podaci)
@@ -145,6 +174,7 @@ extension ContentSearchController: UITableViewDataSource{
         } else {
             content = gamesDatasource[indexPath.row]
         }
+        cell.hideSkeleton()
         cell.configure(id: content.id, with: content)
         return cell
     }

@@ -17,6 +17,7 @@ class EditAccountViewController: UIViewController {
     @IBOutlet weak var emailTxt: UITextField!
     @IBOutlet weak var passTxt: UITextField!
     @IBOutlet weak var cpassTxt: UITextField!
+    @IBOutlet weak var saveButton: UIButton!
     
     @IBOutlet weak var avatarSelection: UIScrollView!
        
@@ -30,6 +31,20 @@ class EditAccountViewController: UIViewController {
         super.viewDidLoad()
         self.refreshUserData()
 
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        nicknameTxt.textColor = Theme.current.headingColor
+        nameTxt.textColor = Theme.current.headingColor
+        surnameTxt.textColor = Theme.current.headingColor
+        emailTxt.textColor = Theme.current.headingColor
+        passTxt.textColor = Theme.current.headingColor
+        cpassTxt.textColor = Theme.current.headingColor
+        saveButton.setTitleColor(Theme.current.headingColor, for: .normal)
+        self.tabBarController?.tabBar.tintColor = Theme.current.headingColor
+        self.navigationController?.navigationBar.tintColor = Theme.current.headingColor
+        let textAttributes = [NSAttributedString.Key.foregroundColor:Theme.current.headingColor]
+        navigationController?.navigationBar.titleTextAttributes = textAttributes
     }
     
     func refreshUserData(){

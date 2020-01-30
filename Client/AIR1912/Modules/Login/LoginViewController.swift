@@ -8,7 +8,8 @@
 
 import UIKit
 import Alamofire
-
+import KBRoundedButton
+import LocalAuthentication
 
 let API_URL = "http://air1912.000webhostapp.com/service.php"
 
@@ -18,8 +19,14 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     // MARK: - IBOutlets
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
-    
     @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var loginLabel: UILabel!
+    @IBOutlet weak var upContentView: UIView!
+    @IBOutlet weak var logInButton: KBRoundedButton!
+    @IBOutlet weak var forgotPasswordButton: UIButton!
+    @IBOutlet weak var passwordLabel: UILabel!
+    @IBOutlet weak var userNameLabel: UILabel!
+    @IBOutlet weak var faceIDButton: UIButton!
     
     // MARK: - Properties
     private let authService: AuthService = AuthService()
@@ -29,6 +36,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     private var emailTextFieldIsActive:Bool = false
     private var passwordTextFieldIsActive:Bool = false
     private var scrollViewWasChanged:Bool = false
+    private let context:LAContext = LAContext()
     
     //MARK: -
     
@@ -42,7 +50,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
     
     @IBAction func btnLoginClicked(_ sender: Any) {
-        loginUser()
+        userloginUser()
         
         
     }
@@ -55,7 +63,11 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
            self.present(RecoverPsaswordController, animated: true, completion: nil)
            
        }
-
+    
+    @IBAction func faceIDLogIn(_ sender: Any) {
+        handleFaceIDTouchID()
+    }
+    
 }
 
 
@@ -66,22 +78,97 @@ extension LoginViewController {
         emailTextField.delegate = self
         passwordTextField.delegate = self
         
-        startScrollIndicatorInset = scrollView.verticalScrollIndicatorInsets.bottom
+        upContentView.backgroundColor = Theme.current.headingColor
+        logInButton.backgroundColorForStateNormal = Theme.current.headingColor
+        forgotPasswordButton.setTitleColor(Theme.current.headingColor, for: .normal)
+        loginLabel.textColor = Theme.current.backgroundColor
         
-        startContentInset = scrollView.contentInset.bottom
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
-    }
-    
-    private func loginUser() {
-        
-        guard let email = emailTextField.text, !email.isEmpty, let password = passwordTextField.text, !password.isEmpty else {
-            let alerter = Alerter(title: "Some fields missing", message: "Insert value into all fields")
-            alerter.alertError()
-            return
+        if(userKeychain.getEmail() != nil && userKeychain.hasSessionData() && (UserDefaults.standard.bool(forKey: "SwitchValue"))) {
+            emailTextField.isHidden = true
+            passwordTextField.isHidden = true
+            logInButton.isHidden = true
+            userNameLabel.isHidden = true
+            passwordLabel.isHidden = true
+            forgotPasswordButton.isHidden = true
+            faceIDButton.isHidden = false
+            context.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: nil)
+            if(context.biometryType == .faceID) {
+                faceIDButton.setImage(UIImage(named: "FaceID"), for: .normal)
+            } else {
+                faceIDButton.setImage(UIImage(named: "TouchID"), for: .normal)
+            }
             
+            
+        } else {
+            
+            emailTextField.isHidden = false
+            passwordTextField.isHidden = false
+            logInButton.isHidden = false
+            userNameLabel.isHidden = false
+            passwordLabel.isHidden = false
+            forgotPasswordButton.isHidden = false
+            faceIDButton.isHidden = true
+            
+            emailTextField.delegate = self
+            passwordTextField.delegate = self
+//            upContentView.backgroundColor = ThemesManager.shared.theme.baseColor
+//            logInButton.backgroundColor = ThemesManager.shared.theme.baseColor
+            
+            startScrollIndicatorInset = scrollView.verticalScrollIndicatorInsets.bottom
+            
+            startContentInset = scrollView.contentInset.bottom
+            NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+            NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
         }
         
+        
+    }
+    
+    @objc fileprivate func handleFaceIDTouchID() {
+        
+        if context.canEvaluatePolicy(.deviceOwnerAuthentication, error: nil) {
+            context.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: "To have an access to the door that we need to check your FaceID/TouchID") { (wasSuccessful, error) in
+                if wasSuccessful{
+                    DispatchQueue.main.async {
+                        self.biometricLoginUser()
+                    }
+                } else {
+                    DispatchQueue.main.async {
+                        let alerter = Alerter(title: "Incorrect credentials", message: "Please try again")
+                        alerter.alertError()
+                    }
+                }
+            }
+            
+        } else {
+            let alerter = Alerter(title: "FaceID/TouchID not configured", message: "Please go to device settings")
+            alerter.alertError()
+        }
+    }
+    
+ 
+    private func biometricLoginUser() {
+        let email = self.userKeychain.getEmail()!
+        let password = self.userKeychain.getPassword()!
+        login(email: email, password: password)
+    }
+    
+    private func userloginUser() {
+        let email = userKeychain.getEmail()
+        if(email != nil && userKeychain.hasSessionData()){
+        biometricLoginUser()
+        } else {
+            guard let email = emailTextField.text, !email.isEmpty, let password = passwordTextField.text, !password.isEmpty else {
+                let alerter = Alerter(title: "Some fields missing", message: "Insert value into all fields")
+                alerter.alertError()
+                return
+            }
+            login(email: email, password: password)
+        }
+        
+    }
+    
+    private func login(email: String, password: String) {
         authService.login( with: email, password: password ) { (result) in
             switch result {
             case .success(let user):
@@ -94,12 +181,19 @@ extension LoginViewController {
     }
     
     private func showSuccessAlert(for user: [User]) {
+        
             let HomeStoryboard:UIStoryboard = UIStoryboard(name: "Homescreen", bundle: nil)
             let HomeController = HomeStoryboard.instantiateViewController(identifier: "HomeScreen") as! HomeSreenTabBarController
             HomeController.modalPresentationStyle = .fullScreen
             self.present(HomeController, animated: true, completion: nil)
-           
-        _ = userKeychain.saveSessionData(email: emailTextField.text!, password: passwordTextField.text!, nickname: user[0].nickname, avatar: user[0].avatar.rawValue, id: Int(user[0].idUsers!)!,name: user[0].name,surname: user[0].surname)
+        
+        if(userKeychain.getEmail() != nil && userKeychain.hasSessionData()){
+            biometricLoginUser()
+        } else {
+
+            _ = userKeychain.saveSessionData(email: emailTextField.text!, password: passwordTextField.text!, nickname: user[0].nickname, avatar: user[0].avatar.rawValue, id: Int(user[0].idUsers!)!, name: user[0].name, surname: user[0].surname)
+        }
+        
     }
     
     private func showErrorAlert(with error: ResponseError) {
@@ -127,12 +221,7 @@ extension LoginViewController {
             scrollViewWasChanged = true
     }
     
-     
-    
-    
-   
-    
-   }
+}
      
    
    @objc func keyboardWillShow(_ notification: Notification) {
@@ -162,7 +251,7 @@ extension LoginViewController {
             
         case passwordTextField:
             textField.resignFirstResponder()
-            loginUser()
+            userloginUser()
         
         default:
             break

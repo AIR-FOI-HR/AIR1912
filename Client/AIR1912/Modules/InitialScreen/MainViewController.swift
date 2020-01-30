@@ -23,6 +23,7 @@ class MainViewController: UIViewController {
     @IBOutlet weak var loadingActivity: UIActivityIndicatorView!
     @IBOutlet weak var buttonOutlet: KBRoundedButton!
     @IBOutlet weak var buttonSignuUpOutlet: KBRoundedButton!
+    @IBOutlet weak var stackView: UIStackView!
     
     // MARK - Properties
     
@@ -33,6 +34,10 @@ class MainViewController: UIViewController {
     override func viewDidLoad() {
        
         super.viewDidLoad()
+        self.view.backgroundColor = Theme.current.headingColor
+        buttonOutlet.backgroundColorForStateNormal = Theme.current.headingColor
+        buttonSignuUpOutlet.backgroundColorForStateNormal = Theme.current.headingColor
+        
         
         additionalSetup()
         
@@ -41,6 +46,7 @@ class MainViewController: UIViewController {
      override func viewWillAppear(_ animated: Bool) {
         
         super.viewWillAppear(animated)
+        
         //additionalSetup()
     }
     
@@ -70,54 +76,60 @@ extension MainViewController {
         loginSignView.layer.cornerRadius = 20
         print("View loadan")
         loadingActivity.isHidden = true
-        tryToLoginFromKeychain()
+//        tryToLoginFromKeychain()
     }
     
-    func tryToLoginFromKeychain() {
-
-        guard userKeychain.hasSessionData() else{
-            return
-        }
-        
-
-        loadingActivity.isHidden = false
-        buttonOutlet.isHidden = true
-        buttonSignuUpOutlet.isHidden = true
-        loadingActivity.startAnimating()
-        authService.login( with: userKeychain.getEmail()!, password: userKeychain.getPassword()!) { (result) in
-            switch result {
-            case .success(let user):
-                print(user)
-                self.showSuccessAlert(for: user)
-
-            case .failure(let error):
-                
-                // if you are offline, error is not set because error
-                // is expected to return from server
-                // therefore, we have to check if we got error
-                // if we didn't, we should create new errorResponse
-                // and set title and message for offline case
-                var errorIsEmpty = false
-                if(error == nil){
-                    errorIsEmpty = true
-                }
-                guard errorIsEmpty else {
-                    print("Something is wrong")
-                    
-                    return
-                }
-                // cannot be shown if there is no error set
-                self.showErrorAlert(with: error as! ResponseError)
-            }
-        }
-    }
+//    func tryToLoginFromKeychain() {
+//
+//        guard userKeychain.hasSessionData() else{
+//            return
+//        }
+//
+//
+//        loadingActivity.isHidden = false
+//        buttonOutlet.isHidden = true
+//        buttonSignuUpOutlet.isHidden = true
+//        loadingActivity.startAnimating()
+////        authService.login( with: userKeychain.getEmail()!, password: userKeychain.getPassword()!) { (result) in
+////            switch result {
+////            case .success(let user):
+////                print(user)
+////                self.showSuccessAlert(for: user)
+////
+////            case .failure(let error):
+////
+////                self.loadingActivity.isHidden = true
+////                self.buttonOutlet.isHidden = false
+////                self.buttonSignuUpOutlet.isHidden = false
+////                self.loadingActivity.stopAnimating()
+//
+//
+//                // if you are offline, error is not set because error
+//                // is expected to return from server
+//                // therefore, we have to check if we got error
+//                // if we didn't, we should create new errorResponse
+//                // and set title and message for offline case
+//                var errorIsEmpty = false
+//                if(error == nil){
+//                    errorIsEmpty = true
+//                }
+//                guard errorIsEmpty else {
+//                    print("Something is wrong")
+//
+//                    return
+//                }
+//                // cannot be shown if there is no error set
+//                self.showErrorAlert(with: error as! ResponseError)
+//            }
+//        }
+//    }
     
     private func showSuccessAlert(for user: [User]) {
        
-        let HomeScreenStoryBoard:UIStoryboard = UIStoryboard(name: "Homescreen", bundle: nil)
-        let HomeScreenController = HomeScreenStoryBoard.instantiateViewController(identifier: "HomeScreen") as! HomeSreenTabBarController
-        HomeScreenController.modalPresentationStyle = .fullScreen
-        self.present(HomeScreenController, animated: true, completion: nil)
+        let LoginStoryboard:UIStoryboard = UIStoryboard(name: "Login", bundle: nil)
+        let LoginviewController = LoginStoryboard.instantiateViewController(identifier: "Login") as! LoginViewController
+        LoginviewController.modalPresentationStyle = .fullScreen
+        self.present(LoginviewController, animated: true, completion: nil)
         
     }
     

@@ -22,11 +22,13 @@ class ContentCollectionViewCell: UICollectionViewCell {
         
     }
     
-
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        setupView()
+    }
+    
     
     func configure(with content: Content) {
-        setupView()
-        
         if let url = content.posterURL {
             self.featuredImageView.kf.setImage(with: url)
             titleName!.text = content.title
@@ -34,8 +36,11 @@ class ContentCollectionViewCell: UICollectionViewCell {
     }
     
     private func setupView() {
+        titleName.layer.cornerRadius = 6.0
+        titleName.layer.masksToBounds = true
         featuredImageView.layer.cornerRadius = 12.0
         featuredImageView.layer.masksToBounds = true
+        titleName.textColor = Theme.current.textColor
     }
 }
 
