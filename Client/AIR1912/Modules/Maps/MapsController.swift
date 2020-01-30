@@ -17,6 +17,19 @@ class MapsController: UIViewController, MKMapViewDelegate {
     @IBOutlet weak var blur: UIView!
     @IBOutlet weak var loadingAnimation: UIActivityIndicatorView!
     
+    @IBOutlet weak var radiusSlider: UISlider!
+    
+    var previousValue: Int?
+    
+    @IBAction func radiusSliderChange(_ sender: Any) {
+        if(Int(radiusSlider.value) != previousValue)
+        {
+            setRegion(radiusValue: Double(radiusSlider!.value * 1200))
+        }
+        
+    }
+    
+    
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var movieGameSelector: UISegmentedControl!
     @IBAction func movieGameSelector(_ sender: Any) {
@@ -38,13 +51,15 @@ class MapsController: UIViewController, MKMapViewDelegate {
         super.viewDidLoad()
         mapView.delegate = self
         blur.isHidden = true
+        previousValue = Int(radiusSlider.value)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         getEvents(type :movieGameSelector.selectedSegmentIndex == 0 ? "movie" : "game")
-        setRegion()
+        setRegion(radiusValue: 20000)
     }
+    
     
     func startLoadingAnimation(){
         blur.isHidden = false
@@ -163,10 +178,10 @@ class MapsController: UIViewController, MKMapViewDelegate {
     }
     
     
-    func setRegion() -> Void{
+    func setRegion(radiusValue: Double) -> Void{
         getUserLocation()
 
-        let coordinateRegion = MKCoordinateRegion(center: locationManager.location!.coordinate, latitudinalMeters: 8000, longitudinalMeters: 8000)
+        let coordinateRegion = MKCoordinateRegion(center: locationManager.location!.coordinate, latitudinalMeters: radiusValue, longitudinalMeters: radiusValue)
         mapView.setRegion(coordinateRegion, animated: true)
     }
     

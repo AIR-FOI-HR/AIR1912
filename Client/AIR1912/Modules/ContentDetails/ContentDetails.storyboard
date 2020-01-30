@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -135,13 +135,13 @@
                                 <color key="tintColor" cocoaTouchSystemColor="lightTextColor"/>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="heart" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="p4L-XV-jdE">
-                                <rect key="frame" x="354" y="45.5" width="40" height="40"/>
+                                <rect key="frame" x="324" y="42.5" width="43" height="43"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <gestureRecognizers/>
                             </imageView>
                             <activityIndicatorView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="kjV-gX-2Hn">
-                                <rect key="frame" x="356" y="47" width="37" height="37"/>
+                                <rect key="frame" x="327" y="42.5" width="37" height="37"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <gestureRecognizers/>
                             </activityIndicatorView>
@@ -159,11 +159,14 @@
                         <outlet property="frontImage" destination="5v8-AZ-Cga" id="0vl-2D-t5T"/>
                         <outlet property="genresLbl" destination="r7G-yq-2mE" id="QXY-zh-pp7"/>
                         <outlet property="joinbtn" destination="R8O-ma-kmB" id="oOr-5B-SnP"/>
+                        <outlet property="length" destination="1VB-yg-YJA" id="xau-vW-aEl"/>
                         <outlet property="lengthLbl" destination="6I9-uY-dbw" id="vbH-th-NUt"/>
+                        <outlet property="rating" destination="N0N-jC-JtX" id="mGT-Dc-5fQ"/>
                         <outlet property="ratingLbl" destination="xdH-Ms-5tC" id="pNw-dN-Lrh"/>
                         <outlet property="shadowView" destination="cNy-v4-DNa" id="s08-hn-cRK"/>
                         <outlet property="subView" destination="fY1-zp-mAO" id="m9h-Pn-eyQ"/>
                         <outlet property="titleLbl" destination="SLz-S3-wqM" id="qxp-7W-HLR"/>
+                        <outlet property="year" destination="li5-XW-jkU" id="ZZb-3p-xlG"/>
                         <outlet property="yearLbl" destination="zh7-TM-NDv" id="VIL-xg-3Vf"/>
                     </connections>
                 </viewController>

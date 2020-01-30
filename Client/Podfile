@@ -17,4 +17,6 @@ target 'AIR1912' do
   pod 'SkeletonView'
   pod 'LocationPickerViewController'
   pod 'Floaty'
+  pod 'KeychainAccess'
+
 end

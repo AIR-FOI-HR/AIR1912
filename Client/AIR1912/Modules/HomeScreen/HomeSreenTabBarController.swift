@@ -18,8 +18,16 @@ class HomeSreenTabBarController: UITabBarController {
         
         super.viewDidLoad()
         setupTabBar()
+        self.tabBarController?.tabBar.tintColor = Theme.current.headingColor
+        self.navigationController?.navigationBar.tintColor = Theme.current.headingColor
+        let textAttributes = [NSAttributedString.Key.foregroundColor:Theme.current.headingColor]
+        navigationController?.navigationBar.titleTextAttributes = textAttributes
+        
+        
     
     }
+    
+   
     
 }
 

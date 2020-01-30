@@ -8,8 +8,10 @@
 
 import UIKit
 import Kingfisher
+import SkeletonView
 
 class UserProfileViewController: UIViewController, EventDetailsDelegate {
+    
     func didHideView() {
         self.viewWillAppear(true)
     }
@@ -21,6 +23,12 @@ class UserProfileViewController: UIViewController, EventDetailsDelegate {
     @IBOutlet weak var nicknameText: UILabel!
     @IBOutlet weak var MyEventsCollectionView: UICollectionView!
     @IBOutlet weak var AttendingEventsCollectionView: UICollectionView!
+    @IBOutlet weak var myEventsLabel: UILabel!
+    @IBOutlet weak var atendingEventsLabel: UILabel!
+    @IBOutlet weak var settingButton: UIBarButtonItem!
+    @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var stackView: UIStackView!
+    @IBOutlet weak var behindView: UIView!
     
     //MARK: - Private properties
 
@@ -29,11 +37,8 @@ class UserProfileViewController: UIViewController, EventDetailsDelegate {
     private let keychain:UserKeychain = UserKeychain()
     
     //MARK: - Lifecycle
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
+    private func updateUser(){
         // set avatar from keychain
-        
             let avatarValue = self.keychain.getAvatar()
         let avatar = Avatar(rawValue: avatarValue!)
         let userImage = avatar!.image
@@ -44,15 +49,34 @@ class UserProfileViewController: UIViewController, EventDetailsDelegate {
             let userNickname = self.keychain.getNickname()
             self.nicknameText.text = "Hi " + userNickname!
         AttendingEventsCollectionView.delegate = self
-        MyEventsCollectionView.delegate=self
+        MyEventsCollectionView.delegate = self
+        
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        updateUser()
+    
 }
     
         override func viewWillAppear(_ animated: Bool) {
             super.viewWillAppear(true)
             
+            updateUser()
             getEventsByUserID(for: .allEvent)
             getEventsByOwnerID(for: .allEvent)
             
+            nicknameText.textColor = Theme.current.headingColor
+            myEventsLabel.textColor = Theme.current.headingColor
+            atendingEventsLabel.textColor = Theme.current.headingColor
+            settingButton.tintColor = Theme.current.headingColor
+            
+            self.tabBarController?.tabBar.tintColor = Theme.current.headingColor
+            let textAttributes = [NSAttributedString.Key.foregroundColor:Theme.current.headingColor]
+            navigationController?.navigationBar.titleTextAttributes = textAttributes
+
+           
     }
     
         @IBAction func testEventDetails(_ sender: Any) {
@@ -69,9 +93,13 @@ class UserProfileViewController: UIViewController, EventDetailsDelegate {
             guard let idUser = keychain.getID() else{
                 return
             }
-            
+            self.MyEventsCollectionView.showAnimatedGradientSkeleton()
+            self.AttendingEventsCollectionView.showAnimatedGradientSkeleton()
             let provider = WebEventProvider()
             provider.getEventsByOwnerId (for: idUser, eventType: EventType.allEvent){ (result) in
+                DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {  self.MyEventsCollectionView.hideSkeleton()
+                    self.AttendingEventsCollectionView.hideSkeleton()
+                }
                 switch result {
                 case .success(let podaci):
                     print (podaci)
@@ -90,9 +118,14 @@ class UserProfileViewController: UIViewController, EventDetailsDelegate {
                guard let idUser = keychain.getID() else{
                    return
                }
-               
+               self.MyEventsCollectionView.showAnimatedGradientSkeleton()
+               self.AttendingEventsCollectionView.showAnimatedGradientSkeleton()
                let provider = WebEventProvider()
-        provider.getEventsByUserID (for: idUser, eventType: EventType.allEvent){ (result) in  switch result {
+        provider.getEventsByUserID (for: idUser, eventType: EventType.allEvent){ (result) in
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {  self.MyEventsCollectionView.hideSkeleton()
+                self.AttendingEventsCollectionView.hideSkeleton()
+            }
+            switch result {
                    case .success(let podaci):
                        print (podaci)
                        self.updateAttendingEventsContent(result: podaci)
@@ -119,8 +152,16 @@ class UserProfileViewController: UIViewController, EventDetailsDelegate {
         }
 }
 
-extension UserProfileViewController: UICollectionViewDataSource, UICollectionViewDelegate {
+extension UserProfileViewController: SkeletonCollectionViewDataSource, UICollectionViewDelegate {
        
+    func collectionSkeletonView(_ skeletonView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 3
+    }
+    
+    func collectionSkeletonView(_ skeletonView: UICollectionView, cellIdentifierForItemAt indexPath: IndexPath) -> ReusableCellIdentifier {
+        return "UserProfileCollectionViewCell"
+    }
+    
        func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
           
         if collectionView === self.MyEventsCollectionView {

@@ -25,12 +25,19 @@ class FavouritesCollectionViewCell: UICollectionViewCell {
         
     }
     
-    func configure(with content: DBContent) {
+    override func awakeFromNib() {
+        super.awakeFromNib()
         setupView()
+    }
+    
+    
+    
+    func configure(with content: DBContent) {
         userId = keychain.getID()!
         titleName!.text = content.title
         let provider =  WebContentProvider()
-        provider.getFavouritesByUserId(with: userId, contentType: ContentType(rawValue: content.type!)!  ){(result) in
+        provider.getContentById(for: content.id!) { (result) in
+            
                 switch result {
                 case .success(let podaci):
                     print (podaci)
@@ -45,8 +52,11 @@ class FavouritesCollectionViewCell: UICollectionViewCell {
     
     
     private func setupView() {
+        titleName.layer.cornerRadius = 6.0
+        titleName.layer.masksToBounds = true
         featuredImageView.layer.cornerRadius = 12.0
         featuredImageView.layer.masksToBounds = true
+        titleName.textColor = Theme.current.textColor
     }
 
 }

@@ -17,16 +17,18 @@ class UserProfileCollectionViewCell: UICollectionViewCell {
     
     //MARK: - Private properties
     
-    //MARK: - Lifecycle
-    
+
     override func prepareForReuse() {
            super.prepareForReuse()
            featuredImageView.image = nil
        }
     
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        setupView()
+    }
     
     func configureForMyEvents(with event: Event) {
-           setupView()
                
            eventTitle!.text = event.title
            let provider = WebContentProvider()
@@ -45,8 +47,12 @@ class UserProfileCollectionViewCell: UICollectionViewCell {
     
        
        private func setupView() {
+        eventTitle.layer.cornerRadius = 6.0
+        eventTitle.layer.masksToBounds = true
            featuredImageView.layer.cornerRadius = 12.0
-           //featuredImageView.layer.masksToBounds = true
+           featuredImageView.layer.masksToBounds = true
+        eventTitle.textColor = Theme.current.textColor
+ 
        }
        
 }

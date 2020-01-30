@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina6_5" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -19,26 +19,28 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="358.33333333333331"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Zli-6f-8dM">
-                                        <rect key="frame" x="121.66666666666667" y="73.666666666666671" width="170.66666666666663" height="212.33333333333331"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="358.33333333333331"/>
                                         <subviews>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="252" verticalCompressionResistancePriority="749" image="Logo" translatesAutoresizingMaskIntoConstraints="NO" id="ApN-Ew-Rzv">
-                                                <rect key="frame" x="0.0" y="0.0" width="170.66666666666666" height="170.66666666666666"/>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="252" verticalCompressionResistancePriority="749" image="Logo" translatesAutoresizingMaskIntoConstraints="NO" id="ApN-Ew-Rzv">
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="358.33333333333331"/>
+                                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </imageView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="OurAppName" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="eoE-xm-EVa">
-                                                <rect key="frame" x="2.3333333333333286" y="178.66666666666669" width="166" height="33.666666666666657"/>
-                                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
                                         </subviews>
+                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="bottom" secondItem="ApN-Ew-Rzv" secondAttribute="bottom" id="3gt-vz-4TB"/>
+                                            <constraint firstItem="ApN-Ew-Rzv" firstAttribute="leading" secondItem="Zli-6f-8dM" secondAttribute="leading" id="Ezh-Vh-X10"/>
+                                            <constraint firstAttribute="trailing" secondItem="ApN-Ew-Rzv" secondAttribute="trailing" id="c1E-Tn-zPy"/>
+                                            <constraint firstItem="ApN-Ew-Rzv" firstAttribute="top" secondItem="Zli-6f-8dM" secondAttribute="top" id="lQD-ul-oXB"/>
+                                        </constraints>
                                     </stackView>
                                 </subviews>
-                                <color key="backgroundColor" red="0.047656700015068054" green="0.67197716236114502" blue="0.96539574861526489" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="Zli-6f-8dM" secondAttribute="bottom" constant="72.5" id="5bd-sZ-pAf"/>
-                                    <constraint firstItem="Zli-6f-8dM" firstAttribute="top" secondItem="7HV-iW-Gsi" secondAttribute="top" constant="73.5" id="5cV-RI-eC7"/>
-                                    <constraint firstItem="Zli-6f-8dM" firstAttribute="leading" secondItem="7HV-iW-Gsi" secondAttribute="leading" constant="121.5" id="F2B-DZ-lwr"/>
-                                    <constraint firstAttribute="trailing" secondItem="Zli-6f-8dM" secondAttribute="trailing" constant="121.83" id="Kyx-wg-ljn"/>
+                                    <constraint firstItem="Zli-6f-8dM" firstAttribute="leading" secondItem="7HV-iW-Gsi" secondAttribute="leading" id="B6K-dd-nFE"/>
+                                    <constraint firstItem="Zli-6f-8dM" firstAttribute="top" secondItem="7HV-iW-Gsi" secondAttribute="top" id="grp-lf-WEt"/>
+                                    <constraint firstAttribute="trailing" secondItem="Zli-6f-8dM" secondAttribute="trailing" id="hbh-Zx-2su"/>
+                                    <constraint firstAttribute="bottom" secondItem="Zli-6f-8dM" secondAttribute="bottom" id="jwh-A2-e1y"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MG2-u6-ZNL" customClass="SpringView" customModule="Spring">
@@ -47,7 +49,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eRM-gR-tu9">
                                         <rect key="frame" x="31" y="29.000000000000028" width="352" height="479.66666666666674"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome to our App" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="3Mb-c4-c66">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome to beacon" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="3Mb-c4-c66">
                                                 <rect key="frame" x="20" y="16.999999999999996" width="312" height="40.666666666666657"/>
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
                                                 <nil key="textColor"/>
@@ -64,10 +66,10 @@
                                                 </state>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="color" keyPath="backgroundColorForStateNormal">
-                                                        <color key="value" red="0.0015878815902397037" green="0.51872479915618896" blue="1" alpha="0.9990234375" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <color key="value" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     </userDefinedRuntimeAttribute>
                                                     <userDefinedRuntimeAttribute type="color" keyPath="backgroundColorForStateSelected">
-                                                        <color key="value" red="0.049217484891414642" green="0.68733376264572144" blue="0.96709209680557251" alpha="0.9995727539" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <color key="value" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     </userDefinedRuntimeAttribute>
                                                     <userDefinedRuntimeAttribute type="boolean" keyPath="shadowEnabled" value="YES"/>
                                                 </userDefinedRuntimeAttributes>
@@ -78,6 +80,7 @@
                                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="wT4-7T-U79">
                                                 <rect key="frame" x="97" y="179.00000000000003" width="158" height="103"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <color key="color" systemColor="systemPinkColor" red="1" green="0.1764705882" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </activityIndicatorView>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -100,10 +103,10 @@
                                         </state>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="color" keyPath="backgroundColorForStateNormal">
-                                                <color key="value" red="0.0015878815902397037" green="0.51872479915618896" blue="1" alpha="0.9990234375" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="value" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="color" keyPath="backgroundColorForStateSelected">
-                                                <color key="value" red="0.049217484891414642" green="0.68733376264572144" blue="0.96709209680557251" alpha="0.9995727539" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="value" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="boolean" keyPath="shadowEnabled" value="YES"/>
                                         </userDefinedRuntimeAttributes>
@@ -113,6 +116,7 @@
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <color key="tintColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstItem="eRM-gR-tu9" firstAttribute="top" secondItem="MG2-u6-ZNL" secondAttribute="top" constant="29" id="EoC-PH-cyT"/>
                                     <constraint firstItem="eRM-gR-tu9" firstAttribute="leading" secondItem="MG2-u6-ZNL" secondAttribute="leading" constant="31" id="IeC-i3-kci"/>
@@ -130,7 +134,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" red="0.049217484891414642" green="0.68733376264572144" blue="0.96709209680557251" alpha="0.9995727539" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="tintColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="MG2-u6-ZNL" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="1zn-Wm-kMU"/>
                             <constraint firstItem="MG2-u6-ZNL" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="5uC-6J-6xG"/>
@@ -150,6 +154,7 @@
                         <outlet property="loginButton" destination="7Pw-aq-vFE" id="eep-da-CnN"/>
                         <outlet property="loginSignView" destination="MG2-u6-ZNL" id="JpV-aL-PaX"/>
                         <outlet property="signUpButton" destination="7NA-PE-ZGk" id="xDv-iA-xCZ"/>
+                        <outlet property="stackView" destination="Zli-6f-8dM" id="TgL-fp-J4c"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -158,6 +163,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Logo" width="170.66667175292969" height="170.66667175292969"/>
+        <image name="Logo" width="960" height="680"/>
     </resources>
 </document>

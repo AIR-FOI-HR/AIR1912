@@ -8,6 +8,7 @@
 
 import UIKit
 import Kingfisher
+import SkeletonView
 
 class ContentViewController : UIViewController {
     
@@ -15,8 +16,10 @@ class ContentViewController : UIViewController {
     
     @IBOutlet private weak var collectionView: UICollectionView!
     @IBOutlet private weak var collectionView2: UICollectionView!
-    
     @IBOutlet weak var segmentButton: UISegmentedControl!
+    @IBOutlet weak var searchButton: UIBarButtonItem!
+    @IBOutlet weak var gamesLabel: UILabel!
+    @IBOutlet weak var moviesLabel: UILabel!
     // MARK: - Private properties
     
     private var gamesDatasource = [Content]()
@@ -29,9 +32,26 @@ class ContentViewController : UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.view.isSkeletonable = false
         getLatestContent(for: .movie)
         getLatestContent(for: .game)
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+         super.viewWillAppear(true)
+        
+         getLatestContent(for: .movie)
+         getLatestContent(for: .game)
+        
+    segmentButton.setTitleTextAttributes([NSAttributedString.Key.foregroundColor : Theme.current.headingColor], for: .selected)
+        searchButton.tintColor = Theme.current.headingColor
+        moviesLabel.textColor = Theme.current.headingColor
+        gamesLabel.textColor = Theme.current.headingColor
+        self.tabBarController?.tabBar.tintColor = Theme.current.headingColor
+        self.navigationController?.navigationBar.tintColor = Theme.current.headingColor
+        let textAttributes = [NSAttributedString.Key.foregroundColor:Theme.current.headingColor]
+        navigationController?.navigationBar.titleTextAttributes = textAttributes
+     }
     
     
     @IBAction func segmentClick(_ sender: Any) {
@@ -55,8 +75,13 @@ class ContentViewController : UIViewController {
 extension ContentViewController {
     
     private func getPopularContent(for type: ContentType) {
+        self.collectionView.showAnimatedGradientSkeleton()
+        self.collectionView2.showAnimatedGradientSkeleton()
         let provider = ContentProviderFactory.contentProvider(forContentType: type)
         provider.getPopularContent { (result) in
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {  self.collectionView.hideSkeleton()
+                self.collectionView2.hideSkeleton()
+            }
             switch result {
             case .success(let podaci):
                 self.updateContent(for: type, result: podaci)
@@ -67,8 +92,13 @@ extension ContentViewController {
     }
     
     private func getLatestContent(for type: ContentType) {
+        self.collectionView.showAnimatedGradientSkeleton()
+        self.collectionView2.showAnimatedGradientSkeleton()
         let provider = ContentProviderFactory.contentProvider(forContentType: type)
         provider.getLatestContent { (result) in
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {  self.collectionView.hideSkeleton()
+                self.collectionView2.hideSkeleton()
+            }
             switch result {
             case .success(let podaci):
                 self.updateContent(for: type, result: podaci)
@@ -79,8 +109,13 @@ extension ContentViewController {
     }
     
     private func getTopRatedContent(for type: ContentType) {
+        self.collectionView.showAnimatedGradientSkeleton()
+        self.collectionView2.showAnimatedGradientSkeleton()
         let provider = ContentProviderFactory.contentProvider(forContentType: type)
         provider.getTopRatedContent { (result) in
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {  self.collectionView.hideSkeleton()
+                self.collectionView2.hideSkeleton()
+            }
             switch result {
             case .success(let podaci):
                 self.updateContent(for: type, result: podaci)
@@ -102,7 +137,15 @@ extension ContentViewController {
     }
 }
 
-extension ContentViewController: UICollectionViewDataSource, UICollectionViewDelegate {
+extension ContentViewController: SkeletonCollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDataSource {
+    
+    func collectionSkeletonView(_ skeletonView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 3
+    }
+    
+    func collectionSkeletonView(_ skeletonView: UICollectionView, cellIdentifierForItemAt indexPath: IndexPath) -> ReusableCellIdentifier {
+        return "ContentCollectionViewCell"
+    }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if collectionView === self.collectionView {

@@ -21,6 +21,8 @@ class EventsViewController: UIViewController, EventDetailsDelegate {
         @IBOutlet private weak var nearEventsCollectionView: UICollectionView!
         @IBOutlet private weak var myEventsCollectionView: UICollectionView!
         
+        @IBOutlet weak var eventsNearMeLabel: UILabel!
+        @IBOutlet weak var myEventsLabel: UILabel!
     
         // MARK: - Private properties
         
@@ -33,16 +35,24 @@ class EventsViewController: UIViewController, EventDetailsDelegate {
     
         override func viewDidLoad() {
             super.viewDidLoad()
+            
+            if(!UserDefaults.standard.bool(forKey: "tutorialDone")){
+                pushTutorial()
+            }
+                 
+            
             getUserLocation()
             
-            
             view.isSkeletonable = false
-           
-            //view.showAnimatedGradientSkeleton()
+
             getAllEventsByUserID(for: .allEvent )
             getAllEventsByLocation(for: .allEvent)
-           
-            //self.view.hideSkeleton()
+            self.tabBarController?.tabBar.tintColor = Theme.current.headingColor
+            eventsNearMeLabel.textColor = Theme.current.headingColor
+            myEventsLabel.textColor = Theme.current.headingColor
+            self.tabBarController?.tabBar.tintColor = Theme.current.headingColor
+            let textAttributes = [NSAttributedString.Key.foregroundColor:Theme.current.headingColor]
+            navigationController?.navigationBar.titleTextAttributes = textAttributes
         }
         
         override func viewWillAppear(_ animated: Bool) {
@@ -50,7 +60,11 @@ class EventsViewController: UIViewController, EventDetailsDelegate {
            getUserLocation()
             getAllEventsByUserID(for: .allEvent )
             getAllEventsByLocation(for: .allEvent)
-
+            eventsNearMeLabel.textColor = Theme.current.headingColor
+            myEventsLabel.textColor = Theme.current.headingColor
+            self.tabBarController?.tabBar.tintColor = Theme.current.headingColor
+            let textAttributes = [NSAttributedString.Key.foregroundColor:Theme.current.headingColor]
+            navigationController?.navigationBar.titleTextAttributes = textAttributes
         }
    
     
@@ -61,6 +75,14 @@ class EventsViewController: UIViewController, EventDetailsDelegate {
 
     extension EventsViewController {
         
+        func pushTutorial(){
+            let loginStoryBoard:UIStoryboard = UIStoryboard(name: "Tutorial", bundle: nil)
+            let loginController = loginStoryBoard.instantiateViewController(withIdentifier: "Tutorial") as! TutorialViewController
+                             loginController.modalPresentationStyle = .fullScreen
+            self.present(loginController, animated: true) {
+                UserDefaults.standard.set(true, forKey: "tutorialDone")
+            }
+        }
         
         private func getAllEventsByUserID(for type: EventType) {
             view.showAnimatedGradientSkeleton()
@@ -117,9 +139,6 @@ class EventsViewController: UIViewController, EventDetailsDelegate {
             
                 myEventsDataSource = result
                 self.myEventsCollectionView.reloadData()
-                //self.view.hideSkeleton()
-           
-    
         }
         
         private func updateNearEventsContent(result: [Event]) {
@@ -129,12 +148,17 @@ class EventsViewController: UIViewController, EventDetailsDelegate {
                        //Izbaciti iz popisa sve one koji nisu Near korisnika
                        removeNotNearEvents(for: nearEventsDataSource)
                        self.nearEventsCollectionView.reloadData()
-                      // self.view.hideSkeleton()
+                      
                      
                }
     }
 
 extension EventsViewController: SkeletonCollectionViewDataSource, UICollectionViewDelegate {
+    
+    func collectionSkeletonView(_ skeletonView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 3
+    }
+    
     func collectionSkeletonView(_ skeletonView: UICollectionView, cellIdentifierForItemAt indexPath: IndexPath) -> ReusableCellIdentifier {
         return "EventCollectionViewCell"
     }

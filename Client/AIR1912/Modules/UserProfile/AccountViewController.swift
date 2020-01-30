@@ -16,12 +16,13 @@ class AccountViewController: UIViewController {
     @IBOutlet weak var nameTxt: UITextField!
     @IBOutlet weak var surnameTxt: UITextField!
     @IBOutlet weak var emailTxt: UITextField!
+    @IBOutlet weak var editButton: UIButton!
     
     @IBOutlet weak var userAvatar: UIImageView!
     
     private let keychain:UserKeychain = UserKeychain()
     
-    func updateUser(){
+    private func updateUser(){
             let avatarValue = self.keychain.getAvatar()
             let avatar = Avatar(rawValue: avatarValue!)
             let userImage = avatar
@@ -49,4 +50,16 @@ class AccountViewController: UIViewController {
         updateUser()
     }
     
+    
+    override func viewWillAppear(_ animated: Bool) {
+        editButton.setTitleColor(Theme.current.headingColor, for: .normal)
+        nameTxt.textColor = Theme.current.headingColor
+        nicknameTxt.textColor = Theme.current.headingColor
+        surnameTxt.textColor = Theme.current.headingColor
+        emailTxt.textColor = Theme.current.headingColor
+        self.tabBarController?.tabBar.tintColor = Theme.current.headingColor
+        self.navigationController?.navigationBar.tintColor = Theme.current.headingColor
+        let textAttributes = [NSAttributedString.Key.foregroundColor:Theme.current.headingColor]
+        navigationController?.navigationBar.titleTextAttributes = textAttributes
+    }
 }
