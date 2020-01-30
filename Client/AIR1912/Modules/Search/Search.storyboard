@@ -24,7 +24,7 @@
             </objects>
             <point key="canvasLocation" x="128" y="-346"/>
         </scene>
-        <!--Content View Controller-->
+        <!--Search-->
         <scene sceneID="BY3-A1-4Kh">
             <objects>
                 <viewController id="lmM-Rp-nM5" customClass="ContentViewController" customModule="AIR1912" customModuleProvider="target" sceneMemberID="viewController">
@@ -317,7 +317,7 @@
                         <viewLayoutGuide key="safeArea" id="drM-Iu-AVb"/>
                     </view>
                     <tabBarItem key="tabBarItem" systemItem="search" id="gNd-8n-5Mp" userLabel="Search"/>
-                    <navigationItem key="navigationItem" id="aBC-QI-o0a">
+                    <navigationItem key="navigationItem" title="Search" id="aBC-QI-o0a">
                         <barButtonItem key="rightBarButtonItem" image="magnifyingglass" catalog="system" id="pvh-IM-8u8">
                             <color key="tintColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>

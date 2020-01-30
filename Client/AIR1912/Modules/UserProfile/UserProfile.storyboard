@@ -27,7 +27,7 @@
             </objects>
             <point key="canvasLocation" x="-1055" y="169"/>
         </scene>
-        <!--User Profile View Controller-->
+        <!--User Profile-->
         <scene sceneID="QsI-zf-XKN">
             <objects>
                 <viewController storyboardIdentifier="UserProfile" id="nod-c7-47d" customClass="UserProfileViewController" customModule="AIR1912" customModuleProvider="target" sceneMemberID="viewController">
@@ -328,7 +328,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="5Rb-Ct-bqz"/>
                     </view>
-                    <navigationItem key="navigationItem" id="WkO-8n-Kru">
+                    <navigationItem key="navigationItem" title="User Profile" id="WkO-8n-Kru">
                         <barButtonItem key="rightBarButtonItem" title="Item" image="ellipsis" catalog="system" id="W0Q-w3-ja2">
                             <color key="tintColor" red="0.84863233569999996" green="0.14901781080000001" blue="0.1704194248" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
@@ -353,7 +353,7 @@
             </objects>
             <point key="canvasLocation" x="-86.956521739130437" y="168.75"/>
         </scene>
-        <!--Settings View Controller-->
+        <!--Settings-->
         <scene sceneID="pbh-CE-xfI">
             <objects>
                 <viewController id="O0h-2p-vrO" customClass="SettingsViewController" customModule="AIR1912" customModuleProvider="target" sceneMemberID="viewController">
@@ -427,7 +427,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="wlW-sP-6Mf"/>
                     </view>
-                    <navigationItem key="navigationItem" id="tVA-ki-lVg"/>
+                    <navigationItem key="navigationItem" title="Settings" id="tVA-ki-lVg"/>
                     <connections>
                         <outlet property="accountLabel" destination="klA-gb-Dcq" id="SY5-Ze-JmR"/>
                         <outlet property="biometricsSwitch" destination="FXs-rJ-7wJ" id="ycG-jE-Srw"/>
@@ -441,7 +441,7 @@
             </objects>
             <point key="canvasLocation" x="640.57971014492762" y="169.41964285714286"/>
         </scene>
-        <!--Account View Controller-->
+        <!--Account-->
         <scene sceneID="wGG-Va-V0N">
             <objects>
                 <viewController id="nSZ-Ag-98M" customClass="AccountViewController" customModule="AIR1912" customModuleProvider="target" sceneMemberID="viewController">
@@ -502,7 +502,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="hdS-3l-E1H"/>
                     </view>
-                    <navigationItem key="navigationItem" id="LLU-I8-pzk"/>
+                    <navigationItem key="navigationItem" title="Account" id="LLU-I8-pzk"/>
                     <connections>
                         <outlet property="editButton" destination="ANX-lp-oTP" id="ECB-MZ-DVi"/>
                         <outlet property="emailTxt" destination="ID9-es-2CQ" id="Fhg-Te-agA"/>
@@ -516,7 +516,7 @@
             </objects>
             <point key="canvasLocation" x="1356.521739130435" y="171.42857142857142"/>
         </scene>
-        <!--Edit Account View Controller-->
+        <!--Edit Account-->
         <scene sceneID="HvN-dO-nZt">
             <objects>
                 <viewController id="eTG-u4-sA6" customClass="EditAccountViewController" customModule="AIR1912" customModuleProvider="target" sceneMemberID="viewController">
@@ -740,7 +740,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="hfo-26-Squ"/>
                     </view>
-                    <navigationItem key="navigationItem" id="fqg-00-wF4"/>
+                    <navigationItem key="navigationItem" title="Edit Account" id="fqg-00-wF4"/>
                     <connections>
                         <outlet property="avatarSelection" destination="5WN-fz-9xv" id="2SP-qn-Knc"/>
                         <outlet property="cpassTxt" destination="ouj-Df-m4N" id="B6j-hP-ykK"/>

@@ -34,6 +34,11 @@ class ThemesViewController: UIViewController {
     private func applyTheme(){
         view.backgroundColor = Theme.current.backgroundColor
         lightThemeLabel.textColor = Theme.current.headingColor
+        UIBarButtonItem.appearance().tintColor = Theme.current.headingColor
+        UINavigationBar.appearance().titleTextAttributes = [NSAttributedString.Key.foregroundColor: Theme.current.headingColor]
+        UITabBar.appearance().tintColor = Theme.current.headingColor
+        self.navigationController?.isNavigationBarHidden = true
+        self.navigationController?.isNavigationBarHidden = false
     }
     
     @IBAction func redThemeButton(_ sender: Any) {
@@ -42,6 +47,7 @@ class ThemesViewController: UIViewController {
         UserDefaults.standard.set((sender as AnyObject).tag, forKey: "Theme")
         
         applyTheme()
+      
     }
     @IBAction func darkThemeButton(_ sender: Any) {
         Theme.current = DarkTheme()
