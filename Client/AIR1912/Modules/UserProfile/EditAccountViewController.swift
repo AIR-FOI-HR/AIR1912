@@ -24,6 +24,7 @@ class EditAccountViewController: UIViewController {
     let alerter = Alerter(title: "Something went wrong", message: "There seems to be an issue with that")
     
     private let keychain:UserKeychain = UserKeychain()
+    private let updateUser:RegisterService = RegisterService()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -80,7 +81,7 @@ class EditAccountViewController: UIViewController {
             registerService.updateUser(with: user) { (result) in
                 switch result {
                 case .success(let user):
-                    print("user updatean")
+                    print("User updatean")
                     self.updateUserDataInKeychain(user: user)
         
                 case .failure(let error):
@@ -107,6 +108,8 @@ class EditAccountViewController: UIViewController {
     func updateUserDataInKeychain(user: User) {
         // Updateaj podatke u keychainu za usera
         
+        _ = keychain.saveSessionData(email: emailTxt.text!, password: passTxt.text!, nickname: nicknameTxt.text!, avatar: currentAvatar().rawValue, id: keychain.getID()!, name: nameTxt.text!, surname: surnameTxt.text!)
+        
     }
     
     @IBAction func saveButton(_ sender: Any){
@@ -120,20 +123,9 @@ class EditAccountViewController: UIViewController {
             
         }
         
-        if  nicknameTxt.text?.isEmpty ?? true || nameTxt.text?.isEmpty ?? true || surnameTxt.text?.isEmpty ??
-            true || emailTxt.text?.isEmpty ?? true || passTxt.text?.isEmpty ?? true
-            || cpassTxt.text?.isEmpty ?? true{
-            
-            alerter.title = "Sorry"
-            alerter.message = "All fields have to be filled"
-            self.present(alerter.getUIAlertController(), animated: true, completion: nil)
-            
-            readyToProceed = false
-            
-        }
         if readyToProceed{
-            let selectedAvatar = currentAvatar()
-            self.updateUserData()
+        
+        updateUserData()
         }
         
         
