@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="h5d-4Z-HG8">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="h5d-4Z-HG8">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -35,13 +35,48 @@
                                 <rect key="frame" x="0.0" y="88" width="414" height="725"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </mapView>
+                            <view hidden="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DS5-d0-erc">
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <subviews>
+                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="qI9-CB-v92">
+                                        <rect key="frame" x="189" y="344" width="37" height="37"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </activityIndicatorView>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="5Pd-ax-Mc1" firstAttribute="trailing" secondItem="DS5-d0-erc" secondAttribute="trailing" id="3Sx-br-S8F"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="DS5-d0-erc" secondAttribute="bottom" id="Nlx-kV-cT5"/>
+                            <constraint firstItem="DS5-d0-erc" firstAttribute="leading" secondItem="5Pd-ax-Mc1" secondAttribute="leading" id="OBI-oI-iR1"/>
+                            <constraint firstItem="DS5-d0-erc" firstAttribute="top" secondItem="EFG-Yq-fsU" secondAttribute="topMargin" id="TVA-bY-Mmv"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="5Pd-ax-Mc1"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Maps" image="mappin.and.ellipse" catalog="system" id="OSh-uT-poJ"/>
-                    <navigationItem key="navigationItem" id="AYA-FF-cAQ"/>
+                    <navigationItem key="navigationItem" id="AYA-FF-cAQ">
+                        <nil key="title"/>
+                        <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="Kv7-x9-ZH3">
+                            <rect key="frame" x="144.5" y="5.5" width="125" height="33"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <segments>
+                                <segment title="Movies"/>
+                                <segment title="Games"/>
+                            </segments>
+                            <connections>
+                                <action selector="movieGameSelector:" destination="NiQ-IV-ToW" eventType="valueChanged" id="zFm-wi-fzh"/>
+                            </connections>
+                        </segmentedControl>
+                    </navigationItem>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="blur" destination="DS5-d0-erc" id="qib-xn-4g0"/>
+                        <outlet property="loadingAnimation" destination="qI9-CB-v92" id="gFS-iv-Cnb"/>
+                        <outlet property="mapView" destination="2fc-id-SXH" id="wnS-w9-E2L"/>
+                        <outlet property="movieGameSelector" destination="Kv7-x9-ZH3" id="d3B-0J-CKP"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vcC-DV-BJA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

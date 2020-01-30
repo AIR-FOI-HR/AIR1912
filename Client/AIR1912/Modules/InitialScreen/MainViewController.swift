@@ -41,7 +41,7 @@ class MainViewController: UIViewController {
      override func viewWillAppear(_ animated: Bool) {
         
         super.viewWillAppear(animated)
-        additionalSetup()
+        //additionalSetup()
     }
     
     
@@ -70,14 +70,16 @@ extension MainViewController {
         loginSignView.layer.cornerRadius = 20
         print("View loadan")
         loadingActivity.isHidden = true
-        tryToLoginFromUserDefaults()
+        tryToLoginFromKeychain()
     }
     
-    func tryToLoginFromUserDefaults() {
+    func tryToLoginFromKeychain() {
 
         guard userKeychain.hasSessionData() else{
             return
         }
+        
+
         loadingActivity.isHidden = false
         buttonOutlet.isHidden = true
         buttonSignuUpOutlet.isHidden = true
@@ -85,33 +87,47 @@ extension MainViewController {
         authService.login( with: userKeychain.getEmail()!, password: userKeychain.getPassword()!) { (result) in
             switch result {
             case .success(let user):
+                print(user)
                 self.showSuccessAlert(for: user)
 
             case .failure(let error):
-                self.showErrorAlert(with: error)
+                
+                // if you are offline, error is not set because error
+                // is expected to return from server
+                // therefore, we have to check if we got error
+                // if we didn't, we should create new errorResponse
+                // and set title and message for offline case
+                var errorIsEmpty = false
+                if(error == nil){
+                    errorIsEmpty = true
+                }
+                guard errorIsEmpty else {
+                    print("Something is wrong")
+                    
+                    return
+                }
+                // cannot be shown if there is no error set
+                self.showErrorAlert(with: error as! ResponseError)
             }
-
-        
         }
     }
     
     private func showSuccessAlert(for user: [User]) {
-        print("User postoji")
-        if(user.isEmpty){
-            let alertController: UIAlertController = UIAlertController(title: "User does not exist", message: "It is possible that user is deleted in meanwhile from database", preferredStyle: .alert)
-            alertController.addAction(UIAlertAction(title: "Dissmis", style: .default, handler: nil))
-            self.present(alertController, animated: true, completion: nil)
-        }
-        else{
-            let HomeScreenStoryBoard:UIStoryboard = UIStoryboard(name: "Homescreen", bundle: nil)
-            let HomeScreenController = HomeScreenStoryBoard.instantiateViewController(identifier: "HomeScreen") as! HomeSreenTabBarController
-            HomeScreenController.modalPresentationStyle = .fullScreen
-            self.present(HomeScreenController, animated: true, completion: nil)
-        }
+       
+        let HomeScreenStoryBoard:UIStoryboard = UIStoryboard(name: "Homescreen", bundle: nil)
+        let HomeScreenController = HomeScreenStoryBoard.instantiateViewController(identifier: "HomeScreen") as! HomeSreenTabBarController
+        HomeScreenController.modalPresentationStyle = .fullScreen
+        self.present(HomeScreenController, animated: true, completion: nil)
+        
     }
     
-    private func showErrorAlert(with error: Error) {
-        print("Error!\(error)")
+    private func showErrorAlert(with error: ResponseError) {
+        let alerter = Alerter(title: error.title, message: error.message)
+        alerter.alertError()
+        print("Trebalo bi stati")
+        loadingActivity.isHidden = true
+        buttonOutlet.isHidden = false
+        buttonSignuUpOutlet.isHidden = false
     }
     
 }

@@ -1,12 +1,15 @@
 <?php
  
-// Create connection
-$con=mysqli_connect("localhost","id11519910_projekt","airprojekt2019","id11519910_air1912");
- 
+require_once("ConnectionData.php");
+include 'jsonResponse.php';
+
+$connectionData = new ConnectionData();
+$connectionString = $connectionData->getConnectionString();
+
 // Check connection
 if (mysqli_connect_errno())
 {
-  echo "Failed to connect to MySQL: " . mysqli_connect_error();
+   echo "Failed to connect to MySQL: " . mysqli_connect_error();
 }
  
  $name= $_GET['name'];
@@ -14,10 +17,10 @@ if (mysqli_connect_errno())
 
 
 // This SQL statement selects ALL from the table 'Locations'
-$sql = "SELECT * FROM Users WHERE name = '$name' AND password= '$password'";
+$sql = "SELECT * FROM Users WHERE email = '$name' AND password= '$password'";
  
 // Check if there are results
-if ($result = mysqli_query($con, $sql))
+if ($result = mysqli_query($connectionString, $sql))
 {
  // If so, then create a results array and a temporary one
  // to hold the data
@@ -37,10 +40,17 @@ if ($result = mysqli_query($con, $sql))
      
  }
  
- // Finally, encode the array to JSON and output the results
- echo json_encode($resultArray);
+ if(empty($resultArray)){
+     $response = JsonResponseBuilder::error_response('Credentials not right', 'Try again', '400');
+ }
+
+ else{
+     $response = JsonResponseBuilder::success_response($resultArray);
+ }
+
+ echo $response;
 }
  
 // Close connections
-mysqli_close($con);
+mysqli_close($connectionString);
 ?>

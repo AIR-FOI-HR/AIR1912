@@ -1,42 +1,27 @@
 <?php
- 
-// Create connection
-$con=mysqli_connect("localhost","id11519910_projekt","airprojekt2019","id11519910_air1912");
- 
-// Check connection
-if (mysqli_connect_errno())
-{
-  echo "Failed to connect to MySQL: " . mysqli_connect_error();
-}
- 
-/*
-$json = file_get_contents('php://input');
-$data = json_decode($json);
 
-$name = $data['name'];
-$surname = $data['surname'];
-$email = $data['email'];
-$password = $data['password'];
-*/
+include 'Users.php';
+include 'jsonResponse.php';
 
-$name = $_POST['name'];
-$surname = $_POST['surname'];
-$email = $_POST['email'];
-$password = $_POST['password'];
+$nickname = $_GET['nickname'];
+$name = $_GET['name'];
+$surname = $_GET['surname'];
+$email = $_GET['email'];
+$password = $_GET['password'];
+$avatar = $_GET['avatar'];
 
+$newUser = new Users(0, $nickname, $name, $surname, $email, $password, $avatar);
+$response;
 
-$query = "INSERT INTO Users (name, surname, email, password) VALUES ($name, $surname, $email, $password)";
-
-if(!mysql_query($query,$con)) 
-{
-   die('Error : Query Not Executed. Please Fix the Issue! ' . mysql_error()); 
-} 
-
-else
-{
-   echo "Data Inserted Successully!!!"; 
+// userExists: bool
+$userExists = $newUser->CheckIfUserExists();
+if($userExists){
+    $response = JsonResponseBuilder::error_response('Sorry but...','User with this email or nickname alreday exists!', 400);
+} else{
+    $newUser->addNewUser();
+    $response = JsonResponseBuilder::success_response($newUser->getUserByEmail());
 }
 
-// Close connections
-mysqli_close($con);
+echo $response;
+
 ?>
