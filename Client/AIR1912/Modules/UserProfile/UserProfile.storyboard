@@ -51,14 +51,18 @@
                                                                 <rect key="frame" x="0.0" y="0.0" width="414" height="100"/>
                                                                 <subviews>
                                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="boy-38262_1280" translatesAutoresizingMaskIntoConstraints="NO" id="n4v-Oc-hww">
-                                                                        <rect key="frame" x="155" y="0.0" width="1112" height="100"/>
+                                                                        <rect key="frame" x="157" y="0.0" width="100" height="100"/>
+                                                                        <constraints>
+                                                                            <constraint firstAttribute="width" constant="100" id="kqU-C8-c6x"/>
+                                                                        </constraints>
                                                                     </imageView>
                                                                 </subviews>
                                                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                                 <constraints>
                                                                     <constraint firstItem="n4v-Oc-hww" firstAttribute="top" secondItem="n5Q-OB-7cq" secondAttribute="top" id="0FP-Lb-qv7"/>
+                                                                    <constraint firstItem="n4v-Oc-hww" firstAttribute="centerY" secondItem="n5Q-OB-7cq" secondAttribute="centerY" id="KPD-vX-6nA"/>
+                                                                    <constraint firstItem="n4v-Oc-hww" firstAttribute="centerX" secondItem="n5Q-OB-7cq" secondAttribute="centerX" id="aAt-Q8-Iev"/>
                                                                     <constraint firstAttribute="height" constant="100" id="bUN-1R-3sB"/>
-                                                                    <constraint firstItem="n4v-Oc-hww" firstAttribute="leading" secondItem="n5Q-OB-7cq" secondAttribute="leading" constant="155" id="dty-dE-aHE"/>
                                                                     <constraint firstAttribute="bottom" secondItem="n4v-Oc-hww" secondAttribute="bottom" id="pCs-4f-gxT"/>
                                                                 </constraints>
                                                             </view>
@@ -411,7 +415,6 @@
                                 </state>
                                 <connections>
                                     <action selector="logOut:" destination="O0h-2p-vrO" eventType="touchUpInside" id="yBu-u6-QRz"/>
-                                    <action selector="logoutButton:" destination="nod-c7-47d" eventType="touchUpInside" id="Ucs-tj-Lh3"/>
                                 </connections>
                             </button>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FXs-rJ-7wJ">

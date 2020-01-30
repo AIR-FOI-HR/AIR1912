@@ -11,6 +11,7 @@ import Kingfisher
 import SkeletonView
 
 class UserProfileViewController: UIViewController, EventDetailsDelegate {
+    
     func didHideView() {
         self.viewWillAppear(true)
     }
@@ -49,10 +50,12 @@ class UserProfileViewController: UIViewController, EventDetailsDelegate {
             self.nicknameText.text = "Hi " + userNickname!
         AttendingEventsCollectionView.delegate = self
         MyEventsCollectionView.delegate = self
+        
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         updateUser()
     
 }
@@ -149,7 +152,7 @@ class UserProfileViewController: UIViewController, EventDetailsDelegate {
         }
 }
 
-extension UserProfileViewController: SkeletonCollectionViewDataSource, UICollectionViewDataSource {
+extension UserProfileViewController: SkeletonCollectionViewDataSource, UICollectionViewDelegate {
        
     func collectionSkeletonView(_ skeletonView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 3

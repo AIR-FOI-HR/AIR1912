@@ -139,7 +139,7 @@ class EventsViewController: UIViewController, EventDetailsDelegate {
                }
     }
 
-extension EventsViewController: SkeletonCollectionViewDataSource {
+extension EventsViewController: SkeletonCollectionViewDataSource, UICollectionViewDelegate {
     
     func collectionSkeletonView(_ skeletonView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 3
