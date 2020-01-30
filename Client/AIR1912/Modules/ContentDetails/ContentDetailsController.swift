@@ -30,6 +30,8 @@ class ContentDetailsController: UIViewController {
     
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
+  
+    
     //MARK: - Properties
     
     var id: Int = 0
@@ -37,16 +39,28 @@ class ContentDetailsController: UIViewController {
     let cornerRadius : CGFloat = 12
     var genreName = ""
     let keychain = UserKeychain()
+    
 
     //MARK: - Lifecycle
 
     override func viewDidLoad() {
-    super.viewDidLoad()
-    setShadowView()
-    configure(for: type)
+        super.viewDidLoad()
+        setShadowView()
+        configure(for: type)
+        
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(imageTapped(tapGestureRecognizer:)))
+        favouritesButton.isUserInteractionEnabled = true
+        favouritesButton.addGestureRecognizer(tapGestureRecognizer)
 
+    }
+    
+    @objc func imageTapped(tapGestureRecognizer: UITapGestureRecognizer)
+    {
+        let tappedImage = tapGestureRecognizer.view as! UIImageView
 
-     }
+        print("tappppp")
+    }
+    
     
     
     func setShadowView() {
