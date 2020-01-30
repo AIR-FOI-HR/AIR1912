@@ -11,23 +11,31 @@ import UIKit
 class SettingsViewController: UIViewController {
     
     let keychain = UserKeychain()
-    var biometricsSettings:String = "Dopusteno"
+
     
     @IBOutlet weak var biometricsSwitch: UISwitch!
     @IBOutlet weak var logoutButton: UIButton!
-
+    @IBOutlet weak var accountLabel: UIButton!
+    @IBOutlet weak var themesLabel: UIButton!
+    @IBOutlet weak var faceIDLabel: UIButton!
+    @IBOutlet weak var notificationLabel: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         biometricsSwitch.setOn(UserDefaults.standard.bool(forKey: "SwitchValue"), animated: false)
         
-        if(biometricsSwitch.isOn){
-            biometricsSettings = "Dopusteno"
-        } else {
-            biometricsSettings = "Nije dopusteno"
-        }
-
         // Do any additional setup after loading the view.
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        accountLabel.setTitleColor(Theme.current.headingColor, for: .normal)
+        themesLabel.setTitleColor(Theme.current.headingColor, for: .normal)
+        faceIDLabel.setTitleColor(Theme.current.headingColor, for: .normal)
+    notificationLabel.setTitleColor(Theme.current.headingColor, for: .normal)
+        logoutButton.setTitleColor(Theme.current.headingColor, for: .normal)
+        biometricsSwitch.onTintColor = Theme.current.headingColor
+        
     }
     
     @IBAction func biometricsSettings(_ sender: Any) {

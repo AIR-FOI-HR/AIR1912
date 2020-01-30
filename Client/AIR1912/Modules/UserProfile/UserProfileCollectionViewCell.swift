@@ -52,7 +52,7 @@ class UserProfileCollectionViewCell: UICollectionViewCell {
         eventTitle.layer.masksToBounds = true
            featuredImageView.layer.cornerRadius = 12.0
            featuredImageView.layer.masksToBounds = true
- 
+        eventTitle.textColor = Theme.current.textColor
        }
        
 }

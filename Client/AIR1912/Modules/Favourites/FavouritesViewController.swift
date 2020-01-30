@@ -17,6 +17,8 @@ class FavouritesViewController: UIViewController {
     
     @IBOutlet weak var favouriteGamesCollectionView: UICollectionView!
     
+    @IBOutlet weak var favouriteLabel: UILabel!
+    @IBOutlet weak var favourite2Label: UILabel!
     // MARK: - Private properties
     
     private var gamesDataSource = [DBContent]()
@@ -32,6 +34,11 @@ class FavouritesViewController: UIViewController {
         getFavouriteContent(for: .movie, userId: userId)
         getFavouriteContent(for: .game, userId: userId)
         
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        favouriteLabel.textColor = Theme.current.headingColor
+        favourite2Label.textColor = Theme.current.headingColor
     }
     
     private func getFavouriteContent(for type: ContentType, userId: Int){

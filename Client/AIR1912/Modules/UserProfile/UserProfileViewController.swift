@@ -18,6 +18,12 @@ class UserProfileViewController: UIViewController {
     @IBOutlet weak var nicknameText: UILabel!
     @IBOutlet weak var MyEventsCollectionView: UICollectionView!
     @IBOutlet weak var AttendingEventsCollectionView: UICollectionView!
+    @IBOutlet weak var myEventsLabel: UILabel!
+    @IBOutlet weak var atendingEventsLabel: UILabel!
+    @IBOutlet weak var settingButton: UIBarButtonItem!
+    @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var stackView: UIStackView!
+    @IBOutlet weak var behindView: UIView!
     
     //MARK: - Private properties
 
@@ -48,6 +54,11 @@ class UserProfileViewController: UIViewController {
             
             getEventsByUserID(for: .allEvent)
             getEventsByOwnerID(for: .allEvent)
+            
+            nicknameText.textColor = Theme.current.headingColor
+            myEventsLabel.textColor = Theme.current.headingColor
+            atendingEventsLabel.textColor = Theme.current.headingColor
+            settingButton.tintColor = Theme.current.headingColor
     }
     
         @IBAction func testEventDetails(_ sender: Any) {

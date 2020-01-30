@@ -152,11 +152,14 @@
                         <outlet property="frontImage" destination="5v8-AZ-Cga" id="0vl-2D-t5T"/>
                         <outlet property="genresLbl" destination="r7G-yq-2mE" id="QXY-zh-pp7"/>
                         <outlet property="joinbtn" destination="R8O-ma-kmB" id="oOr-5B-SnP"/>
+                        <outlet property="length" destination="1VB-yg-YJA" id="xau-vW-aEl"/>
                         <outlet property="lengthLbl" destination="6I9-uY-dbw" id="vbH-th-NUt"/>
+                        <outlet property="rating" destination="N0N-jC-JtX" id="mGT-Dc-5fQ"/>
                         <outlet property="ratingLbl" destination="xdH-Ms-5tC" id="pNw-dN-Lrh"/>
                         <outlet property="shadowView" destination="cNy-v4-DNa" id="s08-hn-cRK"/>
                         <outlet property="subView" destination="fY1-zp-mAO" id="m9h-Pn-eyQ"/>
                         <outlet property="titleLbl" destination="SLz-S3-wqM" id="qxp-7W-HLR"/>
+                        <outlet property="year" destination="li5-XW-jkU" id="ZZb-3p-xlG"/>
                         <outlet property="yearLbl" destination="zh7-TM-NDv" id="VIL-xg-3Vf"/>
                     </connections>
                 </viewController>
