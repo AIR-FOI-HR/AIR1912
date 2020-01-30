@@ -167,7 +167,7 @@ class MapsController: UIViewController, MKMapViewDelegate {
     func setRegion() -> Void{
         getUserLocation()
 
-        let coordinateRegion = MKCoordinateRegion(center: locationManager.location!.coordinate, latitudinalMeters: 8000, longitudinalMeters: 8000)
+        let coordinateRegion = MKCoordinateRegion(center: locationManager.location!.coordinate, latitudinalMeters: 80000, longitudinalMeters: 80000)
         mapView.setRegion(coordinateRegion, animated: true)
     }
     
