@@ -26,6 +26,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var passwordLabel: UILabel!
     @IBOutlet weak var userNameLabel: UILabel!
     @IBOutlet weak var faceIDButton: UIButton!
+    
     // MARK: - Properties
     private let authService: AuthService = AuthService()
     private let userKeychain: UserKeychain = UserKeychain()
@@ -75,10 +76,8 @@ extension LoginViewController {
         super.viewDidLoad()
         emailTextField.delegate = self
         passwordTextField.delegate = self
-//        upContentView.backgroundColor = ThemesManager.shared.theme.baseColor
-//        logInButton.backgroundColor = ThemesManager.shared.theme.baseColor
         
-        if(userKeychain.getEmail() != nil && userKeychain.hasSessionData() == true){
+        if(userKeychain.getEmail() != nil && userKeychain.hasSessionData() && (UserDefaults.standard.bool(forKey: "SwitchValue"))) {
             emailTextField.isHidden = true
             passwordTextField.isHidden = true
             logInButton.isHidden = true
@@ -150,7 +149,7 @@ extension LoginViewController {
     
     private func userloginUser() {
         let email = userKeychain.getEmail()
-        if(email != nil && userKeychain.hasSessionData() == true){
+        if(email != nil && userKeychain.hasSessionData()){
         biometricLoginUser()
         } else {
             guard let email = emailTextField.text, !email.isEmpty, let password = passwordTextField.text, !password.isEmpty else {
@@ -182,7 +181,7 @@ extension LoginViewController {
             HomeController.modalPresentationStyle = .fullScreen
             self.present(HomeController, animated: true, completion: nil)
         
-        if(userKeychain.getEmail() != nil && userKeychain.hasSessionData() == true){
+        if(userKeychain.getEmail() != nil && userKeychain.hasSessionData()){
             biometricLoginUser()
         } else {
 

@@ -11,14 +11,33 @@ import UIKit
 class SettingsViewController: UIViewController {
     
     let keychain = UserKeychain()
+    var biometricsSettings:String = "Dopusteno"
     
+    @IBOutlet weak var biometricsSwitch: UISwitch!
     @IBOutlet weak var logoutButton: UIButton!
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        biometricsSwitch.setOn(UserDefaults.standard.bool(forKey: "SwitchValue"), animated: false)
+        
+        if(biometricsSwitch.isOn){
+            biometricsSettings = "Dopusteno"
+        } else {
+            biometricsSettings = "Nije dopusteno"
+        }
 
         // Do any additional setup after loading the view.
     }
+    
+    @IBAction func biometricsSettings(_ sender: Any) {
+        if(biometricsSwitch.isOn){
+            UserDefaults.standard.set(true, forKey: "SwitchValue")
+        } else {
+            UserDefaults.standard.set(false, forKey: "SwitchValue")
+        }
+    }
+    
     
     @IBAction func logOut(_ sender: Any) {
         logout()
