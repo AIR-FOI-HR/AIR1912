@@ -23,7 +23,7 @@ class FormatDate {
     public static func getDateFromWebDBString(date: String?) -> NSDate? {
         if let date1 = date {
             let dateFormatter = DateFormatter()
-            dateFormatter.dateFormat = "dd.MM.YYYY HH:mm"
+            dateFormatter.dateFormat = "dd.MM.yyyy HH:mm"
             dateFormatter.timeZone = NSTimeZone(name: "UTC") as TimeZone?
             let date: NSDate? = dateFormatter.date(from: date1) as NSDate?
             return date!
@@ -34,7 +34,8 @@ class FormatDate {
     public static func getStringFromDate(date: NSDate?) -> String? {
         if let date1 = date {
             let dateFormatter = DateFormatter()
-            dateFormatter.dateFormat = "dd.MM.YYYY HH:mm"
+            dateFormatter.dateFormat = "dd.MM.yyyy HH:mm"
+            dateFormatter.timeZone = NSTimeZone(name: "UTC") as TimeZone?
             let stringDate = dateFormatter.string(from: date1 as Date)
            
             return stringDate
