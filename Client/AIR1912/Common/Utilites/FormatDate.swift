@@ -35,6 +35,7 @@ class FormatDate {
         if let date1 = date {
             let dateFormatter = DateFormatter()
             dateFormatter.dateFormat = "dd.MM.YYYY HH:mm"
+            dateFormatter.timeZone = NSTimeZone(name: "UTC") as TimeZone?
             let stringDate = dateFormatter.string(from: date1 as Date)
            
             return stringDate
