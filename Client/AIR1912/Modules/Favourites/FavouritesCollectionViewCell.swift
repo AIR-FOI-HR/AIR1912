@@ -36,7 +36,8 @@ class FavouritesCollectionViewCell: UICollectionViewCell {
         userId = keychain.getID()!
         titleName!.text = content.title
         let provider =  WebContentProvider()
-        provider.getFavouritesByUserId(with: userId, contentType: ContentType(rawValue: content.type!)!  ){(result) in
+        provider.getContentById(for: content.id!) { (result) in
+            
                 switch result {
                 case .success(let podaci):
                     print (podaci)
