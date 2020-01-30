@@ -62,6 +62,7 @@ class SettingsViewController: UIViewController {
             alerter.alertError()
         }
         else{
+            
             goToInitialScreen()
         }
     

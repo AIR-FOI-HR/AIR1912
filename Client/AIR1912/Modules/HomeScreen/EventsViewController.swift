@@ -35,6 +35,12 @@ class EventsViewController: UIViewController, EventDetailsDelegate {
     
         override func viewDidLoad() {
             super.viewDidLoad()
+            
+            if(!UserDefaults.standard.bool(forKey: "tutorialDone")){
+                pushTutorial()
+            }
+                 
+            
             getUserLocation()
             
             view.isSkeletonable = false
@@ -69,6 +75,14 @@ class EventsViewController: UIViewController, EventDetailsDelegate {
 
     extension EventsViewController {
         
+        func pushTutorial(){
+            let loginStoryBoard:UIStoryboard = UIStoryboard(name: "Tutorial", bundle: nil)
+            let loginController = loginStoryBoard.instantiateViewController(withIdentifier: "Tutorial") as! TutorialViewController
+                             loginController.modalPresentationStyle = .fullScreen
+            self.present(loginController, animated: true) {
+                UserDefaults.standard.set(true, forKey: "tutorialDone")
+            }
+        }
         
         private func getAllEventsByUserID(for type: EventType) {
             view.showAnimatedGradientSkeleton()
