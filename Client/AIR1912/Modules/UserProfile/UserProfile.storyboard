@@ -388,7 +388,7 @@
         <!--Account View Controller-->
         <scene sceneID="wGG-Va-V0N">
             <objects>
-                <viewController id="nSZ-Ag-98M" customClass="AccountViewController" customModule="AIR1912" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AccountView" useStoryboardIdentifierAsRestorationIdentifier="YES" id="nSZ-Ag-98M" customClass="AccountViewController" customModule="AIR1912" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="d1c-SE-IWA">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

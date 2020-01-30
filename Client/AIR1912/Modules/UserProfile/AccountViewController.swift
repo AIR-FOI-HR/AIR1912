@@ -21,17 +21,11 @@ class AccountViewController: UIViewController {
     
     private let keychain:UserKeychain = UserKeychain()
     
-
-    override func viewDidLoad() {
-            super.viewDidLoad()
-            
-            // set avatar from keychain
-            
+    func updateUser(){
             let avatarValue = self.keychain.getAvatar()
             let avatar = Avatar(rawValue: avatarValue!)
-            let userImage = avatar!.image
-
-            self.userAvatar.image = userImage
+            let userImage = avatar
+            self.userAvatar.image = userImage!.image
             
             let userNickname = self.keychain.getNickname()
             self.nicknameTxt.text = userNickname!
@@ -46,4 +40,13 @@ class AccountViewController: UIViewController {
             self.emailTxt.text = userEmail
         
     }
+    override func viewDidLoad() {
+            super.viewDidLoad()
+            
+            updateUser()
+    }
+    override func viewDidAppear(_ animated: Bool) {
+        updateUser()
+    }
+    
 }

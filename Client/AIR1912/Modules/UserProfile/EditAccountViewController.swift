@@ -33,17 +33,21 @@ class EditAccountViewController: UIViewController {
     }
     
     func refreshUserData(){
-        let userNickname = self.keychain.getNickname()
-        self.nicknameTxt.placeholder = userNickname
+        
+        _ = self.keychain.getNickname()
+        //self.nicknameTxt.text = userNickname
            
-        let userName = self.keychain.getName()
-        self.nameTxt.placeholder = userName
+        _ = self.keychain.getName()
+        //self.nameTxt.placeholder = userName
            
-        let userSurname = self.keychain.getSurname()
-        self.surnameTxt.placeholder = userSurname
+        _ = self.keychain.getSurname()
+        //self.surnameTxt.placeholder = userSurname
            
-        let userEmail = self.keychain.getEmail()
-        self.emailTxt.placeholder = userEmail
+        _ = self.keychain.getEmail()
+            //self.emailTxt.placeholder = userEmail
+        _ = self.keychain.getPassword()
+        //self.passTxt.text = pass
+        //self.cpassTxt.text = pass
         
         avatarImages = Avatar.allCases.map { $0.image }
         
@@ -97,6 +101,7 @@ class EditAccountViewController: UIViewController {
           self.present(alertController, animated: true, completion: nil)
       }
     
+    
     func currentAvatar() -> Avatar {
         let allCases = Avatar.allCases // all avatars from enum
         let currentOffsetX = avatarSelection.contentOffset.x // content offset in avatar selection
@@ -122,12 +127,47 @@ class EditAccountViewController: UIViewController {
             readyToProceed = false
             
         }
-        
+        if nicknameTxt.text?.isEmpty ?? true {
+            let nickname = self.keychain.getNickname()
+            self.nicknameTxt.text = nickname
+        }
+        if nameTxt.text?.isEmpty ?? true {
+            let name = self.keychain.getName()
+            self.nameTxt.text = name
+        }
+        if surnameTxt.text?.isEmpty ?? true {
+            let surname = self.keychain.getSurname()
+            self.surnameTxt.text = surname
+        }
+        if emailTxt.text?.isEmpty ?? true {
+            let email = self.keychain.getEmail()
+            self.emailTxt.text = email
+        }
+        if passTxt.text?.isEmpty ?? true {
+            let pass = self.keychain.getPassword()
+            self.passTxt.text = pass
+            self.cpassTxt.text = pass
+        }
         if readyToProceed{
         
         updateUserData()
-        }
+            _ = navigationController?.popViewController(animated: true)
+            
+            
+//        alerter.title = "Success"
+//        alerter.message = "You have successfully updated your profile!"
+//        self.present(alerter.getUIAlertController(), animated: true, completion: nil)
+            
+        let UserProfileStoryboard:UIStoryboard = UIStoryboard(name: "UserProfile", bundle: nil)
+        let UserProfileController = UserProfileStoryboard.instantiateViewController(identifier: "UserProfile") as! UserProfileViewController
+        UserProfileController.modalPresentationStyle = .fullScreen
+        self.present(UserProfileController, animated: true, completion: nil)
+            
+
+            
         
+        }
+
         
 }
 }
