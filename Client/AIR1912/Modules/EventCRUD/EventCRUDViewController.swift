@@ -421,34 +421,55 @@ extension EventCRUDViewController{
         modifiedEvent.longitude = self.lon
         modifiedEvent.dateTime = self.dateTimeLabel.text!
         modifiedEvent.isPrivate = self.eventPrivatePublicSegmentedControl.selectedSegmentIndex
+        modifiedEvent.password = " "
+        
+        if (eventPrivatePublicSegmentedControl.selectedSegmentIndex == 1){
+            modifiedEvent.isPrivate = 1
+            let appearance = SCLAlertView.SCLAppearance(
+                showCloseButton: false
+            )
+            let alerter = SCLAlertView(appearance: appearance)
+            let textfield = alerter.addTextField("Password")
+            
+            alerter.addButton("Enter") {
+                modifiedEvent.password = textfield.text
+                self.enterModifiedEventInDb(modifiedEvent: modifiedEvent)
+            }
+            alerter.showInfo("Enter password for event", subTitle: "People can join entering this password")
+            
+        }else{
+            enterModifiedEventInDb(modifiedEvent: modifiedEvent)
+        }
         
         
         
+    }
+    
+    func enterModifiedEventInDb(modifiedEvent:Event){
         let changerEvent = WebEventHandler()
-              changerEvent.updateEvent(for: modifiedEvent) { (result) in
-                  switch result{
-                      case .success(let event):
-                          
-                          
-                          let appearance = SCLAlertView.SCLAppearance(
-                              showCloseButton: false
-                          )
-                          let alerter = SCLAlertView(appearance: appearance)
-                          alerter.addButton("Dismiss") {
-                            self.delegate.event = event[0]
-                            self.delegate.configure()
-                            self.delegate.delegate.didHideView()
-                            self.dismiss(animated: true, completion: nil)
-                          }
-                          alerter.showSuccess("Great!", subTitle: "You've changed Event")
-                          
-                          
-                          
-                  case .failure(_):
-                      print("Nije izmijenjen event")
-                  }
-              }
-        
+        changerEvent.updateEvent(for: modifiedEvent) { (result) in
+            switch result{
+                case .success(let event):
+                    
+                    
+                    let appearance = SCLAlertView.SCLAppearance(
+                        showCloseButton: false
+                    )
+                    let alerter = SCLAlertView(appearance: appearance)
+                    alerter.addButton("Dismiss") {
+                      self.delegate.event = event[0]
+                      self.delegate.configure()
+                      self.delegate.delegate.didHideView()
+                      self.dismiss(animated: true, completion: nil)
+                    }
+                    alerter.showSuccess("Great!", subTitle: "You've changed Event")
+                    
+                    
+                    
+            case .failure(_):
+                print("Nije izmijenjen event")
+            }
+        }
     }
     
     

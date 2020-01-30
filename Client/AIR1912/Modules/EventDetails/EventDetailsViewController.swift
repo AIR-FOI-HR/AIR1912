@@ -127,6 +127,8 @@ extension EventDetailsViewController{
         
         if(event.isPrivate==1){
             confIfPrivate()
+        }else{
+            lockEvent.isHidden = true
         }
         if(event.ownerId == keychain.getID() ){
             self.floatyButton.isHidden = false
