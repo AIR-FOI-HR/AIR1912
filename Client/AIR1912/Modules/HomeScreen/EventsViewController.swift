@@ -40,6 +40,9 @@ class EventsViewController: UIViewController {
             self.tabBarController?.tabBar.tintColor = Theme.current.headingColor
             eventsNearMeLabel.textColor = Theme.current.headingColor
             myEventsLabel.textColor = Theme.current.headingColor
+            self.tabBarController?.tabBar.tintColor = Theme.current.headingColor
+            let textAttributes = [NSAttributedString.Key.foregroundColor:Theme.current.headingColor]
+            navigationController?.navigationBar.titleTextAttributes = textAttributes
         }
         
         override func viewWillAppear(_ animated: Bool) {
@@ -50,6 +53,8 @@ class EventsViewController: UIViewController {
             eventsNearMeLabel.textColor = Theme.current.headingColor
             myEventsLabel.textColor = Theme.current.headingColor
             self.tabBarController?.tabBar.tintColor = Theme.current.headingColor
+            let textAttributes = [NSAttributedString.Key.foregroundColor:Theme.current.headingColor]
+            navigationController?.navigationBar.titleTextAttributes = textAttributes
         }
     
     

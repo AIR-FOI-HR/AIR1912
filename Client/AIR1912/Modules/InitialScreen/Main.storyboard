@@ -23,10 +23,10 @@
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="252" verticalCompressionResistancePriority="749" image="Logo" translatesAutoresizingMaskIntoConstraints="NO" id="ApN-Ew-Rzv">
                                                 <rect key="frame" x="0.0" y="0.0" width="414" height="358.33333333333331"/>
-                                                <color key="backgroundColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </imageView>
                                         </subviews>
-                                        <color key="tintColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="bottom" secondItem="ApN-Ew-Rzv" secondAttribute="bottom" id="3gt-vz-4TB"/>
                                             <constraint firstItem="ApN-Ew-Rzv" firstAttribute="leading" secondItem="Zli-6f-8dM" secondAttribute="leading" id="Ezh-Vh-X10"/>
@@ -35,8 +35,7 @@
                                         </constraints>
                                     </stackView>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <color key="tintColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstItem="Zli-6f-8dM" firstAttribute="leading" secondItem="7HV-iW-Gsi" secondAttribute="leading" id="B6K-dd-nFE"/>
                                     <constraint firstItem="Zli-6f-8dM" firstAttribute="top" secondItem="7HV-iW-Gsi" secondAttribute="top" id="grp-lf-WEt"/>
@@ -134,7 +133,6 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="tintColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="MG2-u6-ZNL" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="1zn-Wm-kMU"/>
@@ -155,6 +153,7 @@
                         <outlet property="loginButton" destination="7Pw-aq-vFE" id="eep-da-CnN"/>
                         <outlet property="loginSignView" destination="MG2-u6-ZNL" id="JpV-aL-PaX"/>
                         <outlet property="signUpButton" destination="7NA-PE-ZGk" id="xDv-iA-xCZ"/>
+                        <outlet property="stackView" destination="Zli-6f-8dM" id="TgL-fp-J4c"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

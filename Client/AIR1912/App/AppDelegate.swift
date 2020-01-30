@@ -16,7 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         UIBarButtonItem.appearance().tintColor = Theme.current.headingColor
-        UINavigationBar.appearance().titleTextAttributes = [NSAttributedString.Key.foregroundColor: Theme.current.headingColor]
+        UINavigationBar.appearance().tintColor = Theme.current.headingColor
         UITabBar.appearance().tintColor = Theme.current.headingColor
         
             if (UserDefaults.standard.object(forKey: "Theme") != nil) {

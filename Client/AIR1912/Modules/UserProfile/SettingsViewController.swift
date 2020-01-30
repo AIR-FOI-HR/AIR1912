@@ -36,6 +36,9 @@ class SettingsViewController: UIViewController {
         logoutButton.setTitleColor(Theme.current.headingColor, for: .normal)
         biometricsSwitch.onTintColor = Theme.current.headingColor
         self.tabBarController?.tabBar.tintColor = Theme.current.headingColor
+        self.navigationController?.navigationBar.tintColor = Theme.current.headingColor
+        let textAttributes = [NSAttributedString.Key.foregroundColor:Theme.current.headingColor]
+        navigationController?.navigationBar.titleTextAttributes = textAttributes
     }
     
     @IBAction func biometricsSettings(_ sender: Any) {

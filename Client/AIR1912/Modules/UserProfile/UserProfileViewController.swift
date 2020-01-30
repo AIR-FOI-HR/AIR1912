@@ -61,6 +61,10 @@ class UserProfileViewController: UIViewController {
             settingButton.tintColor = Theme.current.headingColor
             
             self.tabBarController?.tabBar.tintColor = Theme.current.headingColor
+            let textAttributes = [NSAttributedString.Key.foregroundColor:Theme.current.headingColor]
+            navigationController?.navigationBar.titleTextAttributes = textAttributes
+
+           
     }
     
         @IBAction func testEventDetails(_ sender: Any) {

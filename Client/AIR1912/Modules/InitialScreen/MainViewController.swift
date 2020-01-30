@@ -23,6 +23,7 @@ class MainViewController: UIViewController {
     @IBOutlet weak var loadingActivity: UIActivityIndicatorView!
     @IBOutlet weak var buttonOutlet: KBRoundedButton!
     @IBOutlet weak var buttonSignuUpOutlet: KBRoundedButton!
+    @IBOutlet weak var stackView: UIStackView!
     
     // MARK - Properties
     
@@ -33,6 +34,10 @@ class MainViewController: UIViewController {
     override func viewDidLoad() {
        
         super.viewDidLoad()
+        self.view.backgroundColor = Theme.current.headingColor
+        buttonOutlet.backgroundColorForStateNormal = Theme.current.headingColor
+        buttonSignuUpOutlet.backgroundColorForStateNormal = Theme.current.headingColor
+        
         
         additionalSetup()
         
@@ -41,6 +46,7 @@ class MainViewController: UIViewController {
      override func viewWillAppear(_ animated: Bool) {
         
         super.viewWillAppear(animated)
+        
         //additionalSetup()
     }
     

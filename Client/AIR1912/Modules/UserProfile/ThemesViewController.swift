@@ -36,7 +36,7 @@ class ThemesViewController: UIViewController {
         lightThemeLabel.textColor = Theme.current.headingColor
         UIBarButtonItem.appearance().tintColor = Theme.current.headingColor
         UINavigationBar.appearance().titleTextAttributes = [NSAttributedString.Key.foregroundColor: Theme.current.headingColor]
-        UITabBar.appearance().tintColor = Theme.current.headingColor
+        self.tabBarController?.tabBar.tintColor = Theme.current.headingColor
         self.navigationController?.isNavigationBarHidden = true
         self.navigationController?.isNavigationBarHidden = false
     }

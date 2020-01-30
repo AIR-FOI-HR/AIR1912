@@ -20,6 +20,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var loginLabel: UILabel!
     @IBOutlet weak var upContentView: UIView!
     @IBOutlet weak var logInButton: KBRoundedButton!
     @IBOutlet weak var forgotPasswordButton: UIButton!
@@ -76,6 +77,11 @@ extension LoginViewController {
         super.viewDidLoad()
         emailTextField.delegate = self
         passwordTextField.delegate = self
+        
+        upContentView.backgroundColor = Theme.current.headingColor
+        logInButton.backgroundColorForStateNormal = Theme.current.headingColor
+        forgotPasswordButton.setTitleColor(Theme.current.headingColor, for: .normal)
+        loginLabel.textColor = Theme.current.backgroundColor
         
         if(userKeychain.getEmail() != nil && userKeychain.hasSessionData() && (UserDefaults.standard.bool(forKey: "SwitchValue"))) {
             emailTextField.isHidden = true

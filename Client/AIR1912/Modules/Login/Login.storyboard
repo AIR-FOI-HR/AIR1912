@@ -256,6 +256,7 @@
                         <outlet property="faceIDButton" destination="k7f-FO-LWc" id="wqx-YA-Owj"/>
                         <outlet property="forgotPasswordButton" destination="qLw-bD-0mQ" id="9gE-pj-n49"/>
                         <outlet property="logInButton" destination="cru-Ab-hLI" id="9dg-aw-QNF"/>
+                        <outlet property="loginLabel" destination="vgu-Rt-k3b" id="ngg-7r-NqK"/>
                         <outlet property="passwordLabel" destination="qF8-xt-S9f" id="sKm-us-hKU"/>
                         <outlet property="passwordTextField" destination="MBz-Kc-mim" id="V1U-H3-0Im"/>
                         <outlet property="scrollView" destination="Ozz-Lm-MH7" id="5ej-Y7-heb"/>

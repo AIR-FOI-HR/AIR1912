@@ -40,6 +40,9 @@ class FavouritesViewController: UIViewController {
         favouriteLabel.textColor = Theme.current.headingColor
         favourite2Label.textColor = Theme.current.headingColor
         self.tabBarController?.tabBar.tintColor = Theme.current.headingColor
+        self.navigationController?.navigationBar.tintColor = Theme.current.headingColor
+        let textAttributes = [NSAttributedString.Key.foregroundColor:Theme.current.headingColor]
+        navigationController?.navigationBar.titleTextAttributes = textAttributes
     }
     
     private func getFavouriteContent(for type: ContentType, userId: Int){

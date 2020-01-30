@@ -43,11 +43,14 @@ class ContentViewController : UIViewController {
          getLatestContent(for: .movie)
          getLatestContent(for: .game)
         
-        segmentButton.setTitleTextAttributes([NSAttributedString.Key.foregroundColor : Theme.current.headingColor], for: .selected)
+    segmentButton.setTitleTextAttributes([NSAttributedString.Key.foregroundColor : Theme.current.headingColor], for: .selected)
         searchButton.tintColor = Theme.current.headingColor
         moviesLabel.textColor = Theme.current.headingColor
         gamesLabel.textColor = Theme.current.headingColor
         self.tabBarController?.tabBar.tintColor = Theme.current.headingColor
+        self.navigationController?.navigationBar.tintColor = Theme.current.headingColor
+        let textAttributes = [NSAttributedString.Key.foregroundColor:Theme.current.headingColor]
+        navigationController?.navigationBar.titleTextAttributes = textAttributes
      }
     
     
