@@ -422,6 +422,7 @@ extension EventCRUDViewController{
         modifiedEvent.dateTime = self.dateTimeLabel.text!
         modifiedEvent.isPrivate = self.eventPrivatePublicSegmentedControl.selectedSegmentIndex
         modifiedEvent.password = " "
+        modifiedEvent.numberOfPeople = event.numberOfPeople
         
         if (eventPrivatePublicSegmentedControl.selectedSegmentIndex == 1){
             modifiedEvent.isPrivate = 1
