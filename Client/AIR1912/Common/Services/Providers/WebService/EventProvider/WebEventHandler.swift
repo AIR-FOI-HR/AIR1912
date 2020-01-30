@@ -80,6 +80,53 @@ class WebEventHandler{
         
     }
     
+    func joinUserToEvent(for eventId:Int, userId:Int, completion: @escaping (Result<String>) -> Void){
+        
+        let decoder = JSONDecoder()
+        var eventDictionary:[String:Any] =  [:]
+        eventDictionary["requestType"] = "joinUserToEvent"
+        eventDictionary["userId"] = userId
+        eventDictionary["eventJoinId"] = eventId
+        
+        Alamofire
+            .request("https://cortex.foi.hr/meetup/EventHandler.php", method: .get, parameters: eventDictionary)
+            .validate()
+            .responseDecodableObject(decoder: decoder) { (response: DataResponse<String>) in
+                switch response.result {
+                case .success(let event):
+                    completion(.success(event))
+                case .failure(let error):
+                    completion(.failure(ResponseErrorBuilder.decodedError(fromData: response.data, fallbackError: error)))
+                    print(error)
+                    
+            }
+        }
+        
+    }
+    
+    func removeUserFromEvent(for eventId:Int, userId:Int, completion: @escaping (Result<String>) -> Void){
+        
+        let decoder = JSONDecoder()
+        var eventDictionary:[String:Any] =  [:]
+        eventDictionary["requestType"] = "deleteUserFromEvent"
+        eventDictionary["userId"] = userId
+        eventDictionary["eventJoinId"] = eventId
+        
+        Alamofire
+            .request("https://cortex.foi.hr/meetup/EventHandler.php", method: .get, parameters: eventDictionary)
+            .validate()
+            .responseDecodableObject(decoder: decoder) { (response: DataResponse<String>) in
+                switch response.result {
+                case .success(let event):
+                    completion(.success(event))
+                case .failure(let error):
+                    completion(.failure(ResponseErrorBuilder.decodedError(fromData: response.data, fallbackError: error)))
+                    print(error)
+                    
+            }
+        }
+        
+    }
 
     
 }

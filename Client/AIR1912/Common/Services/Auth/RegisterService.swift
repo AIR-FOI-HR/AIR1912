@@ -30,4 +30,23 @@ class RegisterService {
         }
     }
     
+    func updateUser(with user:User, completion: @escaping (Result<User>) -> Void)
+    {
+        let decoder = JSONDecoder()
+        let userDict = try! user.asDictionary()
+        
+        Alamofire
+            .request("https://cortex.foi.hr/meetup/updateUser.php", method: .get, parameters: userDict)
+            .validate()
+            .responseDecodableObject(decoder: decoder) { (response: DataResponse<User>) in
+                switch response.result {
+                case .success(let user):
+                    completion(.success(user))
+                case .failure(let error):
+                    completion(.failure(ResponseErrorBuilder.decodedError(fromData: response.data, fallbackError: error)))
+            }
+        }
+    }
+    
+    
 }

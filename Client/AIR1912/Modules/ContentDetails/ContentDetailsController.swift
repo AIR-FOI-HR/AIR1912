@@ -30,6 +30,8 @@ class ContentDetailsController: UIViewController {
     
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
+  
+    
     //MARK: - Properties
     
     var id: Int = 0
@@ -37,16 +39,105 @@ class ContentDetailsController: UIViewController {
     let cornerRadius : CGFloat = 12
     var genreName = ""
     let keychain = UserKeychain()
+    var currentContent: DBContent?
+    var isFavourite = false
+    var isInDatabase = false
 
     //MARK: - Lifecycle
 
     override func viewDidLoad() {
-    super.viewDidLoad()
-    setShadowView()
-    configure(for: type)
+        super.viewDidLoad()
+        setShadowView()
+        configure(for: type)
+        
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(imageTapped(tapGestureRecognizer:)))
+        favouritesButton.isUserInteractionEnabled = true
+        favouritesButton.addGestureRecognizer(tapGestureRecognizer)
 
+    }
+    
+    @objc func imageTapped(tapGestureRecognizer: UITapGestureRecognizer)
+    {
+        setFavouriteTap()
+    }
+    
+    
+    func setFavouriteTap() -> Bool{
+        if(activityIndicator.isAnimating == true) {return false}
+        
+        if(isFavourite == true){
+            self.unsetCurrentContentFromFavourites()
+        }
+        
+        else{
+            if(isInDatabase == true){
+                self.addCurrentContentToFavourites()
+            }
+            else{
+                self.addCurrentContentToDatabase()
 
-     }
+            }
+            
+        }
+        
+        return true
+    }
+    
+    func addCurrentContentToDatabase(){
+        let provider = WebContentHandler()
+        
+        provider.insertNewContent(for: self.currentContent!){(result) in
+
+            switch result{
+            case .success(let content):
+                self.setCurrentDbContent(dbContent: content[0])
+                print("unos contenta u bazu:")
+                print(content[0])
+                self.isInDatabase = true
+                self.addCurrentContentToFavourites()
+                
+            case .failure( _):
+                print("greska pri unosu contenta");
+                self.isInDatabase = false
+            }
+            
+        }
+    }
+    
+    func addCurrentContentToFavourites(){
+        let provider = WebContentHandler()
+        provider.addToFavourites(contentId: currentContent!.id!, userId: keychain.getID()!){(result) in
+
+            switch result{
+            case .success( _):
+                print("added to favourites")
+                self.isFavourite = true
+                self.setHeartFavourite()
+                
+            case .failure( _):
+                self.isFavourite = false
+            }
+            
+        }
+    }
+    
+    func unsetCurrentContentFromFavourites(){
+          let provider = WebContentHandler()
+          provider.unsetFromFavourites(contentId: currentContent!.id!, userId: keychain.getID()!){(result) in
+
+              switch result{
+              case .success( _):
+                  print("unset from favourites")
+                  self.isFavourite = false
+                  self.unsetHeartFavourite()
+                  
+              case .failure( _):
+                  self.isFavourite = false
+              }
+              
+          }
+      }
+    
     
     
     func setShadowView() {
@@ -81,11 +172,17 @@ class ContentDetailsController: UIViewController {
             switch result{
             case .success( _):
                 print("is favourite")
+                
+                // set flag
+                self.isFavourite = true
                 self.setHeartFavourite()
                 
             
             case .failure( _):
                 print("is not favourite")
+                
+                // set flag
+                self.isFavourite = false
                 self.stopAnimatingActivityIndicator()
             }
         
@@ -98,13 +195,15 @@ class ContentDetailsController: UIViewController {
         stopAnimatingActivityIndicator()
     }
     
+    func unsetHeartFavourite(){
+        favouritesButton.tintColor = UIColor.white
+        favouritesButton.image = UIImage(systemName: "heart")
+    }
+    
     func stopAnimatingActivityIndicator(){
         activityIndicator.stopAnimating()
     }
     
-    func addToFavourites(){
-        
-    }
     
     func checkIfContentExistInWebDatabase(for sourceContentId:Int, contentType:ContentType) {
     
@@ -114,10 +213,21 @@ class ContentDetailsController: UIViewController {
             switch result{
             case .success(let content):
                     print("is in database")
+                    
+                    // if in db, set as current content the one from db
+                    self.setCurrentDbContent(dbContent: content[0])
+                    
+                    // set flag
+                    self.isInDatabase = true
+                    
+                    // check if is favourite
                     self.isFavourite(content: content[0])
                     
             case .failure(_):
                 print("is not in database")
+                
+                // se flag
+                self.isInDatabase = false
                 self.stopAnimatingActivityIndicator()
             }
         }
@@ -175,8 +285,9 @@ class ContentDetailsController: UIViewController {
                             case .success(let podaci):
                                 self.getGenre(for: podaci)
                                 self.setUpView(for: podaci)
+                                self.setCurrentContent(content: podaci)
                             case .failure(_):
-                                break
+                                print("fail")
                             }
                         }
         case .game:
@@ -186,14 +297,26 @@ class ContentDetailsController: UIViewController {
                 case .success(let podaci):
                     self.getGenre(for: podaci)
                     self.setUpView(for: podaci)
+                    self.setCurrentContent(content: podaci)
                 case .failure(_):
-                    break
+                    print("fail")
                 }
                 
             }
             
         }
                 
+    }
+    
+    func setCurrentContent(content: Content){
+        let fetchedContent = DBContent(content: content, type: content.type)
+        currentContent = fetchedContent
+        print("current Content set")
+    }
+    
+    func setCurrentDbContent(dbContent: DBContent){
+        currentContent = dbContent
+        print("current DBContent set")
     }
     
     

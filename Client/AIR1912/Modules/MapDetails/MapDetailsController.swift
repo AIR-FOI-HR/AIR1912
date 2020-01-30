@@ -8,7 +8,11 @@
 
 import UIKit
 
-class MapDetailsController: UIViewController {
+class MapDetailsController: UIViewController, EventDetailsDelegate {
+    func didHideView() {
+        self.viewDidLoad()
+    }
+    
  
     @IBOutlet weak var eventTitleTxt: UITextField!
     @IBOutlet weak var eventDateTimeTxt: UITextField!
@@ -21,7 +25,7 @@ class MapDetailsController: UIViewController {
           guard let viewController = storyboard.instantiateViewController(identifier: "EventDetails") as? EventDetailsViewController else {
               return
           }
-        
+        viewController.delegate = self
           viewController.modalPresentationStyle = .formSheet
           
           // na view controller detaljnog prikaza pridodaj odabrani event
@@ -38,6 +42,10 @@ class MapDetailsController: UIViewController {
         
         displayEventDetails()
         // Do any additional setup after loading the view.
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        displayEventDetails()
     }
     
 
