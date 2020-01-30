@@ -16,6 +16,8 @@ class SearchController: UINavigationController {
         // Do any additional setup after loading the view.
     }
     
-
+    override func viewWillAppear(_ animated: Bool) {
+        self.tabBarController?.tabBar.tintColor = Theme.current.headingColor
+    }
 
 }

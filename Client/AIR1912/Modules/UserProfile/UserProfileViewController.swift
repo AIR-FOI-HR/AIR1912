@@ -60,7 +60,7 @@ class UserProfileViewController: UIViewController {
             atendingEventsLabel.textColor = Theme.current.headingColor
             settingButton.tintColor = Theme.current.headingColor
             
-
+            self.tabBarController?.tabBar.tintColor = Theme.current.headingColor
     }
     
         @IBAction func testEventDetails(_ sender: Any) {

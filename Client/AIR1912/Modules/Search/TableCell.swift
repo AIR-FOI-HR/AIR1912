@@ -26,6 +26,7 @@ class TableCell: UITableViewCell {
     override func prepareForReuse() {
         super.prepareForReuse()
         imgView.image = nil
+        setupView()
         
     }
     

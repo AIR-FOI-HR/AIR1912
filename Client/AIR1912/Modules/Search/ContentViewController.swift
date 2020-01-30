@@ -43,10 +43,11 @@ class ContentViewController : UIViewController {
          getLatestContent(for: .movie)
          getLatestContent(for: .game)
         
-        segmentButton.selectedSegmentTintColor = Theme.current.headingColor
+        segmentButton.setTitleTextAttributes([NSAttributedString.Key.foregroundColor : Theme.current.headingColor], for: .selected)
         searchButton.tintColor = Theme.current.headingColor
         moviesLabel.textColor = Theme.current.headingColor
         gamesLabel.textColor = Theme.current.headingColor
+        self.tabBarController?.tabBar.tintColor = Theme.current.headingColor
      }
     
     
