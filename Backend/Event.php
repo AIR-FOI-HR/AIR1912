@@ -38,6 +38,7 @@ class Event{
        $this->ownerId = $ownerId;
    }
 
+   
    function insertNewEvent(){
         $connectionData = new ConnectionData();
         $connectionString = $connectionData->getConnectionString();
@@ -50,7 +51,7 @@ class Event{
 
         $query = "INSERT INTO `Event` (`id`, `title`, `maxNumberOfPeople`, `numberOfPeople`, `password`, `description`, `latitude`, `longitude`, `phoneNumber`, 
         `isPrivate`, `contentID`, `customImage`, `dateTime`, `ownerId`) 
-        VALUES (NULL, '$this->title', '$this->maxNumberOfPeople', NULL, '$this->password', '$this->description', '$this->latitude', '$this->longitude', NULL, '$this->isPrivate',
+        VALUES (NULL, '$this->title', '$this->maxNumberOfPeople', 0, '$this->password', '$this->description', '$this->latitude', '$this->longitude', NULL, '$this->isPrivate',
          '$this->contentID', NULL, '$this->dateTime', '$this->ownerId')";
 
         if(!mysqli_query($connectionString,$query)) 
@@ -60,7 +61,7 @@ class Event{
         
         }else
         {
-            $newRecordId = mysql_insert_id();
+            $newRecordId = mysqli_insert_id();
             $sql  = "SELECT Event.* FROM `Event` WHERE id = '$newRecordId'";
             $requestHandler = new RequestHandler();
             $data = $requestHandler->getMultipleDataFromDatabase($sql);
@@ -79,7 +80,7 @@ class Event{
         echo "Failed to connect to MySQL: " . mysqli_connect_error();
         }
 
-        $query = "UPDATE `Event` SET `title` = '$this->title', `maxNumberOfPeople` = '$this->maxNumberOfPeople', `password` = '$this->password', `description` = '$this->description', `latitude` = '$this->latitude', `longitude` = '$this->longitude', `isPrivate` = '$this->isPrivate', `contentID` = '$this->contentID', `dateTime` = '$this->dateTime' WHERE `Event`.`id` = '$this->id'";
+        $query = "UPDATE `Event` SET `title` = '$this->title', `maxNumberOfPeople` = '$this->maxNumberOfPeople', `password` = '$this->password', `description` = '$this->description', `latitude` = '$this->latitude', `longitude` = '$this->longitude', `isPrivate` = '$this->isPrivate',  `dateTime` = '$this->dateTime' WHERE `Event`.`id` = '$this->id'";
 
         if(!mysqli_query($connectionString,$query)) 
         {
@@ -93,6 +94,33 @@ class Event{
             $requestHandler = new RequestHandler();
             $data = $requestHandler->getMultipleDataFromDatabase($sql);
             echo json_encode($data, JSON_NUMERIC_CHECK);
+        }
+        mysqli_close($connectionString);  
+        
+    }
+
+    public static function deleteEvent($deletionId){
+        $connectionData = new ConnectionData();
+        $connectionString = $connectionData->getConnectionString();
+      
+        
+        if (mysqli_connect_errno())
+        {
+        echo "Failed to connect to MySQL: " . mysqli_connect_error();
+        }
+
+        $query = "DELETE FROM `Event` WHERE `Event`.`id` = '$deletionId'";
+
+        if(!mysqli_query($connectionString,$query)) 
+        {
+            echo mysqli_error($connectionString);
+            die('Error : Query Not Executed. Please Fix the Issue! '); 
+           
+        
+        }else
+        {
+            
+            echo json_encode("Deleted");
         }
         mysqli_close($connectionString);  
         
