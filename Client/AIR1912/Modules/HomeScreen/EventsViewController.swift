@@ -44,8 +44,8 @@ class EventsViewController: UIViewController {
            getUserLocation()
             getAllEventsByUserID(for: .allEvent )
             getAllEventsByLocation(for: .allEvent)
-            eventsNearMeLabel.textColor = Theme.current.baseColor
-            myEventsLabel.textColor = Theme.current.baseColor
+            //eventsNearMeLabel.textColor = Theme.current.baseColor
+            //myEventsLabel.textColor = Theme.current.baseColor
         }
     
     

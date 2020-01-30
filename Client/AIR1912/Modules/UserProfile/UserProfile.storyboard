@@ -785,7 +785,10 @@
                     </view>
                     <navigationItem key="navigationItem" title="Theme settings" id="Akv-rU-pf7"/>
                     <connections>
+                        <outlet property="blackButton" destination="lI7-vW-cVX" id="Vg7-W5-WcJ"/>
                         <outlet property="lightThemeLabel" destination="iDE-7V-aqx" id="m73-sg-sEl"/>
+                        <outlet property="pinkButton" destination="NVJ-5u-NE3" id="QAf-zq-wSS"/>
+                        <outlet property="redButton" destination="6Ue-09-jF4" id="g4A-yS-o33"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="n4E-q2-p60" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

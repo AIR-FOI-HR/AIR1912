@@ -11,24 +11,29 @@ import UIKit
 class ThemesViewController: UIViewController {
 
     @IBOutlet weak var lightThemeLabel: UILabel!
-    @IBOutlet weak var darkThemeLabel: UILabel!
-    @IBOutlet weak var pinkThemeLabel: UILabel!
-    @IBOutlet weak var lightThemeSwitch: UISwitch!
-    @IBOutlet weak var darkThemeSwitch: UISwitch!
-    @IBOutlet weak var pinkThemeSwitch: UISwitch!
+    @IBOutlet weak var redButton: UIButton!
+    @IBOutlet weak var blackButton: UIButton!
+    @IBOutlet weak var pinkButton: UIButton!
+    
     
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        applyTheme()
-        
 
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        redButton.layer.cornerRadius = 15.0
+        blackButton.layer.cornerRadius = 15.0
+        pinkButton.layer.cornerRadius = 15.0
+        applyTheme()
+    }
+    
     private func applyTheme(){
-        lightThemeLabel.textColor = Theme.current.baseColor
+        view.backgroundColor = Theme.current.backgroundColor
+        lightThemeLabel.textColor = Theme.current.headingColor
     }
     
     @IBAction func redThemeButton(_ sender: Any) {

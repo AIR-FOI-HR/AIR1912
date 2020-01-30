@@ -10,17 +10,26 @@ import Foundation
 import UIKit
 
 protocol ThemeProtocol {
-    var baseColor : UIColor { get }
+    var backgroundColor : UIColor { get }
+    var headingColor: UIColor { get }
+    var textColor: UIColor { get }
+    
 }
 
 struct RedTheme: ThemeProtocol {
-    var baseColor: UIColor = UIColor(named: "BaseRed")!
+    var backgroundColor: UIColor = UIColor(named: "BaseRed")!
+    var headingColor: UIColor = UIColor.white
+    var textColor: UIColor = UIColor.white
 }
 
 struct DarkTheme: ThemeProtocol {
-    var baseColor: UIColor = UIColor.black
+    var backgroundColor: UIColor = UIColor(named: "DarkGray")!
+    var headingColor: UIColor = UIColor.white
+    var textColor: UIColor = UIColor.lightGray
 }
 
 struct PinkTheme: ThemeProtocol {
-    var baseColor: UIColor = UIColor(named: "BasePink")!
+    var backgroundColor: UIColor = UIColor(named: "BasePink")!
+    var headingColor: UIColor = UIColor.white
+    var textColor: UIColor = UIColor.white
 }
