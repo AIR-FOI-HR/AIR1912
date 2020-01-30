@@ -37,6 +37,7 @@ class EventDetailsViewController: UIViewController {
     @IBOutlet weak var buttonJoin: KBRoundedButton!
     @IBOutlet weak var floatyButton: Floaty!
     
+    @IBOutlet weak var labelButtonName: UILabel!
     
     
     //properties
@@ -44,6 +45,9 @@ class EventDetailsViewController: UIViewController {
     let cornerRadius : CGFloat = 12
     let keychain = UserKeychain()
     var delegate:EventDetailsDelegate! = nil
+    var userAttending:Bool = false
+    let webProvider = WebEventProvider()
+    let webHandler = WebEventHandler()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -68,11 +72,20 @@ class EventDetailsViewController: UIViewController {
         trash.handler = {item in self.deleteEvent(floaty: trash)}
         floatyButton.addItem(item: trash)
         
+    }
+    
+    @IBAction func buttonJoinLeave(_ sender: Any) {
         
+        if(userAttending){
+           print("Leave")
+            tryToLeaveEvent()
+        }else{
+             print("Join")
+            tryToJoinEvent()
+        }
         
     }
     
-
     
 
 }
@@ -117,6 +130,7 @@ extension EventDetailsViewController{
         if(event.ownerId == keychain.getID() ){
             self.floatyButton.isHidden = false
         }
+        checkIfUserIsJoined()
         
         let ContentProvider = WebContentProvider()
         ContentProvider.getContentById(for: event.contentID) { (result) in
@@ -191,7 +205,36 @@ extension EventDetailsViewController{
 
 extension EventDetailsViewController{
     
-   
+    func checkIfUserIsJoined(){
+        let webProvider = WebEventProvider()
+        webProvider.getEventsByUserID(for: keychain.getID()!, eventType: .allEvent) { (result) in
+            switch result{
+                case .success(let events):
+                    for eventsAttending in events{
+                        print("EventiNaKojima: \(eventsAttending.id)")
+                        if(eventsAttending.id == self.event.id){
+                            self.buttonJoin.titleLabel?.textColor = .white
+                            self.labelButtonName.text = "Leave"
+                            self.userAttending = true
+                            
+                            
+                        }
+                        if(!self.userAttending){
+                            self.confIfUserNotAttending();
+                        }
+                        
+                    }
+                case .failure(_):
+                    print("Failure in getting User events")
+            }
+        }
+    }
+    
+    func confIfUserNotAttending(){
+        self.labelButtonName.text = "Join"
+        userAttending = false
+
+    }
     
     func confIfPrivate(){
         buttonJoin.backgroundColorForStateNormal = UIColor(hex: "FF1306")
@@ -238,6 +281,83 @@ extension EventDetailsViewController{
         }
         alertView.showWarning("Do you really want to delete event", subTitle: "Last chance to abort")
         
+        
+    }
+}
+
+
+// MARK: -Event Join/Leave Handling
+extension EventDetailsViewController{
+    
+    func tryToJoinEvent(){
+        let date = NSDate()
+        
+//        let eventDate = FormatDate.getDateFromWebDBString(date: event.dateTime)
+//        let earlierDate = eventDate?.earlierDate(date as Date)
+//        if(earlierDate as! NSDate == date){
+//            //Logika da može pustiti dalje Joinanje na Event
+//        }
+        
+        
+        webProvider.getEventsByEventId(for: self.event.id) { (result) in
+            switch result{
+            case .success(let event):
+                if(event[0].numberOfPeople!<event[0].maxNumberOfPeople){
+                    self.JoinUserToEvent()
+                    
+                }
+                else{
+                    let alert = Alerter(title: "Event is full", message: "No space for one more soul")
+                    alert.alertError()
+                }
+            case .failure(_):
+                print("failure")
+            }
+        }
+        
+        
+    }
+    
+    func JoinUserToEvent(){
+        buttonJoin.working = true
+        webHandler.joinUserToEvent(for: self.event.id, userId: keychain.getID()!) { (result) in
+            switch result {
+            case .success(_):
+                let alerter = Alerter(title: "You have successfully joined Event", message: self.event.title)
+                
+                alerter.alertSuccess()
+                self.dismiss(animated: true) {
+                    self.delegate.didHideView()
+                }
+            case .failure(_):
+                let alerter = Alerter(title: "This User Cant Be Joined", message: "Maybe there is no space for you")
+                alerter.alertError()
+                self.buttonJoin.working = false
+                self.labelButtonName.text = "Join"
+            }
+        }
+        
+        
+    }
+    
+    func tryToLeaveEvent(){
+        buttonJoin.working = true
+        webHandler.removeUserFromEvent(for: self.event.id, userId: keychain.getID()!) { (result) in
+            switch result {
+                case .success(_):
+                     let alerter = Alerter(title: "You have successfully removed Event", message: self.event.title)
+                     
+                     alerter.alertSuccess()
+                     self.dismiss(animated: true) {
+                         self.delegate.didHideView()
+                     }
+                case .failure(_):
+                     let alerter = Alerter(title: "Can't remove", message: "Problem")
+                     alerter.alertError()
+                     self.buttonJoin.working = false
+                     self.labelButtonName.text = "Remove"
+                 }
+            }
         
     }
 }
