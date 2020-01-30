@@ -29,11 +29,8 @@ class UserProfileViewController: UIViewController, EventDetailsDelegate {
     private let keychain:UserKeychain = UserKeychain()
     
     //MARK: - Lifecycle
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
+    private func updateUser(){
         // set avatar from keychain
-        
             let avatarValue = self.keychain.getAvatar()
         let avatar = Avatar(rawValue: avatarValue!)
         let userImage = avatar!.image
@@ -45,11 +42,18 @@ class UserProfileViewController: UIViewController, EventDetailsDelegate {
             self.nicknameText.text = "Hi " + userNickname!
         AttendingEventsCollectionView.delegate = self
         MyEventsCollectionView.delegate=self
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        updateUser()
+    
 }
     
         override func viewWillAppear(_ animated: Bool) {
             super.viewWillAppear(true)
             
+            updateUser()
             getEventsByUserID(for: .allEvent)
             getEventsByOwnerID(for: .allEvent)
             
