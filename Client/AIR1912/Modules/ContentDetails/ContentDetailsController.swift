@@ -66,13 +66,12 @@ class ContentDetailsController: UIViewController {
         if(activityIndicator.isAnimating == true) {return false}
         
         if(isFavourite == true){
-            // set as unfavourite?
-            print("unset favourite")
+            self.unsetCurrentContentFromFavourites()
         }
         
         else{
             if(isInDatabase == true){
-                // set as favourite
+                self.addCurrentContentToFavourites()
             }
             else{
                 self.addCurrentContentToDatabase()
@@ -85,12 +84,9 @@ class ContentDetailsController: UIViewController {
     }
     
     func addCurrentContentToDatabase(){
-        print("current content prije dodavanja u bazu:")
-        print(currentContent!)
-        
         let provider = WebContentHandler()
         
-        provider.insertNewContent(for: currentContent!){(result) in
+        provider.insertNewContent(for: self.currentContent!){(result) in
 
             switch result{
             case .success(let content):
@@ -100,7 +96,7 @@ class ContentDetailsController: UIViewController {
                 self.isInDatabase = true
                 self.addCurrentContentToFavourites()
                 
-            case .failure(let errors):
+            case .failure( _):
                 print("greska pri unosu contenta");
                 self.isInDatabase = false
             }
@@ -109,22 +105,38 @@ class ContentDetailsController: UIViewController {
     }
     
     func addCurrentContentToFavourites(){
-        print("content prije dodavanja u favorite:")
-        print(currentContent)
         let provider = WebContentHandler()
         provider.addToFavourites(contentId: currentContent!.id!, userId: keychain.getID()!){(result) in
 
             switch result{
-            case .success(let response):
+            case .success( _):
                 print("added to favourites")
                 self.isFavourite = true
+                self.setHeartFavourite()
                 
-            case .failure(let error):
+            case .failure( _):
                 self.isFavourite = false
             }
             
         }
     }
+    
+    func unsetCurrentContentFromFavourites(){
+          let provider = WebContentHandler()
+          provider.unsetFromFavourites(contentId: currentContent!.id!, userId: keychain.getID()!){(result) in
+
+              switch result{
+              case .success( _):
+                  print("unset from favourites")
+                  self.isFavourite = false
+                  self.unsetHeartFavourite()
+                  
+              case .failure( _):
+                  self.isFavourite = false
+              }
+              
+          }
+      }
     
     
     
@@ -181,6 +193,11 @@ class ContentDetailsController: UIViewController {
         favouritesButton.tintColor = UIColor.red
         favouritesButton.image = UIImage(named: "Heart")
         stopAnimatingActivityIndicator()
+    }
+    
+    func unsetHeartFavourite(){
+        favouritesButton.tintColor = UIColor.white
+        favouritesButton.image = UIImage(systemName: "heart")
     }
     
     func stopAnimatingActivityIndicator(){
@@ -294,14 +311,12 @@ class ContentDetailsController: UIViewController {
     func setCurrentContent(content: Content){
         let fetchedContent = DBContent(content: content, type: content.type)
         currentContent = fetchedContent
-        print("current Content set:")
-        print(currentContent)
+        print("current Content set")
     }
     
     func setCurrentDbContent(dbContent: DBContent){
         currentContent = dbContent
-        print("current DBContent set:")
-        print(currentContent)
+        print("current DBContent set")
     }
     
     

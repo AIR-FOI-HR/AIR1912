@@ -57,6 +57,30 @@ class WebContentHandler{
         }
     }
     
+    func unsetFromFavourites(contentId: Int, userId: Int, completion: @escaping (Result<JsonResponse>) -> Void){
+           
+           let decoder = JSONDecoder()
+           let parameters = [
+           "request": "unsetFromFavourites",
+           "parameter1": userId,
+           "parameter2": contentId
+               ] as [String : Any]
+           
+           Alamofire
+               .request("https://cortex.foi.hr/meetup/favouritesProvider.php", method: .get, parameters: parameters)
+               .validate()
+               .responseDecodableObject(decoder: decoder) { (response: DataResponse<JsonResponse>) in
+                   switch response.result {
+                   case .success(let content):
+                       completion(.success(content))
+                   case .failure(let error):
+                       completion(.failure(error))
+               }
+           }
+       }
+    
+    
+    
 }
 
 
