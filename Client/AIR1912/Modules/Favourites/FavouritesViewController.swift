@@ -29,14 +29,17 @@ class FavouritesViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let userId:Int = keychain.getID()!
         
-        getFavouriteContent(for: .movie, userId: userId)
-        getFavouriteContent(for: .game, userId: userId)
+        
+        
         
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        let userId:Int = keychain.getID()!
+        self.getFavouriteContent(for: .movie, userId: userId)
+        self.getFavouriteContent(for: .game, userId: userId)
+        
         favouriteLabel.textColor = Theme.current.headingColor
         favourite2Label.textColor = Theme.current.headingColor
         self.tabBarController?.tabBar.tintColor = Theme.current.headingColor
