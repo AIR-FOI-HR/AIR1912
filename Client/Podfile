@@ -5,11 +5,26 @@ use_frameworks!
 
 workspace 'BeaconApp'
 
-def application_pods
-  # Comment the next line if you don't want to use dynamic frameworks
-   
+def loginPIN_pods
+    pod 'RxSwift'
+end
 
-   # Pods for AIR1912
+target 'LoginPIN' do
+    project 'LoginPIN/LoginPIN.project'
+    loginPIN_pods
+end
+
+def loginPass_pods
+  pod 'RxSwift'
+end
+
+target 'LoginPass' do
+  project 'LoginPass/LoginPass.project'
+  loginPass_pods
+end
+
+def application_pods
+   #PODS for AIR1912 (Main app)
    pod 'Alamofire'
    pod 'SwiftKeychainWrapper'
    pod 'KBRoundedButton'
@@ -22,6 +37,8 @@ def application_pods
    pod 'LocationPickerViewController'
    pod 'Floaty'
    pod 'KeychainAccess'
+   loginPass_pods
+   loginPIN_pods
 end
 
 target 'AIR1912' do

@@ -85,12 +85,46 @@
 		EDCA57DD23845B03002C3AE1 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EDCA57DB23845B03002C3AE1 /* Login.storyboard */; };
 		EDCA57E023846228002C3AE1 /* Homescreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EDCA57DF23846228002C3AE1 /* Homescreen.storyboard */; };
 		EDCDA01B23A2860000E28223 /* Search.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EDCDA01A23A2860000E28223 /* Search.storyboard */; };
+		EDD342B023E4CC6F0097E38D /* LoginPass.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = EDD342AE23E4CC030097E38D /* LoginPass.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		EDD342E423E4D14C0097E38D /* LoginPIN.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = EDD342E323E4D12C0097E38D /* LoginPIN.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		EDE3EF8F239EEB4F001BD61A /* ImageBlur.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDE3EF8E239EEB4F001BD61A /* ImageBlur.swift */; };
 		EDF46CA923BCE30D00E2F5E8 /* WebEventHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF46CA823BCE30D00E2F5E8 /* WebEventHandler.swift */; };
 		EDF46CAD23BCE6D700E2F5E8 /* FormatDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF46CAC23BCE6D700E2F5E8 /* FormatDate.swift */; };
 		EDFD7E7E239107430028C4D5 /* UserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDFD7E7D239107430028C4D5 /* UserProfileViewController.swift */; };
 		EDFD7E8223910EAD0028C4D5 /* UserKeychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDFD7E8123910EAD0028C4D5 /* UserKeychain.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		EDD342AD23E4CC030097E38D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EDD342A923E4CC030097E38D /* LoginPass.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = EDD3429923E4C6BA0097E38D;
+			remoteInfo = LoginPass;
+		};
+		EDD342E223E4D12C0097E38D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EDD342DD23E4D12C0097E38D /* LoginPIN.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = EDD342D123E4D0E70097E38D;
+			remoteInfo = LoginPIN;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		EDD342AF23E4CC310097E38D /* Copy Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				EDD342B023E4CC6F0097E38D /* LoginPass.framework in Copy Frameworks */,
+				EDD342E423E4D14C0097E38D /* LoginPIN.framework in Copy Frameworks */,
+			);
+			name = "Copy Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		0702C62035766E8AC911DBD4 /* Pods_AIR1912.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AIR1912.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -175,6 +209,8 @@
 		EDCA57DB23845B03002C3AE1 /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		EDCA57DF23846228002C3AE1 /* Homescreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Homescreen.storyboard; sourceTree = "<group>"; };
 		EDCDA01A23A2860000E28223 /* Search.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Search.storyboard; sourceTree = "<group>"; };
+		EDD342A923E4CC030097E38D /* LoginPass.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = LoginPass.xcodeproj; path = ../../LoginPass/LoginPass.xcodeproj; sourceTree = "<group>"; };
+		EDD342DD23E4D12C0097E38D /* LoginPIN.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = LoginPIN.xcodeproj; path = ../../LoginPIN/LoginPIN.xcodeproj; sourceTree = "<group>"; };
 		EDE3EF8E239EEB4F001BD61A /* ImageBlur.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageBlur.swift; sourceTree = "<group>"; };
 		EDF46CA823BCE30D00E2F5E8 /* WebEventHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebEventHandler.swift; sourceTree = "<group>"; };
 		EDF46CAC23BCE6D700E2F5E8 /* FormatDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormatDate.swift; sourceTree = "<group>"; };
@@ -411,6 +447,7 @@
 		ED35F60F237560D8009ED574 /* AIR1912 */ = {
 			isa = PBXGroup;
 			children = (
+				EDD342A823E4CBB30097E38D /* Dependencies */,
 				421D5CA0237DC3A400C8AD1F /* Common */,
 				ED3F51E22375616500A2F370 /* App */,
 				ED56B4ED2375672E00BD4821 /* Modules */,
@@ -556,6 +593,31 @@
 			path = HomeScreen;
 			sourceTree = "<group>";
 		};
+		EDD342A823E4CBB30097E38D /* Dependencies */ = {
+			isa = PBXGroup;
+			children = (
+				EDD342DD23E4D12C0097E38D /* LoginPIN.xcodeproj */,
+				EDD342A923E4CC030097E38D /* LoginPass.xcodeproj */,
+			);
+			name = Dependencies;
+			sourceTree = "<group>";
+		};
+		EDD342AA23E4CC030097E38D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				EDD342AE23E4CC030097E38D /* LoginPass.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		EDD342DE23E4D12C0097E38D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				EDD342E323E4D12C0097E38D /* LoginPIN.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		EDE3EF87239E4184001BD61A /* EventDetails */ = {
 			isa = PBXGroup;
 			children = (
@@ -595,6 +657,7 @@
 				ED35F60A237560D8009ED574 /* Frameworks */,
 				ED35F60B237560D8009ED574 /* Resources */,
 				634743414F3CBF3ABFD88DE5 /* [CP] Embed Pods Frameworks */,
+				EDD342AF23E4CC310097E38D /* Copy Frameworks */,
 			);
 			buildRules = (
 			);
@@ -631,12 +694,39 @@
 			mainGroup = ED35F604237560D8009ED574;
 			productRefGroup = ED35F60E237560D8009ED574 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = EDD342AA23E4CC030097E38D /* Products */;
+					ProjectRef = EDD342A923E4CC030097E38D /* LoginPass.xcodeproj */;
+				},
+				{
+					ProductGroup = EDD342DE23E4D12C0097E38D /* Products */;
+					ProjectRef = EDD342DD23E4D12C0097E38D /* LoginPIN.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				ED35F60C237560D8009ED574 /* AIR1912 */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		EDD342AE23E4CC030097E38D /* LoginPass.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = LoginPass.framework;
+			remoteRef = EDD342AD23E4CC030097E38D /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		EDD342E323E4D12C0097E38D /* LoginPIN.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = LoginPIN.framework;
+			remoteRef = EDD342E223E4D12C0097E38D /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		ED35F60B237560D8009ED574 /* Resources */ = {
