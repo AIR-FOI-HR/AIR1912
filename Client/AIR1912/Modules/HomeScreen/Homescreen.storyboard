@@ -96,7 +96,7 @@
         <!--Home-->
         <scene sceneID="fyI-zs-hYN">
             <objects>
-                <viewController id="yqE-Uu-HzQ" customClass="EventsViewController" customModule="AIR1912" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="HomescreenStoryboard" id="yqE-Uu-HzQ" customClass="EventsViewController" customModule="AIR1912" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ZU4-Bx-2sz">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -277,7 +277,7 @@
                                                                                             </userDefinedRuntimeAttributes>
                                                                                         </imageView>
                                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yQJ-6R-ETl">
-                                                                                            <rect key="frame" x="0.0" y="228" width="140" height="18"/>
+                                                                                            <rect key="frame" x="8" y="228" width="132" height="18"/>
                                                                                             <constraints>
                                                                                                 <constraint firstAttribute="height" constant="18" id="Jnd-Lq-jXK"/>
                                                                                             </constraints>
