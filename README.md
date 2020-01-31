@@ -2,4 +2,4 @@
 
 Infinum Projekt iOS app
 
-![Alt text](/dokumentacija/gitSlika.png)
+![Alt text](/Dokumentacija/gitSlika.png)
