@@ -11,8 +11,10 @@ import Spring
 import KBRoundedButton
 import CodableAlamofire
 import Alamofire
-import LoginPIN
+#if canImport(LoginPass)
 import LoginPass
+#endif
+
 
 class MainViewController: UIViewController {
     
@@ -35,11 +37,13 @@ class MainViewController: UIViewController {
     override func viewDidLoad() {
        
         super.viewDidLoad()
-        let login:LoginPINTest = LoginPINTest()
-        login.printPIN()
         
-        let loginPass:LoginPass = LoginPass()
-        loginPass.loginPass()
+        #if canImport(LoginPass)
+        UserDefaults.standard.set(true, forKey: "LoginPassImported")
+        UserDefaults.standard.set(true, forKey: "LoginPINImported")
+
+        #endif
+       
         
       
         
