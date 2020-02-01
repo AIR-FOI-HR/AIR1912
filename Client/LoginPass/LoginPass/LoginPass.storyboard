@@ -9,10 +9,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Login View Controller-->
+        <!--Login Pass View Controller-->
         <scene sceneID="ZP8-hS-wG6">
             <objects>
-                <viewController storyboardIdentifier="Login" id="haQ-IM-Cow" customClass="LoginViewController" customModule="LoginPass" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoginPass" id="haQ-IM-Cow" customClass="LoginPassViewController" customModule="LoginPass" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="gcn-XT-aBp">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -43,9 +43,6 @@
                                                             <color key="titleShadowColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large"/>
                                                         </state>
-                                                        <connections>
-                                                            <action selector="btnBack:" destination="haQ-IM-Cow" eventType="touchUpInside" id="ea4-WN-tlN"/>
-                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <color key="backgroundColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -95,6 +92,10 @@
                                                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                                 <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
                                                             </textField>
+                                                            <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="FaceID" translatesAutoresizingMaskIntoConstraints="NO" id="N3a-xN-nPl">
+                                                                <rect key="frame" x="100" y="74" width="139" height="128"/>
+                                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            </imageView>
                                                         </subviews>
                                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                         <constraints>
@@ -146,16 +147,13 @@
                                                                     <userDefinedRuntimeAttribute type="boolean" keyPath="shadowEnabled" value="YES"/>
                                                                 </userDefinedRuntimeAttributes>
                                                                 <connections>
-                                                                    <action selector="btnLoginClicked:" destination="haQ-IM-Cow" eventType="touchUpInside" id="bew-Kj-u54"/>
+                                                                    <action selector="loginButton:" destination="haQ-IM-Cow" eventType="touchUpInside" id="9sK-g4-wFB"/>
                                                                 </connections>
                                                             </button>
                                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FIR-bR-iDk">
                                                                 <rect key="frame" x="8" y="61" width="115" height="30"/>
                                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                 <state key="normal" title="Forgot Password"/>
-                                                                <connections>
-                                                                    <action selector="btnForgotPassword:" destination="haQ-IM-Cow" eventType="touchUpInside" id="IlW-KF-6KB"/>
-                                                                </connections>
                                                             </button>
                                                         </subviews>
                                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -192,9 +190,6 @@
                                                         <integer key="value" value="20"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
-                                                <connections>
-                                                    <outletCollection property="gestureRecognizers" destination="0Mv-9o-afO" appends="YES" id="gpZ-Lu-4w0"/>
-                                                </connections>
                                             </view>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -237,28 +232,18 @@
                         <viewLayoutGuide key="safeArea" id="SdU-3Q-o9P"/>
                     </view>
                     <connections>
-                        <outlet property="emailTextField" destination="r6p-Y3-EbZ" id="6BB-Wm-Cnb"/>
-                        <outlet property="forgotPasswordButton" destination="FIR-bR-iDk" id="eeW-Eu-5K4"/>
-                        <outlet property="logInButton" destination="gqE-pP-cWf" id="RWn-pI-GJZ"/>
-                        <outlet property="loginLabel" destination="LRT-Mc-HQ2" id="WWx-9U-bcn"/>
-                        <outlet property="passwordLabel" destination="RGN-eU-YJy" id="DC0-Cz-UmN"/>
-                        <outlet property="passwordTextField" destination="cH3-bl-M3c" id="P2B-Ma-RbY"/>
-                        <outlet property="scrollView" destination="eKV-om-qQq" id="iTZ-cB-wwh"/>
-                        <outlet property="upContentView" destination="jGM-Pz-ipK" id="RLL-yk-IVK"/>
-                        <outlet property="userNameLabel" destination="W8Z-dD-Un5" id="qAm-1j-9Yz"/>
+                        <outlet property="emailTextField" destination="r6p-Y3-EbZ" id="fUB-6P-fXj"/>
+                        <outlet property="passwordTextField" destination="cH3-bl-M3c" id="iyU-NI-zKQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="woM-aA-KOg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="0Mv-9o-afO">
-                    <connections>
-                        <action selector="hideKeyboard:" destination="haQ-IM-Cow" id="VTC-ls-Vlr"/>
-                    </connections>
-                </tapGestureRecognizer>
+                <tapGestureRecognizer id="0Mv-9o-afO"/>
             </objects>
             <point key="canvasLocation" x="-282.60869565217394" y="61.607142857142854"/>
         </scene>
     </scenes>
     <resources>
+        <image name="FaceID" width="200" height="200"/>
         <image name="xmark.circle" catalog="system" width="64" height="60"/>
         <namedColor name="BaseRed">
             <color red="1" green="0.23100000619888306" blue="0.18799999356269836" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

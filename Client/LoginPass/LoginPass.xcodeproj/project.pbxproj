@@ -12,6 +12,7 @@
 		EDD342A623E4C8540097E38D /* DummyClassLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD342A523E4C8540097E38D /* DummyClassLogin.swift */; };
 		EDD342F023E5C2F00097E38D /* LoginPass.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EDD342EF23E5C2F00097E38D /* LoginPass.storyboard */; };
 		EDD342F223E5C4570097E38D /* LoginPassViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD342F123E5C4570097E38D /* LoginPassViewController.swift */; };
+		EDF13D1423E614A600720C0C /* BiometricsHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF13D1323E614A500720C0C /* BiometricsHandler.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +26,7 @@
 		EDD342A523E4C8540097E38D /* DummyClassLogin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyClassLogin.swift; sourceTree = "<group>"; };
 		EDD342EF23E5C2F00097E38D /* LoginPass.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LoginPass.storyboard; sourceTree = "<group>"; };
 		EDD342F123E5C4570097E38D /* LoginPassViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPassViewController.swift; sourceTree = "<group>"; };
+		EDF13D1323E614A500720C0C /* BiometricsHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BiometricsHandler.swift; path = ../../Application/AIR1912/Common/Utilites/BiometricsHandler.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +81,7 @@
 			isa = PBXGroup;
 			children = (
 				EDD342A523E4C8540097E38D /* DummyClassLogin.swift */,
+				EDF13D1323E614A500720C0C /* BiometricsHandler.swift */,
 				EDD342A423E4C8330097E38D /* TestLoginPass.playground */,
 				EDD3429C23E4C6BA0097E38D /* LoginPass.h */,
 				EDD3429D23E4C6BA0097E38D /* Info.plist */,
@@ -196,6 +199,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EDD342A623E4C8540097E38D /* DummyClassLogin.swift in Sources */,
+				EDF13D1423E614A600720C0C /* BiometricsHandler.swift in Sources */,
 				EDD342F223E5C4570097E38D /* LoginPassViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

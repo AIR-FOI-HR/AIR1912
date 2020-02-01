@@ -7,11 +7,17 @@
 //
 
 import Foundation
+import UIKit
 
-
+enum LoginType: String {
+    case credentials = "credentials"
+    case pin = "pin"
+}
 
 protocol Login{
     
-    func tryToLogin(with: Any ) -> Bool
-    func setTheme()
+    func tryToLogin(username:String?, password:String )
+    func openLoginForm() -> UIViewController
+    func handleBiometrics()
+   
 }

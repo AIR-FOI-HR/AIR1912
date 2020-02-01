@@ -36,27 +36,27 @@ class MainViewController: UIViewController {
     override func viewDidLoad() {
        
         super.viewDidLoad()
-        
-        
-       
-        
-      
-        
+    
         self.view.backgroundColor = Theme.current.headingColor
         buttonOutlet.backgroundColorForStateNormal = Theme.current.headingColor
         buttonSignuUpOutlet.backgroundColorForStateNormal = Theme.current.headingColor
         
+        let pinSwitch = UserDefaults.standard.bool(forKey: "PINSwitch")
+        let bionicsSwitch = UserDefaults.standard.bool(forKey: "SwitchValue")
         
-        if(userKeychain.getEmail() != nil && (UserDefaults.standard.bool(forKey: "SwitchValue"))) {
-            let seconds = 0.5
-            DispatchQueue.main.asyncAfter(deadline: .now() + seconds) {
-                self.goToFaceTouchIDLogin()
-                print("Idem na faceTouch")
+        switch pinSwitch {
+        case true:
+            break
+        case false:
+            if(userKeychain.getEmail() != nil && bionicsSwitch){
+                DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+                    self.login(loginType: .credentials)
+                }
+            }else{
+                tryToLoginFromKeychain()
             }
-            
-        }else if(userKeychain.getPassword() != nil)
-        {tryToLoginFromKeychain()}
-        
+        }
+    
         additionalSetup()
         
     }
@@ -65,10 +65,7 @@ class MainViewController: UIViewController {
     
     @IBAction func btnLogin(_ sender: Any) {
         
-        let loginStoryBoard:UIStoryboard = UIStoryboard(name: "Login", bundle: nil)
-        let loginController = loginStoryBoard.instantiateViewController(withIdentifier: "Login") as! LoginViewController
-        loginController.modalPresentationStyle = .fullScreen
-        self.present(loginController, animated: true, completion: nil)
+        
         
     }
     
@@ -83,6 +80,13 @@ class MainViewController: UIViewController {
 
 extension MainViewController {
     
+    private func login(loginType:LoginType){
+        let loginer = LoginFactory.loginProvider(forLoginType: loginType)
+        let viewController = loginer.openLoginForm() as! LoginPassViewController
+        self.present(viewController, animated: true, completion: nil)
+        
+    }
+    
     private func additionalSetup(){
         
         loginSignView.layer.cornerRadius = 20
@@ -95,7 +99,10 @@ extension MainViewController {
     }
     func goToFaceTouchIDLogin(){
          
-             btnLogin(1)
+        let passLogin = PassLogin()
+        let viewController = passLogin.openLoginForm() as! LoginPassViewController
+        self.present(viewController, animated: true, completion: nil)
+        
         
     }
     

@@ -18,6 +18,8 @@ def loginPass_pods
   pod 'RxSwift'
   pod 'KeychainAccess'
   pod 'KBRoundedButton'
+  pod 'CodableAlamofire'
+  pod 'SwiftKeychainWrapper'
 end
 
 target 'LoginPass' do

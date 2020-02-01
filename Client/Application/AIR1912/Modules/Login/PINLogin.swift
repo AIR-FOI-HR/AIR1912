@@ -7,3 +7,23 @@
 //
 
 import Foundation
+import UIKit
+
+class PINLogin: Login{
+    func handleBiometrics() {
+        //
+    }
+   
+    
+    func tryToLogin(username: String?, password: String) {
+        // implementirati
+    }
+    
+    func openLoginForm() -> UIViewController {
+        // implementirati
+        let dummyVC = UIViewController()
+        return dummyVC
+    }
+    
+    
+}
