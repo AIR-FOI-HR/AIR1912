@@ -10,6 +10,7 @@ import UIKit
 import LocationPickerViewController
 import KBRoundedButton
 import SCLAlertView
+import LoginPIN
 
 class EventCRUDViewController: UIViewController {
     
@@ -29,7 +30,7 @@ class EventCRUDViewController: UIViewController {
     @IBOutlet weak var buttonUpdate: KBRoundedButton!
     @IBOutlet weak var buttonCreate: KBRoundedButton!
     
-    
+
     
     //MARK: - Properties
     
@@ -44,6 +45,7 @@ class EventCRUDViewController: UIViewController {
     var pickedNumberOfPeople:Int = 5
     var event:Event = Event()
     var delegate:EventDetailsViewController!
+    
 
     //MARK: - Lifecycle
 

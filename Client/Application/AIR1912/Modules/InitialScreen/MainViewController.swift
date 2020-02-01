@@ -11,7 +11,8 @@ import Spring
 import KBRoundedButton
 import CodableAlamofire
 import Alamofire
-
+import LoginPIN
+import LoginPass
 
 class MainViewController: UIViewController {
     
@@ -34,6 +35,13 @@ class MainViewController: UIViewController {
     override func viewDidLoad() {
        
         super.viewDidLoad()
+        let login:LoginPINTest = LoginPINTest()
+        login.printPIN()
+        
+        let loginPass:LoginPass = LoginPass()
+        loginPass.loginPass()
+        
+      
         
         self.view.backgroundColor = Theme.current.headingColor
         buttonOutlet.backgroundColorForStateNormal = Theme.current.headingColor

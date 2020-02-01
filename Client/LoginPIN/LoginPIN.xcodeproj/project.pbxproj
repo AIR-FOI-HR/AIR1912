@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		7FB1E2C9A01FFC513853AF28 /* Pods_LoginPIN.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 829F78F57990302CCEC4A9E0 /* Pods_LoginPIN.framework */; };
 		EDD342D623E4D0E70097E38D /* LoginPIN.h in Headers */ = {isa = PBXBuildFile; fileRef = EDD342D423E4D0E70097E38D /* LoginPIN.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EDD342E823E5B8E10097E38D /* LoginPINTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD342E723E5B8E10097E38D /* LoginPINTest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -18,6 +19,7 @@
 		EDD342D123E4D0E70097E38D /* LoginPIN.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = LoginPIN.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EDD342D423E4D0E70097E38D /* LoginPIN.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginPIN.h; sourceTree = "<group>"; };
 		EDD342D523E4D0E70097E38D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EDD342E723E5B8E10097E38D /* LoginPINTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPINTest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +75,7 @@
 			children = (
 				EDD342D423E4D0E70097E38D /* LoginPIN.h */,
 				EDD342D523E4D0E70097E38D /* Info.plist */,
+				EDD342E723E5B8E10097E38D /* LoginPINTest.swift */,
 			);
 			path = LoginPIN;
 			sourceTree = "<group>";
@@ -121,6 +124,7 @@
 				TargetAttributes = {
 					EDD342D023E4D0E70097E38D = {
 						CreatedOnToolsVersion = 11.3;
+						LastSwiftMigration = 1130;
 					};
 				};
 			};
@@ -182,6 +186,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EDD342E823E5B8E10097E38D /* LoginPINTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -239,7 +244,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -296,7 +301,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -312,6 +317,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 22568C378E274A7BA9497C6E /* Pods-LoginPIN.debug.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = THHFHC5J4D;
@@ -328,6 +334,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.leoleljak.LoginPIN;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -337,6 +344,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 3CFCAA3679AEBCDEF20FCA4F /* Pods-LoginPIN.release.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = THHFHC5J4D;

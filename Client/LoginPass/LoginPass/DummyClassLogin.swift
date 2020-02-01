@@ -8,8 +8,11 @@
 
 import Foundation
 
-public class DummyClassLogin {
+public class LoginPass {
     public init() {
         
+    }
+    public func loginPass(){
+        print("Koristi se pass")
     }
 }
