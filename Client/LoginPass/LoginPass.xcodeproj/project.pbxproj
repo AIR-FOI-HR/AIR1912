@@ -10,6 +10,8 @@
 		2FCF431F82CF74BA04D1D172 /* Pods_LoginPass.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0197BE1EAE9A4FDA03D40869 /* Pods_LoginPass.framework */; };
 		EDD3429E23E4C6BA0097E38D /* LoginPass.h in Headers */ = {isa = PBXBuildFile; fileRef = EDD3429C23E4C6BA0097E38D /* LoginPass.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EDD342A623E4C8540097E38D /* DummyClassLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD342A523E4C8540097E38D /* DummyClassLogin.swift */; };
+		EDD342F023E5C2F00097E38D /* LoginPass.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EDD342EF23E5C2F00097E38D /* LoginPass.storyboard */; };
+		EDD342F223E5C4570097E38D /* LoginPassViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD342F123E5C4570097E38D /* LoginPassViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,6 +23,8 @@
 		EDD3429D23E4C6BA0097E38D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EDD342A423E4C8330097E38D /* TestLoginPass.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; name = TestLoginPass.playground; path = "../../../../../../../Library/Autosave Information/TestLoginPass.playground"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		EDD342A523E4C8540097E38D /* DummyClassLogin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyClassLogin.swift; sourceTree = "<group>"; };
+		EDD342EF23E5C2F00097E38D /* LoginPass.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LoginPass.storyboard; sourceTree = "<group>"; };
+		EDD342F123E5C4570097E38D /* LoginPassViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPassViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +82,8 @@
 				EDD342A423E4C8330097E38D /* TestLoginPass.playground */,
 				EDD3429C23E4C6BA0097E38D /* LoginPass.h */,
 				EDD3429D23E4C6BA0097E38D /* Info.plist */,
+				EDD342EF23E5C2F00097E38D /* LoginPass.storyboard */,
+				EDD342F123E5C4570097E38D /* LoginPassViewController.swift */,
 			);
 			path = LoginPass;
 			sourceTree = "<group>";
@@ -153,6 +159,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EDD342F023E5C2F00097E38D /* LoginPass.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -189,6 +196,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EDD342A623E4C8540097E38D /* DummyClassLogin.swift in Sources */,
+				EDD342F223E5C4570097E38D /* LoginPassViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

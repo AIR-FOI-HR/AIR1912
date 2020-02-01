@@ -88,6 +88,9 @@
 		EDD342B023E4CC6F0097E38D /* LoginPass.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = EDD342AE23E4CC030097E38D /* LoginPass.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		EDD342E423E4D14C0097E38D /* LoginPIN.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = EDD342E323E4D12C0097E38D /* LoginPIN.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		EDE3EF8F239EEB4F001BD61A /* ImageBlur.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDE3EF8E239EEB4F001BD61A /* ImageBlur.swift */; };
+		EDF13CDB23E5C94900720C0C /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF13CDA23E5C94900720C0C /* Login.swift */; };
+		EDF13CDF23E5C95C00720C0C /* PassLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF13CDE23E5C95C00720C0C /* PassLogin.swift */; };
+		EDF13CE123E5C96900720C0C /* PINLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF13CE023E5C96900720C0C /* PINLogin.swift */; };
 		EDF46CA923BCE30D00E2F5E8 /* WebEventHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF46CA823BCE30D00E2F5E8 /* WebEventHandler.swift */; };
 		EDF46CAD23BCE6D700E2F5E8 /* FormatDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF46CAC23BCE6D700E2F5E8 /* FormatDate.swift */; };
 		EDFD7E7E239107430028C4D5 /* UserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDFD7E7D239107430028C4D5 /* UserProfileViewController.swift */; };
@@ -212,6 +215,9 @@
 		EDD342A923E4CC030097E38D /* LoginPass.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = LoginPass.xcodeproj; path = ../../LoginPass/LoginPass.xcodeproj; sourceTree = "<group>"; };
 		EDD342DD23E4D12C0097E38D /* LoginPIN.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = LoginPIN.xcodeproj; path = ../../LoginPIN/LoginPIN.xcodeproj; sourceTree = "<group>"; };
 		EDE3EF8E239EEB4F001BD61A /* ImageBlur.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageBlur.swift; sourceTree = "<group>"; };
+		EDF13CDA23E5C94900720C0C /* Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
+		EDF13CDE23E5C95C00720C0C /* PassLogin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassLogin.swift; sourceTree = "<group>"; };
+		EDF13CE023E5C96900720C0C /* PINLogin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PINLogin.swift; sourceTree = "<group>"; };
 		EDF46CA823BCE30D00E2F5E8 /* WebEventHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebEventHandler.swift; sourceTree = "<group>"; };
 		EDF46CAC23BCE6D700E2F5E8 /* FormatDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormatDate.swift; sourceTree = "<group>"; };
 		EDFD7E7D239107430028C4D5 /* UserProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileViewController.swift; sourceTree = "<group>"; };
@@ -481,6 +487,9 @@
 			children = (
 				EDCA57DB23845B03002C3AE1 /* Login.storyboard */,
 				EDCA57DA23845B03002C3AE1 /* LoginViewController.swift */,
+				EDF13CDA23E5C94900720C0C /* Login.swift */,
+				EDF13CDE23E5C95C00720C0C /* PassLogin.swift */,
+				EDF13CE023E5C96900720C0C /* PINLogin.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -818,11 +827,13 @@
 				EDF46CAD23BCE6D700E2F5E8 /* FormatDate.swift in Sources */,
 				EDE3EF8F239EEB4F001BD61A /* ImageBlur.swift in Sources */,
 				4219917A239413F800CCAA89 /* ContentViewController.swift in Sources */,
+				EDF13CDB23E5C94900720C0C /* Login.swift in Sources */,
 				4254484E23AC2E5D00740B27 /* Genre.swift in Sources */,
 				4221F7D723DF2D4800A977AE /* ThemeProtocol.swift in Sources */,
 				42C7AE1E23A8E10E00398BE9 /* WebContentProvider.swift in Sources */,
 				EDE3EF8F239EEB4F001BD61A /* ImageBlur.swift in Sources */,
 				42347B9423AB974C0020D860 /* SettingsViewController.swift in Sources */,
+				EDF13CDF23E5C95C00720C0C /* PassLogin.swift in Sources */,
 				4219917A239413F800CCAA89 /* ContentViewController.swift in Sources */,
 				4221F7D923DF2F3B00A977AE /* Theme.swift in Sources */,
 				42A9BAFB23929173009C1912 /* JsonResponse.swift in Sources */,
@@ -866,6 +877,7 @@
 				421D5CA7237DCC6F00C8AD1F /* AuthService.swift in Sources */,
 				EDF46CA923BCE30D00E2F5E8 /* WebEventHandler.swift in Sources */,
 				423F05A423981C0400D92D76 /* ResponseError.swift in Sources */,
+				EDF13CE123E5C96900720C0C /* PINLogin.swift in Sources */,
 				ED156F2B23A3D2680085BB2D /* EventCollectionViewCell.swift in Sources */,
 				4221044F23902546005B1B25 /* Encodable.swift in Sources */,
 				EDFD7E8223910EAD0028C4D5 /* UserKeychain.swift in Sources */,
