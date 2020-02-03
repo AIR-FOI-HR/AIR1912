@@ -92,7 +92,7 @@
                                                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                                 <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
                                                             </textField>
-                                                            <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="FaceID" translatesAutoresizingMaskIntoConstraints="NO" id="N3a-xN-nPl">
+                                                            <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="faceid" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="N3a-xN-nPl">
                                                                 <rect key="frame" x="100" y="74" width="139" height="128"/>
                                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             </imageView>
@@ -232,7 +232,10 @@
                         <viewLayoutGuide key="safeArea" id="SdU-3Q-o9P"/>
                     </view>
                     <connections>
+                        <outlet property="buttonContent" destination="p1R-vf-5qO" id="zHC-5I-GKi"/>
+                        <outlet property="buttonLogin" destination="gqE-pP-cWf" id="2nW-YU-0Kw"/>
                         <outlet property="emailTextField" destination="r6p-Y3-EbZ" id="fUB-6P-fXj"/>
+                        <outlet property="imageFaceID" destination="N3a-xN-nPl" id="NSO-hg-klo"/>
                         <outlet property="passwordTextField" destination="cH3-bl-M3c" id="iyU-NI-zKQ"/>
                     </connections>
                 </viewController>
@@ -243,7 +246,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="FaceID" width="200" height="200"/>
+        <image name="faceid" catalog="system" width="64" height="56"/>
         <image name="xmark.circle" catalog="system" width="64" height="60"/>
         <namedColor name="BaseRed">
             <color red="1" green="0.23100000619888306" blue="0.18799999356269836" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

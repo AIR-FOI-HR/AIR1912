@@ -10,11 +10,12 @@ import UIKit
 import Alamofire
 import KBRoundedButton
 import LocalAuthentication
+import Spring
 
-
+let DB_URL = "https://cortex.foi.hr/meetup/AuthService.php"
 
 public protocol LoginPassDelegate {
-    func returnedParameters(username:String, pass:String)
+    func returnedValue(isLogined:String,username:String, pass:String)
     
 }
 
@@ -22,6 +23,9 @@ public class LoginPassViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     
+    @IBOutlet weak var imageFaceID: UIImageView!
+    @IBOutlet weak var buttonLogin: KBRoundedButton!
+    @IBOutlet weak var buttonContent: SpringView!
     //Properties
     public var delegate:LoginPassDelegate! = nil
     
@@ -36,7 +40,16 @@ public class LoginPassViewController: UIViewController, UITextFieldDelegate {
         let email = emailTextField.text
         let pass = passwordTextField.text
         
-        delegate!.returnedParameters(username: email!, pass: pass!)
+    
+        Authentication.login(email: email!, password: pass!, DB_URL: DB_URL ) { (result) in
+            switch result{
+                case .success(let data):
+                    self.delegate.returnedValue(isLogined: data, username: email!, pass: pass! )
+                
+                case .failure (let error):
+                    print(error)
+            }
+        }
     }
     
     
