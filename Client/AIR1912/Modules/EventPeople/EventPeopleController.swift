@@ -28,12 +28,15 @@ class EventPeopleController: UIViewController, UITableViewDelegate, UITableViewD
         
         tableView.delegate = self
         tableView.dataSource = self
+        
+        
+
     }
     
     override func viewWillAppear(_ animated: Bool) {
         getUsersOnEvent()
+        
     }
-    
     
     func getUsersOnEvent(){
         let provider = WebEventProvider()
@@ -48,7 +51,6 @@ class EventPeopleController: UIViewController, UITableViewDelegate, UITableViewD
         }
     }
     
-    
     func presentAllUsersOnEvent(users: [User]){
         self.users = users
         tableView.reloadData()
@@ -60,8 +62,6 @@ class EventPeopleController: UIViewController, UITableViewDelegate, UITableViewD
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
-    
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         guard (self.users?.count) != nil else {
             return 0
@@ -69,7 +69,6 @@ class EventPeopleController: UIViewController, UITableViewDelegate, UITableViewD
         
         return self.users!.count
     }
-    
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "user", for: indexPath) as! EventPeopleCellController
@@ -83,14 +82,6 @@ class EventPeopleController: UIViewController, UITableViewDelegate, UITableViewD
         cell.email.text = user.email
         
         return cell
-    }
-    
-    
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        
-        let index = indexPath.row as Int
-        
-        print(self.users![index])
     }
 
 
