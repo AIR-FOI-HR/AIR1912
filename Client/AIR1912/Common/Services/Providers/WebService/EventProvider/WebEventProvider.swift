@@ -21,6 +21,7 @@ enum PostType:String {
     case searchByUserId = "searchByUserId"
     case createdByUserId = "createdByUserId"
     case searchByEventId = "searchByEventId"
+    case getUsersOnEvent = "getUsersOnEvent"
 }
 
 class WebEventProvider {
@@ -94,6 +95,25 @@ class WebEventProvider {
                Alamofire
                    .request("https://cortex.foi.hr/meetup/EventProvider.php", method: .get, parameters: parameters)
                .responseDecodableObject(decoder: decoder) { (response: DataResponse<[Event]>) in
+                   switch response.result {
+                   case .success(let response):
+                    completion(.success(response))
+                   case .failure(let error):
+                       completion(.failure(error))
+                   }
+               }
+        
+    }
+    
+    func getUsersOnEvent(for eventId: Int, completion: @escaping (Result<[User]>) -> Void){
+        let parameters = [
+                   "postType": PostType.getUsersOnEvent.rawValue,
+                   "firstParam": eventId
+                   ] as [String : Any]
+               
+               Alamofire
+                   .request("https://cortex.foi.hr/meetup/EventProvider.php", method: .get, parameters: parameters)
+               .responseDecodableObject(decoder: decoder) { (response: DataResponse<[User]>) in
                    switch response.result {
                    case .success(let response):
                     completion(.success(response))

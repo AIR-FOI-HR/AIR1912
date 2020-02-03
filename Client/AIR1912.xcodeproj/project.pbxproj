@@ -38,6 +38,8 @@
 		42C7AE1E23A8E10E00398BE9 /* WebContentProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42C7AE1D23A8E10E00398BE9 /* WebContentProvider.swift */; };
 		42C7AE2023A8F9B300398BE9 /* FavouritesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42C7AE1F23A8F9B300398BE9 /* FavouritesCollectionViewCell.swift */; };
 		42C972E723E1E42D00993B84 /* ThemesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42C972E623E1E42D00993B84 /* ThemesViewController.swift */; };
+		42D5257023E830B100840D72 /* EventPeople.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 42D5256F23E830B100840D72 /* EventPeople.storyboard */; };
+		42D5257223E830DA00840D72 /* EventPeopleController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D5257123E830DA00840D72 /* EventPeopleController.swift */; };
 		42D7159423E08FC6005C4646 /* MapPin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D7159323E08FC6005C4646 /* MapPin.swift */; };
 		42D7159723E0A554005C4646 /* MapDetails.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 42D7159623E0A554005C4646 /* MapDetails.storyboard */; };
 		42D7159B23E0AA43005C4646 /* MapDetailsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D7159A23E0AA43005C4646 /* MapDetailsController.swift */; };
@@ -125,6 +127,8 @@
 		42C7AE1D23A8E10E00398BE9 /* WebContentProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebContentProvider.swift; sourceTree = "<group>"; };
 		42C7AE1F23A8F9B300398BE9 /* FavouritesCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritesCollectionViewCell.swift; sourceTree = "<group>"; };
 		42C972E623E1E42D00993B84 /* ThemesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemesViewController.swift; sourceTree = "<group>"; };
+		42D5256F23E830B100840D72 /* EventPeople.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = EventPeople.storyboard; sourceTree = "<group>"; };
+		42D5257123E830DA00840D72 /* EventPeopleController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventPeopleController.swift; sourceTree = "<group>"; };
 		42D7159323E08FC6005C4646 /* MapPin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapPin.swift; sourceTree = "<group>"; };
 		42D7159623E0A554005C4646 /* MapDetails.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MapDetails.storyboard; sourceTree = "<group>"; };
 		42D7159A23E0AA43005C4646 /* MapDetailsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapDetailsController.swift; sourceTree = "<group>"; };
@@ -306,6 +310,15 @@
 			path = ErrorHandling;
 			sourceTree = "<group>";
 		};
+		42D5256E23E8308E00840D72 /* EventPeople */ = {
+			isa = PBXGroup;
+			children = (
+				42D5256F23E830B100840D72 /* EventPeople.storyboard */,
+				42D5257123E830DA00840D72 /* EventPeopleController.swift */,
+			);
+			path = EventPeople;
+			sourceTree = "<group>";
+		};
 		42D7159523E0A531005C4646 /* MapDetails */ = {
 			isa = PBXGroup;
 			children = (
@@ -460,6 +473,7 @@
 		ED56B4ED2375672E00BD4821 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				42D5256E23E8308E00840D72 /* EventPeople */,
 				EDBA780923E3A14B00DD7198 /* Tutorial */,
 				42D7159523E0A531005C4646 /* MapDetails */,
 				42F2ACF823AA5A1900C2DA20 /* ContentDetails */,
@@ -659,6 +673,7 @@
 				EDCDA01B23A2860000E28223 /* Search.storyboard in Resources */,
 				EDBE016A237F1B2000F15CE5 /* Main.storyboard in Resources */,
 				EDB57AA6238EA4920032DC9E /* Maps.storyboard in Resources */,
+				42D5257023E830B100840D72 /* EventPeople.storyboard in Resources */,
 				4221F7D523DF2B3000A977AE /* Theme.xcassets in Resources */,
 				ED3CE8A523AFEB490052015F /* DateTimePicker.storyboard in Resources */,
 			);
@@ -754,6 +769,7 @@
 				4250E5F723845C3B00369FBC /* SignupController.swift in Sources */,
 				ED3CE8A723AFEC4B0052015F /* DateTimePickerViewController.swift in Sources */,
 				EDB57AB2238EAB060032DC9E /* FavouritesViewController.swift in Sources */,
+				42D5257223E830DA00840D72 /* EventPeopleController.swift in Sources */,
 				421D5CB0237DD2D100C8AD1F /* Movie.swift in Sources */,
 				ED35F611237560D8009ED574 /* AppDelegate.swift in Sources */,
 				42BAB2A923A3D25500572E89 /* TableCell.swift in Sources */,

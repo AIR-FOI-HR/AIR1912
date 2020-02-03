@@ -40,6 +40,18 @@ class EventDetailsViewController: UIViewController {
     @IBOutlet weak var labelButtonName: UILabel!
     @IBOutlet weak var imageCheckedEvent: UIImageView!
     
+    @IBAction func showPeople(_ sender: Any) {
+          let storyboard = UIStoryboard(name: "EventPeople", bundle: nil)
+          guard let viewController = storyboard.instantiateViewController(identifier: "EventPeople") as? EventPeopleController else {
+              return
+          }
+        
+          viewController.modalPresentationStyle = .formSheet
+          
+          // na view controller detaljnog prikaza pridodaj odabrani event
+        viewController.selectedEvent = self.event
+        self.present(viewController, animated: true, completion: nil)
+    }
     
     //properties
     var event:Event = Event()

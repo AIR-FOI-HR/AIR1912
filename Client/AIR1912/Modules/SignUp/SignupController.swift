@@ -158,7 +158,7 @@ class SignupController: UIViewController {
         }
         else{
             */
-            keychain.saveSessionData(email: user.email, password: user.password,
+        keychain.saveSessionData(email: user.email, password: user.password!,
                                      nickname: user.nickname, avatar: user.avatar.rawValue, id: Int(user.idUsers!)!,
                                      name: user.name, surname: user.surname)
             goToHomescreen()

@@ -30,11 +30,11 @@ enum Avatar: String, CaseIterable, Codable {
 }
 
 struct User: Codable {
-    let nickname:String
+    var nickname:String
     let idUsers:String?
-    let name:String
-    let surname:String
-    let email:String
-    let password:String
-    let avatar: Avatar
+    var name:String
+    var surname:String
+    var email:String
+    let password:String?
+    var avatar: Avatar
 }
