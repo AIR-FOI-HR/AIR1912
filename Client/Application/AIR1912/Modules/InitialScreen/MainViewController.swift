@@ -31,7 +31,7 @@ class MainViewController: UIViewController {
     
     private let authService: AuthService = AuthService()
     private let userKeychain: UserKeychain = UserKeychain()
-    
+    private var bionicsSwitch:Bool = false
     
     override func viewDidLoad() {
        
@@ -42,11 +42,18 @@ class MainViewController: UIViewController {
         buttonSignuUpOutlet.backgroundColorForStateNormal = Theme.current.headingColor
         
         let pinSwitch = UserDefaults.standard.bool(forKey: "PINSwitch")
-        let bionicsSwitch = UserDefaults.standard.bool(forKey: "SwitchValue")
+        bionicsSwitch = UserDefaults.standard.bool(forKey: "SwitchValue")
         
         switch pinSwitch {
         case true:
-            break
+            if(userKeychain.getEmail() != nil ){
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.0) {
+                    self.login(loginType: .pin)
+                    
+                }
+            }else{
+                tryToLoginFromKeychain()
+            }
         case false:
             if(userKeychain.getEmail() != nil && bionicsSwitch){
                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.0) {
@@ -83,9 +90,15 @@ extension MainViewController {
     
     private func login(loginType:LoginType){
         let loginer = LoginFactory.loginProvider(forLoginType: loginType)
-        let viewController = loginer.openLoginForm()
+        let viewController = loginer.showLoginForm()
         self.present(viewController, animated: true, completion: nil)
-        loginer.handleBiometrics(viewController: viewController)
+        switch(bionicsSwitch){
+            case true:
+                loginer.handleBiometrics(viewController: viewController)
+            case false:
+                break
+        }
+        
     }
     
     private func additionalSetup(){
@@ -94,22 +107,12 @@ extension MainViewController {
         print("View loadan")
         loadingActivity.isHidden = true
         
-       
-        
-        
     }
-    func goToFaceTouchIDLogin(){
-         
-        let passLogin = PassLogin()
-        let viewController = passLogin.openLoginForm() as! LoginPassViewController
-        self.present(viewController, animated: true, completion: nil)
-        
-        
-    }
+   
     
     func tryToLoginFromKeychain() {
 
-        guard userKeychain.hasSessionData() else{
+        guard let email = userKeychain.getEmail() else{
             return
         }
 
@@ -123,7 +126,7 @@ extension MainViewController {
             switch result {
             case .success(let user):
                 print(user)
-                self.showSuccessAlert(for: user)
+                self.goToHomeScreen()
 
             case .failure(let error):
 
@@ -133,27 +136,11 @@ extension MainViewController {
                 self.loadingActivity.stopAnimating()
 
 
-                // if you are offline, error is not set because error
-                // is expected to return from server
-                // therefore, we have to check if we got error
-                // if we didn't, we should create new errorResponse
-                // and set title and message for offline case
-                var errorIsEmpty = false
-                if(error == nil){
-                    errorIsEmpty = true
-                }
-                guard errorIsEmpty else {
-                    print("Something is wrong")
-
-                    return
-                }
-                // cannot be shown if there is no error set
-                self.showErrorAlert(with: error as! ResponseError)
             }
         }
     }
     
-    private func showSuccessAlert(for user: [User]) {
+    private func goToHomeScreen() {
        
         let LoginStoryboard:UIStoryboard = UIStoryboard(name: "Homescreen", bundle: nil)
         let LoginviewController = LoginStoryboard.instantiateViewController(identifier: "HomeScreen") as! HomeSreenTabBarController
@@ -162,14 +149,7 @@ extension MainViewController {
         
     }
     
-    private func showErrorAlert(with error: ResponseError) {
-        let alerter = Alerter(title: error.title, message: error.message)
-        alerter.alertError()
-        print("Trebalo bi stati")
-        loadingActivity.isHidden = true
-        buttonOutlet.isHidden = false
-        buttonSignuUpOutlet.isHidden = false
-    }
+   
     
 }
 

@@ -13,25 +13,29 @@ import CodableAlamofire
 class AuthService {
     
     
-    func login(with name: String, password: String, completion: @escaping (Result<[User]>) -> Void) {
-        let decoder = JSONDecoder()
-        Alamofire
-            .request("https://cortex.foi.hr/meetup/AuthService.php?name=\(name)&password=\(password)")
-            .responseDecodableObject(decoder: decoder) { (response: DataResponse<[User]>) in
-               // completion(response.result)
-              
-                switch response.result {
-                case .success(let users):
-                    completion(.success(
-                        users))
+    func login(with name: String, password: String, completion: @escaping (Result<String>) -> Void) {
+         var dictionary:[String:String] = ["name":name, "password": password]
+               
+               let decoder = JSONDecoder()
+               Alamofire
+                   .request("https://cortex.foi.hr/meetup/AuthService.php", method: .get, parameters: dictionary)
+                   .responseDecodableObject(decoder: decoder) { (response: DataResponse<String>) in
+                      // completion(response.result)
+                     
+                       switch response.result {
+                       case .success(let isLogined):
+                           completion(.success(
+                               isLogined))
+                               
+                       case .failure(let error):
+                           completion(.failure(error))
+                       }
                         
-                case .failure(let error):
-                    completion(.failure(ResponseErrorBuilder.decodedError(fromData: response.data, fallbackError: error)))
-                }
-                 
-            }
+                   }
+           
+           }
     }
     
     
     
-}
+

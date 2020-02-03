@@ -8,23 +8,63 @@
 
 import Foundation
 import UIKit
+import LoginPIN
+import LocalAuthentication
 
-class PINLogin: Login{
+class PINLogin: Login, LoginPINDelegate{
+    var pinIsConfirmed:Bool = false
+    var viewController:UIViewController! = nil
+    let bionicsSwitch = UserDefaults.standard.bool(forKey: "SwitchValue")
+    
+    func returnedValue(isTrue: Bool) {
+        if(isTrue){
+            pinIsConfirmed = true
+            if( bionicsSwitch) {
+                
+                handleBiometrics(viewController: viewController)
+            }else{goToHomeScreen()}
+           
+        }
+    }
+    
+    
+    func showLoginForm() -> UIViewController {
+        let storyboard:UIStoryboard = UIStoryboard(name: "LoginPIN", bundle: Bundle(for: LoginPINViewController.self))
+        let vc = storyboard.instantiateViewController(withIdentifier: "LoginPIN") as! LoginPINViewController
+        viewController = vc
+        vc.delegate = self
+        return vc
+    }
+    
+    
     func handleBiometrics(viewController: UIViewController) {
+        
+        if(pinIsConfirmed){
+            let context:LAContext = LAContext()
+                          BiometricsHandler.handleFaceIDTouchID(viewController: viewController, context: context) { (complete) in
+                              switch complete{
+                              case true:
+                                  DispatchQueue.main.async {
+                                    self.goToHomeScreen()
+                                  }
+                              case false:
+                                  break
+                                  
+                              }
+                          }
+        }
+        
+        
         
     }
     
+    func goToHomeScreen(){
+           let HomeStoryboard:UIStoryboard = UIStoryboard(name: "Homescreen", bundle: nil)
+           let HomeController = HomeStoryboard.instantiateViewController(identifier: "HomeScreen") as! HomeSreenTabBarController
+                      HomeController.modalPresentationStyle = .fullScreen
+           self.viewController.present(HomeController, animated: true, completion: nil)
+       }
     
-    
-    func tryToLogin(username: String?, password: String) {
-        // implementirati
-    }
-    
-    func openLoginForm() -> UIViewController {
-        // implementirati
-        let dummyVC = UIViewController()
-        return dummyVC
-    }
     
     
 }

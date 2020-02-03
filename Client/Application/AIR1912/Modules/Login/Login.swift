@@ -16,8 +16,8 @@ enum LoginType: String {
 
 protocol Login{
     
-    func tryToLogin(username:String?, password:String )
-    func openLoginForm() -> UIViewController
+    
+    func showLoginForm() -> UIViewController
     func handleBiometrics(viewController:UIViewController)
-   
+    func goToHomeScreen() -> Void
 }

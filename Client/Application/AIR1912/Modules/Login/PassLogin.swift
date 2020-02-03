@@ -14,20 +14,22 @@ import LocalAuthentication
 
 class PassLogin: Login, LoginPassDelegate  {
    
-    
-    
     var viewController:UIViewController! = nil
     var authService = AuthService()
     let userKeychain = UserKeychain()
     
-    func returnedParameters(username:String, pass:String) {
-        //Provjera dal je dobra lozinka, -> prelazak na home screen
-        tryToLogin(username: username, password: pass)
+    func returnedValue(isLogined:String, username email:String, pass:String) {
+        if(isLogined == "true"){
+            saveUserToKeychain(email: email,pass: pass)}
+        else{
+            let alerter = Alerter(title: "Credentials don't match any user in database", message: "Try again")
+            alerter.alertError()
+        }
         
     }
     
     
-    func openLoginForm()->UIViewController{
+    func showLoginForm()->UIViewController{
         let storyboard:UIStoryboard = UIStoryboard(name: "LoginPass", bundle: Bundle(for: LoginPassViewController.self))
         let vc = storyboard.instantiateViewController(withIdentifier: "LoginPass") as! LoginPassViewController
         viewController = vc
@@ -36,33 +38,19 @@ class PassLogin: Login, LoginPassDelegate  {
     }
     
     
-    func tryToLogin(username:String?, password:String) {
+    func saveUserToKeychain(email:String, pass:String) {
         let userKeychain = UserKeychain()
         
-        guard let email = username else{
-            return 
-        }
-        
-        authService.login( with: email, password: password ) { (result) in
+       
+        UserDB.getUserFromDB(with: email, password: pass) { (result) in
             switch result {
             case .success(let user):
-                
+                _ = userKeychain.saveSessionData(email: email, password: pass, nickname: user[0].nickname, avatar: user[0].avatar.rawValue, id: Int(user[0].idUsers!)!, name: user[0].name, surname: user[0].surname)
                 self.goToHomeScreen()
-                       
-                if(userKeychain.getEmail() != nil){
-                    self.handleBiometrics(viewController: self.viewController)
-                       } else {
-
-                    _ = userKeychain.saveSessionData(email: email, password: password, nickname: user[0].nickname, avatar: user[0].avatar.rawValue, id: Int(user[0].idUsers!)!, name: user[0].name, surname: user[0].surname)
-                       }
-                
             case .failure(let error):
                 print(error)
             }
         }
-        
-        
-    
         
     }
     

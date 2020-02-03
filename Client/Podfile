@@ -7,10 +7,14 @@ workspace 'BeaconApp'
 
 def loginPIN_pods
     pod 'RxSwift'
+    pod 'SwiftKeychainWrapper'
+    pod 'Spring', :git => 'https://github.com/MengTo/Spring.git'
+    
 end
 
 target 'LoginPIN' do
     project 'LoginPIN/LoginPIN.project'
+    
     loginPIN_pods
 end
 
@@ -20,6 +24,7 @@ def loginPass_pods
   pod 'KBRoundedButton'
   pod 'CodableAlamofire'
   pod 'SwiftKeychainWrapper'
+   pod 'Spring', :git => 'https://github.com/MengTo/Spring.git'
 end
 
 target 'LoginPass' do

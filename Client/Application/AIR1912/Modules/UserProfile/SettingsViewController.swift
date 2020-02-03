@@ -25,7 +25,6 @@ class SettingsViewController: UIViewController {
         super.viewDidLoad()
         
         biometricsSwitch.setOn(UserDefaults.standard.bool(forKey: "SwitchValue"), animated: false)
-        
         pinSwitch.setOn(UserDefaults.standard.bool(forKey: "PINSwitch"), animated: true)
         
         // Do any additional setup after loading the view.
@@ -74,6 +73,8 @@ class SettingsViewController: UIViewController {
         }
         else{
             
+            UserDefaults.standard.set(false, forKey: "SwitchValue")
+            UserDefaults.standard.set(false, forKey: "PINSwitch")
             goToInitialScreen()
         }
     

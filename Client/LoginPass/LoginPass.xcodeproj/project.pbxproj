@@ -9,10 +9,11 @@
 /* Begin PBXBuildFile section */
 		2FCF431F82CF74BA04D1D172 /* Pods_LoginPass.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0197BE1EAE9A4FDA03D40869 /* Pods_LoginPass.framework */; };
 		EDD3429E23E4C6BA0097E38D /* LoginPass.h in Headers */ = {isa = PBXBuildFile; fileRef = EDD3429C23E4C6BA0097E38D /* LoginPass.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		EDD342A623E4C8540097E38D /* DummyClassLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD342A523E4C8540097E38D /* DummyClassLogin.swift */; };
 		EDD342F023E5C2F00097E38D /* LoginPass.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EDD342EF23E5C2F00097E38D /* LoginPass.storyboard */; };
 		EDD342F223E5C4570097E38D /* LoginPassViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD342F123E5C4570097E38D /* LoginPassViewController.swift */; };
-		EDF13D2023E8204200720C0C /* BiometricsHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF13D1F23E8204200720C0C /* BiometricsHandler.swift */; };
+		EDF13D2423E877CF00720C0C /* Authentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF13D2323E877CF00720C0C /* Authentication.swift */; };
+		EDF13D2B23E8967700720C0C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EDF13D2A23E8967700720C0C /* Images.xcassets */; };
+		EDF13D3C23E8AE6500720C0C /* BiometricsHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF13D3B23E8AE6400720C0C /* BiometricsHandler.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,11 +23,11 @@
 		EDD3429923E4C6BA0097E38D /* LoginPass.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = LoginPass.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EDD3429C23E4C6BA0097E38D /* LoginPass.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginPass.h; sourceTree = "<group>"; };
 		EDD3429D23E4C6BA0097E38D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		EDD342A423E4C8330097E38D /* TestLoginPass.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; name = TestLoginPass.playground; path = "../../../../../../../Library/Autosave Information/TestLoginPass.playground"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
-		EDD342A523E4C8540097E38D /* DummyClassLogin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyClassLogin.swift; sourceTree = "<group>"; };
 		EDD342EF23E5C2F00097E38D /* LoginPass.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LoginPass.storyboard; sourceTree = "<group>"; };
 		EDD342F123E5C4570097E38D /* LoginPassViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPassViewController.swift; sourceTree = "<group>"; };
-		EDF13D1F23E8204200720C0C /* BiometricsHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BiometricsHandler.swift; sourceTree = "<group>"; };
+		EDF13D2323E877CF00720C0C /* Authentication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Authentication.swift; sourceTree = "<group>"; };
+		EDF13D2A23E8967700720C0C /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		EDF13D3B23E8AE6400720C0C /* BiometricsHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BiometricsHandler.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,13 +81,13 @@
 		EDD3429B23E4C6BA0097E38D /* LoginPass */ = {
 			isa = PBXGroup;
 			children = (
-				EDD342A523E4C8540097E38D /* DummyClassLogin.swift */,
-				EDF13D1F23E8204200720C0C /* BiometricsHandler.swift */,
-				EDD342A423E4C8330097E38D /* TestLoginPass.playground */,
-				EDD3429C23E4C6BA0097E38D /* LoginPass.h */,
-				EDD3429D23E4C6BA0097E38D /* Info.plist */,
 				EDD342EF23E5C2F00097E38D /* LoginPass.storyboard */,
 				EDD342F123E5C4570097E38D /* LoginPassViewController.swift */,
+				EDF13D2323E877CF00720C0C /* Authentication.swift */,
+				EDF13D3B23E8AE6400720C0C /* BiometricsHandler.swift */,
+				EDD3429C23E4C6BA0097E38D /* LoginPass.h */,
+				EDD3429D23E4C6BA0097E38D /* Info.plist */,
+				EDF13D2A23E8967700720C0C /* Images.xcassets */,
 			);
 			path = LoginPass;
 			sourceTree = "<group>";
@@ -162,6 +163,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EDF13D2B23E8967700720C0C /* Images.xcassets in Resources */,
 				EDD342F023E5C2F00097E38D /* LoginPass.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -198,9 +200,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EDD342A623E4C8540097E38D /* DummyClassLogin.swift in Sources */,
-				EDF13D2023E8204200720C0C /* BiometricsHandler.swift in Sources */,
 				EDD342F223E5C4570097E38D /* LoginPassViewController.swift in Sources */,
+				EDF13D3C23E8AE6500720C0C /* BiometricsHandler.swift in Sources */,
+				EDF13D2423E877CF00720C0C /* Authentication.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

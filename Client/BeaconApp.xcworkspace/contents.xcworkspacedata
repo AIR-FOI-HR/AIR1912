@@ -12,7 +12,7 @@
       location = "group:LoginPass/LoginPass.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:Application/AIR1912.xcodeproj">
+      location = "group:/Users/lleljak/Documents/iOS development/AiR Projekt/AIR1912/Client/Application/Beacon.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:Pods/Pods.xcodeproj">
