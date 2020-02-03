@@ -8,6 +8,15 @@
 
 import UIKit
 
+class EventPeopleCellController: UITableViewCell{
+
+    @IBOutlet weak var name: UILabel!
+    @IBOutlet weak var nickname: UILabel!
+    @IBOutlet weak var surname: UILabel!
+    @IBOutlet weak var email: UILabel!
+    
+} // end EventPeopleCellController class
+
 class EventPeopleController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet weak var tableView: UITableView!
     
@@ -62,10 +71,15 @@ class EventPeopleController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "user", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "user", for: indexPath) as! EventPeopleCellController
         let index = indexPath.row as Int
         
-        cell.textLabel?.text = self.users![index].name
+        let user = self.users![index]
+        
+        cell.name.text = user.name
+        cell.surname.text = user.surname
+        cell.nickname.text = user.nickname
+        cell.email.text = user.email
         
         return cell
     }
