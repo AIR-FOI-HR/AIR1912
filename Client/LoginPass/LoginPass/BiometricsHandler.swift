@@ -18,6 +18,8 @@ public class BiometricsHandler{
         let vc:LoginPassViewController = viewController as! LoginPassViewController
         vc.emailTextField.isHidden = true
         vc.passwordTextField.isHidden = true
+        vc.buttonContent.isHidden = true
+        
         
         if context.canEvaluatePolicy(.deviceOwnerAuthentication, error: nil) {
             context.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: "To have an access to the door that we need to check your FaceID/TouchID") { (wasSuccessful, error) in
