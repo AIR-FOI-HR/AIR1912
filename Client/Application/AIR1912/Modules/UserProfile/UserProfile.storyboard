@@ -431,6 +431,9 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="tintColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="onTintColor" name="BaseRed"/>
+                                <connections>
+                                    <action selector="biometricsSettings:" destination="O0h-2p-vrO" eventType="valueChanged" id="YeB-Te-e3s"/>
+                                </connections>
                             </switch>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cb5-Lf-jJx" userLabel="Use PIN">
                                 <rect key="frame" x="16" y="234" width="89" height="41"/>

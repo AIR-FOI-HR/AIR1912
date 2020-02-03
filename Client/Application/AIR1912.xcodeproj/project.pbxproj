@@ -92,7 +92,6 @@
 		EDF13CDF23E5C95C00720C0C /* PassLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF13CDE23E5C95C00720C0C /* PassLogin.swift */; };
 		EDF13CE123E5C96900720C0C /* PINLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF13CE023E5C96900720C0C /* PINLogin.swift */; };
 		EDF13D0E23E6055100720C0C /* LoginFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF13D0D23E6055100720C0C /* LoginFactory.swift */; };
-		EDF13D1623E6153600720C0C /* BiometricsHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF13D1523E6153600720C0C /* BiometricsHandler.swift */; };
 		EDF46CA923BCE30D00E2F5E8 /* WebEventHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF46CA823BCE30D00E2F5E8 /* WebEventHandler.swift */; };
 		EDF46CAD23BCE6D700E2F5E8 /* FormatDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF46CAC23BCE6D700E2F5E8 /* FormatDate.swift */; };
 		EDFD7E7E239107430028C4D5 /* UserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDFD7E7D239107430028C4D5 /* UserProfileViewController.swift */; };
@@ -221,7 +220,6 @@
 		EDF13CDE23E5C95C00720C0C /* PassLogin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassLogin.swift; sourceTree = "<group>"; };
 		EDF13CE023E5C96900720C0C /* PINLogin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PINLogin.swift; sourceTree = "<group>"; };
 		EDF13D0D23E6055100720C0C /* LoginFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginFactory.swift; sourceTree = "<group>"; };
-		EDF13D1523E6153600720C0C /* BiometricsHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BiometricsHandler.swift; sourceTree = "<group>"; };
 		EDF46CA823BCE30D00E2F5E8 /* WebEventHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebEventHandler.swift; sourceTree = "<group>"; };
 		EDF46CAC23BCE6D700E2F5E8 /* FormatDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormatDate.swift; sourceTree = "<group>"; };
 		EDFD7E7D239107430028C4D5 /* UserProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileViewController.swift; sourceTree = "<group>"; };
@@ -647,7 +645,6 @@
 				EDE3EF8E239EEB4F001BD61A /* ImageBlur.swift */,
 				EDF46CAC23BCE6D700E2F5E8 /* FormatDate.swift */,
 				EDAC7C5223E1CD38006177A8 /* GeoLocationInverter.swift */,
-				EDF13D1523E6153600720C0C /* BiometricsHandler.swift */,
 			);
 			path = Utilites;
 			sourceTree = "<group>";
@@ -836,7 +833,6 @@
 				4219917A239413F800CCAA89 /* ContentViewController.swift in Sources */,
 				EDF13CDB23E5C94900720C0C /* Login.swift in Sources */,
 				4254484E23AC2E5D00740B27 /* Genre.swift in Sources */,
-				EDF13D1623E6153600720C0C /* BiometricsHandler.swift in Sources */,
 				4221F7D723DF2D4800A977AE /* ThemeProtocol.swift in Sources */,
 				42C7AE1E23A8E10E00398BE9 /* WebContentProvider.swift in Sources */,
 				EDE3EF8F239EEB4F001BD61A /* ImageBlur.swift in Sources */,

@@ -49,8 +49,9 @@ class MainViewController: UIViewController {
             break
         case false:
             if(userKeychain.getEmail() != nil && bionicsSwitch){
-                DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.0) {
                     self.login(loginType: .credentials)
+                    
                 }
             }else{
                 tryToLoginFromKeychain()
@@ -64,7 +65,7 @@ class MainViewController: UIViewController {
     
     
     @IBAction func btnLogin(_ sender: Any) {
-        
+        self.login(loginType: .credentials)
         
         
     }
@@ -82,9 +83,9 @@ extension MainViewController {
     
     private func login(loginType:LoginType){
         let loginer = LoginFactory.loginProvider(forLoginType: loginType)
-        let viewController = loginer.openLoginForm() as! LoginPassViewController
+        let viewController = loginer.openLoginForm()
         self.present(viewController, animated: true, completion: nil)
-        
+        loginer.handleBiometrics(viewController: viewController)
     }
     
     private func additionalSetup(){

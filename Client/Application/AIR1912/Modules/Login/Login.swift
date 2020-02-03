@@ -18,6 +18,6 @@ protocol Login{
     
     func tryToLogin(username:String?, password:String )
     func openLoginForm() -> UIViewController
-    func handleBiometrics()
+    func handleBiometrics(viewController:UIViewController)
    
 }

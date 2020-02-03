@@ -31,9 +31,7 @@ class PassLogin: Login, LoginPassDelegate  {
         let storyboard:UIStoryboard = UIStoryboard(name: "LoginPass", bundle: Bundle(for: LoginPassViewController.self))
         let vc = storyboard.instantiateViewController(withIdentifier: "LoginPass") as! LoginPassViewController
         viewController = vc
-        
         vc.delegate = self
-        self.handleBiometrics()
         return vc
     }
     
@@ -52,7 +50,7 @@ class PassLogin: Login, LoginPassDelegate  {
                 self.goToHomeScreen()
                        
                 if(userKeychain.getEmail() != nil){
-                    self.handleBiometrics()
+                    self.handleBiometrics(viewController: self.viewController)
                        } else {
 
                     _ = userKeychain.saveSessionData(email: email, password: password, nickname: user[0].nickname, avatar: user[0].avatar.rawValue, id: Int(user[0].idUsers!)!, name: user[0].name, surname: user[0].surname)
@@ -68,25 +66,19 @@ class PassLogin: Login, LoginPassDelegate  {
         
     }
     
-    func handleBiometrics(){
-              let context:LAContext = LAContext()
-                  
-                  
-                  if context.canEvaluatePolicy(.deviceOwnerAuthentication, error: nil) {
-                      context.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: "To have an access to the door that we need to check your FaceID/TouchID") { (wasSuccessful, error) in
-                        DispatchQueue.main.async {
-                           if wasSuccessful{
-                              self.goToHomeScreen()
-                            } else {
-                               
-                            }
-                        }
-                          
-                      }
-                      
-                  } else {
-                     
-                  }
+    func handleBiometrics(viewController vc:UIViewController){
+        let context:LAContext = LAContext()
+        BiometricsHandler.handleFaceIDTouchID(viewController: vc, context: context) { (complete) in
+            switch complete{
+            case true:
+                DispatchQueue.main.async {
+                  self.goToHomeScreen()
+                }
+            case false:
+                break
+                
+            }
+        }
     }
     
     

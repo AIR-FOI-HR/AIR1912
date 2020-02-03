@@ -10,10 +10,11 @@ import Foundation
 import UIKit
 
 class PINLogin: Login{
-    func handleBiometrics() {
-        //
+    func handleBiometrics(viewController: UIViewController) {
+        
     }
-   
+    
+    
     
     func tryToLogin(username: String?, password: String) {
         // implementirati
