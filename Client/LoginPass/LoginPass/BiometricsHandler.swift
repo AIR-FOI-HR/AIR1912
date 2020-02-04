@@ -19,6 +19,8 @@ public class BiometricsHandler{
         vc.emailTextField.isHidden = true
         vc.passwordTextField.isHidden = true
         vc.buttonContent.isHidden = true
+        vc.insertView.isHidden = true
+        vc.imageFaceID.isHidden = false
         
         
         if context.canEvaluatePolicy(.deviceOwnerAuthentication, error: nil) {

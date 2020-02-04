@@ -18,6 +18,8 @@ protocol Login{
     
     
     func showLoginForm() -> UIViewController
+    func setFormDelegate(viewController:UIViewController) -> Void
+    func handleReturnedValue(isLogined:String, username email:String?, pass:String?)
     func handleBiometrics(viewController:UIViewController)
     func goToHomeScreen() -> Void
 }

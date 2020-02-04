@@ -91,7 +91,9 @@ extension MainViewController {
     private func login(loginType:LoginType){
         let loginer = LoginFactory.loginProvider(forLoginType: loginType)
         let viewController = loginer.showLoginForm()
+        loginer.setFormDelegate(viewController: viewController)
         self.present(viewController, animated: true, completion: nil)
+        
         switch(bionicsSwitch){
             case true:
                 loginer.handleBiometrics(viewController: viewController)

@@ -93,7 +93,7 @@
                                                                 <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
                                                             </textField>
                                                             <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="faceid" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="N3a-xN-nPl">
-                                                                <rect key="frame" x="100" y="74" width="139" height="128"/>
+                                                                <rect key="frame" x="66" y="94" width="202" height="190"/>
                                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             </imageView>
                                                         </subviews>
@@ -235,7 +235,8 @@
                         <outlet property="buttonContent" destination="p1R-vf-5qO" id="zHC-5I-GKi"/>
                         <outlet property="buttonLogin" destination="gqE-pP-cWf" id="2nW-YU-0Kw"/>
                         <outlet property="emailTextField" destination="r6p-Y3-EbZ" id="fUB-6P-fXj"/>
-                        <outlet property="imageFaceID" destination="N3a-xN-nPl" id="NSO-hg-klo"/>
+                        <outlet property="imageFaceID" destination="N3a-xN-nPl" id="AS0-dB-0n0"/>
+                        <outlet property="insertView" destination="Qmw-4n-q2K" id="ycJ-Uc-4Ba"/>
                         <outlet property="passwordTextField" destination="cH3-bl-M3c" id="iyU-NI-zKQ"/>
                     </connections>
                 </viewController>
