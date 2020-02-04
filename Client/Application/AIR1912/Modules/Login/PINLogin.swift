@@ -12,27 +12,31 @@ import LoginPIN
 import LocalAuthentication
 
 class PINLogin: Login, LoginPINDelegate{
+    
+    func handleReturnedValue(isLogined: String, username email: String?, pass: String?) {
+         if(isLogined == "true"){
+                   pinIsConfirmed = true
+                   if( bionicsSwitch) {
+                       
+                       handleBiometrics(viewController: viewController)
+                   }else{goToHomeScreen()}
+                  
+               }
+    }
+    
+    
+    
     var pinIsConfirmed:Bool = false
     var viewController:UIViewController! = nil
     let bionicsSwitch = UserDefaults.standard.bool(forKey: "SwitchValue")
     
-    func returnedValue(isTrue: Bool) {
-        if(isTrue){
-            pinIsConfirmed = true
-            if( bionicsSwitch) {
-                
-                handleBiometrics(viewController: viewController)
-            }else{goToHomeScreen()}
-           
-        }
-    }
+  
     
     
     func showLoginForm() -> UIViewController {
         let storyboard:UIStoryboard = UIStoryboard(name: "LoginPIN", bundle: Bundle(for: LoginPINViewController.self))
         let vc = storyboard.instantiateViewController(withIdentifier: "LoginPIN") as! LoginPINViewController
         viewController = vc
-        vc.delegate = self
         return vc
     }
     
@@ -57,6 +61,12 @@ class PINLogin: Login, LoginPINDelegate{
         
         
     }
+    
+    func setFormDelegate(viewController: UIViewController) {
+        let vc = viewController as? LoginPINViewController
+        vc!.delegate = self
+    }
+    
     
     func goToHomeScreen(){
            let HomeStoryboard:UIStoryboard = UIStoryboard(name: "Homescreen", bundle: nil)

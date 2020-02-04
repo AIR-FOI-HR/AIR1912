@@ -13,19 +13,21 @@ import LocalAuthentication
 
 
 class PassLogin: Login, LoginPassDelegate  {
+    
+    
+       
    
     var viewController:UIViewController! = nil
     var authService = AuthService()
     let userKeychain = UserKeychain()
     
-    func returnedValue(isLogined:String, username email:String, pass:String) {
+    func handleReturnedValue(isLogined: String, username: String?, pass: String?) {
         if(isLogined == "true"){
-            saveUserToKeychain(email: email,pass: pass)}
+            saveUserToKeychain(email: username!,pass: pass!)}
         else{
             let alerter = Alerter(title: "Credentials don't match any user in database", message: "Try again")
             alerter.alertError()
         }
-        
     }
     
     
@@ -33,7 +35,6 @@ class PassLogin: Login, LoginPassDelegate  {
         let storyboard:UIStoryboard = UIStoryboard(name: "LoginPass", bundle: Bundle(for: LoginPassViewController.self))
         let vc = storyboard.instantiateViewController(withIdentifier: "LoginPass") as! LoginPassViewController
         viewController = vc
-        vc.delegate = self
         return vc
     }
     
@@ -68,6 +69,12 @@ class PassLogin: Login, LoginPassDelegate  {
             }
         }
     }
+    
+    func setFormDelegate(viewController: UIViewController) {
+           let vc = viewController as? LoginPassViewController
+           vc!.delegate = self
+       }
+       
     
     
     

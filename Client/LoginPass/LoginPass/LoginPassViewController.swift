@@ -15,7 +15,7 @@ import Spring
 let DB_URL = "https://cortex.foi.hr/meetup/AuthService.php"
 
 public protocol LoginPassDelegate {
-    func returnedValue(isLogined:String,username:String, pass:String)
+    func handleReturnedValue(isLogined:String,username:String?, pass:String?)
     
 }
 
@@ -26,6 +26,7 @@ public class LoginPassViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var imageFaceID: UIImageView!
     @IBOutlet weak var buttonLogin: KBRoundedButton!
     @IBOutlet weak var buttonContent: SpringView!
+    @IBOutlet weak var insertView: SpringView!
     //Properties
     public var delegate:LoginPassDelegate! = nil
     
@@ -44,7 +45,7 @@ public class LoginPassViewController: UIViewController, UITextFieldDelegate {
         Authentication.login(email: email!, password: pass!, DB_URL: DB_URL ) { (result) in
             switch result{
                 case .success(let data):
-                    self.delegate.returnedValue(isLogined: data, username: email!, pass: pass! )
+                    self.delegate.handleReturnedValue(isLogined: data, username: email!, pass: pass! )
                 
                 case .failure (let error):
                     print(error)

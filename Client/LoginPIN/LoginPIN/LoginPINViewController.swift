@@ -11,8 +11,10 @@ import SwiftKeychainWrapper
 import Spring
 
 public protocol LoginPINDelegate {
-    func returnedValue(isTrue:Bool)
+    func handleReturnedValue(isLogined:String,username:String?, pass:String?)
+    
 }
+
 
 public class LoginPINViewController: UIViewController {
     @IBOutlet weak var textFieldPIN: SpringTextField!
@@ -46,7 +48,7 @@ extension LoginPINViewController: UITextViewDelegate{
         print(textField.text)
         if(textFieldPIN.text!.count == 4){
             if(checkPIN()){
-                delegate?.returnedValue(isTrue: true)
+                delegate?.handleReturnedValue(isLogined: "true", username: nil, pass: nil)
             }
             else {textFieldPIN.text = ""
                 textFieldPIN.animation = "shake"
