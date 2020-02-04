@@ -28,6 +28,8 @@
 		4250E5F723845C3B00369FBC /* SignupController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4250E5F623845C3B00369FBC /* SignupController.swift */; };
 		4254484E23AC2E5D00740B27 /* Genre.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4254484D23AC2E5D00740B27 /* Genre.swift */; };
 		425F5C6A23A2B40E00B09368 /* ContentProviderFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 425F5C6923A2B40E00B09368 /* ContentProviderFactory.swift */; };
+		429D69FB23E9A9AB004DC6CD /* EventPeople.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 429D69FA23E9A9AB004DC6CD /* EventPeople.storyboard */; };
+		429D69FD23E9A9BD004DC6CD /* EventPeopleController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 429D69FC23E9A9BD004DC6CD /* EventPeopleController.swift */; };
 		42A9BAF923928569009C1912 /* Alerter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A9BAF823928569009C1912 /* Alerter.swift */; };
 		42A9BAFB23929173009C1912 /* JsonResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A9BAFA23929173009C1912 /* JsonResponse.swift */; };
 		42A9BAFD239293FD009C1912 /* RegisterService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A9BAFC239293FD009C1912 /* RegisterService.swift */; };
@@ -152,6 +154,8 @@
 		4250E5F623845C3B00369FBC /* SignupController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupController.swift; sourceTree = "<group>"; };
 		4254484D23AC2E5D00740B27 /* Genre.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Genre.swift; sourceTree = "<group>"; };
 		425F5C6923A2B40E00B09368 /* ContentProviderFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentProviderFactory.swift; sourceTree = "<group>"; };
+		429D69FA23E9A9AB004DC6CD /* EventPeople.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = EventPeople.storyboard; sourceTree = "<group>"; };
+		429D69FC23E9A9BD004DC6CD /* EventPeopleController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventPeopleController.swift; sourceTree = "<group>"; };
 		42A9BAF823928569009C1912 /* Alerter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alerter.swift; sourceTree = "<group>"; };
 		42A9BAFA23929173009C1912 /* JsonResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonResponse.swift; sourceTree = "<group>"; };
 		42A9BAFC239293FD009C1912 /* RegisterService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterService.swift; sourceTree = "<group>"; };
@@ -338,6 +342,15 @@
 			path = SignUp;
 			sourceTree = "<group>";
 		};
+		429D69F723E9A997004DC6CD /* EventPeople */ = {
+			isa = PBXGroup;
+			children = (
+				429D69FA23E9A9AB004DC6CD /* EventPeople.storyboard */,
+				429D69FC23E9A9BD004DC6CD /* EventPeopleController.swift */,
+			);
+			path = EventPeople;
+			sourceTree = "<group>";
+		};
 		42A9BAF7239284FD009C1912 /* ErrorHandling */ = {
 			isa = PBXGroup;
 			children = (
@@ -506,6 +519,7 @@
 		ED56B4ED2375672E00BD4821 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				429D69F723E9A997004DC6CD /* EventPeople */,
 				EDBA780923E3A14B00DD7198 /* Tutorial */,
 				42D7159523E0A531005C4646 /* MapDetails */,
 				42F2ACF823AA5A1900C2DA20 /* ContentDetails */,
@@ -754,6 +768,7 @@
 				ED3CE89C23AEBCFC0052015F /* EventCRUD.storyboard in Resources */,
 				ED35F620237560DC009ED574 /* LaunchScreen.storyboard in Resources */,
 				ED35F61D237560DC009ED574 /* Assets.xcassets in Resources */,
+				429D69FB23E9A9AB004DC6CD /* EventPeople.storyboard in Resources */,
 				EDCA57E023846228002C3AE1 /* Homescreen.storyboard in Resources */,
 				EDB57AB0238EAA750032DC9E /* Favourites.storyboard in Resources */,
 				ED62C01A23E0890D00ECC86D /* EventDetails.storyboard in Resources */,
@@ -876,6 +891,7 @@
 				42B4D5FC23A3CDA500036C53 /* ContentSearchController.swift in Sources */,
 				423F05A623981D6F00D92D76 /* ResponseErrorBuilder.swift in Sources */,
 				EDFD7E7E239107430028C4D5 /* UserProfileViewController.swift in Sources */,
+				429D69FD23E9A9BD004DC6CD /* EventPeopleController.swift in Sources */,
 				42C7AE1C23A6B96000398BE9 /* DBContent.swift in Sources */,
 				42DD3BF323E05DC9004A241D /* EditAccountViewController.swift in Sources */,
 				42C7AE2023A8F9B300398BE9 /* FavouritesCollectionViewCell.swift in Sources */,
