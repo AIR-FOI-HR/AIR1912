@@ -1,0 +1,69 @@
+PODS:
+  - Alamofire (4.9.1)
+  - CodableAlamofire (1.1.2):
+    - Alamofire (~> 4.0)
+  - Floaty (4.1.0)
+  - Hero (1.4.0)
+  - KBRoundedButton (1.0.4)
+  - KeychainAccess (4.1.0)
+  - Kingfisher (4.10.1)
+  - LocationPickerViewController (3.4)
+  - SCLAlertView (0.8)
+  - SkeletonView (1.8.2)
+  - Spring (1.0.6)
+  - SwiftKeychainWrapper (3.4.0)
+
+DEPENDENCIES:
+  - Alamofire
+  - CodableAlamofire
+  - Floaty
+  - Hero
+  - KBRoundedButton
+  - KeychainAccess
+  - Kingfisher
+  - LocationPickerViewController
+  - SCLAlertView
+  - SkeletonView
+  - Spring (from `https://github.com/MengTo/Spring.git`)
+  - SwiftKeychainWrapper
+
+SPEC REPOS:
+  trunk:
+    - Alamofire
+    - CodableAlamofire
+    - Floaty
+    - Hero
+    - KBRoundedButton
+    - KeychainAccess
+    - Kingfisher
+    - LocationPickerViewController
+    - SCLAlertView
+    - SkeletonView
+    - SwiftKeychainWrapper
+
+EXTERNAL SOURCES:
+  Spring:
+    :git: https://github.com/MengTo/Spring.git
+
+CHECKOUT OPTIONS:
+  Spring:
+    :commit: 50d92a5b9e08848387ae95bf44c6ad20834f7083
+    :git: https://github.com/MengTo/Spring.git
+
+SPEC CHECKSUMS:
+  Alamofire: 85e8a02c69d6020a0d734f6054870d7ecb75cf18
+  CodableAlamofire: b7adfb2e5e980392014b4b3f3b8b62c01b9de4aa
+  Floaty: 1a4e213f3512cf3045ef9cb0c1ff456226d1f66a
+  Hero: bac92350d7201a1a940003e0767c7b52ce7c99a1
+  KBRoundedButton: 8fde755b8f1df3ddd3c3c280d9b27ce04ab55d00
+  KeychainAccess: 445e28864fe6d3458b41fa211bcdc39890e8bd5a
+  Kingfisher: c148cd7b47ebde9989f6bc7c27dcaa79d81279a0
+  LocationPickerViewController: 4f33d63587bca682267a09779de2b2e09cf5b8e2
+  SCLAlertView: 6a77bb2edfc65e04dbe57725546cb4107a506b85
+  SkeletonView: bb27c39857e5492136f02ee8a3aa78de55d12ecd
+  Spring: 3d113f14575ef79aec9c5f906dfa4f5001c03254
+  SwiftKeychainWrapper: 6fc49fbf7d4a6b0772917acb0e53a1639f6078d6
+
+PODFILE CHECKSUM: 0c511eec6b34b15597be7fe634e3b44c0ec537fa
+
+COCOAPODS: 1.8.4

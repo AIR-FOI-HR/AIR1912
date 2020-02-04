@@ -119,9 +119,8 @@ open class LocationItem: NSObject, NSCoding {
     
     open override func isEqual(_ object: Any?) -> Bool {
         guard let object = object else { return false }
-        return (object as AnyObject).hash == hash
+        return (object as AnyObject).hash == hashValue
     }
-    
     
     
     public required convenience init(coder aDecoder: NSCoder) {

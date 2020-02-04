@@ -1,22 +1,57 @@
 
 platform :ios, '9.0'
 
-target 'AIR1912' do
-  # Comment the next line if you don't want to use dynamic frameworks
-  use_frameworks!
+use_frameworks!
 
-  # Pods for AIR1912
-  pod 'Alamofire'
-  pod 'SwiftKeychainWrapper'
-  pod 'KBRoundedButton'
-  pod 'Hero'
-  pod 'Spring', :git => 'https://github.com/MengTo/Spring.git'
-  pod 'CodableAlamofire'
-  pod 'Kingfisher'
-  pod 'SCLAlertView'
-  pod 'SkeletonView'
-  pod 'LocationPickerViewController'
-  pod 'Floaty'
+workspace 'BeaconApp'
+
+def loginPIN_pods
+    pod 'RxSwift'
+    pod 'SwiftKeychainWrapper'
+    pod 'Spring', :git => 'https://github.com/MengTo/Spring.git'
+    
+end
+
+target 'LoginPIN' do
+    project 'LoginPIN/LoginPIN.project'
+    
+    loginPIN_pods
+end
+
+def loginPass_pods
+  pod 'RxSwift'
   pod 'KeychainAccess'
+  pod 'KBRoundedButton'
+  pod 'CodableAlamofire'
+  pod 'SwiftKeychainWrapper'
+   pod 'Spring', :git => 'https://github.com/MengTo/Spring.git'
+end
+
+target 'LoginPass' do
+  project 'LoginPass/LoginPass.project'
+  loginPass_pods
+end
+
+def application_pods
+   #PODS for AIR1912 (Main app)
+   pod 'Alamofire'
+   pod 'SwiftKeychainWrapper'
+   pod 'KBRoundedButton'
+   pod 'Hero'
+   pod 'Spring', :git => 'https://github.com/MengTo/Spring.git'
+   pod 'CodableAlamofire'
+   pod 'Kingfisher'
+   pod 'SCLAlertView'
+   pod 'SkeletonView'
+   pod 'LocationPickerViewController'
+   pod 'Floaty'
+   pod 'KeychainAccess'
+   loginPass_pods
+   loginPIN_pods
+end
+
+target 'AIR1912' do
+  project 'Application/AIR1912.project'
+  application_pods
 
 end
