@@ -32,6 +32,28 @@ class UserDB {
             }
     }
     
+    func getUserById(for userId:Int, completion: @escaping (Result<[User]>) -> Void){
+           
+           let decoder = JSONDecoder()
+           let parameters = [
+           "request": "getUserById",
+           "parameter1": userId
+               ] as [String : Any]
+           
+           Alamofire
+               .request("https://cortex.foi.hr/meetup/userProvider.php", method: .get, parameters: parameters)
+               .validate()
+               .responseDecodableObject(decoder: decoder) { (response: DataResponse<[User]>) in
+                   switch response.result {
+                   case .success(let content):
+                       completion(.success(content))
+                   case .failure(let error):
+                       completion(.failure(error))
+               }
+           }
+           
+       }
+    
     
     
 }

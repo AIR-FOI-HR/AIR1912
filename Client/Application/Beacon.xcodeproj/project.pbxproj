@@ -30,6 +30,8 @@
 		425F5C6A23A2B40E00B09368 /* ContentProviderFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 425F5C6923A2B40E00B09368 /* ContentProviderFactory.swift */; };
 		429D69FB23E9A9AB004DC6CD /* EventPeople.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 429D69FA23E9A9AB004DC6CD /* EventPeople.storyboard */; };
 		429D69FD23E9A9BD004DC6CD /* EventPeopleController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 429D69FC23E9A9BD004DC6CD /* EventPeopleController.swift */; };
+		429D6A0023E9B169004DC6CD /* EventOwner.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 429D69FF23E9B169004DC6CD /* EventOwner.storyboard */; };
+		429D6A0223E9B17B004DC6CD /* EventOwnerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 429D6A0123E9B17B004DC6CD /* EventOwnerController.swift */; };
 		42A9BAF923928569009C1912 /* Alerter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A9BAF823928569009C1912 /* Alerter.swift */; };
 		42A9BAFB23929173009C1912 /* JsonResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A9BAFA23929173009C1912 /* JsonResponse.swift */; };
 		42A9BAFD239293FD009C1912 /* RegisterService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A9BAFC239293FD009C1912 /* RegisterService.swift */; };
@@ -156,6 +158,8 @@
 		425F5C6923A2B40E00B09368 /* ContentProviderFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentProviderFactory.swift; sourceTree = "<group>"; };
 		429D69FA23E9A9AB004DC6CD /* EventPeople.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = EventPeople.storyboard; sourceTree = "<group>"; };
 		429D69FC23E9A9BD004DC6CD /* EventPeopleController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventPeopleController.swift; sourceTree = "<group>"; };
+		429D69FF23E9B169004DC6CD /* EventOwner.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = EventOwner.storyboard; sourceTree = "<group>"; };
+		429D6A0123E9B17B004DC6CD /* EventOwnerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventOwnerController.swift; sourceTree = "<group>"; };
 		42A9BAF823928569009C1912 /* Alerter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alerter.swift; sourceTree = "<group>"; };
 		42A9BAFA23929173009C1912 /* JsonResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonResponse.swift; sourceTree = "<group>"; };
 		42A9BAFC239293FD009C1912 /* RegisterService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterService.swift; sourceTree = "<group>"; };
@@ -351,6 +355,15 @@
 			path = EventPeople;
 			sourceTree = "<group>";
 		};
+		429D69FE23E9B159004DC6CD /* EventOwner */ = {
+			isa = PBXGroup;
+			children = (
+				429D69FF23E9B169004DC6CD /* EventOwner.storyboard */,
+				429D6A0123E9B17B004DC6CD /* EventOwnerController.swift */,
+			);
+			path = EventOwner;
+			sourceTree = "<group>";
+		};
 		42A9BAF7239284FD009C1912 /* ErrorHandling */ = {
 			isa = PBXGroup;
 			children = (
@@ -519,6 +532,7 @@
 		ED56B4ED2375672E00BD4821 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				429D69FE23E9B159004DC6CD /* EventOwner */,
 				429D69F723E9A997004DC6CD /* EventPeople */,
 				EDBA780923E3A14B00DD7198 /* Tutorial */,
 				42D7159523E0A531005C4646 /* MapDetails */,
@@ -766,6 +780,7 @@
 			files = (
 				42D7159723E0A554005C4646 /* MapDetails.storyboard in Resources */,
 				ED3CE89C23AEBCFC0052015F /* EventCRUD.storyboard in Resources */,
+				429D6A0023E9B169004DC6CD /* EventOwner.storyboard in Resources */,
 				ED35F620237560DC009ED574 /* LaunchScreen.storyboard in Resources */,
 				ED35F61D237560DC009ED574 /* Assets.xcassets in Resources */,
 				429D69FB23E9A9AB004DC6CD /* EventPeople.storyboard in Resources */,
@@ -834,6 +849,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				429D6A0223E9B17B004DC6CD /* EventOwnerController.swift in Sources */,
 				42D7159B23E0AA43005C4646 /* MapDetailsController.swift in Sources */,
 				425F5C6A23A2B40E00B09368 /* ContentProviderFactory.swift in Sources */,
 				EDAC7C5323E1CD38006177A8 /* GeoLocationInverter.swift in Sources */,

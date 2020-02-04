@@ -165,6 +165,15 @@
                                             <action selector="showPeople:" destination="asq-Pg-l8T" eventType="touchUpInside" id="D9b-M7-uMA"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oiP-mJ-4zB">
+                                        <rect key="frame" x="289" y="278" width="54" height="34"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                        <state key="normal" title="Owner"/>
+                                        <connections>
+                                            <action selector="showOwner:" destination="asq-Pg-l8T" eventType="touchUpInside" id="268-qi-oAg"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                             </view>

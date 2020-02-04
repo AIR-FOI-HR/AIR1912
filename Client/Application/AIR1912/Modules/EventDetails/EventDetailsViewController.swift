@@ -52,8 +52,22 @@ class EventDetailsViewController: UIViewController {
         self.present(viewController, animated: true, completion: nil)
     }
     
+    @IBAction func showOwner(_ sender: Any) {
+        let storyboard = UIStoryboard(name: "EventOwner", bundle: nil)
+          guard let viewController = storyboard.instantiateViewController(identifier: "EventOwner") as? EventOwnerController else {
+              return
+          }
+
+          viewController.modalPresentationStyle = .formSheet
+
+        viewController.eventOwner = self.eventOwner
+        self.present(viewController, animated: true, completion: nil)
+    }
+    
+    
     //properties
     var event:Event = Event()
+    var eventOwner: User?
     let cornerRadius : CGFloat = 12
     let keychain = UserKeychain()
     var delegate:EventDetailsDelegate! = nil
@@ -135,6 +149,18 @@ extension EventDetailsViewController{
     }
     
     func configure(){
+        print(event.ownerId)
+        // set event Owner
+        let userProvider = UserDB()
+        userProvider.getUserById(for: event.ownerId) { (result) in
+            switch result {
+            case .success(let user):
+                self.eventOwner = user[0]
+            case .failure(let error):
+                print(error)
+            }
+        }
+        
         
         if(event.isPrivate==1){
             confIfPrivate()
