@@ -487,9 +487,9 @@
 			isa = PBXGroup;
 			children = (
 				EDF13CDA23E5C94900720C0C /* Login.swift */,
+				EDF13D0D23E6055100720C0C /* LoginFactory.swift */,
 				EDF13CDE23E5C95C00720C0C /* PassLogin.swift */,
 				EDF13CE023E5C96900720C0C /* PINLogin.swift */,
-				EDF13D0D23E6055100720C0C /* LoginFactory.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
