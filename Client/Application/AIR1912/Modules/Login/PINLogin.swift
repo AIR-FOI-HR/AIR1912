@@ -13,6 +13,11 @@ import LocalAuthentication
 
 class PINLogin: Login, LoginPINDelegate{
     
+    
+    var pinIsConfirmed:Bool = false
+    var viewController:UIViewController! = nil
+    let bionicsSwitch = UserDefaults.standard.bool(forKey: "SwitchValue")
+    
     func handleReturnedValue(isLogined: String, username email: String?, pass: String?) {
          if(isLogined == "true"){
                    pinIsConfirmed = true
@@ -25,10 +30,7 @@ class PINLogin: Login, LoginPINDelegate{
     }
     
     
-    
-    var pinIsConfirmed:Bool = false
-    var viewController:UIViewController! = nil
-    let bionicsSwitch = UserDefaults.standard.bool(forKey: "SwitchValue")
+   
     
   
     

@@ -14,9 +14,6 @@ import LocalAuthentication
 
 class PassLogin: Login, LoginPassDelegate  {
     
-    
-       
-   
     var viewController:UIViewController! = nil
     var authService = AuthService()
     let userKeychain = UserKeychain()

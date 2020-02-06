@@ -15,8 +15,7 @@ enum LoginType: String {
 }
 
 protocol Login{
-    
-    
+
     func showLoginForm() -> UIViewController
     func setFormDelegate(viewController:UIViewController) -> Void
     func handleReturnedValue(isLogined:String, username email:String?, pass:String?)
