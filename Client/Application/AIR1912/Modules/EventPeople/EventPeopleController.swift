@@ -85,5 +85,20 @@ class EventPeopleController: UIViewController, UITableViewDelegate, UITableViewD
         return cell
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print("selected row")
+        let index = indexPath.row as Int
+        let user = self.users![index]
+        
+        let storyboard = UIStoryboard(name: "EventOwner", bundle: nil)
+          guard let viewController = storyboard.instantiateViewController(identifier: "EventOwner") as? EventOwnerController else {
+              return
+          }
+
+          viewController.modalPresentationStyle = .formSheet
+
+        viewController.eventOwner = user
+        self.present(viewController, animated: true, completion: nil)
+    }
 
 }
